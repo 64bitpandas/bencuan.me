@@ -3,11 +3,11 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Ben Cuan -- Webmaster -- https://github.com/dbqeo
 
 # THANKS
 
-    <name>
+    HTML5 Boilerplate -- https://html5boilerplate.com/
 
 # TECHNOLOGY COLOPHON
 
