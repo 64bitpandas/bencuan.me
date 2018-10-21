@@ -14,12 +14,12 @@
 
 * {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
     height: 100%;
     /* overflow-x: hidden; */
-    scroll-behavior: smooth;
     background: #283593;
     background-repeat: no-repeat;
     background-size: cover;
@@ -42,6 +42,8 @@ h1 {
 .navbar {
     background-color: transparent;
     color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5rem;
 }
 
 .navbar a {
@@ -49,17 +51,22 @@ h1 {
     padding-bottom: 1vh;
 }
 
+.navbar a:after {
+    display: block;
+    content: '';
+    border-bottom: 0.1em solid white;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+}
+
 @media only screen and (min-width: 900px) {
-    .navbar a:after {
-        display: block;
-        content: '';
-        border-bottom: 0.1em solid white;
-        transform: scaleX(0);
-        transition: transform 0.5s ease-in-out;
-    }
     .navbar a:hover:after {
         transform: scaleX(1);
     }
+}
+
+.navbar .selected:after {
+    transform: scaleX(1);
 }
 
 /* ====================================
@@ -123,6 +130,35 @@ h1 {
     /* transform: translateY(-15vw); */
     text-align: center;
     background-color: #416175;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.align-right {
+    text-align: right;
+    padding: 2vh;
+}
+
+.align-left {
+    text-align: left;
+    padding: 2vh;
+}
+
+#footer-content a {
+    color: white;
+}
+
+#footer-content h5, #footer-content h3 {
+    overflow-y: hidden;
+}
+
+#footer-content i {
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+#footer-content i:hover {
+    transform: scale(1.2);
 }
 
 /* ====================================

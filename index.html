@@ -4,18 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
-  <meta name="description" content="">
+  <title>Ben Cuan</title>
+  <meta name="description" content="Hi there! I'm Ben Cuan, a high school student in the Bay Area pursuing an education in HCI and cognitive science.">
+  <meta name="keywords" content="Ben Cuan,Benjamin Cuan,Developer,Student">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="manifest" href="site.webmanifest">
   <!-- Place favicon.ico in the root directory -->
-  <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pompiere|Rajdhani" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-        crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/custom.css">
 </head>
@@ -33,21 +34,27 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a id="home-link" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
+          <a id="about-link" class="nav-link" href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Work</a>
+          <a id="work-link" class="nav-link" href="#">Work</a>
+        </li>
+
+        <li class="nav-item">
+          <a id="contact-link" class="nav-link" href="#footer-content">Contact</a>
         </li>
       </ul>
     </div>
   </nav>
 
   <section id="banner">
-      <div id="banner-background" data-depth="0.4"></div>
-    <div id="banner-name" data-depth="0.05"><h1>Hi, I'm Ben.</h1></div>
+    <div id="banner-background" data-depth="0.4"></div>
+    <div id="banner-name" data-depth="0.05">
+      <h1>Hi, I'm Ben.</h1>
+    </div>
     <!-- <div id="links">
       Links here
     </div> -->
@@ -61,25 +68,55 @@
     <div id="footer-background">
       <!-- Autofilled by footer.svg -->
     </div>
+
+    <!-- For hyperlink -->
+    <div id="contact"></div>
+
     <div id="footer-content">
+      <!-- Footer Elements -->
       <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <p>hello@bencuan.me</p>
-          </div>
-        </div>
+
+        <h3>Say hello!</h3>
+
+        <h5><i class="fas fa-home"></i> <a href="mailto:hello@bencuan.me">hello@bencuan.me</a></h5>
+        <h5><i class="far fa-building"></i> <a href="mailto:ben@bananiumlabs.com">ben@bananiumlabs.com</a></h5>
+
+        <br>
 
         <div class="row">
-          <div class="mb-5 flex-center">
-            <i class="fab fa-github"></i>
+
+          <div class="col sm-1 col-md-2 col-lg-3"></div>
+          <div class="align-right col-sm-5 col-md-4 col-lg-3">
+            <!-- Github -->
+            <a class="github-ic" href="https://github.com/dbqeo">
+              <i class="fab fa-github fa-3x"> </i>
+            </a>
           </div>
+
+          <div class="align-left col-sm-6 col-md-4 col-lg-3">
+            <!--Linkedin -->
+            <a class="li-ic" href="https://linkedin.com/in/bencuan">
+              <i class="fab fa-linkedin fa-3x"> </i>
+            </a>
+          </div>
+
+          <div class="col sm-1 col-md-2 col-lg-3"></div>
         </div>
+        <!-- Grid column -->
+
       </div>
+      <!-- Grid row-->
+
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">© 2018 Ben Cuan</div>
+
     </div>
+
   </footer>
 
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
