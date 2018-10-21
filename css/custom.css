@@ -134,14 +134,17 @@ h1 {
     font-family: 'Rajdhani', sans-serif;
 }
 
-.align-right {
-    text-align: right;
-    padding: 2vh;
-}
 
-.align-left {
-    text-align: left;
-    padding: 2vh;
+@media only screen and (min-width: 575px) {
+  .align-right {
+      text-align: right;
+      padding: 2vh;
+  }
+
+  .align-left {
+      text-align: left;
+      padding: 2vh;
+  }
 }
 
 #footer-content a {
