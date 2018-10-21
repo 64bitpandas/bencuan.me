@@ -15,6 +15,8 @@
 * {
     overflow-x: hidden;
     scroll-behavior: smooth;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
 }
 
 body {
@@ -70,16 +72,16 @@ h1 {
 }
 
 nav button:focus {
-  outline: 0px;
+    outline: 0px;
 }
 
 nav button {
-  width: 30vw;
-  /* margin: 0; */
-  padding: 0 !important;
-  color: white;
-  text-align: left;
-  font-size: 1.5rem;
+    width: 30vw;
+    /* margin: 0; */
+    padding: 0 !important;
+    color: white;
+    text-align: left;
+    font-size: 1.5rem;
 }
 
 /* ====================================
@@ -95,7 +97,7 @@ nav button {
     top: 0;
     left: 0;
     padding-top: 0;
-    z-index: 100;
+    /* z-index: 100; */
 }
 
 #banner-background {
@@ -105,6 +107,8 @@ nav button {
     animation: 2s ease-in-out 0s 1 fadein forwards;
     width: 100%;
     height: 100%;
+    z-index: 100;
+    pointer-events: none;
 }
 
 #banner-name {
@@ -119,16 +123,68 @@ nav button {
     color: white;
     font-family: 'Pompiere', sans-serif;
     overflow: hidden;
+    z-index: 1 !important;
+}
+
+#banner canvas {
+    z-index: 100;
+    pointer-events: none;
+}
+
+#banner {
+    pointer-events: all !important;
+}
+
+#banner button {
+    margin-top: 5vh;
+    font-family: 'Rajdhani', sans-serif
 }
 
 /* ====================================
  * ABOUT
  * ==================================== */
 
-#about {
-    height: 100vh;
+
+#about p {
+  font-size: 1.2rem;
 }
 
+
+.underline:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 16rem;
+    height: 4px;
+    margin-left: -8rem;
+    background-color: white;
+}
+
+#about h1, #experience h1, #projects h1 {
+    text-align: center;
+    overflow-y: hidden;
+    position: relative;
+    margin-bottom: 5vh;
+    margin-top: 10vh;
+}
+
+#about a {
+    color: #81c784;
+}
+
+/* ====================================
+ * EXPERIENCE
+ * ==================================== */
+#experience .underline:after {
+  width: 20rem;
+  margin-left: -10rem;
+}
+
+/* ====================================
+ * PROJECTS
+ * ==================================== */
 /* ====================================
  * FOOTER
  * ==================================== */
@@ -147,24 +203,23 @@ nav button {
     font-family: 'Rajdhani', sans-serif;
 }
 
-
 @media only screen and (min-width: 575px) {
-  .align-right {
-      text-align: right;
-      padding: 2vh;
-  }
-
-  .align-left {
-      text-align: left;
-      padding: 2vh;
-  }
+    .align-right {
+        text-align: right;
+        padding: 2vh;
+    }
+    .align-left {
+        text-align: left;
+        padding: 2vh;
+    }
 }
 
 #footer-content a {
     color: white;
 }
 
-#footer-content h5, #footer-content h3 {
+#footer-content h5,
+#footer-content h3 {
     overflow-y: hidden;
 }
 
