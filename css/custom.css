@@ -69,6 +69,19 @@ h1 {
     transform: scaleX(1);
 }
 
+nav button:focus {
+  outline: 0px;
+}
+
+nav button {
+  width: 30vw;
+  /* margin: 0; */
+  padding: 0 !important;
+  color: white;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
 /* ====================================
  * BANNER
  * ==================================== */
@@ -100,7 +113,7 @@ h1 {
     -moz-animation: 1s ease-in-out 1s 1 fadein forwards;
     -webkit-animation: 1s ease-in-out 1s 1 fadein forwards;
     animation: 1s ease-in-out 1s 1 fadein forwards;
-    margin: 50vh auto;
+    margin: 30vh auto;
     width: 100%;
     text-align: center;
     color: white;
