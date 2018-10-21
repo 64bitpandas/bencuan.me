@@ -16,3 +16,9 @@ var about = new Waypoint({
     console.log('about');
   }
 })
+
+
+// Load footer
+$(document).ready(function () {
+  $('#footer-background').load('../img/footer.svg');
+})

@@ -11,6 +11,10 @@ Note to myself: `live-server`
 Here are a few libraries that I used to make the site.
  - [Particles.js](https://vincentgarreau.com/particles.js/)
  - [Parallax.js](http://matthew.wagerfield.com/parallax/)
+ - [JQuery](https://jquery.com)
+ - [Bootstrap](https://getbootstrap.com)
+ - [Waypoints](http://imakewebthings.com/waypoints/)
+ - Footer: [Pull Down to Refresh](https://codepen.io/suez/pen/oXLroX)
  
 ## Contact 
 

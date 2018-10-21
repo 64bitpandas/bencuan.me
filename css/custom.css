@@ -5,6 +5,7 @@
  * https://materializecss.com/color.html
  * #1e88e5 blue darken-1
  * #283593 indigo darken-3
+ * #90caf9 blue lighten-3
  * ==================================== */
 
 /* ====================================
@@ -25,7 +26,7 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background: linear-gradient(to top, #bbdefb, #283593);
+    background: linear-gradient(to top, #90caf9, #283593);
 }
 
 /* Responsive Text */
@@ -106,6 +107,22 @@ h1 {
 
 #about {
     height: 100vh;
+}
+
+/* ====================================
+ * FOOTER
+ * ==================================== */
+
+#footer-background {
+    z-index: 100;
+}
+
+#footer-content {
+    width: 100%;
+    /* position: absolute; */
+    /* transform: translateY(-15vw); */
+    text-align: center;
+    background-color: #416175;
 }
 
 /* ====================================
