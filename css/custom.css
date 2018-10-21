@@ -15,11 +15,58 @@
     overflow-x: hidden;
 }
 
+body {
+    height: 100%;
+    /* overflow-x: hidden; */
+    scroll-behavior: smooth;
+    background: #283593;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background: linear-gradient(to top, #bbdefb, #283593);
+}
+
+/* Responsive Text */
+
+h1 {
+    font-size: 5em;
+}
+
+/* ====================================
+ * NAVBAR
+ * ==================================== */
+
+.navbar {
+    background-color: transparent;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+    padding-bottom: 1vh;
+}
+
+@media only screen and (min-width: 900px) {
+    .navbar a:after {
+        display: block;
+        content: '';
+        border-bottom: 0.1em solid white;
+        transform: scaleX(0);
+        transition: transform 0.5s ease-in-out;
+    }
+    .navbar a:hover:after {
+        transform: scaleX(1);
+    }
+}
+
 /* ====================================
  * BANNER
  * ==================================== */
 
 #banner {
+    overflow-y: hidden;
     width: 100%;
     min-height: 100vh;
     max-width: 100%;
@@ -28,10 +75,12 @@
     left: 0;
     padding-top: 0;
     z-index: 100;
-    background: #283593;
 }
 
 #banner-background {
+    -o-animation: 2s ease-in-out 0s 1 fadein forwards;
+    -moz-animation: 2s ease-in-out 0s 1 fadein forwards;
+    -webkit-animation: 2s ease-in-out 0s 1 fadein forwards;
     animation: 2s ease-in-out 0s 1 fadein forwards;
     width: 100%;
     height: 100%;
@@ -39,14 +88,24 @@
 
 #banner-name {
     opacity: 0;
+    -o-animation: 1s ease-in-out 1s 1 fadein forwards;
+    -moz-animation: 1s ease-in-out 1s 1 fadein forwards;
+    -webkit-animation: 1s ease-in-out 1s 1 fadein forwards;
     animation: 1s ease-in-out 1s 1 fadein forwards;
     margin: 50vh auto;
     width: 100%;
     text-align: center;
     color: white;
-    font-size: 60px;
     font-family: 'Pompiere', sans-serif;
     overflow: hidden;
+}
+
+/* ====================================
+ * ABOUT
+ * ==================================== */
+
+#about {
+    height: 100vh;
 }
 
 /* ====================================
