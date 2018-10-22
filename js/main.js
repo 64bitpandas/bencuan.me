@@ -44,5 +44,5 @@ function waypointHandler(elementId) {
 }
 // Load footer
 $(document).ready(function () {
-  $('#footer-background').load('../img/footer.svg');
+  $('#footer-background').load('/img/footer.svg');
 })
