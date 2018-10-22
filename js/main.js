@@ -1,3 +1,6 @@
+// Check if in localhost. If not, set the base href
+if(window.location.protocol === 'https:') //remote
+  $('base').attr('href','/bencuan.me/');
 
 
 //Init parallax
