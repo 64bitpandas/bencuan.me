@@ -184,6 +184,12 @@ nav button {
   margin-left: -10rem;
 }
 
+#experience img {
+  max-width: 80vw;
+  margin: auto;
+  display: block;
+}
+
 /* ====================================
  * PROJECTS
  * ==================================== */
