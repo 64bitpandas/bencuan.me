@@ -2,6 +2,17 @@
 if(window.location.protocol === 'https:') //remote
   $('base').attr('href','/bencuan.me/');
 
+// Make navbar background appear when scrolling down
+// Animate navbar when scrolled
+$(window).scroll(function () {
+  // Change int to configure how many pixels must be scrolled before navbar
+  // appears
+  if ($(this).scrollTop() > 150) {
+    $('.navbar').css('background-color', 'rgba(69,90,100,.8)');
+  } else {
+    $('.navbar').css('background-color', 'transparent');
+  }
+});
 
 //Init parallax
 var banner = document.getElementById('banner');
