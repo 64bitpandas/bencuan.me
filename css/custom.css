@@ -48,6 +48,10 @@ h1 {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1.5rem;
     transition: background-color 0.5s ease-in-out;
+    -moz-transition: opacity 0.325s ease-in-out, -moz-transform 0.325s ease-in-out;
+    -webkit-transition: opacity 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
+    -ms-transition: opacity 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
+    transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
 }
 
 .navbar a {
@@ -146,11 +150,9 @@ nav button {
  * ABOUT
  * ==================================== */
 
-
 #about p {
-  font-size: 1.2rem;
+    font-size: 1.2rem;
 }
-
 
 .underline:after {
     content: '';
@@ -164,7 +166,9 @@ nav button {
     background-color: white;
 }
 
-#about h1, #experience h1, #projects h1 {
+#about h1,
+#experience h1,
+#projects h1 {
     text-align: center;
     overflow-y: hidden;
     position: relative;
@@ -179,20 +183,168 @@ nav button {
 /* ====================================
  * EXPERIENCE
  * ==================================== */
+
 #experience .underline:after {
-  width: 20rem;
-  margin-left: -10rem;
+    width: 20rem;
+    margin-left: -10rem;
 }
 
 #experience img {
-  max-width: 80vw;
-  margin: auto;
-  display: block;
+    max-width: 80vw;
+    margin: auto;
+    display: block;
 }
 
 /* ====================================
  * PROJECTS
  * ==================================== */
+
+/* ====================================
+ * DIMENSION
+ * Credits:https://html5up.net/dimension
+ * ==================================== */
+
+.is-article-visible:not(#main) #projects,
+.is-article-visible:not(#main) #about,
+.is-article-visible:not(#main) #experience {
+    -moz-filter: blur(0.2rem);
+    -webkit-filter: blur(0.2rem);
+    -ms-filter: blur(0.2rem);
+    filter: blur(0.2rem);
+    -moz-transition: filter 0.325s ease-in-out, -moz-transform 0.325s ease-in-out;
+    -webkit-transition: filter 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
+    -ms-transition: filter 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
+    transition: filter 0.325s ease-in-out, transform 0.325s ease-in-out;
+}
+
+body.is-article-visible #header {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+    -moz-filter: blur(0.1rem);
+    -webkit-filter: blur(0.1rem);
+    -ms-filter: blur(0.1rem);
+    filter: blur(0.1rem);
+    opacity: 0;
+}
+
+#main {
+    -moz-flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+    flex-grow: 1;
+    -moz-flex-shrink: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-shrink: 1;
+    flex-shrink: 1;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+    max-width: 100%;
+    z-index: 3;
+}
+
+#main article {
+    -moz-transform: translateY(0.25rem);
+    -webkit-transform: translateY(0.25rem);
+    -ms-transform: translateY(0.25rem);
+    transform: translateY(0.25rem);
+    -moz-transition: opacity 0.325s ease-in-out, -moz-transform 0.325s ease-in-out;
+    -webkit-transition: opacity 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
+    -ms-transition: opacity 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
+    transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
+    padding: 4.5rem 2.5rem 1.5rem 2.5rem;
+    position: relative;
+    width: 40rem;
+    max-width: 100%;
+    background-color: rgba(27, 31, 34, 0.85);
+    border-radius: 4px;
+    opacity: 0;
+    overflow-y: hidden;
+}
+
+#main article.active {
+    -moz-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#main article .close {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+    text-indent: 4rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#main article .close:before {
+    -moz-transition: background-color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    background-position: center;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+#main article .close:hover:before {
+    background-color: rgba(255, 255, 255, 0.075);
+}
+
+#main article .close:active:before {
+    background-color: rgba(255, 255, 255, 0.175);
+}
+
+@media screen and (max-width: 736px) {
+    #main article {
+        padding: 3.5rem 2rem 0.5rem 2rem;
+    }
+    #main article .close:before {
+        top: 0.875rem;
+        left: 0.875rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        background-size: 14px 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #main article {
+        padding: 3rem 1.5rem 0.5rem 1.5rem;
+    }
+}
+
 /* ====================================
  * FOOTER
  * ==================================== */
