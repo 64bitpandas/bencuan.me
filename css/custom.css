@@ -35,7 +35,17 @@ body {
 /* Responsive Text */
 
 h1 {
-    font-size: 5em;
+    font-size: 3em;
+}
+
+@media only screen and (min-width: 1024px) {
+    h1 {
+      font-size: 5em;
+    }
+
+    h3 {
+      font-size: 2em;
+    }
 }
 
 /* ====================================
@@ -154,6 +164,18 @@ nav button {
     font-size: 1.2rem;
 }
 
+@media only screen and (min-width: 800px) {
+    #about p {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    #about p {
+        font-size: 1.5rem;
+    }
+}
+
 .underline:after {
     content: '';
     display: block;
@@ -190,9 +212,21 @@ nav button {
 }
 
 #experience img {
-    width: 60vw;
+    width: 80vw;
     margin: auto;
     display: block;
+}
+
+@media only screen and (min-width: 900px) {
+    #experience img {
+        width: 60vw;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    #experience img {
+        width: 50vw;
+    }
 }
 
 /* ====================================
