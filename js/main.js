@@ -2,6 +2,9 @@
 if(window.location.protocol === 'https:') //remote
   $('base').attr('href','/bencuan.me/');
 
+// Smooth scrolling polyfill
+smoothscroll.polyfill();
+
 // Make navbar background appear when scrolling down
 // Animate navbar when scrolled
 $(window).scroll(function () {
