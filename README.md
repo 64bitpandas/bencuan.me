@@ -14,6 +14,7 @@ Here are a few libraries that I used to make the site.
  - [JQuery](https://jquery.com)
  - [Bootstrap](https://getbootstrap.com)
  - [Waypoints](http://imakewebthings.com/waypoints/)
+ - [Smooth scroll polyfill](https://github.com/iamdustan/smoothscroll)
  - Footer: [Pull Down to Refresh](https://codepen.io/suez/pen/oXLroX)
  
 ## Contact 

@@ -11,6 +11,7 @@ function polyfill() {
     'scrollBehavior' in d.documentElement.style &&
     w.__forceSmoothScrollPolyfill__ !== true
   ) {
+    console.log('Smooth scroll supported.');
     return;
   }
 
