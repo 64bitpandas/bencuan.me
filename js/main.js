@@ -41,7 +41,7 @@ var projects = new Waypoint({
 })
 
 var contact = new Waypoint({
-  element: document.getElementById('contact'),
+  element: document.getElementById('footer'),
   handler: function (diretion) { waypointHandler('contact-link') }
 })
 

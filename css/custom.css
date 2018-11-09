@@ -425,6 +425,7 @@ body.is-article-visible #header {
     -webkit-transition: -webkit-transform 0.5s ease-in-out;
     -moz-transition: -moz-transform 0.5s ease-in-out;
     -o-transition: -o-transform 0.5s ease-in-out;
+    overflow-y: hidden;
 }
 
 #footer-content i:hover {
