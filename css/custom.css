@@ -255,6 +255,7 @@ nav button {
  * ==================================== */
 
 .is-article-visible:not(#main) #projects,
+.is-article-visible:not(#main) #banner,
 .is-article-visible:not(#main) #about,
 .is-article-visible:not(#main) #experience {
     -moz-filter: blur(0.2rem);
@@ -292,19 +293,22 @@ body.is-article-visible #header {
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
-    -moz-align-items: center;
+    /* -moz-align-items: center;
     -webkit-align-items: center;
     -ms-align-items: center;
-    align-items: center;
-    -moz-justify-content: center;
+    align-items: center; */
+    /* -moz-justify-content: center;
     -webkit-justify-content: center;
     -ms-justify-content: center;
     justify-content: center;
     -moz-flex-direction: column;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
-    flex-direction: column;
-    position: relative;
+    flex-direction: column; */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 100%;
     z-index: 3;
 }
