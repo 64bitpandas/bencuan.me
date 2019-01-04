@@ -208,7 +208,7 @@ nav button {
  * ==================================== */
 
 #experience {
-  overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 #experience .underline:after {
@@ -234,20 +234,48 @@ nav button {
     }
 }
 
-.blimp {
+.blimp,
+.balloon {
     -moz-transition: transform 0.325s ease-in-out;
     -webkit-transition: transform 0.325s ease-in-out;
     -ms-transition: transform 0.325s ease-in-out;
     transition: transform 0.325s ease-in-out;
 }
 
-.blimp:hover {
+.blimp:hover,
+.balloon:hover {
     transform: scale(1.1);
 }
 
 /* ====================================
  * PROJECTS
  * ==================================== */
+
+#projects .container {
+  overflow-y: hidden;
+}
+
+#projects img {
+    width: 70vw;
+    margin: auto;
+    display: block;
+}
+
+@media only screen and (min-width: 900px) {
+    #projects img {
+        width: 50vw;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    #projects img {
+        width: 40vw;
+    }
+}
+
+.balloon {
+    padding: 5vw;
+}
 
 /* ====================================
  * DIMENSION
@@ -370,6 +398,10 @@ body.is-article-visible #header {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
     background-size: 20px 20px;
     background-repeat: no-repeat;
+}
+
+#main article h2 {
+    overflow-y: hidden;
 }
 
 #main article .close:hover:before {
