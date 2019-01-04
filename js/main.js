@@ -65,3 +65,18 @@ function waypointHandler(elementId) {
 $(document).ready(function () {
   $('#footer-background').load('./img/footer.svg');
 })
+
+// Init climate
+let options = {
+  theme: 'js/climate.json',
+  userLocation: true,
+  useIP: true,
+  location: 'San Jose',
+  interval: 6000,
+  weatherAPIKey: 'ddebee7489203673401bc4663d43695c',
+  ipAPIKey: '4f7dd6baa8f6db',
+};
+climate.initClimate(options);
+
+
+
