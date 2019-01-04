@@ -252,7 +252,7 @@ nav button {
  * ==================================== */
 
 #projects .container {
-  overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 #projects img {
@@ -274,7 +274,7 @@ nav button {
 }
 
 .balloon {
-    padding: 5vw;
+    padding-top: 3vh;
 }
 
 /* ====================================
@@ -431,6 +431,47 @@ body.is-article-visible #header {
     }
 }
 
+/* Icons */
+
+ul.icons {
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.icons li {
+    display: inline-block;
+    padding: 0 0.75em 0 0;
+}
+
+ul.icons li:last-child {
+    padding-right: 0;
+}
+
+ul.icons li a {
+    border-radius: 100%;
+    box-shadow: inset 0 0 0 1px #ffffff;
+    display: inline-block;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    text-align: center;
+    width: 2.25rem;
+    -moz-transition: background-color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+    color: #ffffff;
+}
+
+ul.icons li a:hover {
+    background-color: rgba(255, 255, 255, 0.075);
+    text-decoration: none;
+}
+
+ul.icons li a:active {
+    background-color: rgba(255, 255, 255, 0.175);
+}
+
 /* ====================================
  * FOOTER
  * ==================================== */
@@ -515,4 +556,22 @@ body.is-article-visible #header {
     to {
         opacity: 1;
     }
+}
+
+/* ==========================
+ *  CUSTOM SELECTION
+ * ========================== */
+
+::selection {
+    background: transparent;
+    /* WebKit/Blink Browsers */
+    color: #90caf9;
+    text-shadow: 0 0 0.5rem #1976d2;
+}
+
+::-moz-selection {
+    background: transparent;
+    /* Gecko Browsers */
+    color: #90caf9;
+    text-shadow: 0 0 0.5rem #1976d2;
 }
