@@ -1,0 +1,77 @@
+/* Custom CSS styles by Ben Cuan */
+/* Created Summer 2019           */
+
+/* ====================================
+ * COLOR PALETTE
+ * https://materializecss.com/color.html
+ * #23BCFF Background Blue
+ * #283593 indigo darken-3
+ * #90caf9 blue lighten-3
+ * ==================================== */
+
+/* ====================================
+ * UNIVERSAL
+ * ==================================== */
+
+* {
+    /* Disable scrolling on main page */
+    overflow: hidden;
+    font-family: 'Khand', sans-serif;
+    color: white;
+}
+
+
+/* ====================================
+ * LANDING PAGE
+ * ==================================== */
+#landing {
+    background-color: #23BCFF;
+    height: 100vh;
+    width: 100vw;
+    z-index: 0;
+}
+
+
+/* ====================================
+ * CONTENT PORTALS
+ * ==================================== */
+#content {
+    background-color: #000000;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    animation: launch-content 1s ease-in 0.7s 1 forwards;
+}
+
+/* ====================================
+ * ANIMATIONS
+ * ==================================== */
+@keyframes launch-content {
+   0% {}
+   20% {transform: translateY(-100%);}
+   50% {transform: translateY(-60%);}
+   30%,70% {transform: translateY(-80%);}
+   40%,60% {transform: translateY(-65%);}
+   80% {transform: translateY(-100%);}
+   85%,95% {transform: translateY(-92%);}
+   90% {transform: translateY(-90%);}
+   100% {transform: translateY(-100%);}
+}
+
+/* Firefox < 16 */
+
+/* @-moz-keyframes fadein {
+
+} */
+
+/* Safari, Chrome and Opera > 12.1 */
+
+/* @-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+} */
