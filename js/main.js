@@ -10,8 +10,13 @@ if (window.location.protocol === 'https:') //remote
 
 
     $('.expand-button').hover(function() {
-      $('.expand-button-content', this).delay(300).fadeIn(200).removeClass('hidden');
+      setTimeout(() => {
+        console.log($('.expand-button:hover'));
+        if($('.expand-button:hover').length > 0)
+          $('.expand-button-content', this).fadeIn(200).removeClass('hidden');
+      }, 300);
     }, function () {
+      if($('.expand-button-content', this).css('display') !== 'none')
         $('.expand-button-content', this).fadeOut(10);
     });
 
