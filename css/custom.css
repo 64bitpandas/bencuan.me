@@ -1,4 +1,5 @@
 /* Custom CSS styles by Ben Cuan */
+
 /* Created Summer 2019           */
 
 /* ====================================
@@ -14,135 +15,124 @@
  * ==================================== */
 
 * {
-    /* Disable scrolling on main page */
-    overflow: hidden;
-    font-family: 'Khand', sans-serif;
-    color: white;
-
-    /* Default transition */
-    transition: all 0.5s ease-in-out 0s;
+  /* Disable scrolling on main page */
+  overflow: hidden;
+  font-family: 'Khand', sans-serif;
+  color: white;
+  /* Default transition */
+  transition: all 0.5s ease-in-out 0s;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .center {
-    text-align: center;
-    margin: auto;
+  text-align: center;
+  margin: auto;
 }
 
+.no-select {
+  user-select: none;
+}
 
 /* ====================================
  * LANDING PAGE
  * ==================================== */
-#landing {
-    background-color: #23BCFF;
-    height: 100vh;
-    width: 100vw;
-    z-index: 0;
-}
 
+#landing {
+  background-color: #23BCFF;
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+}
 
 /* ====================================
  * BUTTONS
  * ==================================== */
 
 .expand-button {
-    width: 8vh;
-    height: 8vh;
-    border-radius: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    border: 2px solid white;
-    color: white;
-    text-decoration: none;
-    line-height: 1.15;
-    margin-left: 3vh;
-    margin-right: 3vh;
-    display: inline-block;
-    white-space: nowrap;
+  width: 8vh;
+  height: 8vh;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  line-height: 1.15;
+  margin-left: 3vh;
+  margin-right: 3vh;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .expand-button:hover {
-    width: 24vh;
-    border-radius: 8vh;
-    border: 3px solid white;
-    background-color: white;
-    color: black;
+  width: 24vh;
+  border-radius: 8vh;
+  border: 3px solid white;
+  background-color: white;
+  color: black;
 }
 
 .expand-button:hover i {
-    color: black;
-    transform: translateY(-0.5rem);
-    padding-right: 1rem;
-}
-
-.expand-button:hover .expand-button-content {
-    transition: width 3s ease-in-out;
-    width: 100%;
+  color: black;
+  transform: translateY(-0.5rem);
+  padding-right: 1rem;
 }
 
 .expand-button-content {
-    display: inline-block;
-    transition: none;
-    color: black;
-    font-size: 2rem;
-    text-align: center;
-    width: 0%;
-    overflow: hidden;
+  display: inline-block;
+  transition: none;
+  color: black;
+  font-size: 2rem;
+  text-align: center;
+  width: 0%;
+  overflow: hidden;
+  transition: width 3s ease-in-out;
 }
 
 /* ====================================
  * CONTENT PORTALS
  * ==================================== */
+
 #content {
-    background-color: #000000;
-    height: 100vh;
-    width: 100vw;
-    z-index: 100;
-    /* animation: launch-content 1s ease-in 0.7s 1 forwards; ENABLED THROUGH SCRIPT */
+  background-color: #000000;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  /* animation: launch-content 1s ease-in 0.7s 1 forwards; ENABLED THROUGH SCRIPT */
 }
 
 /* ====================================
  * ANIMATIONS
  * ==================================== */
+
 @keyframes launch-content {
-    0% {}
-
-    20% {
-        transform: translateY(-100%);
-    }
-
-    50% {
-        transform: translateY(-70%);
-    }
-
-    30%,
-    70% {
-        transform: translateY(-85%);
-    }
-
-    40%,
-    60% {
-        transform: translateY(-75%);
-    }
-
-    80% {
-        transform: translateY(-100%);
-    }
-
-    85%,
-    95% {
-        transform: translateY(-92%);
-    }
-
-    90% {
-        transform: translateY(-90%);
-    }
-
-    100% {
-        transform: translateY(-100%);
-    }
+  0% {}
+  20% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(-70%);
+  }
+  30%, 70% {
+    transform: translateY(-85%);
+  }
+  40%, 60% {
+    transform: translateY(-75%);
+  }
+  80% {
+    transform: translateY(-100%);
+  }
+  85%, 95% {
+    transform: translateY(-92%);
+  }
+  90% {
+    transform: translateY(-90%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }
 
 /* Firefox < 16 */
