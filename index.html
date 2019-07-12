@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/boilerplate.css">
+  <link rel="stylesheet" href="css/simple-grid.min.css">
   <link rel="stylesheet" href="css/custom.css">
 
   <link href="https://fonts.googleapis.com/css?family=Khand&display=swap" rel="stylesheet">
@@ -29,7 +30,50 @@
       Click here to launch content
     </button>
 
-    <img src="img/profile.png">
+    <div class="row">
+      <div class="col-12">
+        <img src="img/profile.png">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <button id="github-button" class="expand-button">
+          <i class="fab fa-github fa-2x"></i>
+          <span class="expand-button-content hidden">
+            GitHub
+          </span>
+        </button>
+      </div>
+      <div class="col-3">
+        <button id="linkedin-button" class="expand-button">
+          <i class="fab fa-linkedin fa-2x"></i>
+          <span class="expand-button-content hidden">
+            LinkedIn
+          </span>
+        </button>
+      </div>
+      <div class="col-3">
+        <button id="email-button" class="expand-button">
+          <i class="fas fa-envelope fa-2x"></i>
+          <span class="expand-button-content hidden">
+            Email
+          </span>
+        </button>
+      </div>
+      <div class="col-3">
+        <button id="resume-button" class="expand-button">
+          <i class="fas fa-file-alt fa-2x"></i>
+          <span class="expand-button-content hidden">
+            Resume
+          </span>
+        </button>
+      </div>
+    </div>
+
+
+
+
+
   </div>
 
   <div id="content">
@@ -46,6 +90,7 @@
 
 <footer>
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="https://kit.fontawesome.com/585da7c89d.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
