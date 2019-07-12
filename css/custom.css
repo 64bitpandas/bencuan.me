@@ -27,8 +27,9 @@
     display: none;
 }
 
-.row {
-  align-content: center;
+.center {
+    text-align: center;
+    margin: auto;
 }
 
 
@@ -58,6 +59,8 @@
     line-height: 1.15;
     margin-left: 3vh;
     margin-right: 3vh;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .expand-button:hover {
@@ -70,17 +73,23 @@
 
 .expand-button:hover i {
     color: black;
-    transform: translateY(0.25rem);
+    transform: translateY(-0.5rem);
     padding-right: 1rem;
 }
 
+.expand-button:hover .expand-button-content {
+    transition: width 3s ease-in-out;
+    width: 100%;
+}
+
 .expand-button-content {
-    display: none;
+    display: inline-block;
     transition: none;
     color: black;
-    margin: auto;
     font-size: 2rem;
     text-align: center;
+    width: 0%;
+    overflow: hidden;
 }
 
 /* ====================================
