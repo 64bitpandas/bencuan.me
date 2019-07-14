@@ -20,7 +20,7 @@
   font-family: 'Khand', sans-serif;
   color: white;
   /* Default transition */
-  transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 1s;
 }
 
 .hidden {
@@ -45,6 +45,35 @@
   height: 100vh;
   width: 100vw;
   z-index: 0;
+}
+
+.splash-image {
+  height: 30vh;
+  width: 30vh;
+  background: url('../img/profile.png');
+  background-size: contain;
+  mask-size: contain;
+  -webkit-mask-image: url('../img/mask.png');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  -webkit-mask-position-y: 30vh;
+  -webkit-mask-position-x: 5vh;
+  transition: none;
+  animation: paint-fill 5s ease-in-out 0s 1 forwards;
+}
+
+.grey-fill {
+  -webkit-mask-image: url('../img/profile.png');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  background: #888888;
+  height: 30vh;
+  width: 30vh;
+}
+
+.button-row {
+  animation: show-after-delay 1s ease-in 3s 1 forwards;
+  opacity: 0;
 }
 
 /* ====================================
@@ -88,7 +117,7 @@
   text-align: center;
   width: 0%;
   overflow: hidden;
-  transition: width 3s ease-in-out;
+  transition: width 2s ease-in-out;
 }
 
 /* ====================================
@@ -132,6 +161,22 @@
   }
   100% {
     transform: translateY(-100%);
+  }
+}
+
+@keyframes show-after-delay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes paint-fill {
+  to {
+    -webkit-mask-position-y: 0vh;
+    -webkit-mask-position-x: -50vh;
   }
 }
 
