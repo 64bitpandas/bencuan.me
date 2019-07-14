@@ -20,7 +20,7 @@
   font-family: 'Khand', sans-serif;
   color: white;
   /* Default transition */
-  transition: all 0.5s ease-in-out 1s;
+  transition: all 0.5s ease-in-out 0s;
 }
 
 .hidden {
@@ -50,7 +50,7 @@
 .splash-image {
   height: 30vh;
   width: 30vh;
-  background: url('../img/profile.png');
+  background-image: url('../img/profile.png');
   background-size: contain;
   mask-size: contain;
   -webkit-mask-image: url('../img/mask.png');
