@@ -107,6 +107,7 @@
   line-height: 1.15;
   margin-left: 3vh;
   margin-right: 3vh;
+  margin-bottom: 3vh;
   display: inline-block;
   white-space: nowrap;
 }
@@ -137,7 +138,6 @@
 }
 
 #launch-button {
-  width: 16vh;
   height: 8vh;
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid white;
@@ -150,9 +150,10 @@
   animation: show-after-delay 1s ease-in 5s 1 forwards;
   font-size: 1.5rem;
   margin-top: 2vh;
+  white-space: normal;
 }
 
-#launch-button:hover {
+/* #launch-button:hover {
   width: 8vh;
   border-radius: 100%;
   margin-left: 4vh;
@@ -163,7 +164,7 @@
 
 #launch-button:hover i {
   color: black;
-}
+} */
 
 .anchor-bottom {
   bottom: 5vh;
