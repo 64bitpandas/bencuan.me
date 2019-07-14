@@ -69,10 +69,22 @@
   background: #888888;
   height: 30vh;
   width: 30vh;
+  margin-top: 15vh;
 }
 
 .button-row {
-  animation: show-after-delay 1s ease-in 3s 1 forwards;
+  animation: show-after-delay 1s ease-in 4s 1 forwards;
+  opacity: 0;
+}
+
+.loading {
+  font-size: 5rem;
+  animation: hide-after-delay 1s ease-in 2s 1 forwards;
+}
+
+.name {
+  font-size: 5rem;
+  animation: show-after-delay 1s ease-in 2.5s 1 forwards;
   opacity: 0;
 }
 
@@ -120,6 +132,42 @@
   transition: width 2s ease-in-out;
 }
 
+#launch-button {
+  width: 16vh;
+  height: 8vh;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  line-height: 1.15;
+  display: inline-block;
+  white-space: nowrap;
+  opacity: 0;
+  animation: show-after-delay 1s ease-in 5s 1 forwards;
+  font-size: 1.5rem;
+  margin-top: 2vh;
+}
+
+#launch-button:hover {
+  width: 8vh;
+  border-radius: 100%;
+  margin-left: 4vh;
+  box-shadow: 0px 0px 12px 1px white;
+  border: 0px;
+  background-color: white;
+}
+
+#launch-button:hover i {
+  color: black;
+}
+
+.anchor-bottom {
+  bottom: 5vh;
+  position: absolute;
+  width: 100vw;
+  height: 15vh;
+}
+
 /* ====================================
  * CONTENT PORTALS
  * ==================================== */
@@ -165,11 +213,16 @@
 }
 
 @keyframes show-after-delay {
-  from {
-    opacity: 0;
-  }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes hide-after-delay {
+  to {
+    opacity: 0;
+    display: none;
+    height: 0;
   }
 }
 
