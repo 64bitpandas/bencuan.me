@@ -1,9 +1,15 @@
-/* Custom CSS styles by Ben Cuan */
+/* ---------------------------------------- */
+/* Custom CSS styles for https://bencuan.me */
+/* © 2019 Ben Cuan - MIT License            */
+/* Created Summer 2019                      */
+/* ---------------------------------------- */
 
 /* ====================================
  * COLOR PALETTE
  * https://materializecss.com/color.html
- * #1e88e5 blue darken-1
+ * #23BCFF Background Blue
+ * #888888 Dark Grey
+ * #FFFFFF White
  * #283593 indigo darken-3
  * #90caf9 blue lighten-3
  * ==================================== */
@@ -13,565 +19,239 @@
  * ==================================== */
 
 * {
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    font-family: 'Rajdhani', sans-serif;
-    color: white;
+  /* Disable scrolling on main page */
+  overflow: hidden;
+  font-family: 'Khand', sans-serif;
+  color: white;
+  /* Default transition */
+  transition: all 0.5s ease-in-out 0s;
 }
 
-body {
-    z-index: 100;
-    height: 100%;
-    /* overflow-x: hidden; */
-    background: #283593;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background: linear-gradient(to top, #90caf9, #283593);
+.hidden {
+  display: none;
 }
 
-/* Responsive Text */
-
-h1 {
-    font-size: 3em;
+.center {
+  text-align: center;
+  margin: auto;
 }
 
-@media only screen and (min-width: 1024px) {
-    h1 {
-        font-size: 5em;
-    }
-    h3 {
-        font-size: 2em;
-    }
+.no-select {
+  user-select: none;
 }
 
 /* ====================================
- * NAVBAR
+ * LANDING PAGE
  * ==================================== */
 
-.navbar {
-    background-color: transparent;
-    color: white;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.5rem;
-    -moz-transition: background-color 0.5s ease-in-out;
-    -webkit-transition: background-color 0.5s ease-in-out;
-    -ms-transition: background-color 0.5s ease-in-out;
-    transition: background-color 0.5s ease-in-out;
+#landing {
+  background-color: #23BCFF;
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
 }
 
-.navbar a {
-    color: white;
-    padding-bottom: 1vh;
+.splash-image {
+  height: 30vh;
+  width: 30vh;
+  background-image: url('../img/profile.png');
+  background-size: contain;
+  mask-size: contain;
+  -webkit-mask-image: url('../img/mask.png');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  -webkit-mask-position-y: 30vh;
+  -webkit-mask-position-x: 5vh;
+  transition: none;
+  animation: paint-fill 5s ease-in-out 0s 1 forwards;
 }
 
-.navbar a:after {
-    display: block;
-    content: '';
-    border-bottom: 0.1em solid white;
-    transform: scaleX(0);
-    transition: transform 0.5s ease-in-out;
-    -moz-transition: -moz-transform 0.5s ease-in-out;
-    -webkit-transition: -webkit-transform 0.5s ease-in-out;
-    -o-transition: -o-transform 0.5s ease-in-out;
+.grey-fill {
+  -webkit-mask-image: url('../img/profile.png');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  background: #888888;
+  height: 30vh;
+  width: 30vh;
+  margin-top: 15vh;
 }
 
-@media only screen and (min-width: 900px) {
-    .navbar a:hover:after {
-        transform: scaleX(1);
-    }
+.button-row {
+  animation: show-after-delay 1s ease-in 4s 1 forwards;
+  opacity: 0;
 }
 
-.navbar .selected:after {
-    transform: scaleX(1);
+.loading {
+  font-size: 5rem;
+  animation: hide-after-delay 1s ease-in 2s 1 forwards;
 }
 
-nav button:focus {
-    outline: 0px;
-}
-
-nav button {
-    width: 30vw;
-    /* margin: 0; */
-    padding: 0 !important;
-    color: white;
-    text-align: left;
-    font-size: 1.5rem;
+.name {
+  font-size: 5rem;
+  animation: show-after-delay 1s ease-in 2.5s 1 forwards;
+  opacity: 0;
 }
 
 /* ====================================
- * BANNER
+ * BUTTONS
  * ==================================== */
 
-#banner {
-    overflow-y: hidden;
-    width: 100%;
-    min-height: 100vh;
-    max-width: 100%;
-    position: relative;
-    top: 0;
-    left: 0;
-    padding-top: 0;
-    /* z-index: 100; */
+.expand-button {
+  width: 8vh;
+  height: 8vh;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  line-height: 1.15;
+  margin-left: 3vh;
+  margin-right: 3vh;
+  margin-bottom: 3vh;
+  display: inline-block;
+  white-space: nowrap;
 }
 
-#banner-background {
-    -o-animation: 2s ease-in-out 0s 1 fadein forwards;
-    -moz-animation: 2s ease-in-out 0s 1 fadein forwards;
-    -webkit-animation: 2s ease-in-out 0s 1 fadein forwards;
-    animation: 2s ease-in-out 0s 1 fadein forwards;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    pointer-events: none;
+.expand-button:hover {
+  width: 24vh;
+  border-radius: 8vh;
+  border: 3px solid white;
+  background-color: white;
+  color: black;
 }
 
-#banner-name {
-    opacity: 0;
-    -o-animation: 1s ease-in-out 1s 1 fadein forwards;
-    -moz-animation: 1s ease-in-out 1s 1 fadein forwards;
-    -webkit-animation: 1s ease-in-out 1s 1 fadein forwards;
-    animation: 1s ease-in-out 1s 1 fadein forwards;
-    margin: 30vh auto;
-    width: 100%;
-    text-align: center;
-    color: white;
-    font-family: 'Pompiere', sans-serif;
-    overflow: hidden;
-    z-index: 1 !important;
+.expand-button:hover i {
+  color: black;
+  transform: translateY(-0.5rem);
+  padding-right: 1rem;
 }
 
-#banner canvas {
-    z-index: 100;
-    pointer-events: none;
+.expand-button-content {
+  display: inline-block;
+  transition: none;
+  color: black;
+  font-size: 2rem;
+  text-align: center;
+  width: 0%;
+  overflow: hidden;
+  transition: width 2s ease-in-out;
 }
 
-#banner {
-    pointer-events: all !important;
+#launch-button {
+  height: 8vh;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  line-height: 1.15;
+  display: inline-block;
+  white-space: nowrap;
+  opacity: 0;
+  animation: show-after-delay 1s ease-in 5s 1 forwards;
+  font-size: 1.5rem;
+  margin-top: 2vh;
+  white-space: normal;
 }
 
-#banner button {
-    margin-top: 5vh;
-    font-family: 'Rajdhani', sans-serif
+/* #launch-button:hover {
+  width: 8vh;
+  border-radius: 100%;
+  margin-left: 4vh;
+  box-shadow: 0px 0px 12px 1px white;
+  border: 0px;
+  background-color: white;
+}
+
+#launch-button:hover i {
+  color: black;
+} */
+
+.anchor-bottom {
+  bottom: 5vh;
+  position: absolute;
+  width: 100vw;
+  height: 15vh;
 }
 
 /* ====================================
- * ABOUT
+ * CONTENT PORTALS
  * ==================================== */
 
-#about p {
-    font-size: 1.2rem;
-}
-
-@media only screen and (min-width: 800px) {
-    #about p {
-        font-size: 1.3rem;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    #about p {
-        font-size: 1.5rem;
-    }
-}
-
-.underline:after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 16rem;
-    height: 4px;
-    margin-left: -8rem;
-    background-color: white;
-}
-
-#about h1,
-#experience h1,
-#projects h1 {
-    text-align: center;
-    overflow-y: hidden;
-    position: relative;
-    margin-bottom: 5vh;
-    margin-top: 10vh;
-}
-
-#about a {
-    color: #81c784;
-}
-
-/* ====================================
- * EXPERIENCE
- * ==================================== */
-
-#experience {
-    overflow-y: hidden;
-}
-
-#experience .underline:after {
-    width: 20rem;
-    margin-left: -10rem;
-}
-
-#experience img {
-    width: 80vw;
-    margin: auto;
-    display: block;
-}
-
-@media only screen and (min-width: 900px) {
-    #experience img {
-        width: 60vw;
-    }
-}
-
-@media only screen and (min-width: 1400px) {
-    #experience img {
-        width: 50vw;
-    }
-}
-
-.blimp,
-.balloon {
-    -moz-transition: transform 0.325s ease-in-out;
-    -webkit-transition: transform 0.325s ease-in-out;
-    -ms-transition: transform 0.325s ease-in-out;
-    transition: transform 0.325s ease-in-out;
-}
-
-.blimp:hover,
-.balloon:hover {
-    transform: scale(1.1);
-}
-
-/* ====================================
- * PROJECTS
- * ==================================== */
-
-#projects .container {
-    overflow-y: hidden;
-}
-
-#projects img {
-    width: 70vw;
-    margin: auto;
-    display: block;
-}
-
-@media only screen and (min-width: 900px) {
-    #projects img {
-        width: 50vw;
-    }
-}
-
-@media only screen and (min-width: 1400px) {
-    #projects img {
-        width: 40vw;
-    }
-}
-
-.balloon {
-    padding-top: 3vh;
-}
-
-/* ====================================
- * DIMENSION
- * Credits:https://html5up.net/dimension
- * ==================================== */
-
-.is-article-visible:not(#main) #projects,
-.is-article-visible:not(#main) #banner,
-.is-article-visible:not(#main) #about,
-.is-article-visible:not(#main) #experience {
-    -moz-filter: blur(0.2rem);
-    -webkit-filter: blur(0.2rem);
-    -ms-filter: blur(0.2rem);
-    filter: blur(0.2rem);
-    -moz-transition: filter 0.325s ease-in-out, -moz-transform 0.325s ease-in-out;
-    -webkit-transition: filter 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
-    -ms-transition: filter 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
-    transition: filter 0.325s ease-in-out, transform 0.325s ease-in-out;
-}
-
-body.is-article-visible #header {
-    -moz-transform: scale(0.95);
-    -webkit-transform: scale(0.95);
-    -ms-transform: scale(0.95);
-    transform: scale(0.95);
-    -moz-filter: blur(0.1rem);
-    -webkit-filter: blur(0.1rem);
-    -ms-filter: blur(0.1rem);
-    filter: blur(0.1rem);
-    opacity: 0;
-}
-
-#main {
-    -moz-flex-grow: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-grow: 1;
-    flex-grow: 1;
-    -moz-flex-shrink: 1;
-    -webkit-flex-shrink: 1;
-    -ms-flex-shrink: 1;
-    flex-shrink: 1;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    /* -moz-align-items: center;
-    -webkit-align-items: center;
-    -ms-align-items: center;
-    align-items: center; */
-    /* -moz-justify-content: center;
-    -webkit-justify-content: center;
-    -ms-justify-content: center;
-    justify-content: center;
-    -moz-flex-direction: column;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column; */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 100%;
-    z-index: 3;
-}
-
-#main article {
-    -moz-transform: translateY(0.25rem);
-    -webkit-transform: translateY(0.25rem);
-    -ms-transform: translateY(0.25rem);
-    transform: translateY(0.25rem);
-    -moz-transition: opacity 0.325s ease-in-out, -moz-transform 0.325s ease-in-out;
-    -webkit-transition: opacity 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
-    -ms-transition: opacity 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
-    transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
-    padding: 4.5rem 2.5rem 1.5rem 2.5rem;
-    position: relative;
-    width: 40rem;
-    max-width: 100%;
-    background-color: rgba(27, 31, 34, 0.85);
-    border-radius: 4px;
-    opacity: 0;
-    overflow-y: hidden;
-}
-
-#main article.active {
-    -moz-transform: translateY(0);
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-}
-
-#main article .close {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 4rem;
-    height: 4rem;
-    cursor: pointer;
-    text-indent: 4rem;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-#main article .close:before {
-    -moz-transition: background-color 0.2s ease-in-out;
-    -webkit-transition: background-color 0.2s ease-in-out;
-    -ms-transition: background-color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out;
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 100%;
-    background-position: center;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
-}
-
-#main article h2 {
-    overflow-y: hidden;
-}
-
-#main article .close:hover:before {
-    background-color: rgba(255, 255, 255, 0.075);
-}
-
-#main article .close:active:before {
-    background-color: rgba(255, 255, 255, 0.175);
-}
-
-@media screen and (max-width: 736px) {
-    #main article {
-        padding: 3.5rem 2rem 0.5rem 2rem;
-    }
-    #main article .close:before {
-        top: 0.875rem;
-        left: 0.875rem;
-        width: 2.25rem;
-        height: 2.25rem;
-        background-size: 14px 14px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #main article {
-        padding: 3rem 1.5rem 0.5rem 1.5rem;
-    }
-}
-
-/* Icons */
-
-ul.icons {
-    cursor: default;
-    list-style: none;
-    padding-left: 0;
-}
-
-ul.icons li {
-    display: inline-block;
-    padding: 0 0.75em 0 0;
-}
-
-ul.icons li:last-child {
-    padding-right: 0;
-}
-
-ul.icons li a {
-    border-radius: 100%;
-    box-shadow: inset 0 0 0 1px #ffffff;
-    display: inline-block;
-    height: 2.25rem;
-    line-height: 2.25rem;
-    text-align: center;
-    width: 2.25rem;
-    -moz-transition: background-color 0.2s ease-in-out;
-    -webkit-transition: background-color 0.2s ease-in-out;
-    -ms-transition: background-color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out;
-    color: #ffffff;
-}
-
-ul.icons li a:hover {
-    background-color: rgba(255, 255, 255, 0.075);
-    text-decoration: none;
-}
-
-ul.icons li a:active {
-    background-color: rgba(255, 255, 255, 0.175);
-}
-
-/* ====================================
- * FOOTER
- * ==================================== */
-
-#footer-background {
-    z-index: 100;
-}
-
-#footer-content {
-    width: 100%;
-    /* position: absolute; */
-    /* transform: translateY(-15vw); */
-    text-align: center;
-    background-color: #416175;
-    color: white;
-    font-family: 'Rajdhani', sans-serif;
-}
-
-@media only screen and (min-width: 575px) {
-    .align-right {
-        text-align: right;
-        padding: 2vh;
-    }
-    .align-left {
-        text-align: left;
-        padding: 2vh;
-    }
-}
-
-#footer-content a {
-    color: white;
-}
-
-#footer-content h5,
-#footer-content h3 {
-    overflow-y: hidden;
-}
-
-#footer-content i {
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
-    -webkit-transition: -webkit-transform 0.5s ease-in-out;
-    -moz-transition: -moz-transform 0.5s ease-in-out;
-    -o-transition: -o-transform 0.5s ease-in-out;
-    overflow-y: hidden;
-}
-
-#footer-content i:hover {
-    transform: scale(1.2);
+#content {
+  background-color: #000000;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  /* animation: launch-content 1s ease-in 0.7s 1 forwards; ENABLED THROUGH SCRIPT */
 }
 
 /* ====================================
  * ANIMATIONS
  * ==================================== */
 
-@keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+@keyframes launch-content {
+  0% {}
+  20% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(-70%);
+  }
+  30%, 70% {
+    transform: translateY(-85%);
+  }
+  40%, 60% {
+    transform: translateY(-75%);
+  }
+  80% {
+    transform: translateY(-100%);
+  }
+  85%, 95% {
+    transform: translateY(-92%);
+  }
+  90% {
+    transform: translateY(-90%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes show-after-delay {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hide-after-delay {
+  to {
+    opacity: 0;
+    display: none;
+    height: 0;
+  }
+}
+
+@keyframes paint-fill {
+  to {
+    -webkit-mask-position-y: 0vh;
+    -webkit-mask-position-x: -50vh;
+  }
 }
 
 /* Firefox < 16 */
 
-@-moz-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+/* @-moz-keyframes fadein {
+
+} */
 
 /* Safari, Chrome and Opera > 12.1 */
 
-@-webkit-keyframes fadein {
+/* @-webkit-keyframes fadein {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
-}
-
-/* ==========================
- *  CUSTOM SELECTION
- * ========================== */
-
-::selection {
-    background: transparent;
-    /* WebKit/Blink Browsers */
-    color: #90caf9;
-    text-shadow: 0 0 0.5rem #1976d2;
-}
-
-::-moz-selection {
-    background: transparent;
-    /* Gecko Browsers */
-    color: #90caf9;
-    text-shadow: 0 0 0.5rem #1976d2;
-}
+} */

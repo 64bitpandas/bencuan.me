@@ -101,8 +101,8 @@ function polyfill() {
     // throw error when behavior is not supported
     throw new TypeError(
       'behavior member of ScrollOptions ' +
-      firstArg.behavior +
-      ' is not a valid value for enumeration ScrollBehavior.'
+        firstArg.behavior +
+        ' is not a valid value for enumeration ScrollBehavior.'
     );
   }
 
@@ -242,7 +242,7 @@ function polyfill() {
 
   // ORIGINAL METHODS OVERRIDES
   // w.scroll and w.scrollTo
-  w.scroll = w.scrollTo = function () {
+  w.scroll = w.scrollTo = function() {
     // avoid action when no arguments are passed
     if (arguments[0] === undefined) {
       return;
@@ -282,7 +282,7 @@ function polyfill() {
   };
 
   // w.scrollBy
-  w.scrollBy = function () {
+  w.scrollBy = function() {
     // avoid action when no arguments are passed
     if (arguments[0] === undefined) {
       return;
@@ -313,7 +313,7 @@ function polyfill() {
   };
 
   // Element.prototype.scroll and Element.prototype.scrollTo
-  Element.prototype.scroll = Element.prototype.scrollTo = function () {
+  Element.prototype.scroll = Element.prototype.scrollTo = function() {
     // avoid action when no arguments are passed
     if (arguments[0] === undefined) {
       return;
@@ -354,7 +354,7 @@ function polyfill() {
   };
 
   // Element.prototype.scrollBy
-  Element.prototype.scrollBy = function () {
+  Element.prototype.scrollBy = function() {
     // avoid action when no arguments are passed
     if (arguments[0] === undefined) {
       return;
@@ -383,7 +383,7 @@ function polyfill() {
   };
 
   // Element.prototype.scrollIntoView
-  Element.prototype.scrollIntoView = function () {
+  Element.prototype.scrollIntoView = function() {
     // avoid smooth behavior if not required
     if (shouldBailOut(arguments[0]) === true) {
       original.scrollIntoView.call(

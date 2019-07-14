@@ -1,82 +1,64 @@
+/* ---------------------------------------- */
+/* Scripts for https://bencuan.me           */
+/* © 2019 Ben Cuan - MIT License            */
+/* Created Summer 2019                      */
+/* ---------------------------------------- */
+
 // Check if in localhost. If not, set the base href
-if(window.location.protocol === 'https:') //remote
-  $('base').attr('href','/bencuan.me/');
+if (window.location.protocol === 'https:') //remote
+  $('base').attr('href', '/bencuan.me/');
 
-// Smooth scrolling polyfill
-polyfill();
+  $(document).ready(() => {
+  // Button click action to show content
+  $('#launch-content-button').click(() => {
 
-// Make navbar background appear when scrolling down
-// Animate navbar when scrolled
-$(window).scroll(function () {
-  // Change int to configure how many pixels must be scrolled before navbar
-  // appears
-  if ($(this).scrollTop() > 150) {
-    $('.navbar').css('background-color', 'rgba(69,90,100,.8)');
-  } else {
-    $('.navbar').css('background-color', 'transparent');
-  }
+  })
+
+
+    $('.expand-button').hover(function() {
+      setTimeout(() => {
+        // Check to make sure button is still hovered over before fully expanding
+        if($('#' + $(this).attr('id') + ':hover').length > 0) {
+          $('.expand-button-content', this).css('width', 'auto');
+          $('.expand-button-content', this).fadeIn(500).removeClass('hidden').css('display', 'inline-block');
+        }
+      }, 100);
+    }, function () {
+      // Don't fade out if it isn't visible in the first place!
+      if($('.expand-button-content', this).css('display') !== 'none') {
+        $('.expand-button-content', this).css('width', '0%');
+        $('.expand-button-content', this).fadeOut(10);
+      }
+    });
+
+    // $('#launch-button').hover(function() {
+    //   setTimeout(() => {
+    //     if($('#launch-button:hover').length > 0) {
+    //       $('#launch-button').html(`<i class="fas fa-rocket"></i>`)
+    //     }
+    //   }, 100);
+    // }, function () {
+    //   // Don't fade out if it isn't visible in the first place!
+    //   setTimeout(() => {
+    //     if($('#launch-button').find('i').length > 0) {
+    //       $('#launch-button').html(`Launch Site`);
+    //     }
+    //   }, 100);
+    // });
+
+
+
+  // Buttons to link to other sites
+  $('#github-button').click (() => {openUrl('//github.com/64bitpandas');});
+  $('#linkedin-button').click (() => {openUrl('//linkedin.com/in/bencuan');});
+  $('#email-button').click (() => {openUrl('mailto:hello@bencuan.me');});
+  $('#resume-button').click (() => {openUrl('OLD/assets/resume-bencuan.pdf');});
+
+  // $('#launch-button').click(() => { $('#content').css('animation', 'launch-content 1s ease-in-out 0s 1 forwards');})
 });
 
-//Init parallax
-var banner = document.getElementById('banner');
-var parallaxInstance = new Parallax(banner);
 
-// Setup waypoints
-var home = new Waypoint({
-  element: document.getElementById('banner-name'),
-  handler: function(diretion) {waypointHandler('home-link')}
-})
 
-var about = new Waypoint({
-  element: document.getElementById('about'),
-  handler: function (diretion) { waypointHandler('about-link') }
-})
-var experience = new Waypoint({
-  element: document.getElementById('experience'),
-  handler: function (diretion) { waypointHandler('experience-link') }
-})
-var projects = new Waypoint({
-  element: document.getElementById('projects'),
-  handler: function (diretion) { waypointHandler('projects-link') }
-})
-
-var contact = new Waypoint({
-  element: document.getElementById('footer'),
-  handler: function (diretion) { waypointHandler('contact-link') }
-})
-
-/**
- * Clears the '.selected' class on all links on the banner.
- */
-function clearSelections() {
-  $('.selected').removeClass('selected');
+function openUrl(url) {
+  window.open(url, '_blank').focus();
 }
-
-/**
- * Runs as the handler for the Waypoint system to highlight a header link when on the correct section.
- * @param {string} elementId The ID of the element to highlight. Do not include the prefix #
- */
-function waypointHandler(elementId) {
-  clearSelections();
-  $('#' + elementId).addClass('selected');
-  return this;
-}
-// Load footer
-$(document).ready(function () {
-  $('#footer-background').load('./img/footer.svg');
-})
-
-// Init climate
-// let options = {
-//   theme: 'js/climate.json',
-//   userLocation: true,
-//   useIP: true,
-//   location: 'San Jose',
-//   interval: 6000,
-//   weatherAPIKey: 'ddebee7489203673401bc4663d43695c',
-//   ipAPIKey: '4f7dd6baa8f6db',
-// };
-// climate.initClimate(options);
-
-
-
