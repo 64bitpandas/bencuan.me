@@ -1,3 +1,9 @@
+/* ---------------------------------------- */
+/* Scripts for https://bencuan.me           */
+/* © 2019 Ben Cuan - MIT License            */
+/* Created Summer 2019                      */
+/* ---------------------------------------- */
+
 // Check if in localhost. If not, set the base href
 if (window.location.protocol === 'https:') //remote
   $('base').attr('href', '/bencuan.me/');
