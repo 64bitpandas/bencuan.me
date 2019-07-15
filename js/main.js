@@ -40,8 +40,10 @@ if (window.location.protocol === 'https:') //remote
     }, function () {
       // Don't fade out if it isn't visible in the first place!
       setTimeout(() => {
-        if($('#launch-button').find('i').length > 0) {
-          $('#launch-button').html(`Launch Site`);
+        if ($(this).attr('class') !== 'center launch-button-activated') {
+          if($('#launch-button').find('i').length > 0) {
+            $('#launch-button').html(`Launch Site`);
+          }
         }
       }, 100);
     });
@@ -54,11 +56,25 @@ if (window.location.protocol === 'https:') //remote
   $('#email-button').click (() => {openUrl('mailto:hello@bencuan.me');});
   $('#resume-button').click (() => {openUrl('OLD/assets/resume-bencuan.pdf');});
 
-  $('#launch-button').click(() => { $('#content').css('animation', 'launch-content 1s ease-in-out 0s 1 forwards');})
+  $('#launch-button').click(() => {
+
+    $('#launch-button').attr('class', 'center launch-button-activated');
+
+    $('#content').css('animation', 'launch-content 2s ease-in-out 1.5s 1 forwards');
+    $('#launch-button-rope').css('animation', 'launch-content-rope 1s ease-in-out 0s 1 forwards, launch-content 2s ease-in-out 1.5s forwards');
+    $('#launch-button-container').css('animation', 'launch-content 2s ease-in-out 1.5s 1 forwards');
+  })
 });
 
 
 
 function openUrl(url) {
   window.open(url, '_blank').focus();
+}
+
+function clone($element) {
+  var el = $element,
+    newone = el.clone(true);
+
+  el.replaceWith(newone);
 }

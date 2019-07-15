@@ -96,6 +96,13 @@
   opacity: 0;
 }
 
+.anchor-bottom {
+  bottom: 5vh;
+  position: absolute;
+  width: 100vw;
+  height: 15vh;
+}
+
 /* ====================================
  * BUTTONS
  * ==================================== */
@@ -162,24 +169,28 @@
   margin-top: 2vh;
 }
 
-#launch-button:hover {
-  width: 8vh;
+#launch-button:hover, .launch-button-activated {
+  width: 8vh !important;
   border-radius: 100%;
-  margin-left: 4vh;
   box-shadow: 0px 0px 12px 1px white;
   border: 0px;
-  background-color: white;
+  background-color: white !important;
 }
 
-#launch-button:hover i {
+#launch-button:hover i, .launch-button-activated i {
   color: black;
 }
 
-.anchor-bottom {
-  bottom: 5vh;
+#launch-button-rope {
+  bottom: 12vh;
+  width: 0px;
+  height: 0vh; /*Animated to extend to 12vh */
+  border-right: 3px solid white;
+  border-left: 3px solid white;
   position: absolute;
-  width: 100vw;
-  height: 15vh;
+  box-shadow: 0px 0px 12px 0px white;
+  left: 50vw;
+  /* animation: launch-content-rope 1s ease-in-out 0.25s 1 forwards; ONCLICK */
 }
 
 /* ====================================
@@ -201,28 +212,35 @@
 @keyframes launch-content {
   0% {}
   20% {
-    transform: translateY(-100%);
+    transform: translateY(-100vh);
   }
   50% {
-    transform: translateY(-70%);
+    transform: translateY(-70vh);
   }
   30%, 70% {
-    transform: translateY(-85%);
+    transform: translateY(-85vh);
   }
   40%, 60% {
-    transform: translateY(-75%);
+    transform: translateY(-75vh);
   }
   80% {
-    transform: translateY(-100%);
+    transform: translateY(-100vh);
   }
   85%, 95% {
-    transform: translateY(-92%);
+    transform: translateY(-92vh);
   }
   90% {
-    transform: translateY(-90%);
+    transform: translateY(-90vh);
   }
   100% {
-    transform: translateY(-100%);
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes launch-content-rope {
+  to {
+    height: 12vh;
+    bottom: 0;
   }
 }
 
@@ -246,21 +264,3 @@
     -webkit-mask-position-x: -50vh;
   }
 }
-
-/* Firefox < 16 */
-
-/* @-moz-keyframes fadein {
-
-} */
-
-/* Safari, Chrome and Opera > 12.1 */
-
-/* @-webkit-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-} */
