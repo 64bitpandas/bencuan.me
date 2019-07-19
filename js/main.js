@@ -9,11 +9,6 @@ if (window.location.protocol === 'https:') //remote
   $('base').attr('href', '/bencuan.me/');
 
   $(document).ready(() => {
-  // Button click action to show content
-  $('#launch-content-button').click(() => {
-
-  })
-
 
     $('.expand-button').hover(function() {
       setTimeout(() => {
@@ -63,7 +58,11 @@ if (window.location.protocol === 'https:') //remote
     $('#content').css('animation', 'launch-content 2s ease-in-out 1.5s 1 forwards');
     $('#launch-button-rope').css('animation', 'launch-content-rope 1s ease-in-out 0s 1 forwards, launch-content 2s ease-in-out 1.5s forwards');
     $('#launch-button-container').css('animation', 'launch-content 2s ease-in-out 1.5s 1 forwards');
-  })
+
+    setTimeout(() => {
+      $('#back-button-container').css('opacity', 1);
+    }, 1000);
+  });
 });
 
 

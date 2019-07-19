@@ -22,8 +22,8 @@
   <link rel="stylesheet" href="css/simple-grid.min.css">
   <link rel="stylesheet" href="css/custom.css">
 
-  <link href="https://fonts.googleapis.com/css?family=Khand&display=swap" rel="stylesheet">
-
+  <!-- <link href="https://fonts.googleapis.com/css?family=Khand&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
   <meta name="theme-color" content="#fafafa">
 </head>
 
@@ -96,7 +96,31 @@
   </div>
 
   <div id="content">
-    <p>Cool Content</p>
+    <div class="row">
+      <div class="col-6 content-square" id="about-square">
+        <div class="nohover-overlay"></div>
+      </div>
+      <div class="col-6 content-square" id="art-square">
+        <div class="nohover-overlay"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 content-square" id="code-square">
+        <div class="nohover-overlay"></div>
+      </div>
+      <div class="col-6 content-square" id="org-square">
+        <div class="nohover-overlay"></div>
+      </div>
+    </div>
+
+    <div id="back-button-container">
+      <button id="back-button" class="expand-button">
+        <i class="fas fa-arrow-left fa-2x"></i>
+        <span class="expand-button-content hidden">
+          Back
+        </span>
+      </button>
+    </div>
   </div>
   <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>

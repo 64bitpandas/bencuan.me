@@ -25,7 +25,7 @@
 * {
   /* Disable scrolling on main page */
   overflow: hidden;
-  font-family: 'Khand', sans-serif;
+  font-family: 'Squada One', sans-serif;
   color: white;
   /* Default transition */
   transition: all 0.5s ease-in-out 0s;
@@ -121,6 +121,7 @@
   margin-bottom: 1vh;
   display: inline-block;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
@@ -151,6 +152,7 @@
   width: 0%;
   overflow: hidden;
   transition: width 2s ease-in-out;
+  cursor: pointer;
 }
 
 #launch-button {
@@ -167,6 +169,7 @@
   animation: show-after-delay 1s ease-in 5s 1 forwards;
   font-size: 1.5rem;
   margin-top: 2vh;
+  cursor: pointer;
 }
 
 #launch-button:hover, .launch-button-activated {
@@ -184,7 +187,8 @@
 #launch-button-rope {
   bottom: 12vh;
   width: 0px;
-  height: 0vh; /*Animated to extend to 12vh */
+  height: 0vh;
+  /*Animated to extend to 12vh */
   border-right: 3px solid white;
   border-left: 3px solid white;
   position: absolute;
@@ -203,6 +207,47 @@
   width: 100vw;
   z-index: 100;
   /* animation: launch-content 1s ease-in 0.7s 1 forwards; ENABLED THROUGH SCRIPT */
+}
+
+.content-square {
+  height: 50vh;
+  width: 50vw;
+  margin: 0 !important;
+}
+
+.nohover-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.nohover-overlay:hover {
+  opacity: 0;
+}
+
+#about-square {
+  background-color: red;
+}
+
+#art-square {
+  background-color: green;
+}
+
+#code-square {
+  background-color: blue;
+}
+
+#org-square {
+  background-color: yellow;
+}
+
+#back-button-container {
+  position: absolute;
+  opacity: 0;
+  bottom: 5vw;
+  right: 5vw;
 }
 
 /* ====================================
