@@ -71,7 +71,7 @@ if (window.location.protocol === 'https:') //remote
     setTimeout(() => {
       $('#launch-button').attr('class', 'center');
       $('#launch-button').html(`Launch Site`);
-      $('#launch-button').css('animation', '');
+      $('#launch-button-container').css('animation', '');
       $('#launch-button-rope').css('animation', '');
     }, 5000);
   });
