@@ -50,18 +50,30 @@ if (window.location.protocol === 'https:') //remote
   $('#linkedin-button').click (() => {openUrl('//linkedin.com/in/bencuan');});
   $('#email-button').click (() => {openUrl('mailto:hello@bencuan.me');});
   $('#resume-button').click (() => {openUrl('OLD/assets/resume-bencuan.pdf');});
+  $('#back-button').click(() => {
+    $('#content').css('animation', 'hide-content 1.5s ease-in-out 0s 1 forwards');
+    $('#back-button-container').css('opacity', 1);
+  });
 
   $('#launch-button').click(() => {
 
     $('#launch-button').attr('class', 'center launch-button-activated');
 
     $('#content').css('animation', 'launch-content 2s ease-in-out 1.5s 1 forwards');
-    $('#launch-button-rope').css('animation', 'launch-content-rope 1s ease-in-out 0s 1 forwards, launch-content 2s ease-in-out 1.5s forwards');
-    $('#launch-button-container').css('animation', 'launch-content 2s ease-in-out 1.5s 1 forwards');
+    $('#launch-button-rope').css('animation', 'launch-content-rope 1s ease-in-out 0s 1 forwards, launch-content-nobounce 2s ease-in-out 1.5s forwards, hide-rope 1s linear 5s forwards');
+    $('#launch-button-container').css('animation', 'launch-content-nobounce 2s ease-in-out 1.5s 1 forwards');
 
     setTimeout(() => {
       $('#back-button-container').css('opacity', 1);
     }, 1000);
+
+    // Reset button
+    setTimeout(() => {
+      $('#launch-button').attr('class', 'center');
+      $('#launch-button').html(`Launch Site`);
+      $('#launch-button').css('animation', '');
+      $('#launch-button-rope').css('animation', '');
+    }, 5000);
   });
 });
 
