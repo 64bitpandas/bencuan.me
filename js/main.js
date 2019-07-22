@@ -55,6 +55,8 @@ if (window.location.protocol === 'https:') //remote
     $('#back-button-container').css('opacity', 1);
   });
 
+  $('#skip-button-container').click(() => {hideIntercept();});
+
   $('#launch-button').click(() => {
 
     $('#launch-button').attr('class', 'center launch-button-activated');
@@ -88,4 +90,20 @@ function clone($element) {
     newone = el.clone(true);
 
   el.replaceWith(newone);
+}
+
+// Hides intercept screen, leads into landing page
+function hideIntercept() {
+  $('#welcome-page').css('animation', "none");
+  flashWhite();
+}
+
+function flashWhite() {
+  $('#white-overlay').css('opacity', 1);
+  $('#white-overlay').css('animation', 'hide-after-delay 1s ease-in-out 0.25s 1 forwards');
+
+  // Reset animation to be reused later
+  setTimeout(() => {
+
+  }, 1250);
 }

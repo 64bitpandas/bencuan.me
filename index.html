@@ -20,14 +20,47 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/boilerplate.css">
   <link rel="stylesheet" href="css/simple-grid.min.css">
+  <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/custom.css">
 
   <!-- <link href="https://fonts.googleapis.com/css?family=Khand&display=swap" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Squada+One|Source+Code+Pro&display=swap" rel="stylesheet">
+
   <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
+
+  <div id="white-overlay"></div>
+
+  <div id="welcome-page">
+    <div id="skip-button-container">
+      <a id="skip-button">Skip</a>
+    </div>
+    <div id="welcome-page-text" class="container">
+      <div id="int-text-1" class="glitch loading-intercepted-text typewriter" data-text="LOADING INTERCEPTED...">LOADING INTERCEPTED...</div>
+      <div id="int-text-2" class="glitch loading-intercepted-text typewriter" data-text="By your friendly neighborhood PandaBot! Hi! ʕ•ᴥ•ʔ">By your friendly neighborhood PandaBot! Hi! ʕ•ᴥ•ʔ</div>
+      <div id="int-text-3" class="glitch loading-intercepted-text typewriter" data-text="Just wanted to get your opinion on this:">Just wanted to get your opinion on this:</div>
+      <div id="int-text-4" class="glitch loading-intercepted-text typewriter" data-text="What is your favorite animal?">What is your favorite animal?</div>
+    </div>
+    <div class="container">
+      <div class="row" id="welcome-choice">
+        <div class="col-5">
+          <div class="welcome-box center" id="welcome-box-pixel">
+            <!-- Logo & Loading Animation. See css -->
+
+            <div class="grey-fill center">
+              <div class="splash-image-pixel center">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          -OR-
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div id="landing">
 
@@ -48,7 +81,7 @@
       </div>
 
       <div class="row center">
-        <div class="loading">
+        <div class="loading glitch blue-glitch" data-text="LOADING . . .">
           LOADING . . .
         </div>
         <div class="name">
