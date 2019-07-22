@@ -152,25 +152,27 @@
 }
 
 #int-text-2 {
-  animation-delay: 8s !important;
+  animation-delay: 6s !important;
 }
 
 #int-text-2:before, #int-text-2:after {
-  animation-delay: 8s !important
+  animation-delay: 6s !important
 }
+
 #int-text-3 {
-  animation-delay: 11s !important;
+  animation-delay: 9s !important;
 }
 
 #int-text-3:before, #int-text-3:after {
-  animation-delay: 11s !important
+  animation-delay: 9s !important
 }
+
 #int-text-4 {
-  animation-delay: 14s !important;
+  animation-delay: 12s !important;
 }
 
 #int-text-4:before, #int-text-4:after {
-  animation-delay: 14s !important
+  animation-delay: 12s !important
 }
 
 /* Intercept image selection */
@@ -179,10 +181,15 @@
   opacity: 0;
   animation: show-after-delay 3s ease-in-out 15s 1 forwards;
 }
-.splash-image-pixel {
+
+.welcome-choice-or {
+  font-size: 2rem;
+}
+
+.splash-image-pixel, .splash-image-art {
   height: 30vh;
   width: 30vh;
-  background-image: url('../img/profile.png');
+  /* background-image: url('../img/profile.png'); */
   background-size: contain;
   mask-size: contain;
   -webkit-mask-image: url('../img/mask.png');
@@ -192,23 +199,48 @@
   -webkit-mask-position-x: 5vh;
 }
 
-.welcome-box {
-  border: 5px solid black;
-  height: 30vw;
-  width: 30vw;
-}
-
-.splash-image-pixel:hover {
-  animation: paint-fill 2s ease-in-out 0s 1 forwards;
-}
-
 .grey-fill {
-  -webkit-mask-image: url('../img/profile.png');
+  /* -webkit-mask-image: url('../img/profile.png'); */
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
   background: #888888;
   height: 30vh;
   width: 30vh;
+}
+
+.grey-fill-pixel {
+  -webkit-mask-image: url('../img/profile.png');
+}
+.grey-fill-art {
+  -webkit-mask-image: url('../img/profile-art.png');
+}
+
+.splash-image-pixel:hover, .splash-image-art:hover {
+  animation: paint-fill 1s ease-in-out 0s 1 forwards;
+}
+
+.splash-image-pixel {
+  background-image: url('../img/profile.png');
+}
+
+.splash-image-art {
+  background-image: url('../img/profile-art.png');
+}
+
+.welcome-box {
+  border: 5px solid black;
+  height: 30vw;
+  width: 30vw;
+  cursor: pointer;
+}
+
+.welcome-box:hover .welcome-box-label {
+  opacity: 1;
+}
+
+.welcome-box-label {
+  opacity: 0;
+  font-size: 2.5rem;
 }
 
 /* Skip button */
@@ -236,6 +268,11 @@
   height: 100vh;
   width: 100vw;
   z-index: 0;
+}
+
+#logo img {
+  height: 30vh;
+  width: 30vh;
 }
 
 .button-row {

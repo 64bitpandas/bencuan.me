@@ -55,7 +55,17 @@ if (window.location.protocol === 'https:') //remote
     $('#back-button-container').css('opacity', 1);
   });
 
-  $('#skip-button-container').click(() => {hideIntercept();});
+
+  // Action buttons
+    $('#skip-button-container').click(() => { hideIntercept(); $('#logo').html(`<img src="img/profile.png">`);});
+  $('#welcome-box-pixel').click(() => {
+    hideIntercept();
+    $('#logo').html(`<img src="img/profile.png">`);
+  });
+  $('#welcome-box-art').click(() => {
+    hideIntercept();
+    $('#logo').html(`<img src="img/profile-art.png">`);
+  });
 
   $('#launch-button').click(() => {
 
@@ -95,6 +105,7 @@ function clone($element) {
 // Hides intercept screen, leads into landing page
 function hideIntercept() {
   $('#welcome-page').css('animation', "none");
+  $('#welcome-page').css('display', "none");
   flashWhite();
 }
 
