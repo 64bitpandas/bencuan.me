@@ -125,7 +125,7 @@
   left: 3px;
   text-shadow: -2px 0 red;
   /* important: opaque background masks the original */
-  animation: glitch-anim-1 1s 3 ease-in-out 3s alternate-reverse;
+  animation: glitch-anim-1 1s 3 ease-in-out alternate-reverse;
 }
 
 .glitch::after {
@@ -134,7 +134,7 @@
   left: -3px;
   text-shadow: -2px 0 blue;
   /* important: opaque background masks the original */
-  animation: glitch-anim-2 1.5s 3 linear alternate-reverse;
+  animation: glitch-anim-2 1s 3 linear alternate-reverse;
 }
 
 .blue-glitch::before, .blue-glitch::after {
@@ -179,7 +179,7 @@
 
 #welcome-choice {
   opacity: 0;
-  animation: show-after-delay 3s ease-in-out 15s 1 forwards;
+  animation: show-after-delay 3s ease-in-out 12s 1 forwards;
 }
 
 .welcome-choice-or {
