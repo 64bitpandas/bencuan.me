@@ -4,6 +4,9 @@
 /* Created Summer 2019                      */
 /* ---------------------------------------- */
 
+// JQuery element - Currently open content square
+let currOpen = null;
+
 // Check if in localhost. If not, set the base href
 if (window.location.protocol === 'https:') //remote
   $('base').attr('href', '/bencuan.me/');
@@ -87,6 +90,19 @@ if (window.location.protocol === 'https:') //remote
       $('#launch-button-rope').css('animation', '');
     }, 5000);
   });
+
+
+  // Content squares
+  $('.content-square').click(function() {
+    openContent($(this));
+  });
+
+  $('#close-button-container').click(() => {
+    currOpen.removeClass('content-square-activated').addClass('col-6');
+    $('#back-button-container').css('opacity', 1);
+    $('#close-button-container').css('opacity', 0);
+    currOpen = null;
+  })
 });
 
 
@@ -117,4 +133,11 @@ function flashWhite() {
   setTimeout(() => {
 
   }, 1250);
+}
+
+function openContent($element) {
+  currOpen = $element;
+  $element.addClass('content-square-activated').removeClass('col-6');
+  $('#back-button-container').css('opacity', 0);
+  $('#close-button-container').css('opacity', 1);
 }

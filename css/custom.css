@@ -16,6 +16,7 @@
  * #FFFFFF White
  * #283593 indigo darken-3
  * #90caf9 blue lighten-3
+ * #ff9800 orange
  * ==================================== */
 
 /* ====================================
@@ -211,6 +212,7 @@
 .grey-fill-pixel {
   -webkit-mask-image: url('../img/profile.png');
 }
+
 .grey-fill-art {
   -webkit-mask-image: url('../img/profile-art.png');
 }
@@ -420,12 +422,31 @@
   margin: 0 !important;
 }
 
+.content-square .content-label-top {
+  font-size: 3rem;
+  margin-top: 3vh;
+}
+
+.content-square .content-label-bottom {
+  font-size: 3rem;
+  bottom: 3vh;
+  color: black;
+  margin-top: 65%;
+}
+
+.content-square-activated {
+  z-index: 2000;
+  height: 100vh;
+  width: 100vw;
+}
+
 .nohover-overlay {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 100;
   height: 100%;
   width: 100%;
   cursor: pointer;
+  position: absolute;
 }
 
 .nohover-overlay:hover {
@@ -433,26 +454,35 @@
 }
 
 #about-square {
-  background-color: red;
+  background-color: #90caf9;
 }
 
 #art-square {
-  background-color: green;
+  background-color: #222222;
 }
 
 #code-square {
-  background-color: blue;
+  background-color: #ff9800;
 }
 
 #org-square {
-  background-color: yellow;
+  background-color: white;
+}
+
+#back-button-container, #close-button-container {
+  position: absolute;
+  opacity: 0;
+  z-index: 999;
+  right: 5vw;
 }
 
 #back-button-container {
-  position: absolute;
-  opacity: 0;
   bottom: 5vw;
-  right: 5vw;
+}
+
+#close-button-container {
+  top: 5vw;
+  z-index: 9999;
 }
 
 /* ==========================
