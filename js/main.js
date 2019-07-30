@@ -59,15 +59,15 @@ if (window.location.protocol === 'https:') //remote
   });
 
 
-  // Action buttons
+  // Skip theme selection
     $('#skip-button-container').click(() => { hideIntercept(); $('#logo').html(`<img src="img/profile.png">`);});
+
+  // Theme selection
   $('#welcome-box-pixel').click(() => {
-    hideIntercept();
-    $('#logo').html(`<img src="img/profile.png">`);
+    makeSelection(`<img src="img/profile.png">`);
   });
   $('#welcome-box-art').click(() => {
-    hideIntercept();
-    $('#logo').html(`<img src="img/profile-art.png">`);
+    makeSelection(`<img src="img/profile-art.png">`);
   });
 
   $('#launch-button').click(() => {
@@ -98,10 +98,14 @@ if (window.location.protocol === 'https:') //remote
   });
 
   $('#close-button-container').click(() => {
-    currOpen.removeClass('content-square-activated').addClass('col-6');
+    currOpen.removeClass('content-square-activated').css('z-index', 9999);
     $('#back-button-container').css('opacity', 1);
     $('#close-button-container').css('opacity', 0);
-    currOpen = null;
+
+    setTimeout(() => {
+      currOpen.css('z-index', '');
+      currOpen = null;
+    }, 500);
   })
 });
 
@@ -135,9 +139,22 @@ function flashWhite() {
   }, 1250);
 }
 
+// Click a content square to open content
 function openContent($element) {
   currOpen = $element;
   $element.addClass('content-square-activated').removeClass('col-6');
   $('#back-button-container').css('opacity', 0);
   $('#close-button-container').css('opacity', 1);
+}
+
+// Selection intercept clicked
+function makeSelection(imgPath) {
+  $('#int-text-5').removeClass('hidden');
+  $('#logo').html(imgPath);
+  setTimeout(() => {
+    $('#int-text-6').removeClass('hidden');
+  }, 2000)
+  setTimeout(() => {
+    hideIntercept();
+  }, 5000)
 }
