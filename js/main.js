@@ -6,6 +6,7 @@
 
 // JQuery element - Currently open content square
 let currOpen = null;
+let selectionMade = false;
 
 // Check if in localhost. If not, set the base href
 if (window.location.protocol === 'https:') //remote
@@ -64,11 +65,29 @@ if (window.location.protocol === 'https:') //remote
 
   // Theme selection
   $('#welcome-box-pixel').click(() => {
-    makeSelection(`<img src="img/profile.png">`);
+    if (!selectionMade) {
+      selectionMade = true;
+      $('#logo').html(`<img src="img/profile.png">`);
+      $('.splash-image-pixel').addClass('splash-image-selected');
+      $('#pixel-label').addClass('welcome-label-selected');
+      makeSelection();
+    }
   });
   $('#welcome-box-art').click(() => {
-    makeSelection(`<img src="img/profile-art.png">`);
+    if(!selectionMade) {
+      selectionMade = true;
+      $('.splash-image-art').addClass('splash-image-selected');
+      $('#art-label').addClass('welcome-label-selected');
+      makeSelection();
+      changeStyle();
+    }
   });
+
+  // Switch style when logo clicked
+  $('#logo').click(() => {
+    console.log('hi');
+    changeStyle();
+  })
 
   $('#launch-button').click(() => {
 
@@ -135,7 +154,7 @@ function flashWhite() {
 
   // Reset animation to be reused later
   setTimeout(() => {
-
+    $('#white-overlay').css('animation', '').css('opacity', 0);
   }, 1250);
 }
 
@@ -148,13 +167,28 @@ function openContent($element) {
 }
 
 // Selection intercept clicked
-function makeSelection(imgPath) {
+function makeSelection() {
   $('#int-text-5').removeClass('hidden');
-  $('#logo').html(imgPath);
   setTimeout(() => {
     $('#int-text-6').removeClass('hidden');
   }, 2000)
   setTimeout(() => {
     hideIntercept();
   }, 5000)
+}
+
+// Swaps between 'pixel' and 'art' styles.
+// Default style on load is pixel.
+function changeStyle() {
+  let $landing = $('#landing');
+  flashWhite();
+
+  // Switch from pixel to art
+  if(!$landing.hasClass('landing-art')) {
+    $landing.addClass('landing-art');
+    $('#logo').html(`<img src="img/profile-art.png">`);
+  } else { // Switch from art to pixel
+    $landing.removeClass('landing-art');
+    $('#logo').html(`<img src="img/profile.png">`);
+  }
 }

@@ -217,6 +217,11 @@
   animation: paint-fill 1s ease-in-out 0s 1 forwards;
 }
 
+.splash-image-selected {
+  -webkit-mask-position-y: 0vh !important;
+  -webkit-mask-position-x: -50vh !important;
+}
+
 .splash-image-pixel {
   background-image: url('../img/profile.png');
 }
@@ -232,8 +237,8 @@
   cursor: pointer;
 }
 
-.welcome-box:hover .welcome-box-label {
-  opacity: 1;
+.welcome-box:hover .welcome-box-label, .welcome-label-selected {
+  opacity: 1 !important;
 }
 
 .welcome-box-label {
@@ -273,6 +278,11 @@
   width: 30vh;
 }
 
+#logo img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 .button-row {
   animation: show-after-delay 1s ease-in 4s 1 forwards;
   opacity: 0;
@@ -304,6 +314,11 @@
   z-index: 1000;
   opacity: 0;
   transition: none;
+  pointer-events: none;
+}
+
+.landing-art * {
+  font-family: 'Cormorant Garamond', serif, sans-serif;
 }
 
 /* ====================================
@@ -432,11 +447,10 @@
   margin-top: 65%;
 }
 
-.content-square-activated .content-label-bottom  {
+.content-square-activated .content-label-bottom {
   margin-top: 3vh !important;
   bottom: inherit !important;
 }
-
 
 .content-square-activated {
   z-index: 2000;
