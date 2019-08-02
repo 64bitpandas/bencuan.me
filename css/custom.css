@@ -442,9 +442,8 @@
 
 .content-square .content-label-bottom {
   font-size: 3rem;
-  bottom: 3vh;
+  margin-top: 3vh;
   color: black;
-  margin-top: 65%;
 }
 
 .content-square-activated .content-label-bottom {
@@ -478,6 +477,21 @@
   opacity: 0;
 }
 
+.content-square img {
+  height: 80%;
+  width: auto;
+  display: inline-block;
+  position: absolute;
+  background-color: white;
+  transition: none;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
 #about-square {
   background-color: #90caf9;
   left: 0;
@@ -500,6 +514,19 @@
   background-color: white;
   bottom: 0;
   left: 0;
+}
+
+#org-square:hover #org-img-2 {
+  /* animation: org-img-anim 3s ease-in 0s infinite forwards; */
+  animation: org-img-anim-2 1s ease-in-out infinite;
+}
+
+#org-square:hover #org-img-3 {
+  animation: org-img-anim-3 1s ease-in-out infinite;
+}
+
+#org-img-3, #org-img-2 {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
 }
 
 #back-button-container, #close-button-container {
