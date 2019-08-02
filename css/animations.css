@@ -191,12 +191,15 @@
 
 @keyframes org-img-anim-2 {
   0% {
+    /* On the left, 0 width */
     clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
   }
   33%, 66% {
+    /* Full width */
     clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
   }
   100% {
+    /* On the right, 0 width */
     clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
   }
 }
