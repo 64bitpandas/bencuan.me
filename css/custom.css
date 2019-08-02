@@ -529,6 +529,18 @@
   clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
 }
 
+#art-img {
+  clip-path: inset(36% 6% 44% 75%);
+}
+
+#about-img {
+  background-color: transparent !important;
+}
+
+#about-square:hover #about-img {
+  transform: scale(1.1);
+}
+
 #back-button-container, #close-button-container {
   position: absolute;
   opacity: 0;

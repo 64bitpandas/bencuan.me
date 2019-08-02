@@ -116,6 +116,12 @@ if (window.location.protocol === 'https:') //remote
     openContent($(this));
   });
 
+  $('#about-square').hover(() => {
+    $('#about-img').attr('src', 'img/panda_clicked.svg');
+  }, () => {
+      $('#about-img').attr('src', 'img/panda.svg');
+  })
+
   $('#close-button-container').click(() => {
     currOpen.removeClass('content-square-activated').css('z-index', 9999);
     $('#back-button-container').css('opacity', 1);
