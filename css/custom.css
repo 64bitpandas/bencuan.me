@@ -275,7 +275,8 @@
 }
 
 /* Splash Video Credits: https: //slicejack.com/fullscreen-html5-video-background-css/ */
-#splash-video-container {
+
+.splash-video-container {
   position: fixed;
   top: 0;
   right: 0;
@@ -284,7 +285,7 @@
   overflow: hidden;
 }
 
-#splash-video {
+video {
   position: absolute;
   top: 0;
   left: 0;
@@ -293,7 +294,7 @@
 }
 
 @media (min-aspect-ratio: 16/9) {
-  #splash-video {
+  video {
     height: 300%;
     width: 100%;
     top: -100%;
@@ -301,7 +302,7 @@
 }
 
 @media (max-aspect-ratio: 16/9) {
-  #splash-video {
+  video {
     width: 300%;
     left: -100%;
     height: 125%;
@@ -310,10 +311,10 @@
 }
 
 @media (max-width: 767px) {
-  #splash-video-container {
-    background: url('../img/videoframe.jpg') center center / cover no-repeat;
+  .splash-video-container {
+    background: url('../img/videoframe.png') center center / cover no-repeat;
   }
-  #splash-video-container__video {
+  video {
     display: none;
   }
 }
@@ -464,6 +465,26 @@
  * CONTENT PORTALS
  * ==================================== */
 
+/* BUTTONS */
+
+#back-button-container, #close-button-container {
+  position: absolute;
+  opacity: 0;
+  z-index: 999;
+  right: 5vw;
+}
+
+#back-button-container {
+  bottom: 5vw;
+}
+
+#close-button-container {
+  top: 5vw;
+  z-index: 9999;
+}
+
+/* CONTENT SQUARE BASE */
+
 #content {
   background-color: #000000;
   height: 100vh;
@@ -538,26 +559,22 @@
   padding-right: 5vw;
 }
 
+/* ART/DESIGN SQUARE */
+
 #design-video {
-  height: 100%;
-  width: auto;
-  display: inline-block;
-  position: absolute;
   background-color: black;
   transition: none;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  top: 0;
-  left: 0;
-  right: 0;
   z-index: -10;
 }
 
-#about-square {
-  background-color: #8FC7F5;
-  left: 0;
-  top: 0;
+@media (max-aspect-ratio: 16/9) {
+  #design-video {
+    width: 300%;
+    left: -100%;
+  }
 }
 
 #art-square {
@@ -565,11 +582,35 @@
   bottom: 0;
 }
 
+/* ABOUT SQUARE */
+
+#about-square {
+  background-color: #8FC7F5;
+  left: 0;
+  top: 0;
+}
+
+#about-square:hover #about-img {
+  transform: scale(1.1);
+}
+
+/* CODE SQUARE */
+
 #code-square {
   background-color: #ff9800;
   top: 0;
   right: 0;
 }
+
+#code-square:hover #code-square-ground {
+  animation: code-square-ground 3s linear infinite;
+}
+
+#code-square:hover #code-square-panda {
+  animation: code-square-panda 3s linear infinite;
+}
+
+/* ORG SQUARE */
 
 #org-square {
   background-color: white;
@@ -596,26 +637,6 @@
 
 #about-img {
   background-color: transparent !important;
-}
-
-#about-square:hover #about-img {
-  transform: scale(1.1);
-}
-
-#back-button-container, #close-button-container {
-  position: absolute;
-  opacity: 0;
-  z-index: 999;
-  right: 5vw;
-}
-
-#back-button-container {
-  bottom: 5vw;
-}
-
-#close-button-container {
-  top: 5vw;
-  z-index: 9999;
 }
 
 /* ==========================
