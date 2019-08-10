@@ -12,6 +12,7 @@
  * COLOR PALETTE
  * https://materializecss.com/color.html
  * #23BCFF Background Blue
+ * #CDED71 Background Green
  * #888888 Dark Grey
  * #FFFFFF White
  * #283593 indigo darken-3
@@ -267,10 +268,54 @@
  * ==================================== */
 
 #landing {
-  background-color: #23BCFF;
+  background-color: #CDED71;
   height: 100vh;
   width: 100vw;
-  z-index: 0;
+  z-index: 1;
+}
+
+/* Splash Video Credits: https: //slicejack.com/fullscreen-html5-video-background-css/ */
+#splash-video-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+#splash-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  #splash-video {
+    height: 300%;
+    width: 100%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #splash-video {
+    width: 300%;
+    left: -100%;
+    height: 125%;
+    top: -25%;
+  }
+}
+
+@media (max-width: 767px) {
+  #splash-video-container {
+    background: url('../img/videoframe.jpg') center center / cover no-repeat;
+  }
+  #splash-video-container__video {
+    display: none;
+  }
 }
 
 #logo img {
@@ -438,6 +483,7 @@
 .content-square .content-label-top {
   font-size: 3rem;
   margin-top: 3vh;
+  z-index: 100;
 }
 
 .content-square .content-label-bottom {
@@ -478,7 +524,7 @@
 }
 
 .content-square img {
-  height: 80%;
+  height: 70%;
   width: auto;
   display: inline-block;
   position: absolute;
@@ -492,14 +538,29 @@
   padding-right: 5vw;
 }
 
+#design-video {
+  height: 100%;
+  width: auto;
+  display: inline-block;
+  position: absolute;
+  background-color: black;
+  transition: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -10;
+}
+
 #about-square {
-  background-color: #90caf9;
+  background-color: #8FC7F5;
   left: 0;
   top: 0;
 }
 
 #art-square {
-  background-color: #222222;
   right: 0;
   bottom: 0;
 }

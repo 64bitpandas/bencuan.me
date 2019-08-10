@@ -117,9 +117,15 @@ if (window.location.protocol === 'https:') //remote
   });
 
   $('#about-square').hover(() => {
-    $('#about-img').attr('src', 'img/panda_clicked.svg');
+    $('#about-img').attr('src', 'img/about-animation.gif');
   }, () => {
       $('#about-img').attr('src', 'img/panda.svg');
+  })
+
+  $('#art-square').hover(() => {
+    $('#design-video').get(0).play();
+  }, () => {
+      $('#design-video').get(0).pause();
   })
 
   $('#close-button-container').click(() => {

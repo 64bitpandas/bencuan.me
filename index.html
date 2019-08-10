@@ -33,6 +33,7 @@
 
   <div id="white-overlay"></div>
 
+
   <!-- REMOVE HIDDEN!!! -->
   <div id="welcome-page" class="hidden">
     <div id="skip-button-container">
@@ -90,6 +91,12 @@
     </div>
   </div>
 
+  <div id="splash-video-container">
+    <video id="splash-video" autoplay muted>
+      <source src="img/splashVideo.mp4" type="video/mp4">
+    </video>
+  </div>
+
   <div id="landing">
 
     <!-- <button id="launch-content-button">
@@ -107,7 +114,7 @@
       </div>
 
       <div class="row center">
-        <div class="loading glitch blue-glitch" data-text="LOADING . . .">
+        <div class="loading" data-text="LOADING . . .">
           LOADING . . .
         </div>
         <div class="name">
@@ -177,7 +184,9 @@
       <div class="content-square" id="art-square">
         <div class="nohover-overlay"></div>
         <div class="content-label-top center">Art + Design</div>
-        <img id="art-img" src="img/design.png">
+        <video id="design-video" loop muted>
+          <source src="img/design.mp4" type="video/mp4">
+        </video>
       </div>
 
     <div id="back-button-container">
