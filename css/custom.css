@@ -603,11 +603,32 @@ video {
 }
 
 #code-square:hover #code-square-ground {
-  animation: code-square-ground 3s linear infinite;
+  animation: code-square-ground 2s linear infinite;
 }
 
 #code-square:hover #code-square-panda {
-  animation: code-square-panda 3s linear infinite;
+  animation: code-square-panda 2s ease-in-out infinite;
+}
+
+#code-square-panda {
+  background: url('../img/frame1.png') no-repeat;
+  background-size: 100%;
+  height: 30%;
+  width: 20%;
+  bottom: 3%;
+  z-index: 100;
+  transition: none;
+  position: absolute;
+}
+
+#code-square-ground {
+  bottom: 0;
+  left: 0;
+  background-image: url('../img/animation-ground.png');
+  background-size: contain;
+  width: 128vw;
+  height: 16vw;
+  position: absolute;
 }
 
 /* ORG SQUARE */

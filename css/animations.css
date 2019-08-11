@@ -216,13 +216,33 @@
   }
 }
 
-
 @keyframes code-square-ground {
-
+  100% {
+    transform: translateX(-60%);
+  }
 }
 
 @keyframes code-square-panda {
-  10% {
+  10%, 30%, 50%, 70%, 90% {
+    background-image: url('../img/frame2.png');
+  }
+  20%, 40%, 60%, 80% {
+    background-image: url('../img/frame1.png');
+  }
+  20% {
+    transform: translateY(0);
+  }
 
+  35% {
+    transform: translateY(-200%);
+  }
+  50%, 55% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(-150%);
+  }
+  85% {
+    transform: translateY(0);
   }
 }
