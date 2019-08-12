@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/simple-grid.min.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/custom.css">
+  <link type="text/css" rel="stylesheet" href="js/vendor/lightGallery-1.6.12/css/lightgallery.min.css" />
 
   <!-- <link href="https://fonts.googleapis.com/css?family=Khand&display=swap" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Squada+One|Source+Code+Pro|Cormorant+Garamond&display=swap" rel="stylesheet">
@@ -166,31 +167,53 @@
       <div class="content-square" id="about-square">
         <div class="nohover-overlay"></div>
         <div class="content-label-top center">About</div>
-        <img id="about-img" src="img/panda.svg">
+
+        <div class="content-square-splash">
+          <img id="about-img" src="img/panda.svg">
+        </div>
       </div>
       <div class="content-square" id="code-square">
         <div class="nohover-overlay"></div>
         <div class="content-label-bottom center">Software + Games</div>
 
-        <div id="code-square-panda"></div>
-        <div id="code-square-ground"></div>
+        <div class="content-square-splash">
+          <div id="code-square-panda"></div>
+          <div id="code-square-ground"></div>
+        </div>
       </div>
 
 
       <div class="content-square" id="org-square">
         <div class="nohover-overlay"></div>
         <div class="content-label-bottom center">Organizations</div>
-        <img id="org-img-1" class="center" src="img/launchhacks-logo.png"></img>
-        <img id="org-img-2" class="center" src="img/2tbs.png"></img>
-        <img id="org-img-3" class="center" src="img/bananium-icon.png"></img>
+
+        <div class="content-square-splash">
+          <img id="org-img-1" class="center" src="img/launchhacks-logo.png"></img>
+          <img id="org-img-2" class="center" src="img/2tbs.png"></img>
+          <img id="org-img-3" class="center" src="img/bananium-icon.png"></img>
+        </div>
       </div>
       <div class="content-square" id="art-square">
         <div class="nohover-overlay"></div>
         <div class="content-label-top center">Art + Design</div>
-        <div id="splash-video-container">
-          <video id="design-video" loop muted>
-            <source src="img/design.mp4" type="video/mp4">
-          </video>
+
+        <div class="content-square-splash">
+          <div id="design-video-container">
+            <video id="design-video" loop muted>
+              <source src="img/design.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="content-square-details">
+          <div class="lightgallery">
+            <a href="img/2tbs.png">
+              <img src="img/2tbs.png" />
+            </a>
+            <a href="img/bananium-icon.png">
+              <img src="img/bananium-icon.png" />
+            </a>
+          </div>
         </div>
       </div>
 
@@ -228,6 +251,9 @@
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/vendor/smoothscroll.js"></script>
+
+  <script src="js/vendor/lightGallery-1.6.12/js/lightgallery-all.min.js"></script>
+
   <script src="js/main.js"></script>
 </footer>
 

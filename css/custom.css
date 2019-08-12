@@ -378,6 +378,7 @@ video {
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid white;
   color: white;
+  background-color: rgba(0, 0, 0, 0.3);
   text-decoration: none;
   line-height: 1.15;
   margin-left: 1vh;
@@ -544,7 +545,7 @@ video {
   opacity: 0;
 }
 
-.content-square img {
+.content-square-splash img {
   height: 70%;
   width: auto;
   display: inline-block;
@@ -557,6 +558,10 @@ video {
   margin-right: auto;
   padding-left: 5vw;
   padding-right: 5vw;
+}
+
+.content-square-details {
+  display: none;
 }
 
 /* ART/DESIGN SQUARE */
@@ -659,6 +664,8 @@ video {
 #about-img {
   background-color: transparent !important;
 }
+
+
 
 /* ==========================
  *  CUSTOM SELECTION

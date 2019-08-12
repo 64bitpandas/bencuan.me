@@ -14,6 +14,11 @@ if (window.location.protocol === 'https:') //remote
 
   $(document).ready(() => {
 
+    // Init lightgallery
+    $(".lightgallery").lightGallery({
+      thumbnail: true
+    });
+
     $('.expand-button').hover(function() {
       setTimeout(() => {
         // Check to make sure button is still hovered over before fully expanding
@@ -126,10 +131,13 @@ if (window.location.protocol === 'https:') //remote
     $('#design-video').get(0).play();
   }, () => {
       $('#design-video').get(0).pause();
+      $('#design-video').get(0).currentTime = 0;
   })
 
   $('#close-button-container').click(() => {
     currOpen.removeClass('content-square-activated').css('z-index', 9999);
+    $('.content-square-splash',currOpen).css('display', '');
+    $('.content-square-details', currOpen).css('display', 'none');
     $('#back-button-container').css('opacity', 1);
     $('#close-button-container').css('opacity', 0);
 
@@ -174,6 +182,8 @@ function flashWhite() {
 function openContent($element) {
   currOpen = $element;
   $element.addClass('content-square-activated').removeClass('col-6');
+  $('.content-square-splash', currOpen).css('display', 'none');
+  $('.content-square-details', currOpen).css('display', 'block');
   $('#back-button-container').css('opacity', 0);
   $('#close-button-container').css('opacity', 1);
 }

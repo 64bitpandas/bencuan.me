@@ -229,20 +229,20 @@
   20%, 40%, 60%, 80% {
     background-image: url('../img/frame1.png');
   }
-  20% {
+  40% {
     transform: translateY(0);
   }
 
-  35% {
+  55% {
     transform: translateY(-200%);
   }
-  50%, 55% {
+  70%,75% {
     transform: translateY(0);
   }
-  70% {
+  90% {
     transform: translateY(-150%);
   }
-  85% {
+  100% {
     transform: translateY(0);
   }
 }
