@@ -25,7 +25,8 @@
   <link type="text/css" rel="stylesheet" href="js/vendor/lightGallery-1.6.12/css/lightgallery.min.css" />
 
   <!-- <link href="https://fonts.googleapis.com/css?family=Khand&display=swap" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css?family=Squada+One|Source+Code+Pro|Cormorant+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Squada+One|Source+Code+Pro|Cormorant+Garamond|Source+Sans+Pro&display=swap"
+    rel="stylesheet">
 
   <meta name="theme-color" content="#fafafa">
 </head>
@@ -87,7 +88,8 @@
         data-text="Thanks! I knew you'd like pandas too! ʕ•ᴥ•ʔ">Thanks! I knew you'd like pandas too! ʕ•ᴥ•ʔ
       </div>
       <div id="int-text-6" class="glitch loading-intercepted-text typewriter hidden"
-        data-text="If you ever change your mind, just click the panda! K bye!">If you ever change your mind, just click the panda! K bye!
+        data-text="If you ever change your mind, just click the panda! K bye!">If you ever change your mind, just click
+        the panda! K bye!
       </div>
     </div>
   </div>
@@ -164,58 +166,110 @@
 
   <div id="content">
 
-      <div class="content-square" id="about-square">
-        <div class="nohover-overlay"></div>
-        <div class="content-label-top center">About</div>
+    <div class="content-square" id="about-square">
+      <div class="nohover-overlay"></div>
+      <div class="content-label-top center">About</div>
 
-        <div class="content-square-splash">
-          <img id="about-img" src="img/panda.svg">
+      <div class="content-square-splash">
+        <img id="about-img" src="img/panda.svg">
+      </div>
+    </div>
+    <div class="content-square" id="code-square">
+      <div class="nohover-overlay"></div>
+      <div class="content-label-bottom center">Software + Games</div>
+
+      <div class="content-square-splash">
+        <div id="code-square-panda"></div>
+        <div id="code-square-ground"></div>
+      </div>
+    </div>
+
+
+    <div class="content-square" id="org-square">
+      <div class="nohover-overlay"></div>
+      <div class="content-label-bottom center hide-on-expand">
+        Organizations
+      </div>
+
+      <div class="content-square-splash">
+        <img id="org-img-1" class="center" src="img/launchhacks-logo.png"></img>
+        <img id="org-img-2" class="center" src="img/2tbs.png"></img>
+        <img id="org-img-3" class="center" src="img/bananium-icon.png"></img>
+      </div>
+      <div class="content-square-details">
+        <div id="org-label" class="center">
+          Organizations
+        </div>
+        <div id="org-timeline">
+            <div id="org-2tbs" class="timeline-box">
+              <div class="row">
+                <div class="col-4 center">
+                  <img class="timeline-image" src="img/2tbs.png">
+
+                  <div class="lightgallery">
+
+                    <button href="img/2tbs.png" data-src="img/2tbs.png" data-sub-html="Caption" class="org-button button-2tbs">View Gallery
+                      <img class="hidden" src="img/2tbs.png">
+                    </button>
+
+                    <div class="hidden gallery-item" data-src="img/bananium-icon.png" data-sub-html="Caption">
+                      <img src="img/bananium-icon.png">
+                    </div>
+                  </div>
+
+                  <a target="_blank" href="https://2tbs.bananiumlabs.com/">
+                    <button class="org-button button-2tbs">Visit Site</button>
+                  </a>
+                </div>
+                <div class="col-8">
+                  <div class="center timeline-title">Two Terabyte Studios</div>
+                  <div class="timeline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a sapien metus. Donec ultricies, magna vitae pharetra
+                  congue, dui tellus bibendum dui, eget porta lectus lacus sit amet velit. Duis vulputate aliquet turpis, et malesuada mi
+                  mollis vitae. Duis nisi ligula, egestas sed faucibus sed, tempus eget neque. Suspendisse potenti. Sed imperdiet velit id
+                  lorem facilisis, quis aliquam ante lacinia. Phasellus tincidunt vehicula vulputate. Proin vitae nulla a nulla interdum
+                  rutrum. Vestibulum ut aliquet odio, ut dignissim mi. Suspendisse fermentum blandit nisl, ac facilisis metus aliquam a.
+                  Pellentesque sollicitudin ex massa, eget volutpat leo rutrum eu. Etiam eget pulvinar metus. Pellentesque vitae nulla
+                  tortor. Vivamus turpis ipsum, tempus at nibh vitae, mollis ultricies lectus.</div>
+                </div>
+              </div>
+            </div>
+            <div id="org-bananium" class="timeline-box">
+
+            </div>
+            <div id="org-launchhacks" class="timeline-box">
+
+            </div>
+            <div id="org-trisagion" class="timeline-box">
+
+            </div>
+
         </div>
       </div>
-      <div class="content-square" id="code-square">
-        <div class="nohover-overlay"></div>
-        <div class="content-label-bottom center">Software + Games</div>
+    </div>
 
-        <div class="content-square-splash">
-          <div id="code-square-panda"></div>
-          <div id="code-square-ground"></div>
+
+    <div class="content-square" id="art-square">
+      <div class="nohover-overlay"></div>
+      <div class="content-label-top center">Art + Design</div>
+
+      <div class="content-square-splash">
+        <div id="design-video-container">
+          <video id="design-video" loop muted>
+            <source src="img/design.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
-
-
-      <div class="content-square" id="org-square">
-        <div class="nohover-overlay"></div>
-        <div class="content-label-bottom center">Organizations</div>
-
-        <div class="content-square-splash">
-          <img id="org-img-1" class="center" src="img/launchhacks-logo.png"></img>
-          <img id="org-img-2" class="center" src="img/2tbs.png"></img>
-          <img id="org-img-3" class="center" src="img/bananium-icon.png"></img>
+      <div class="content-square-details">
+        <div class="lightgallery">
+          <a href="img/2tbs.png">
+            <img src="img/2tbs.png" />
+          </a>
+          <a href="img/bananium-icon.png">
+            <img src="img/bananium-icon.png" />
+          </a>
         </div>
       </div>
-      <div class="content-square" id="art-square">
-        <div class="nohover-overlay"></div>
-        <div class="content-label-top center">Art + Design</div>
-
-        <div class="content-square-splash">
-          <div id="design-video-container">
-            <video id="design-video" loop muted>
-              <source src="img/design.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <div class="content-square-details">
-          <div class="lightgallery">
-            <a href="img/2tbs.png">
-              <img src="img/2tbs.png" />
-            </a>
-            <a href="img/bananium-icon.png">
-              <img src="img/bananium-icon.png" />
-            </a>
-          </div>
-        </div>
-      </div>
+    </div>
 
     <div id="back-button-container">
       <button id="back-button" class="expand-button">

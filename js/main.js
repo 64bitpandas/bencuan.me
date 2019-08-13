@@ -138,8 +138,10 @@ if (window.location.protocol === 'https:') //remote
     currOpen.removeClass('content-square-activated').css('z-index', 9999);
     $('.content-square-splash',currOpen).css('display', '');
     $('.content-square-details', currOpen).css('display', 'none');
+
     $('#back-button-container').css('opacity', 1);
     $('#close-button-container').css('opacity', 0);
+    $('.hide-on-expand').css('display', '');
 
     setTimeout(() => {
       currOpen.css('z-index', '');
@@ -180,12 +182,21 @@ function flashWhite() {
 
 // Click a content square to open content
 function openContent($element) {
-  currOpen = $element;
-  $element.addClass('content-square-activated').removeClass('col-6');
-  $('.content-square-splash', currOpen).css('display', 'none');
-  $('.content-square-details', currOpen).css('display', 'block');
-  $('#back-button-container').css('opacity', 0);
-  $('#close-button-container').css('opacity', 1);
+
+  // console.log(currOpen);
+  if(!currOpen) {
+    currOpen = $element;
+    $element.addClass('content-square-activated').removeClass('col-6');
+    $('.content-square-splash', currOpen).css('display', 'none');
+    $('.content-square-details', currOpen).css('display', 'block');
+    $('#back-button-container').css('opacity', 0);
+    $('#close-button-container').css('opacity', 1);
+    $('.hide-on-expand').css('display', 'none');
+
+    if($element.attr('id') === 'org-square') {
+      $('#org-label').addClass('org-border');
+    }
+  }
 }
 
 // Selection intercept clicked

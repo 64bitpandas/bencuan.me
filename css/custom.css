@@ -15,9 +15,12 @@
  * #CDED71 Background Green
  * #888888 Dark Grey
  * #FFFFFF White
- * #283593 indigo darken-3
+ * #283593 indigo darken-3 2tbs
  * #90caf9 blue lighten-3
  * #ff9800 orange
+ * #ffb300 amber darken-1 bananium
+ * #1de9b6 teal accent-3 trisagion
+ * #bbdefb blue lighten-4 launchhacks
  * ==================================== */
 
 /* ====================================
@@ -44,6 +47,11 @@
 
 .no-select {
   user-select: none;
+}
+
+.lg-sub-html {
+  font-size: 1.5rem;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 /* ====================================
@@ -562,6 +570,11 @@ video {
 
 .content-square-details {
   display: none;
+  overflow-y: scroll !important;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
 }
 
 /* ART/DESIGN SQUARE */
@@ -665,7 +678,120 @@ video {
   background-color: transparent !important;
 }
 
+/* ==========================
+ *  ORGS PAGE
+ * ========================== */
 
+#org-label {
+  font-size: 3.5rem;
+  color: black;
+  margin-top: 5vh;
+  padding: 2vh;
+  width: 30vw;
+  height: 10vh;
+  position: relative;
+}
+
+.org-border:before, .org-border:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  animation: org-border 1s ease-in-out 0.5s 1 forwards;
+}
+
+.org-border:before {
+  top: 0;
+  left: 0;
+  border-top: 5px solid #ff9800;
+  border-left: 5px solid #ff9800;
+}
+
+.org-border:after {
+  border-bottom: 5px solid #23BCFF;
+  border-right: 5px solid #23BCFF;
+  bottom: 0;
+  right: 0;
+}
+
+#org-timeline {
+  width: 100%;
+  height: 250%;
+  background-image: url('../img/timeline.svg');
+  background-repeat: no-repeat;
+  background-position-x: 5vw;
+  position: absolute;
+  top: 0;
+}
+
+.timeline-box {
+  margin-left: auto;
+  margin-right: 5vw;
+  min-height: 30vh;
+  width: 55vw;
+  border: 5px solid black;
+  margin-top: 8vh;
+}
+
+.timeline-image {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 5vh;
+}
+
+.timeline-text {
+  color: black;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.timeline-title {
+  color: black;
+  font-size: 2rem;
+}
+
+#org-2tbs {
+  margin-top: 30vh;
+  border-color: #283593;
+}
+
+#org-bananium {
+  border-color: #ffb300;
+}
+
+#org-launchhacks {
+  border-color: #ffb300;
+}
+
+#org-trisagion {
+  border-color: #ffb300;
+}
+
+.org-button {
+  height: 8vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  border-radius: 5px;
+  margin: 2vh;
+  color: white;
+  text-decoration: none;
+  line-height: 1.15;
+  display: inline-block;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+}
+
+.org-button:hover {
+  transform: scale(1.1);
+}
+
+.button-2tbs {
+  background-color: #283593;
+}
 
 /* ==========================
  *  CUSTOM SELECTION
