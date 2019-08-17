@@ -204,6 +204,7 @@
   -webkit-mask-size: cover;
   -webkit-mask-position-y: 30vh;
   -webkit-mask-position-x: 5vh;
+  animation: paint-fill 2s ease-in-out 2s 1 forwards;
 }
 
 .grey-fill {
@@ -223,9 +224,9 @@
   -webkit-mask-image: url('../img/profile-art.png');
 }
 
-.splash-image-pixel:hover, .splash-image-art:hover {
+/* .splash-image-pixel:hover, .splash-image-art:hover {
   animation: paint-fill 1s ease-in-out 0s 1 forwards;
-}
+} */
 
 .splash-image-selected {
   -webkit-mask-position-y: 0vh !important;
@@ -277,7 +278,6 @@
  * ==================================== */
 
 #landing {
-  background-color: #CDED71;
   height: 100vh;
   width: 100vw;
   z-index: 1;
@@ -292,6 +292,7 @@
   bottom: 0;
   left: 0;
   overflow: hidden;
+  z-index: -1;
 }
 
 video {
@@ -376,6 +377,10 @@ video {
   font-family: 'Cormorant Garamond', serif, sans-serif;
 }
 
+#splash-content {
+  margin-top: 8vh;
+}
+
 /* ====================================
  * BUTTONS
  * ==================================== */
@@ -387,7 +392,7 @@ video {
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid white;
   color: white;
-  background-color: rgba(0, 0, 0, 0.3);
+  /* background-color: rgba(0, 0, 0, 0.3); */
   text-decoration: none;
   line-height: 1.15;
   margin-left: 1vh;
@@ -396,6 +401,15 @@ video {
   display: inline-block;
   white-space: nowrap;
   cursor: pointer;
+}
+
+.expand-button-black {
+  color: black;
+  border: 2px solid black;
+}
+
+.expand-button-black i {
+  color: black;
 }
 
 @media only screen and (min-width: 768px) {

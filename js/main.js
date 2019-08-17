@@ -142,6 +142,7 @@ if (window.location.protocol === 'https:') //remote
     $('#back-button-container').css('opacity', 1);
     $('#close-button-container').css('opacity', 0);
     $('.hide-on-expand').css('display', '');
+    $('#close-button').removeClass('expand-button-black');
 
     setTimeout(() => {
       currOpen.css('z-index', '');
@@ -207,6 +208,7 @@ function openContent($element) {
 
     if($element.attr('id') === 'org-square') {
       $('#org-label').addClass('org-border');
+      $('#close-button').addClass('expand-button-black');
     }
   }
 }
