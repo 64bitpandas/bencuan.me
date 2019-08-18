@@ -143,6 +143,9 @@ if (window.location.protocol === 'https:') //remote
     $('#close-button-container').css('opacity', 0);
     $('.hide-on-expand').css('display', '');
     $('#close-button').removeClass('expand-button-black');
+    $('#about-modal-container').css('display', 'none');
+    $('#about-modal-container').css('animation', '');
+    $('.about-modal').css('pointer-events', 'none');
 
     setTimeout(() => {
       currOpen.css('z-index', '');
@@ -210,6 +213,12 @@ function openContent($element) {
       $('#org-label').addClass('org-border');
       $('#close-button').addClass('expand-button-black');
     }
+    if($element.attr('id') === 'about-square') {
+      $('#about-modal-container').css('display', 'block');
+      $('#about-modal-container').css('animation', 'show-after-delay 1s ease-in-out 1s 1 forwards');
+      $('.about-modal').css('pointer-events', 'all');
+    }
+
   }
 }
 

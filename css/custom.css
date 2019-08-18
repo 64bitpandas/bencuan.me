@@ -22,6 +22,8 @@
  * #1de9b6 teal accent-3 trisagion
  * #bbdefb blue lighten-4 launchhacks
  * #ffecb3 amber lighten-4
+ * #8FC7F5 about section
+ * #e0f2f1 teal lighten-5
  * ==================================== */
 
 /* ====================================
@@ -921,6 +923,45 @@ video {
   height: 100vh;
   width: 100vw;
   z-index: 99999;
+  top: 0;
+}
+
+/* ==========================
+ *  ART PAGE
+ * ========================== */
+
+#art-square .content-square-details {
+  background-color: #333333;
+}
+
+/* ==========================
+ *  ABOUT SQUARE
+ * ========================== */
+
+#about-square .content-square-details {
+  background-image: url('../img/about.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  animation: blur-delay 1s ease-in-out 1s 1 forwards;
+  overflow: hidden !important;
+}
+
+.about-modal {
+  background-color: #e0f2f1;
+  transform: none;
+  opacity: 1;
+  /* pointer-events: all !important; */
+}
+
+#about-modal-container {
+  opacity: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000000;
+  /* animation: show-after-delay 1s ease-in-out 1s 1 forwards; */
+  pointer-events: none;
+  position: fixed;
   top: 0;
 }
 
