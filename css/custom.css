@@ -63,6 +63,10 @@ a:active, a:focus, button:active, button:focus {
   -moz-outline-style: none;
 }
 
+.rounded-image {
+  border-radius: 10px;
+}
+
 /* ====================================
  * INTERCEPT PAGE
  * ==================================== */
@@ -830,6 +834,10 @@ video {
   background-color: #283593;
 }
 
+.button-bananium {
+  background-color: #ffb300;
+}
+
 /* ==========================
  *  SOFTWARE PAGE
  * ========================== */
@@ -861,11 +869,11 @@ video {
 .code-modal {
   /* background: white; Set with class corresponding to section */
   position: absolute;
-  width: 50vw;
-  height: 50vh;
-  top: 50vh;
-  left: 50vw;
-  margin: -25vh 0 0 -25vw;
+  width: 80vw;
+  height: 80vh;
+  top: 20vh;
+  left: 20vw;
+  margin: -10vh 0 0 -10vw;
   transform: scale(0.1);
   /* Hidden */
   opacity: 0;
