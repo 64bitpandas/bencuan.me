@@ -161,6 +161,10 @@ if (window.location.protocol === 'https:') //remote
     closeModal();
   });
 
+  $('.code-modal').click((e) => {
+    e.stopPropagation();
+  })
+
   $('.close-modal-button').click(() => {
     closeModal();
   });
@@ -253,10 +257,12 @@ function openModal(imgID) {
   $('#code-modals').css('pointer-events', 'all');
   $('#' + imgID + '-modal').addClass('code-modal-activated');
   $('#code-square').addClass('blur');
+  $('#close-button-container').addClass('blur');
 }
 
 function closeModal() {
   $('#code-modals').css('pointer-events', 'none');
   $('.code-modal-activated').removeClass('code-modal-activated');
   $('#code-square').removeClass('blur');
+  $('#close-button-container').removeClass('blur');
 }

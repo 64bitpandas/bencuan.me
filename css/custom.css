@@ -57,6 +57,12 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+a:active, a:focus, button:active, button:focus {
+  outline: 0;
+  border: none;
+  -moz-outline-style: none;
+}
+
 /* ====================================
  * INTERCEPT PAGE
  * ==================================== */
