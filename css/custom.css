@@ -390,9 +390,9 @@ video {
   pointer-events: none;
 }
 
-.landing-art * {
+/* .landing-art * {
   font-family: 'Cormorant Garamond', serif, sans-serif;
-}
+} */
 
 #splash-content {
   margin-top: 8vh;
