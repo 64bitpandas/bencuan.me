@@ -1,0 +1,1058 @@
+<!-- ---------------------------
+   https://bencuan.me
+   © 2019 Ben Cuan - MIT License
+   Created Summer 2019
+------------------------------- -->
+
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ben Cuan</title>
+  <meta name="description" content="Ben Cuan">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="favicon.ico">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/boilerplate.css">
+  <link rel="stylesheet" href="css/simple-grid.min.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link type="text/css" rel="stylesheet" href="js/vendor/lightGallery-1.6.12/css/lightgallery.min.css" />
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Khand&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Squada+One|Source+Code+Pro|Source+Sans+Pro&display=swap"
+    rel="stylesheet">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <div id="mobile-overlay" class="center">
+    <p class="mobile-text">
+      For the full experience, check out my desktop site!
+    </p>
+  </div>
+  <div id="white-overlay"></div>
+
+  <div class="splash-video-container">
+    <video id="splash-video" autoplay muted>
+    </video>
+  </div>
+
+  <div id="landing">
+
+    <!-- <button id="launch-content-button">
+      Click here to launch content
+    </button> -->
+
+
+    <!-- ===============
+      SPLASH SCREEN
+    ================ -->
+
+    <div class="container">
+      <!-- Logo & Loading Animation. See css -->
+      <div class="row">
+        <div class="col-12 center" id="logo">
+          <div class="grey-fill grey-fill-pixel center">
+            <div class="splash-image-pixel center">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="splash-content">
+        <div class="row center">
+          <div class="loading" data-text="LOADING . . .">
+            LOADING . . .
+          </div>
+          <div class="name">
+            Ben Cuan
+          </div>
+        </div>
+
+        <div class="row center no-select button-row">
+          <button id="github-button" class="expand-button">
+            <i class="fab fa-github fa-2x"></i>
+            <span class="expand-button-content hidden">
+              GitHub
+            </span>
+          </button>
+
+          <button id="linkedin-button" class="expand-button">
+            <i class="fab fa-linkedin fa-2x"></i>
+            <span class="expand-button-content hidden">
+              LinkedIn
+            </span>
+          </button>
+
+          <button id="email-button" class="expand-button">
+            <i class="fas fa-envelope fa-2x"></i>
+            <span class="expand-button-content hidden">
+              Email
+            </span>
+          </button>
+
+          <button id="resume-button" class="expand-button">
+            <i class="fas fa-file-alt fa-2x"></i>
+            <span class="expand-button-content hidden">
+              Resume
+            </span>
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row center anchor-bottom" id="launch-button-container">
+      <button id="launch-button">Launch Site</button>
+    </div>
+
+    <div id="launch-button-rope" class="center"></div>
+  </div>
+
+
+  <!-- ===============
+        CONTENT PORTAL
+      ================ -->
+  <div id="content">
+
+
+    <!-- ABOUT SQUARE -->
+    <div class="content-square" id="about-square">
+      <div class="nohover-overlay"></div>
+      <div class="content-label-top center">About</div>
+      <div class="content-square-details">
+      </div>
+
+      <div class="content-square-splash">
+        <img id="about-img" src="img/panda.svg">
+      </div>
+    </div>
+
+
+    <!-- CODE SQUARE -->
+    <div class="content-square" id="code-square">
+      <div class="nohover-overlay"></div>
+      <div class="content-label-bottom center">Software + Games</div>
+
+      <div class="content-square-splash center">
+        <div id="code-square-panda"></div>
+      </div>
+
+
+      <!-- ===============
+            CODE SQUARE CONTENTS
+          ================ -->
+      <div class="content-square-details">
+        <div id="code-content">
+
+          <div class="center details-label">
+            Software + Games
+          </div>
+
+          <div class="code-section websites-section">
+            <div class="code-tab websites-section center">
+              Websites
+            </div>
+
+            <div class="row">
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/bananium-icon.png" id="img-bananium">
+                  <div class="code-hover">
+                    <p>Bananium Labs</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/launchhacks-logo.png" id="img-launchhacks">
+                  <div class="code-hover">
+                    <p>LaunchHacks</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/2tbs.png" id="img-2tbs">
+                  <div class="code-hover">
+                    <p>2TBS</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-section games-section">
+            <div class="code-tab games-section center">
+              Games
+            </div>
+
+            <div class="row">
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/code/irtp.png" id="img-irtp">
+                  <div class="code-hover">
+                    <p>It's Rude To Point</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/code/bullet-heaven.png" id="img-bullet">
+                  <div class="code-hover">
+                    <p>Bullet Heaven</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/code/atomblast.png" id="img-atomblast">
+                  <div class="code-hover">
+                    <p>AtomBlast</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="code-section hackathons-section">
+            <div class="code-tab hackathons-section center">
+              Hackathons
+            </div>
+
+            <div class="row">
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/code/carrotcane.png" id="img-carrotcane">
+                  <div class="code-hover">
+                    <p>CarrotCane</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/code/AudiSea Logo.png" id="img-audisea">
+                  <div class="code-hover">
+                    <p>AudiSea</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/code/aegis-banner.jpg" id="img-aegis">
+                  <div class="code-hover">
+                    <p>Aegis</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/code/hotswap-mini.png" id="img-hotswap">
+                  <div class="code-hover">
+                    <p>HotSwap</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/code/honeydue.jpg" id="img-honeydue">
+                  <div class="code-hover">
+                    <p>Honeydue</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="code-image-container center">
+                  <img class="code-image" src="img/code/aspicio.jpg" id="img-aspicio">
+                  <div class="code-hover">
+                    <p>Aspicio</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORG SQUARE -->
+    <div class="content-square" id="org-square">
+      <div class="nohover-overlay"></div>
+      <div class="content-label-bottom center hide-on-expand">
+        Orgs
+      </div>
+
+      <div class="content-square-splash">
+        <img id="org-img-1" class="center" src="img/launchhacks-logo.png"></img>
+        <img id="org-img-2" class="center" src="img/2tbs.png"></img>
+        <img id="org-img-3" class="center" src="img/bananium-icon.png"></img>
+      </div>
+
+      <!-- ===============
+        ORG SQUARE CONTENTS
+      ================ -->
+      <div class="content-square-details">
+        <div id="org-label" class="center details-label">
+          Orgs
+        </div>
+        <div id="org-timeline">
+          <div id="org-2tbs" class="timeline-box">
+            <div class="row">
+              <div class="col-4 center">
+                <img class="timeline-image" src="img/2tbs.png">
+
+                <a target="_blank" href="https://2tbs.bananiumlabs.com/">
+                  <button class="org-button button-2tbs">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-8">
+                <div class="center timeline-title">Two Terabyte Studios</div>
+                <div class="timeline-text">
+
+                  <br>
+                  Two Terabyte Studios was formed in late Summer 2016 after working on the
+                  development of AtomBlast the prior year
+                  with the intent to create the first game development club at Monta
+                  Vista High School. We created
+                  four games as a club, one of which has been officially published.
+                  <br><br>
+                  2TBS operated towards the goal of educating the community in game development through real
+                  production
+                  by producing our
+                  own games from start to finish. Over our two years of operation, we have had over 30 current and
+                  past
+                  members, over 10
+                  of whom create our core game development team with in-house artists, programmers, animators,
+                  designers, writers, and
+                  managers. While our preferred development engine is Unity,
+                  we are always open to experimentation, and have tested development through other popular engines
+                  such as Unreal Engine,
+                  Lumberyard, Godot, and GameMaker Studio.
+                  <br><br>
+                  As the code lead, I directed the 2TBS code team and worked closely with the lead organizers to
+                  oversee weekly meetings, design implementations, and timelines.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="org-bananium" class="timeline-box">
+            <div class="row">
+              <div class="col-4 center">
+                <img class="timeline-image" src="img/bananium-icon.png">
+
+                <a target="_blank" href="https://bananiumlabs.com/">
+                  <button class="org-button button-bananium">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-8">
+                <div class="center timeline-title">Bananium Labs</div>
+                <div class="timeline-text">
+
+                  <br>
+                  Bananium Labs was formed in November 2017 after numerous students consolidated and decided to work
+                  cooperatively. We
+                  decided to create an organization in which we could organize our various software projects, Git
+                  repositories, and
+                  hackathon submissions into one place. Never again would we have to have the hour-long debate
+                  surrounding whose account
+                  to associate our code to. What started as a small group of three developers grew quickly, as we began
+                  to look for more
+                  members to attend hackathons and contribute to our projects. So far, we have attended 8 hackathons
+                  (our projects are
+                  showcased below). We're also interested in game development- our game projects are organized within
+                  Two Terabyte
+                  Studios.
+                  <br><br>
+                  Bananium Labs is a 501c3 tax-exempt organization, obtained after a focus shift to better fit our
+                  present purpose of
+                  developing new and exciting projects and inspiring others to create their own projects. We offer a
+                  multitude of services
+                  and support to turn dreams into reality through promoting entrepeneurship and product ideation.
+                  <br><br>
+                  I am the cofounder and Director of Operations at Bananium Labs, playing a major role in nonprofit
+                  management and directing several projects, most notably LaunchHacks.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="org-launchhacks" class="timeline-box">
+            <div class="row">
+              <div class="col-4 center">
+                <img class="timeline-image" src="img/launchhacks-logo.png">
+
+                <a target="_blank" href="https://launchhacks.tech">
+                  <button class="org-button button-2tbs">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-8">
+                <div class="center timeline-title">LaunchHacks</div>
+                <div class="timeline-text"><br>Launch Hacks is an annual high school hackathon. In addition to helping
+                  students improve
+                  their design and development skills, LaunchHacks aims to provide support to help students improve
+                  business and presentation skills-
+                  not just to pitch a successful project, but also to inspire the next generation of inventors,
+                  entrepreneurs, and
+                  leaders.
+                  <br><br>
+                  I was the lead director of the first edition of LaunchHacks, which took place in April 2019. Some of
+                  my contributions included logo design, managing relations with corporate donors, organizing catering,
+                  website design, and overseeing a team of 9 organizers.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="org-trisagion" class="timeline-box">
+            <div class="row">
+              <div class="col-4 center">
+                <img class="timeline-image" src="img/trisagion.png">
+
+                <a target="_blank" href="#">
+                  <button class="org-button button-2tbs" disabled>Site Coming Soon!</button>
+                </a>
+              </div>
+              <div class="col-8">
+                <div class="center timeline-title">Trisagion Games</div>
+                <div class="timeline-text">
+                  <br>
+                  Trisagion Games is a newly-formed indie game development studio with fellow developers Omar Hossain,
+                  Kevin Chu, and Nicholas Chen. This summer, we created three games from start to finish and
+                  participated in two game jams. In the future, we aim to release full games, both as a hobby and as a
+                  profession.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ART SQUARE -->
+    <div class="content-square" id="art-square">
+      <div class="nohover-overlay"></div>
+      <div class="content-label-top center">Art + Design</div>
+
+      <div class="content-square-splash">
+        <div id="design-video-container">
+          <video id="design-video" loop muted>
+          </video>
+        </div>
+      </div>
+
+      <!-- ===============
+        ART SQUARE CONTENTS
+      ================ -->
+      <div class="content-square-details">
+        <div class="details-label center white-text">
+          Art + Design
+        </div>
+
+        <div id="art-lightgallery">
+          <div class="row art-row center">
+            <div class="col-4 art-image-container center" data-src="img/art/arch-1.png"
+              data-sub-html="My customized Linux desktop, designed from scratch starting from a blank terminal. View my dotfiles: https://github.com/64bitpandas/dotfiles/tree/manjaro-summer">
+              <img src="img/art/arch-1.png" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-4 art-image-container center" data-src="img/art/11.png"
+              data-sub-html="Mahatma Gandhi, father of India, destroyer of worlds. My first portrait drawing in a two-part study.">
+              <img src="img/art/11.png" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-4 art-image-container center" data-src="img/art/16.jpg"
+              data-sub-html="'Sunset on Europa,' my submission to the MrSuicideSheep Art Challenge 2019.">
+              <img src="img/art/16.jpg" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row art-row">
+            <div class="col-4 art-image-container center" data-src="img/art/stickers.jpg"
+              data-sub-html="These LaunchHacks stickers showcase my custom-designed logo for the hackathon.">
+              <img src="img/art/stickers.jpg" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-4 art-image-container center" data-src="img/art/06.png"
+              data-sub-html="Custom wallpaper and color scheme drawn for my Linux desktop.">
+              <img src="img/art/06.png" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-4 art-image-container center white-background" data-src="img/profile-art.png"
+              data-sub-html="Realistic panda drawing that hides in my site somewhere... (can you find him?)">
+              <img src="img/profile-art.png" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row art-row">
+            <div class="col-4 art-image-container center" data-src="img/art/powershell.jpg"
+              data-sub-html="My Windows wallpaper recreation- one of my first landscape drawings.">
+              <img src="img/art/powershell.jpg" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-4 art-image-container center" data-src="img/art/15_new.png"
+              data-sub-html="Bamboo Forest - exclusive background for my 2019 website's splash screen!">
+              <img src="img/art/15_new.png" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-4 art-image-container center" data-src="img/art/12.png"
+              data-sub-html="Bob Ross, the legendary painter. My second portrait drawing in a two-part study.">
+              <img src="img/art/12.png" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row art-row">
+            <div class="col-4 art-image-container center" data-src="img/art/03-upscaled.png"
+              data-sub-html="My logo, the Pixel Panda.">
+              <img src="img/art/03-upscaled.png" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-4 art-image-container center" data-src="img/art/01-smaller.png"
+              data-sub-html="The first drawing I made after graduating high school.">
+              <img src="img/art/01-smaller.png" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-4 art-image-container center" data-src="img/art/4.png"
+              data-sub-html="Pixel art I created for an unreleased game, Tao of Light.">
+              <img src="img/art/4.png" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row art-row">
+            <div class="col-4 art-image-container center" data-src="img/about.svg"
+              data-sub-html="Vector art for the background of the About section of the 2019 website.">
+              <img src="img/about.svg" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-4 art-image-container center" data-src="img/art/drawabox.jpg"
+              data-sub-html="I'm currently working on the Drawabox lesson sets. This is a sample from my Lesson 1 submission.">
+              <img src="img/art/drawabox.jpg" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-4 art-image-container center" data-src="img/design.png"
+              data-sub-html="Vector art representation of my Linux desktop.">
+              <img src="img/design.png" class="art-img">
+              <div class="art-hover center">
+                <i class="fas fa-search white-text fa-2x"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- ===============
+        CODE MODALS
+      ================ -->
+    <div id="code-modals">
+
+
+      <div class="code-modal websites-section center" id="img-bananium-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">Bananium Labs</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/bananium-site.png">
+
+            <div class="row">
+              <div class="col-6 center">
+                <a target="_blank" href="https://bananiumlabs.com/">
+                  <button class="org-button button-bananium">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-6 center">
+                <a target="_blank" href="https://github.com/BananiumLabs/BananiumSite">
+                  <button class="org-button button-bananium">Source Code</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">I created the Bananium Labs website alongside cofounder Eric Qian. We are
+              currently in the process of revamping it to better reflect our position as a nonprofit organization.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-modal websites-section center" id="img-launchhacks-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">LaunchHacks</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/launchhacks-site.png">
+
+            <div class="row">
+              <div class="col-6 center">
+                <a target="_blank" href="https://launchhacks.tech/2019">
+                  <button class="org-button button-bananium">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-6 center">
+                <a target="_blank" href="https://github.com/BananiumLabs/LaunchHacksSite">
+                  <button class="org-button button-bananium">Source Code</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">The LaunchHacks site was created from scratch by me and the 2019 LaunchHacks Tech
+              Team. I designed the website, the logos, and the animated banner. </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-modal websites-section center" id="img-2tbs-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">Two Terabyte Studios</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/2tbs-site.png">
+
+            <div class="row">
+              <div class="col-6 center">
+                <a target="_blank" href="https://2tbs.bananiumlabs.com/">
+                  <button class="org-button button-bananium">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-6 center">
+                <a target="_blank" href="https://github.com/2TBS/2tbs-site">
+                  <button class="org-button button-bananium">Source Code</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">The 2TBS website was one of my first web design projects and served as the base
+              for the new Bananium Labs website.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-modal games-section center" id="img-irtp-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">It's Rude To Point</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/irtp-gameplay.png">
+
+            <div class="row">
+              <div class="col-6 center">
+                <a target="_blank" href="https://itch.io/jam/gmtk-2019/rate/461113">
+                  <button class="org-button button-2tbs">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-6 center">
+                <a target="_blank" href="https://64bitpandas.itch.io/its-rude-to-point">
+                  <button class="org-button button-2tbs">Play Game</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">It's Rude To Point is a tactile menagerie of point-and-click action minigames,
+              all of which revolve around the use of a
+              single on-screen finger. Your finger can do a lot of things: grab onto objects, flick them away, and even
+              spin around to
+              do some 360-degree pointing. Simply survive as long as you can with just your finger, while the minigames
+              only get
+              harder and faster!
+              <br><br>
+              IRTP was created in 48 hours and submitted to Mark Brown's GMTK Game Jam 2019, the largest game jam on
+              itch.io with over 2500 submissions.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-modal games-section center" id="img-bullet-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">Bullet Heaven</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/bullet-gameplay.png">
+
+            <div class="row">
+              <div class="col-6 center">
+                <a target="_blank" href="https://itch.io/jam/scorejam5/rate/442281">
+                  <button class="org-button button-2tbs">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-6 center">
+                <a target="_blank" href="https://epicrider.itch.io/bullet-heaven">
+                  <button class="org-button button-2tbs">Play Game</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">A "twin"-stick shooter with 2% aim and 200% righteousness. Fend off against
+              endless waves of demonic forces, and let
+              your name be known across the heavens.
+              <br><br>
+              Bullet Heaven was initially developed in 72 hours for ScoreSpace Jam
+              5, and is in the continued development stage. The official release will be announced soon!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-modal games-section center" id="img-atomblast-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">AtomBlast</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/atomblast-gameplay.png">
+
+            <div class="row">
+              <div class="col-12 center">
+                <a href="#">
+                  <button class="org-button button-2tbs" disabled>Coming Soon!</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">AtomBlast is an online multiplayer arena game set at the atomic level. You
+              control your own atom and fight with your
+              team against other players to gain the most points. Collect atoms to craft into compounds with the click
+              of a button-
+              each compound has unique qualities that can help you attack, defend, and gain buffs! Strategically minded
+              maps,
+              weaponry, team play, and game modes only add to the fuel!
+
+              <br><br>
+
+              AtomBlast is a project created in collaboration with <a href="https://bananiumlabs.com">BananiumLabs.</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-modal hackathons-section center" id="img-carrotcane-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">CarrotCane</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/carrotcane-img.jpg">
+
+            <div class="row">
+              <div class="col-6 center">
+                <a target="_blank" href="https://devpost.com/software/carrotcane">
+                  <button class="org-button button-trisagion">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-6 center">
+                <a target="_blank" href="https://github.com/BananiumLabs/CarrotCane">
+                  <button class="org-button button-trisagion">Source Code</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">CarrotCane is a DIY cane attachment to assist the blind and visually impaired.
+              Features include: automatic detection of
+              nearby objects with audible alarm and feedback when approaching too quickly, ability to attach a
+              smartphone to provide
+              live GPS tracking and video feed, and online supervisor console to give voice directions and monitor video
+              feed for the
+              caneholder.
+              <br><br>
+              CarrotCane was awarded 1st Place Overall at TinoHacks II in 2018!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-modal hackathons-section center" id="img-audisea-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">AudiSea</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/audisea-img.png">
+
+            <div class="row">
+              <div class="col-6 center">
+                <a target="_blank" href="https://devpost.com/software/audisea">
+                  <button class="org-button button-trisagion">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-6 center">
+                <a target="_blank" href="https://github.com/BananiumLabs/audisea">
+                  <button class="org-button button-trisagion">Source Code</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">AudiSea is an ocean whose waves sync up to the beats of whatever music is
+              playing, letting the user sea the music
+              they're listening to. It also has fish and dolphins that appear periodically in sync with the music. We
+              also added voice
+              recognition to allow the user to play their music hands-free by integrating our app with Spotify.
+              <br><br>
+              AudiSea was awarded 4th Place Overall at MenloHacks III!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-modal hackathons-section center" id="img-aegis-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">AegisVR</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/aegis-img.jpg">
+
+            <div class="row">
+              <div class="col-6 center">
+                <a target="_blank" href="https://devpost.com/software/aegis">
+                  <button class="org-button button-trisagion">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-6 center">
+                <a target="_blank" href="https://github.com/BananiumLabs/Aegis">
+                  <button class="org-button button-trisagion">Source Code</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">Aegis is an interactive virtual reality self-defense simulation, focused on
+              educating its users on how to deal with
+              dangerous situations involving another person. We wanted to spread awareness about self defense and
+              educate people on
+              techniques so they would have a better chance of escape should they ever end up in such a situation. In
+              the future, we'd
+              like to add more scenarios and refine the animations to give a smoother learning experience.
+              <br><br>
+              Aegis was created as a part of BaseHacks 3.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-modal hackathons-section center" id="img-hotswap-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">HotSwap</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/hotswap-img.png">
+
+            <div class="row">
+              <div class="col-6 center">
+                <a target="_blank" href="https://devpost.com/software/hotswap">
+                  <button class="org-button button-trisagion">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-6 center">
+                <a target="_blank" href="https://github.com/BananiumLabs/HotSwap">
+                  <button class="org-button button-trisagion">Source Code</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">The perfect platform to encourage collaboration and learning in a safe
+              environment by facilitating book and supply
+              exchanges at school.
+
+              <br><br>
+              HotSwap won 4th place overall as well as best .TECH website for PioneerHacks 2018!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-modal hackathons-section center" id="img-honeydue-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">HoneyDue</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/honeydue-img.png">
+
+            <div class="row">
+              <div class="col-6 center">
+                <a target="_blank" href="https://devpost.com/software/honeydue">
+                  <button class="org-button button-trisagion">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-6 center">
+                <a target="_blank" href="https://github.com/BananiumLabs/honeydue">
+                  <button class="org-button button-trisagion">Source Code</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">Responsive cross-platform app which intelligently generates schedules to help you
+              stay focused on your homework!
+              <br><br>
+              HoneyDue won the award for best .TECH website in Firebird Hacks 2017!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-modal hackathons-section center" id="img-aspicio-modal">
+        <div class="close-modal-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-title">Aspicio</div>
+        <div class="row">
+          <div class="col-6 center">
+            <img class="timeline-image rounded-image" src="img/code/aspicio-img.jpg">
+
+            <div class="row">
+              <div class="col-6 center">
+                <a target="_blank" href="https://devpost.com/software/Aspicio">
+                  <button class="org-button button-trisagion">Visit Site</button>
+                </a>
+              </div>
+              <div class="col-6 center">
+                <a target="_blank" href="https://github.com/BananiumLabs/Aspicio">
+                  <button class="org-button button-trisagion">Source Code</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="timeline-text">Instead of walking with a cane or some other aid, visually impaired people walk
+              around with their phone with Aspicio
+              running. The lightweight app built with angular takes constant pictures and connects to a python based
+              server to analyze
+              the photos. With the use of powerful GPU's in the cloud, the image is processed almost instantly and sent
+              back to the
+              phone which gives vibration and sound feedback if an obstacle is there.
+              <br><br>
+              Aspicio was developed for MVHacks 2017.
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+    <div id="back-button-container">
+      <button id="back-button" class="expand-button">
+        <i class="fas fa-arrow-left fa-2x"></i>
+        <span class="expand-button-content hidden">
+          Back
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div id="about-modal-container">
+    <div class="code-modal about-modal center">
+      <div class="modal-title">About Me</div>
+      <p class="about-text">
+        Hi there! I'm Ben, a student at UC Berkeley pursuing Computer Science and Psychology.
+      </p>
+      <p class="about-text">
+        Currently, I am focusing on web development and am proficient in HTML, CSS, JavaScript, TypeScript, JQuery, and
+        Angular.
+        I am about to begin a project where I hope to familiarize myself with React. I also enjoy game development and
+        digital art.
+      </p>
+      <p class="about-text">
+        I'm also frequently involved in local hackathons and coding events- I've been to 8, created award-winning
+        projects at 4,
+        and have organized one of my own. In my adventures, I've also cofounded Bananium Labs, a nonprofit that
+        provides support to help fellow aspiring student developers get started with their own projects.
+      </p>
+      <p class="about-text">
+        Every summer, I do a complete website redesign! This is my second website (you can view last year's if your
+        curious <a href="https://bencuan.me/2018">over here</a>).
+      </p>
+    </div>
+  </div>
+
+  <div id="close-button-container">
+    <button id="close-button" class="expand-button">
+      <i class="fas fa-times fa-2x"></i>
+      <span class="expand-button-content hidden">
+        Close
+      </span>
+    </button>
+  </div>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+
+
+
+</body>
+
+<footer>
+  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="https://kit.fontawesome.com/585da7c89d.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/vendor/smoothscroll.js"></script>
+
+  <script src="js/vendor/lightGallery-1.6.12/js/lightgallery-all.min.js"></script>
+  <script type="text/javascript" src="js/vendor/jquery.lazy.min.js"></script>
+  <script src="js/mobile.js"></script>
+</footer>
+
+</html>
