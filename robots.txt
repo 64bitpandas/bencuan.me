@@ -3,3 +3,6 @@
 # Allow crawling of all content
 User-agent: *
 Disallow:
+
+# Add sitemap
+Sitemap: http://bencuan.me/sitemap.xml
