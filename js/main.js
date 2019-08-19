@@ -28,7 +28,7 @@ if (window.location.protocol === 'https:') //remote
       // your configuration goes here
       scrollDirection: 'vertical',
       effect: 'fadeIn',
-      visibleOnly: true,
+      visibleOnly: false,
       onError: function (element) {
         console.log('error loading ' + element.data('src'));
       }

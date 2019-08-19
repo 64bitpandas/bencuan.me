@@ -834,12 +834,26 @@ video {
   transform: scale(1.1);
 }
 
+.button-2tbs:disabled {
+  background-color: #bbdefb;
+  pointer-events: none;
+  cursor: default;
+}
+
 .button-2tbs {
   background-color: #283593;
 }
 
 .button-bananium {
   background-color: #ffb300;
+}
+
+.button-launchhacks {
+  background-color: #bbdefb;
+}
+
+.button-trisagion {
+  background-color: #1de9b6;
 }
 
 /* ==========================
