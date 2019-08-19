@@ -18,13 +18,17 @@ if (window.location.protocol === 'https:') //remote
     $(".lightgallery").lightGallery({
       thumbnail: true
     });
+    $("#art-lightgallery").lightGallery({
+      thumbnail: true,
+      selector: '.art-image-container'
+    });
 
 
     $('img').Lazy({
       // your configuration goes here
       scrollDirection: 'vertical',
       effect: 'fadeIn',
-      visibleOnly: false,
+      visibleOnly: true,
       onError: function (element) {
         console.log('error loading ' + element.data('src'));
       }

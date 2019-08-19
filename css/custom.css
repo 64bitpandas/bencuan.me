@@ -71,6 +71,10 @@ a:active, a:focus, button:active, button:focus {
   color: white !important;
 }
 
+.white-background {
+  background-color: white !important;
+}
+
 /* ====================================
  * INTERCEPT PAGE
  * ==================================== */
@@ -525,7 +529,7 @@ video {
 
 #close-button-container {
   top: 5vw;
-  z-index: 9999;
+  z-index: 999;
 }
 
 /* CONTENT SQUARE BASE */
@@ -715,10 +719,6 @@ video {
   clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
 }
 
-#art-img {
-  clip-path: inset(36% 6% 44% 75%);
-}
-
 #about-img {
   background-color: transparent !important;
 }
@@ -906,14 +906,14 @@ video {
   pointer-events: all;
 }
 
-.code-image, .code-hover {
+.code-image, .code-hover, .art-hover {
   height: 100%;
   width: 100%;
   margin: auto;
   vertical-align: middle;
 }
 
-.code-hover {
+.code-hover, .art-hover {
   position: absolute;
   pointer-events: none;
   background-color: #55555555;
@@ -932,14 +932,14 @@ video {
   line-height: normal;
 }
 
-.code-image-container {
+.code-image-container, .art-image-container {
   position: relative;
   cursor: pointer;
   border-radius: 10px;
   border: 3px solid transparent;
 }
 
-.code-image-container:hover .code-hover {
+.code-image-container:hover .code-hover, .art-image-container:hover .art-hover {
   opacity: 1;
 }
 
@@ -1003,6 +1003,41 @@ video {
 
 #art-arch {
   border-color: #1793d1;
+}
+
+.art-hover i {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+}
+
+.art-image-container:hover img {
+  filter: blur(5px);
+}
+
+.art-img {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  border-radius: 10px;
+}
+
+.art-image-container {
+  /* width: 33vw; */
+  height: 33vw;
+  text-align: center;
+  margin: 0;
+  border: none;
+}
+
+.art-row {
+  min-height: 33vw;
 }
 
 /* ==========================
