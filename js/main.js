@@ -277,6 +277,7 @@ function openModal(imgID) {
   $('#' + imgID + '-modal').addClass('code-modal-activated');
   $('#code-square').addClass('blur');
   $('#close-button-container').addClass('blur');
+  $('#close-button-container').css('pointer-events', 'none');
 }
 
 function closeModal() {
@@ -284,4 +285,5 @@ function closeModal() {
   $('.code-modal-activated').removeClass('code-modal-activated');
   $('#code-square').removeClass('blur');
   $('#close-button-container').removeClass('blur');
+  $('#close-button-container').css('pointer-events', 'all');
 }

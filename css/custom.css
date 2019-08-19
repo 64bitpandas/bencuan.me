@@ -896,7 +896,7 @@ video {
   /* Hidden */
   opacity: 0;
   pointer-events: none;
-  z-index: 100000;
+  z-index: 10000000;
   border-radius: 10px;
 }
 
@@ -983,7 +983,7 @@ video {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  z-index: 99999;
+  z-index: 10000000;
   top: 0;
 }
 
@@ -1057,6 +1057,7 @@ video {
   background-color: #e0f2f1;
   transform: none;
   opacity: 1;
+  z-index: 100000;
   /* pointer-events: all !important; */
 }
 
