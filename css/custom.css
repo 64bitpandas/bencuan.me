@@ -1073,6 +1073,7 @@ video {
   transform: none;
   opacity: 1;
   z-index: 100000;
+  overflow-y: auto;
   /* pointer-events: all !important; */
 }
 
@@ -1085,6 +1086,19 @@ video {
   pointer-events: none;
   position: absolute;
   top: 0;
+}
+
+.about-text {
+  color: black;
+  font-size: 1rem;
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: left;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.about-text a {
+  color: #1976d2;
 }
 
 /* ==========================
