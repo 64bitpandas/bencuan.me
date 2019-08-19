@@ -768,6 +768,7 @@ video {
   background-position-x: 5vw;
   position: absolute;
   top: 0;
+  overflow: visible;
 }
 
 .timeline-box {
