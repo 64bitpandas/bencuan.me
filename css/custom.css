@@ -318,6 +318,7 @@ a:active, a:focus, button:active, button:focus {
   left: 0;
   overflow: hidden;
   z-index: -1;
+  background-color: #CDED71;
 }
 
 video {
