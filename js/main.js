@@ -78,7 +78,7 @@ if (window.location.protocol === 'https:') //remote
   $('#github-button').click (() => {openUrl('//github.com/64bitpandas');});
   $('#linkedin-button').click (() => {openUrl('//linkedin.com/in/bencuan');});
   $('#email-button').click (() => {openUrl('mailto:hello@bencuan.me');});
-  $('#resume-button').click (() => {openUrl('OLD/assets/resume-bencuan.pdf');});
+  $('#resume-button').click (() => {openUrl('Resume2019.pdf');});
   $('#back-button').click(() => {
     $('#content').css('animation', 'hide-content 1.5s ease-in-out 0s 1 forwards');
     $('#back-button-container').css('opacity', 1);
