@@ -19,6 +19,17 @@ if (window.location.protocol === 'https:') //remote
       thumbnail: true
     });
 
+
+    $('img').Lazy({
+      // your configuration goes here
+      scrollDirection: 'vertical',
+      effect: 'fadeIn',
+      visibleOnly: false,
+      onError: function (element) {
+        console.log('error loading ' + element.data('src'));
+      }
+    });
+
     $('.expand-button').hover(function() {
       setTimeout(() => {
         // Check to make sure button is still hovered over before fully expanding

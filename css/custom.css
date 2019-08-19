@@ -858,6 +858,7 @@ video {
   overflow: visible;
   border-radius: 0 15px 15px 15px;
   margin-top: 15vh;
+  margin-bottom: 15vh;
 }
 
 .code-tab {
