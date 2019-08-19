@@ -67,6 +67,10 @@ a:active, a:focus, button:active, button:focus {
   border-radius: 10px;
 }
 
+.white-text {
+  color: white !important;
+}
+
 /* ====================================
  * INTERCEPT PAGE
  * ==================================== */
@@ -723,7 +727,7 @@ video {
  *  ORGS PAGE
  * ========================== */
 
-#org-label {
+.details-label {
   font-size: 3.5rem;
   color: black;
   margin-top: 5vh;
@@ -843,27 +847,40 @@ video {
  * ========================== */
 
 #code-content {
-  margin-top: 20vh;
   overflow: visible;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  background-color: #ffe082;
 }
 
 .code-section {
   position: relative;
   overflow: visible;
   border-radius: 0 15px 15px 15px;
+  margin-top: 15vh;
 }
 
 .code-tab {
   position: absolute;
-  border-radius: 15px 15px 0 0;
+  border-radius: 2vh 2vh 0 0;
   transform: translateY(-99%);
-  height: 5vh;
-  width: 15vw;
+  height: 7vh;
+  width: 30vw;
   background-color: inherit;
+  font-size: 3rem;
+  color: black;
 }
 
 .websites-section {
   background-color: #90caf9;
+}
+
+.games-section {
+  background-color: #e0f2f1;
+}
+
+.hackathons-section {
+  background-color: #ffecb3;
 }
 
 .code-modal {
@@ -895,11 +912,6 @@ video {
   vertical-align: middle;
 }
 
-.code-tab {
-  font-size: 2rem;
-  color: black;
-}
-
 .code-hover {
   position: absolute;
   pointer-events: none;
@@ -915,7 +927,8 @@ video {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3rem;
+  font-size: 2rem;
+  line-height: normal;
 }
 
 .code-image-container {
@@ -981,6 +994,16 @@ video {
   background-color: #333333;
 }
 
+.art-box {
+  min-height: 30vh;
+  border: 8px solid black;
+  background-color: white;
+}
+
+#art-arch {
+  border-color: #1793d1;
+}
+
 /* ==========================
  *  ABOUT SQUARE
  * ========================== */
@@ -1005,10 +1028,10 @@ video {
   opacity: 0;
   height: 100vh;
   width: 100vw;
-  z-index: 1000000;
+  z-index: 101;
   /* animation: show-after-delay 1s ease-in-out 1s 1 forwards; */
   pointer-events: none;
-  position: fixed;
+  position: absolute;
   top: 0;
 }
 

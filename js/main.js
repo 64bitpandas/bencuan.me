@@ -146,6 +146,8 @@ if (window.location.protocol === 'https:') //remote
     $('#about-modal-container').css('display', 'none');
     $('#about-modal-container').css('animation', '');
     $('.about-modal').css('pointer-events', 'none');
+    $('.content-label-bottom').show();
+    $('.content-label-top').show();
 
     setTimeout(() => {
       currOpen.css('z-index', '');
@@ -212,6 +214,8 @@ function openContent($element) {
     $('#back-button-container').css('opacity', 0);
     $('#close-button-container').css('opacity', 1);
     $('.hide-on-expand').css('display', 'none');
+    $('.content-label-bottom').hide();
+    $('.content-label-top').hide();
 
     if($element.attr('id') === 'org-square') {
       $('#org-label').addClass('org-border');
