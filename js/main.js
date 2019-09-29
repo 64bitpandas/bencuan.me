@@ -58,7 +58,7 @@ if (window.location.protocol === 'https:') //remote
     $('#launch-button').hover(function() {
       setTimeout(() => {
         if($('#launch-button:hover').length > 0) {
-          $('#launch-button').html(`<i class="fas fa-rocket"></i>`)
+          $('#launch-button').html(`<i class="icon-rocket"></i>`)
         }
       }, 100);
     }, function () {

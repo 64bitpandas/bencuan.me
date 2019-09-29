@@ -444,7 +444,28 @@ video,
   display: inline-block;
   white-space: nowrap;
   cursor: pointer;
+  position: relative;
 }
+
+/* .expand-button i {
+  font-size: 200%;
+  position: absolute;
+  left: 0.5vw;
+  margin: auto;
+  text-align: center;
+  top: 0.5vw;
+} */
+
+.expand-button i {
+  font-size: 200%;
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 .expand-button-black {
   color: black;
@@ -471,8 +492,10 @@ video,
 
   .expand-button:hover i {
     color: black;
-    transform: translateY(-0.5rem);
+    /* transform: translateY(-0.5vh); */
     padding-right: 1rem;
+    transform: translateY(-50%);
+    left: 0;
   }
 }
 
@@ -486,6 +509,7 @@ video,
   overflow: hidden;
   transition: width 2s ease-in-out;
   cursor: pointer;
+  transform: translateX(1vw);
 }
 
 #launch-button {
