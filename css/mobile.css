@@ -219,9 +219,9 @@ video {
 
 @media (max-width: 767px) {
   .splash-video-container {
-    background: url('../img/videoframe.png') center center / cover no-repeat;
+    background: url('../img/art/15_new.png') center center / cover no-repeat;
   }
-  video {
+  video, #splash-video {
     display: none;
   }
 }

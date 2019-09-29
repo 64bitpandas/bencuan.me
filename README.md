@@ -5,7 +5,7 @@ My personal website.
 Note to myself: `live-server`
 
 ## Status
- Undergoing complete redesign. ETA: Early August 2019
+ Redesign complete; optimizations and bugfixes in progress. ETA to completion: Mid-late October
  
 ## Contact 
 

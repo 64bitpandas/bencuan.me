@@ -147,12 +147,12 @@ if (window.location.protocol === 'https:') //remote
       $('#about-img').attr('src', 'img/panda.svg');
   })
 
-  $('#art-square').hover(() => {
-    $('#design-video').get(0).play();
-  }, () => {
-      $('#design-video').get(0).pause();
-      $('#design-video').get(0).currentTime = 0;
-  })
+  // $('#art-square').hover(() => {
+  //   $('#design-video').get(0).play();
+  // }, () => {
+  //     $('#design-video').get(0).pause();
+  //     $('#design-video').get(0).currentTime = 0;
+  // })
 
   $('#close-button-container').click(() => {
     currOpen.removeClass('content-square-activated').css('z-index', 9999);
