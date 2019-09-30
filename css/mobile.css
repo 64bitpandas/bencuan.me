@@ -59,7 +59,10 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-a:active, a:focus, button:active, button:focus {
+a:active,
+a:focus,
+button:active,
+button:focus {
   outline: 0;
   border: none;
   -moz-outline-style: none;
@@ -101,7 +104,8 @@ a:active, a:focus, button:active, button:focus {
   font-size: 2rem;
 }
 
-.splash-image-pixel, .splash-image-art {
+.splash-image-pixel,
+.splash-image-art {
   height: 30vh;
   width: 30vh;
   /* background-image: url('../img/profile.png'); */
@@ -161,7 +165,8 @@ a:active, a:focus, button:active, button:focus {
   cursor: pointer;
 }
 
-.welcome-box:hover .welcome-box-label, .welcome-label-selected {
+.welcome-box:hover .welcome-box-label,
+.welcome-label-selected {
   opacity: 1 !important;
 }
 
@@ -192,7 +197,7 @@ a:active, a:focus, button:active, button:focus {
   z-index: -1;
 }
 
-video {
+video, #design-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -221,7 +226,9 @@ video {
   .splash-video-container {
     background: url('../img/art/15_new.png') center center / cover no-repeat;
   }
-  video, #splash-video {
+
+  video,
+  #splash-video {
     display: none;
   }
 }
@@ -300,6 +307,10 @@ video {
   cursor: pointer;
 }
 
+.expand-button i {
+  font-size: 200%;
+}
+
 .expand-button-black {
   color: black;
   border: 2px solid black;
@@ -314,6 +325,7 @@ video {
     margin-left: 3vh;
     margin-right: 3vh;
   }
+
   .expand-button:hover {
     width: 24vh;
     border-radius: 8vh;
@@ -321,6 +333,7 @@ video {
     background-color: white;
     color: black;
   }
+
   .expand-button:hover i {
     color: black;
     transform: translateY(-0.5rem);
@@ -342,7 +355,7 @@ video {
 
 #launch-button {
   height: 8vh;
-  width: 16vh;
+  width: 20vh;
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid white;
   color: white;
@@ -357,7 +370,8 @@ video {
   cursor: pointer;
 }
 
-#launch-button:hover, .launch-button-activated {
+#launch-button:hover,
+.launch-button-activated {
   width: 8vh !important;
   border-radius: 100%;
   box-shadow: 0px 0px 12px 1px white;
@@ -365,7 +379,8 @@ video {
   background-color: white !important;
 }
 
-#launch-button:hover i, .launch-button-activated i {
+#launch-button:hover i,
+.launch-button-activated i {
   color: black;
 }
 
@@ -388,7 +403,8 @@ video {
 
 /* BUTTONS */
 
-#back-button-container, #close-button-container {
+#back-button-container,
+#close-button-container {
   position: absolute;
   opacity: 0;
   z-index: 999;
@@ -496,6 +512,7 @@ video {
   margin-right: auto;
   padding: 0;
   z-index: -10;
+  background: url('../img/design.png') center center / cover no-repeat;
 }
 
 @media (max-aspect-ratio: 16/9) {
@@ -581,7 +598,8 @@ video {
   animation: org-img-anim-3 1s ease-in-out infinite;
 }
 
-#org-img-3, #org-img-2 {
+#org-img-3,
+#org-img-2 {
   clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
 }
 
@@ -603,7 +621,8 @@ video {
   position: relative;
 }
 
-.org-border:before, .org-border:after {
+.org-border:before,
+.org-border:after {
   content: '';
   display: block;
   position: absolute;
@@ -781,14 +800,17 @@ video {
   pointer-events: all;
 }
 
-.code-image, .code-hover, .art-hover {
+.code-image,
+.code-hover,
+.art-hover {
   height: 100%;
   width: 100%;
   margin: auto;
   vertical-align: middle;
 }
 
-.code-hover, .art-hover {
+.code-hover,
+.art-hover {
   position: absolute;
   pointer-events: none;
   background-color: #55555555;
@@ -807,14 +829,16 @@ video {
   line-height: normal;
 }
 
-.code-image-container, .art-image-container {
+.code-image-container,
+.art-image-container {
   position: relative;
   cursor: pointer;
   border-radius: 10px;
   border: 3px solid transparent;
 }
 
-.code-image-container:hover .code-hover, .art-image-container:hover .art-hover {
+.code-image-container:hover .code-hover,
+.art-image-container:hover .art-hover {
   opacity: 1;
 }
 
