@@ -7,13 +7,66 @@ Created by Ben Cuan
 /* ----------
 Imports
 ------------- */
-@use 'mixins';
-@use 'colors';
-@use 'fonts';
+@use '_mixins';
+@use '_colors';
+@use '_fonts';
 
 /* ----------
 Landing
 ------------- */
-.splash-gradient {
 
+#landing {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.splash-gradient {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+
+  &:after,
+  &:before {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 400%;
+    height: 400%;
+    z-index: -1;
+  }
+
+  &:after {
+    @include mixins.stepped-radial-gradient(colors.$gradient3, colors.$gradient1);
+    background-size: 400%;
+    animation: landingAnim 10s linear infinite;
+  }
+
+  &:before {
+    background-color: colors.$gradient3;
+  }
+}
+
+@include mixins.keyframes(landingAnim) {
+  25% {
+    transform: translateY(-75%);
+    filter: hue-rotate(-30deg);
+  }
+
+  50% {
+    transform: translate(-75%, -75%);
+
+  }
+
+  75% {
+    transform: translate(-75%, 0);
+    filter: hue-rotate(30deg);
+  }
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+    filter: hue-rotate(0deg);
+  }
 }

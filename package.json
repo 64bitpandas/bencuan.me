@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm-run-all --parallel watch serve postcss",
-    "watch": "sass --watch css/sass/custom.scss:css/build/custom.css",
+    "watch": "sass --watch css/sass/:css/build",
     "serve": "live-server",
     "postcss": "postcss css/build/custom.css --use autoprefixer cssnano -d css/ --watch",
-    "build": "sass css/sass/custom.scss:css/build/custom.css && npm run postcss"
+    "build": "sass css/sass/:css/build/ && npm run postcss"
   },
   "repository": {
     "type": "git",

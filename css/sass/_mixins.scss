@@ -69,3 +69,17 @@ A collection of helpful Sass mixins.
     @content;
   }
 }
+
+// From https://medium.com/the-missing-bit/mitigating-css-gradient-banding-45b88493d228
+@mixin stepped-radial-gradient($bg1, $bg2) {
+  $g: $bg1;
+  $steps: 20;
+
+  @for $i from 1 to $steps {
+    $g: append($g, fade-out($bg2, 1 / $i) percentage($i / $steps), comma);
+    $g: append($g, fade-out($bg2, 1 / $i) percentage(($i + 0.6) / $steps), comma);
+  }
+
+  $g: append($g, $bg2);
+  background: radial-gradient(circle, $g);
+}
