@@ -12,7 +12,7 @@ First, run `npm i --save-dev` to install all dependencies.
 
 To serve locally, run `npm start`. To build, run `npm run build`.
 
-As with most of my sites, this site is built on top of the fantastic [HTML5 Boilerplate](https://html5boilerplate.com/). I've taken the liberty to add on Sass support, but everything else is made with plain HTML5 and Javascript.
+As with most of my sites, this site is built on top of the fantastic [HTML5 Boilerplate](https://html5boilerplate.com/). I use plain HTML5 and Javascript with Sass. CSS is postprocessed using [postcss](https://postcss.org/ with [autoprefixer](https://github.com/postcss/autoprefixer) and [cssnano](https://cssnano.co/).
 
 Some libraries that I used are:
  - [Modernizr](https://modernizr.com/)

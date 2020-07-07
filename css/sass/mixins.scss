@@ -1,0 +1,71 @@
+/* ===================================
+A collection of helpful Sass mixins.
+====================================== */
+
+/**
+ * Rem units with px fallback from https://w3bits.com/rem-fallback/
+ * $size: Font-size to be converted from `px` to `rem`
+ * $base: Base font-size (Change its value as per your need)
+ * @return void
+ */
+@mixin font-size($size, $base: 16) {
+  font-size: $size; // fallback for old browsers
+  font-size: ($size / $base) * 1rem;
+}
+
+/**
+ * Easy media queries from https://w3bits.com/sass-mixins/
+ * Usage: @include screen('tablet'/'desktop'/'mobile')
+ * $size: one of three strings: desktop, tablet, or mobile
+ */
+@mixin screen($size) {
+  $desktop: "(min-width: 1024px)";
+  $tablet: "(min-width: 768px) and (max-width: 1023px)";
+  $mobile: "(max-width: 767px)";
+
+  @if $size==desktop {
+    @media only screen and #{$desktop} {
+      @content;
+    }
+  }
+
+  @else if $size==tablet {
+    @media only screen and #{$tablet} {
+      @content;
+    }
+  }
+
+  @else if $size==mobile {
+    @media only screen and #{$mobile} {
+      @content;
+    }
+  }
+
+  @else {
+    @media only screen and #{$size} {
+      @content;
+    }
+  }
+}
+
+/**
+ * Vendor prefixing for keyframes from https://w3bits.com/sass-mixins/
+ * Usage: @include keyframes(anim) {
+ *   50% { ... }
+ *   100% { ... }
+ * }
+ * $name: The name of the animation.
+ */
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
