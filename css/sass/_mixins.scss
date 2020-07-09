@@ -19,8 +19,8 @@ A collection of helpful Sass mixins.
  * $size: one of three strings: desktop, tablet, or mobile
  */
 @mixin screen($size) {
-  $desktop: "(min-width: 1024px)";
-  $tablet: "(min-width: 768px) and (max-width: 1023px)";
+  $desktop: "(min-width: 1366px)";
+  $tablet: "(min-width: 768px) and (max-width: 1365px)";
   $mobile: "(max-width: 767px)";
 
   @if $size==desktop {
@@ -91,4 +91,20 @@ A collection of helpful Sass mixins.
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+/*
+  Have different font sizes for each screen size.
+  $phone is the font size for phones, and so on.
+*/
+@mixin responsive-text($phone, $tablet, $computer) {
+  @include screen('mobile') {
+    @include font-size($phone);
+  }
+  @include screen('desktop') {
+    @include font-size($computer);
+  }
+  @include screen('tablet') {
+    @include font-size($tablet);
+  }
 }

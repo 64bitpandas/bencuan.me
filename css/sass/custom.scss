@@ -12,6 +12,14 @@ Imports
 @use '_fonts';
 
 /* ----------
+Global
+------------- */
+
+html {
+  transition-duration: 0.5s;
+}
+
+/* ----------
 Landing
 ------------- */
 
@@ -74,7 +82,7 @@ Landing
   @include mixins.center;
   width: 80%;
   height: 70%;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
   padding: 2% 2% 5% 5%;
 
@@ -86,20 +94,19 @@ Landing
   color: white;
   font-family: fonts.$neue-haas;
   font-weight: 500;
-  @include mixins.font-size(100);
+  @include mixins.responsive-text(50, 75, 100);
 }
 
 .splash-name {
   color: white;
   font-family: fonts.$neue-haas;
   font-weight: 700;
-  @include mixins.font-size(250);
+  @include mixins.responsive-text(100, 150, 225);
   line-height: 0.9;
 
   background-image: linear-gradient(90deg, colors.$gradient4, colors.$gradient2);
   background-clip: text;
   color: transparent;
-  // display: inline-block;
   background-size: 300%;
 
   animation: text-animation 10s infinite;
@@ -123,9 +130,109 @@ Landing
   color: white;
   font-family: fonts.$neue-haas;
   font-weight: 500;
-  line-height: 2;
-  @include mixins.font-size(50);
+  padding-top: 2%;
+  line-height: 1;
+  @include mixins.responsive-text(20, 35, 50);
+}
+
+.splash-button-container {
+  height: 15%;
+  margin-top: 10%;
+  width: 70%;
+  margin-left: 15%;
+  z-index: 15;
+}
+
+.splash-button-col {
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
 }
 
 // Landing buttons
+.landing-btn {
+  border-radius: 50%;
+  height: 8vh;
+  width: 8vh;
+  text-align: center;
+  z-index: -1;
 
+  &:hover {
+    cursor: pointer;
+
+    .fab,
+    .fas {
+      @include mixins.responsive-text(30, 50, 60);
+      transition: transform 0.5s;
+      transform: translateY(-15%);
+    }
+  }
+
+  .fab,
+  .fas {
+    color: white;
+    transition: transform 0.5s;
+    @include mixins.responsive-text(20, 35, 40);
+
+    @include mixins.screen('desktop') {
+      padding-top: 23%;
+    }
+
+    @include mixins.screen('tablet') {
+      padding-top: 26%;
+    }
+
+    @include mixins.screen('mobile') {
+      padding-top: 30%;
+    }
+  }
+
+}
+
+.github {
+  background-color: colors.$github;
+}
+
+.linkedin {
+  background-color: colors.$linkedin;
+}
+
+.resume {
+  background-color: colors.$resume;
+}
+
+.email {
+  background-color: colors.$email;
+}
+
+.itch {
+  background-color: colors.$itch;
+}
+
+.splash-info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  z-index: 10;
+  transition: clip-path 0.8s ease;
+}
+
+.splash-info-padding {
+  padding: 2% 5%;
+}
+
+.splash-info-big {
+  color: white;
+  font-family: fonts.$neue-haas;
+  font-weight: 700;
+  @include mixins.responsive-text(100, 150, 225);
+  line-height: 0.9;
+}
+
+.splash-email {
+  margin-top: 7%;
+  @include mixins.responsive-text(50, 75, 125);
+}

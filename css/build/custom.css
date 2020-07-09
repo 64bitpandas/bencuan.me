@@ -30,6 +30,10 @@ A collection of helpful Sass mixins.
  * }
  * $name: The name of the animation.
  */
+/*
+  Have different font sizes for each screen size.
+  $phone is the font size for phones, and so on.
+*/
 /* ===================================
 Color Palette for bencuan.me - v3_2020
 Created by Ben Cuan
@@ -41,6 +45,13 @@ Created by Ben Cuan
 /* ----------
 Imports
 ------------- */
+/* ----------
+Global
+------------- */
+html {
+  transition-duration: 0.5s;
+}
+
 /* ----------
 Landing
 ------------- */
@@ -131,7 +142,7 @@ Landing
   transform: translate(-50%, -50%);
   width: 80%;
   height: 70%;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
   padding: 2% 2% 5% 5%;
 }
@@ -141,22 +152,54 @@ Landing
   color: white;
   font-family: neue-haas-unica, Helvetica, sans-serif;
   font-weight: 500;
-  font-size: 100;
-  font-size: 6.25rem;
+}
+@media only screen and (max-width: 767px) {
+  .splash-hi {
+    font-size: 50;
+    font-size: 3.125rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .splash-hi {
+    font-size: 100;
+    font-size: 6.25rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .splash-hi {
+    font-size: 75;
+    font-size: 4.6875rem;
+  }
 }
 
 .splash-name {
   color: white;
   font-family: neue-haas-unica, Helvetica, sans-serif;
   font-weight: 700;
-  font-size: 250;
-  font-size: 15.625rem;
   line-height: 0.9;
   background-image: linear-gradient(90deg, #C133A3, #0C98D4);
   background-clip: text;
   color: transparent;
   background-size: 300%;
   animation: text-animation 10s infinite;
+}
+@media only screen and (max-width: 767px) {
+  .splash-name {
+    font-size: 100;
+    font-size: 6.25rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .splash-name {
+    font-size: 225;
+    font-size: 14.0625rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .splash-name {
+    font-size: 150;
+    font-size: 9.375rem;
+  }
 }
 @keyframes text-animation {
   0% {
@@ -174,9 +217,203 @@ Landing
   color: white;
   font-family: neue-haas-unica, Helvetica, sans-serif;
   font-weight: 500;
-  line-height: 2;
-  font-size: 50;
-  font-size: 3.125rem;
+  padding-top: 2%;
+  line-height: 1;
+}
+@media only screen and (max-width: 767px) {
+  .splash-desc {
+    font-size: 20;
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .splash-desc {
+    font-size: 50;
+    font-size: 3.125rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .splash-desc {
+    font-size: 35;
+    font-size: 2.1875rem;
+  }
+}
+
+.splash-button-container {
+  height: 15%;
+  margin-top: 10%;
+  width: 70%;
+  margin-left: 15%;
+  z-index: 15;
+}
+
+.splash-button-col {
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.landing-btn {
+  border-radius: 50%;
+  height: 8vh;
+  width: 8vh;
+  text-align: center;
+  z-index: -1;
+}
+.landing-btn:hover {
+  cursor: pointer;
+}
+.landing-btn:hover .fab,
+.landing-btn:hover .fas {
+  transition: transform 0.5s;
+  transform: translateY(-15%);
+}
+@media only screen and (max-width: 767px) {
+  .landing-btn:hover .fab,
+.landing-btn:hover .fas {
+    font-size: 30;
+    font-size: 1.875rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .landing-btn:hover .fab,
+.landing-btn:hover .fas {
+    font-size: 60;
+    font-size: 3.75rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .landing-btn:hover .fab,
+.landing-btn:hover .fas {
+    font-size: 50;
+    font-size: 3.125rem;
+  }
+}
+.landing-btn .fab,
+.landing-btn .fas {
+  color: white;
+  transition: transform 0.5s;
+}
+@media only screen and (max-width: 767px) {
+  .landing-btn .fab,
+.landing-btn .fas {
+    font-size: 20;
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .landing-btn .fab,
+.landing-btn .fas {
+    font-size: 40;
+    font-size: 2.5rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .landing-btn .fab,
+.landing-btn .fas {
+    font-size: 35;
+    font-size: 2.1875rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .landing-btn .fab,
+.landing-btn .fas {
+    padding-top: 23%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .landing-btn .fab,
+.landing-btn .fas {
+    padding-top: 26%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .landing-btn .fab,
+.landing-btn .fas {
+    padding-top: 30%;
+  }
+}
+
+.github {
+  background-color: #181717;
+}
+
+.linkedin {
+  background-color: #0d5aa7;
+}
+
+.resume {
+  background-color: #6F02B5;
+}
+
+.email {
+  background-color: #43A047;
+}
+
+.itch {
+  background-color: #FA5C5C;
+}
+
+.splash-info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  z-index: 10;
+  transition: clip-path 0.8s ease;
+}
+
+.splash-info-padding {
+  padding: 2% 5%;
+}
+
+.splash-info-big {
+  color: white;
+  font-family: neue-haas-unica, Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 0.9;
+}
+@media only screen and (max-width: 767px) {
+  .splash-info-big {
+    font-size: 100;
+    font-size: 6.25rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .splash-info-big {
+    font-size: 225;
+    font-size: 14.0625rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .splash-info-big {
+    font-size: 150;
+    font-size: 9.375rem;
+  }
+}
+
+.splash-email {
+  margin-top: 7%;
+}
+@media only screen and (max-width: 767px) {
+  .splash-email {
+    font-size: 50;
+    font-size: 3.125rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .splash-email {
+    font-size: 125;
+    font-size: 7.8125rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .splash-email {
+    font-size: 75;
+    font-size: 4.6875rem;
+  }
 }
 
 /*# sourceMappingURL=custom.css.map */
