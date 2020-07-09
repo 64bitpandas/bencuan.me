@@ -39,34 +39,93 @@ Landing
 
   &:after {
     @include mixins.stepped-radial-gradient(colors.$gradient3, colors.$gradient1);
-    background-size: 400%;
+    background-size: 300%;
     animation: landingAnim 10s linear infinite;
   }
 
   &:before {
     background-color: colors.$gradient3;
   }
+
+  @include mixins.keyframes(landingAnim) {
+    25% {
+      transform: translateY(-75%);
+      filter: hue-rotate(-60deg);
+    }
+
+    50% {
+      transform: translate(-75%, -75%);
+    }
+
+    75% {
+      transform: translate(-75%, 0);
+      filter: hue-rotate(60deg);
+    }
+
+    0%,
+    100% {
+      transform: translate(0, 0);
+      filter: hue-rotate(0deg);
+    }
+  }
 }
 
-@include mixins.keyframes(landingAnim) {
-  25% {
-    transform: translateY(-75%);
-    filter: hue-rotate(-30deg);
-  }
+.splash-box {
+  @include mixins.center;
+  width: 80%;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 2% 2% 5% 5%;
 
-  50% {
-    transform: translate(-75%, -75%);
+}
 
-  }
+// Landing text styles
+.splash-hi {
+  margin-top: 5%;
+  color: white;
+  font-family: fonts.$neue-haas;
+  font-weight: 500;
+  @include mixins.font-size(100);
+}
 
-  75% {
-    transform: translate(-75%, 0);
-    filter: hue-rotate(30deg);
-  }
+.splash-name {
+  color: white;
+  font-family: fonts.$neue-haas;
+  font-weight: 700;
+  @include mixins.font-size(250);
+  line-height: 0.9;
 
-  0%,
-  100% {
-    transform: translate(0, 0);
-    filter: hue-rotate(0deg);
+  background-image: linear-gradient(90deg, colors.$gradient4, colors.$gradient2);
+  background-clip: text;
+  color: transparent;
+  // display: inline-block;
+  background-size: 300%;
+
+  animation: text-animation 10s infinite;
+
+  @keyframes text-animation {
+    0% {
+      background-position: left
+    }
+
+    50% {
+      background-position: right
+    }
+
+    100% {
+      background-position: left
+    }
   }
 }
+
+.splash-desc {
+  color: white;
+  font-family: fonts.$neue-haas;
+  font-weight: 500;
+  line-height: 2;
+  @include mixins.font-size(50);
+}
+
+// Landing buttons
+

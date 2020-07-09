@@ -65,25 +65,24 @@ Landing
   z-index: -1;
 }
 .splash-gradient:after {
-  background: radial-gradient(circle, #5c2e88, rgba(59, 13, 162, 0) 5%, rgba(59, 13, 162, 0) 8%, rgba(59, 13, 162, 0.5) 10%, rgba(59, 13, 162, 0.5) 13%, rgba(59, 13, 162, 0.6666666667) 15%, rgba(59, 13, 162, 0.6666666667) 18%, rgba(59, 13, 162, 0.75) 20%, rgba(59, 13, 162, 0.75) 23%, rgba(59, 13, 162, 0.8) 25%, rgba(59, 13, 162, 0.8) 28%, rgba(59, 13, 162, 0.8333333333) 30%, rgba(59, 13, 162, 0.8333333333) 33%, rgba(59, 13, 162, 0.8571428571) 35%, rgba(59, 13, 162, 0.8571428571) 38%, rgba(59, 13, 162, 0.875) 40%, rgba(59, 13, 162, 0.875) 43%, rgba(59, 13, 162, 0.8888888889) 45%, rgba(59, 13, 162, 0.8888888889) 48%, rgba(59, 13, 162, 0.9) 50%, rgba(59, 13, 162, 0.9) 53%, rgba(59, 13, 162, 0.9090909091) 55%, rgba(59, 13, 162, 0.9090909091) 58%, rgba(59, 13, 162, 0.9166666667) 60%, rgba(59, 13, 162, 0.9166666667) 63%, rgba(59, 13, 162, 0.9230769231) 65%, rgba(59, 13, 162, 0.9230769231) 68%, rgba(59, 13, 162, 0.9285714286) 70%, rgba(59, 13, 162, 0.9285714286) 73%, rgba(59, 13, 162, 0.9333333333) 75%, rgba(59, 13, 162, 0.9333333333) 78%, rgba(59, 13, 162, 0.9375) 80%, rgba(59, 13, 162, 0.9375) 83%, rgba(59, 13, 162, 0.9411764706) 85%, rgba(59, 13, 162, 0.9411764706) 88%, rgba(59, 13, 162, 0.9444444444) 90%, rgba(59, 13, 162, 0.9444444444) 93%, rgba(59, 13, 162, 0.9473684211) 95%, rgba(59, 13, 162, 0.9473684211) 98%, #3b0da2);
-  background-size: 400%;
+  background: radial-gradient(circle, #5c2e88, rgba(59, 13, 162, 0) 3.3333333333%, rgba(59, 13, 162, 0) 5.3333333333%, rgba(59, 13, 162, 0.5) 6.6666666667%, rgba(59, 13, 162, 0.5) 8.6666666667%, rgba(59, 13, 162, 0.6666666667) 10%, rgba(59, 13, 162, 0.6666666667) 12%, rgba(59, 13, 162, 0.75) 13.3333333333%, rgba(59, 13, 162, 0.75) 15.3333333333%, rgba(59, 13, 162, 0.8) 16.6666666667%, rgba(59, 13, 162, 0.8) 18.6666666667%, rgba(59, 13, 162, 0.8333333333) 20%, rgba(59, 13, 162, 0.8333333333) 22%, rgba(59, 13, 162, 0.8571428571) 23.3333333333%, rgba(59, 13, 162, 0.8571428571) 25.3333333333%, rgba(59, 13, 162, 0.875) 26.6666666667%, rgba(59, 13, 162, 0.875) 28.6666666667%, rgba(59, 13, 162, 0.8888888889) 30%, rgba(59, 13, 162, 0.8888888889) 32%, rgba(59, 13, 162, 0.9) 33.3333333333%, rgba(59, 13, 162, 0.9) 35.3333333333%, rgba(59, 13, 162, 0.9090909091) 36.6666666667%, rgba(59, 13, 162, 0.9090909091) 38.6666666667%, rgba(59, 13, 162, 0.9166666667) 40%, rgba(59, 13, 162, 0.9166666667) 42%, rgba(59, 13, 162, 0.9230769231) 43.3333333333%, rgba(59, 13, 162, 0.9230769231) 45.3333333333%, rgba(59, 13, 162, 0.9285714286) 46.6666666667%, rgba(59, 13, 162, 0.9285714286) 48.6666666667%, rgba(59, 13, 162, 0.9333333333) 50%, rgba(59, 13, 162, 0.9333333333) 52%, rgba(59, 13, 162, 0.9375) 53.3333333333%, rgba(59, 13, 162, 0.9375) 55.3333333333%, rgba(59, 13, 162, 0.9411764706) 56.6666666667%, rgba(59, 13, 162, 0.9411764706) 58.6666666667%, rgba(59, 13, 162, 0.9444444444) 60%, rgba(59, 13, 162, 0.9444444444) 62%, rgba(59, 13, 162, 0.9473684211) 63.3333333333%, rgba(59, 13, 162, 0.9473684211) 65.3333333333%, rgba(59, 13, 162, 0.95) 66.6666666667%, rgba(59, 13, 162, 0.95) 68.6666666667%, rgba(59, 13, 162, 0.9523809524) 70%, rgba(59, 13, 162, 0.9523809524) 72%, rgba(59, 13, 162, 0.9545454545) 73.3333333333%, rgba(59, 13, 162, 0.9545454545) 75.3333333333%, rgba(59, 13, 162, 0.9565217391) 76.6666666667%, rgba(59, 13, 162, 0.9565217391) 78.6666666667%, rgba(59, 13, 162, 0.9583333333) 80%, rgba(59, 13, 162, 0.9583333333) 82%, rgba(59, 13, 162, 0.96) 83.3333333333%, rgba(59, 13, 162, 0.96) 85.3333333333%, rgba(59, 13, 162, 0.9615384615) 86.6666666667%, rgba(59, 13, 162, 0.9615384615) 88.6666666667%, rgba(59, 13, 162, 0.962962963) 90%, rgba(59, 13, 162, 0.962962963) 92%, rgba(59, 13, 162, 0.9642857143) 93.3333333333%, rgba(59, 13, 162, 0.9642857143) 95.3333333333%, rgba(59, 13, 162, 0.9655172414) 96.6666666667%, rgba(59, 13, 162, 0.9655172414) 98.6666666667%, #3b0da2);
+  background-size: 300%;
   animation: landingAnim 10s linear infinite;
 }
 .splash-gradient:before {
   background-color: #5c2e88;
 }
-
 @-webkit-keyframes landingAnim {
   25% {
     transform: translateY(-75%);
-    filter: hue-rotate(-30deg);
+    filter: hue-rotate(-60deg);
   }
   50% {
     transform: translate(-75%, -75%);
   }
   75% {
     transform: translate(-75%, 0);
-    filter: hue-rotate(30deg);
+    filter: hue-rotate(60deg);
   }
   0%, 100% {
     transform: translate(0, 0);
@@ -93,14 +92,14 @@ Landing
 @-moz-keyframes landingAnim {
   25% {
     transform: translateY(-75%);
-    filter: hue-rotate(-30deg);
+    filter: hue-rotate(-60deg);
   }
   50% {
     transform: translate(-75%, -75%);
   }
   75% {
     transform: translate(-75%, 0);
-    filter: hue-rotate(30deg);
+    filter: hue-rotate(60deg);
   }
   0%, 100% {
     transform: translate(0, 0);
@@ -110,19 +109,74 @@ Landing
 @keyframes landingAnim {
   25% {
     transform: translateY(-75%);
-    filter: hue-rotate(-30deg);
+    filter: hue-rotate(-60deg);
   }
   50% {
     transform: translate(-75%, -75%);
   }
   75% {
     transform: translate(-75%, 0);
-    filter: hue-rotate(30deg);
+    filter: hue-rotate(60deg);
   }
   0%, 100% {
     transform: translate(0, 0);
     filter: hue-rotate(0deg);
   }
+}
+
+.splash-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 2% 2% 5% 5%;
+}
+
+.splash-hi {
+  margin-top: 5%;
+  color: white;
+  font-family: neue-haas-unica, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 100;
+  font-size: 6.25rem;
+}
+
+.splash-name {
+  color: white;
+  font-family: neue-haas-unica, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 250;
+  font-size: 15.625rem;
+  line-height: 0.9;
+  background-image: linear-gradient(90deg, #C133A3, #0C98D4);
+  background-clip: text;
+  color: transparent;
+  background-size: 300%;
+  animation: text-animation 10s infinite;
+}
+@keyframes text-animation {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+.splash-desc {
+  color: white;
+  font-family: neue-haas-unica, Helvetica, sans-serif;
+  font-weight: 500;
+  line-height: 2;
+  font-size: 50;
+  font-size: 3.125rem;
 }
 
 /*# sourceMappingURL=custom.css.map */

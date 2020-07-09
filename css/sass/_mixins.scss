@@ -73,7 +73,7 @@ A collection of helpful Sass mixins.
 // From https://medium.com/the-missing-bit/mitigating-css-gradient-banding-45b88493d228
 @mixin stepped-radial-gradient($bg1, $bg2) {
   $g: $bg1;
-  $steps: 20;
+  $steps: 30;
 
   @for $i from 1 to $steps {
     $g: append($g, fade-out($bg2, 1 / $i) percentage($i / $steps), comma);
@@ -82,4 +82,13 @@ A collection of helpful Sass mixins.
 
   $g: append($g, $bg2);
   background: radial-gradient(circle, $g);
+}
+
+// From https://css-tricks.com/snippets/sass/centering-mixin/
+// Usage: @include center;
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
