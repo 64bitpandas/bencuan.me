@@ -9,7 +9,6 @@
     "watch": "sass --watch css/sass/:css/build",
     "serve": "live-server",
     "postcss": "postcss css/build/custom.css --use autoprefixer cssnano -d css/ --watch",
-    "build": "sass css/sass/:css/build/ && npm run postcss"
   },
   "repository": {
     "type": "git",

@@ -209,6 +209,7 @@ Landing
   background-color: colors.$itch;
 }
 
+// Info panels
 .splash-info {
   position: absolute;
   width: 100%;
@@ -232,6 +233,7 @@ Landing
   line-height: 0.9;
 }
 
+// Make email text a bit smaller
 .splash-email {
   margin-top: 7%;
   @include mixins.responsive-text(50, 75, 125);
