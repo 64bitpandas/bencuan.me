@@ -1,7 +1,7 @@
 
 // Reveals the info panel for a specified button (github, linkedin...).
 function showSplashInfo(name, width) {
-  btn = document.getElementById(name + '-btn');
+  let btn = document.getElementById(name + '-btn');
   setFill(
     name + '-splash',
     width + "%",
@@ -10,7 +10,21 @@ function showSplashInfo(name, width) {
   );
 }
 
+// Handles background fill changes on navlink hover.
+function navFill(name, width) {
+  link = document.getElementById('nav-' + name);
+  document.getElementById('nav-fill-' + name).style.zIndex = (width == 0) ? 5 : 10;
+  setFill(
+    'nav-fill-' + name,
+    width + '%',
+    ((name == 'resume') ? "100%" : "0px"),
+    link.parentElement.offsetTop + "px"
+    )
+    console.log(document.getElementById('nav-fill-' + name).style.clipPath);
+}
+
 let splashButtons = ['github', 'linkedin', 'resume', 'email', 'itch'];
+let navLinks = ['home', 'about', 'exp', 'proj', 'contact', 'resume'];
 
 for(let name of splashButtons) {
   showSplashInfo(name, 0);
@@ -18,6 +32,11 @@ for(let name of splashButtons) {
   document.getElementById(name + '-btn').onmouseleave = () => {showSplashInfo(name, 0)};
 }
 
+for(let link of navLinks) {
+  navFill(link, 0);
+  document.getElementById('nav-' + link).onmouseover = () => { navFill(link, 200) };
+  document.getElementById('nav-' + link).onmouseleave = () => { navFill(link, 0) };
+}
 
 // Opens the url in a new tab.
 function openInNewTab(url) {

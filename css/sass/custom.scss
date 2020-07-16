@@ -47,6 +47,7 @@ Color classes
 .itch {
   background-color: colors.$itch;
 }
+
 .logo-color {
   background-color: colors.$logo;
 }
@@ -271,10 +272,25 @@ nav {
     background-color: colors.$logo;
   }
 
+  .nav-fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    z-index: 10;
+    transition: clip-path 0.8s ease;
+    clip-path: circle(0% at 100px 100px)
+  }
+
   .row {
     height: 100%;
     left: 10%;
     text-align: center;
+    position: absolute;
+    top: 0;
+    z-index: 100;
   }
 
   .col-2,
@@ -283,6 +299,12 @@ nav {
     margin: 0 !important;
     height: 100%;
     display: table;
+    transition: transform 0.25s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(120%);
+    }
   }
 
   .col-3 {
@@ -308,7 +330,6 @@ nav {
   img {
     height: 70%;
     max-width: 70%;
-
   }
 
   .col-1 {

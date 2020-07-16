@@ -449,10 +449,24 @@ nav .nav-background {
   width: 100%;
   background-color: #23bcff;
 }
+nav .nav-fill {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  z-index: 10;
+  transition: clip-path 0.8s ease;
+  clip-path: circle(0% at 100px 100px);
+}
 nav .row {
   height: 100%;
   left: 10%;
   text-align: center;
+  position: absolute;
+  top: 0;
+  z-index: 100;
 }
 nav .col-2,
 nav .col-3,
@@ -460,6 +474,13 @@ nav .col-1 {
   margin: 0 !important;
   height: 100%;
   display: table;
+  transition: transform 0.25s;
+}
+nav .col-2:hover,
+nav .col-3:hover,
+nav .col-1:hover {
+  cursor: pointer;
+  transform: scale(120%);
 }
 nav .col-3 {
   right: 0;
