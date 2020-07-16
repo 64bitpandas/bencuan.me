@@ -52,6 +52,39 @@ html {
   transition-duration: 0.5s;
 }
 
+#content {
+  border-top: 5px solid #e097ff;
+  background-color: #293241;
+  height: 1000%;
+}
+
+/* ----------
+Color classes
+------------- */
+.github {
+  background-color: #181717;
+}
+
+.linkedin {
+  background-color: #0d5aa7;
+}
+
+.resume {
+  background-color: #6F02B5;
+}
+
+.email {
+  background-color: #43A047;
+}
+
+.itch {
+  background-color: #FA5C5C;
+}
+
+.logo-color {
+  background-color: #23bcff;
+}
+
 /* ----------
 Landing
 ------------- */
@@ -141,10 +174,11 @@ Landing
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
-  height: 70%;
+  height: 65%;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
   padding: 2% 2% 5% 5%;
+  margin-top: 2%;
 }
 
 .splash-hi {
@@ -334,26 +368,6 @@ Landing
   }
 }
 
-.github {
-  background-color: #181717;
-}
-
-.linkedin {
-  background-color: #0d5aa7;
-}
-
-.resume {
-  background-color: #6F02B5;
-}
-
-.email {
-  background-color: #43A047;
-}
-
-.itch {
-  background-color: #FA5C5C;
-}
-
 .splash-info {
   position: absolute;
   width: 100%;
@@ -415,5 +429,87 @@ Landing
     font-size: 4.6875rem;
   }
 }
+
+/* ----------
+Navbar
+------------- */
+nav {
+  position: fixed;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 7%;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+}
+nav .nav-background {
+  height: 100%;
+  width: 100%;
+  background-color: #23bcff;
+}
+nav .row {
+  height: 100%;
+  left: 10%;
+  text-align: center;
+}
+nav .col-2,
+nav .col-3,
+nav .col-1 {
+  margin: 0 !important;
+  height: 100%;
+  display: table;
+}
+nav .col-3 {
+  right: 0;
+  text-align: right;
+}
+nav a,
+nav i {
+  font-family: neue-haas-unica, Helvetica, sans-serif;
+  color: white;
+  display: table-cell;
+  vertical-align: middle;
+  text-decoration: none;
+}
+@media only screen and (max-width: 767px) {
+  nav a,
+nav i {
+    font-size: 0;
+    font-size: 0rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  nav a,
+nav i {
+    font-size: 30;
+    font-size: 1.875rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  nav a,
+nav i {
+    font-size: 25;
+    font-size: 1.5625rem;
+  }
+}
+nav i {
+  padding-bottom: 1%;
+}
+nav img {
+  height: 70%;
+  max-width: 70%;
+}
+nav .col-1 {
+  transition: transform 0.5s;
+}
+nav .col-1:hover {
+  transform: scale(150%);
+}
+
+/* ----------
+About
+------------- */
 
 /*# sourceMappingURL=custom.css.map */

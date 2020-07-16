@@ -19,6 +19,38 @@ html {
   transition-duration: 0.5s;
 }
 
+#content {
+  border-top: 5px solid colors.$highlight;
+  background-color: colors.$bg;
+  height: 1000%; //temp
+}
+
+/* ----------
+Color classes
+------------- */
+.github {
+  background-color: colors.$github;
+}
+
+.linkedin {
+  background-color: colors.$linkedin;
+}
+
+.resume {
+  background-color: colors.$resume;
+}
+
+.email {
+  background-color: colors.$email;
+}
+
+.itch {
+  background-color: colors.$itch;
+}
+.logo-color {
+  background-color: colors.$logo;
+}
+
 /* ----------
 Landing
 ------------- */
@@ -81,11 +113,11 @@ Landing
 .splash-box {
   @include mixins.center;
   width: 80%;
-  height: 70%;
+  height: 65%;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
   padding: 2% 2% 5% 5%;
-
+  margin-top: 2%;
 }
 
 // Landing text styles
@@ -189,26 +221,6 @@ Landing
 
 }
 
-.github {
-  background-color: colors.$github;
-}
-
-.linkedin {
-  background-color: colors.$linkedin;
-}
-
-.resume {
-  background-color: colors.$resume;
-}
-
-.email {
-  background-color: colors.$email;
-}
-
-.itch {
-  background-color: colors.$itch;
-}
-
 // Info panels
 .splash-info {
   position: absolute;
@@ -238,3 +250,77 @@ Landing
   margin-top: 7%;
   @include mixins.responsive-text(50, 75, 125);
 }
+
+/* ----------
+Navbar
+------------- */
+nav {
+  position: fixed;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 7%;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+
+  .nav-background {
+    height: 100%;
+    width: 100%;
+    background-color: colors.$logo;
+  }
+
+  .row {
+    height: 100%;
+    left: 10%;
+    text-align: center;
+  }
+
+  .col-2,
+  .col-3,
+  .col-1 {
+    margin: 0 !important;
+    height: 100%;
+    display: table;
+  }
+
+  .col-3 {
+    right: 0;
+    text-align: right;
+  }
+
+  a,
+  i {
+    font-family: fonts.$neue-haas;
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+    text-decoration: none;
+    @include mixins.responsive-text(0, 25, 30);
+  }
+
+  i {
+    padding-bottom: 1%;
+
+  }
+
+  img {
+    height: 70%;
+    max-width: 70%;
+
+  }
+
+  .col-1 {
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(150%);
+    }
+  }
+}
+
+
+/* ----------
+About
+------------- */

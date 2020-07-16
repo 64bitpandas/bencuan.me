@@ -1,10 +1,13 @@
 
 // Reveals the info panel for a specified button (github, linkedin...).
 function showSplashInfo(name, width) {
-  let btn = document.getElementById(name + '-btn');
-  document.getElementById(name + '-splash').style.clipPath = "circle(" + width + "% at " +
-  (btn.parentElement.parentElement.offsetLeft + btn.offsetLeft + btn.clientWidth/2) + "px "
-  + (btn.parentElement.parentElement.offsetTop + btn.clientHeight/2) + "px)";
+  btn = document.getElementById(name + '-btn');
+  setFill(
+    name + '-splash',
+    width + "%",
+    (btn.parentElement.parentElement.offsetLeft + btn.offsetLeft + btn.clientWidth / 2) + "px ",
+    (btn.parentElement.parentElement.offsetTop + btn.clientHeight / 2) + "px"
+  );
 }
 
 let splashButtons = ['github', 'linkedin', 'resume', 'email', 'itch'];
@@ -21,4 +24,12 @@ function openInNewTab(url) {
   console.log(url);
   var win = window.open(url, '_blank');
   win.focus();
+}
+
+
+// Used for all fill animations. Specify the ID of the fill element,
+// what should trigger it, the eventual width, and coordinates of origin.
+function setFill(fillId, width, posX, posY) {
+  document.getElementById(fillId).style.clipPath = "circle(" + width + "at " +
+    posX + " " + posY + ")";
 }
