@@ -79,9 +79,10 @@ Landing
   }
 
   &:after {
-    @include mixins.stepped-radial-gradient(colors.$gradient3, colors.$gradient1);
+    // @include mixins.stepped-radial-gradient(colors.$gradient3, colors.$gradient1);
     background-size: 300%;
-    animation: landingAnim 10s linear infinite;
+    background: radial-gradient(circle, colors.$gradient1, colors.$gradient4);
+    animation: landingAnim 15s linear infinite;
   }
 
   &:before {
@@ -91,7 +92,7 @@ Landing
   @include mixins.keyframes(landingAnim) {
     25% {
       transform: translateY(-75%);
-      filter: hue-rotate(-60deg);
+      filter: hue-rotate(-30deg);
     }
 
     50% {
@@ -100,7 +101,7 @@ Landing
 
     75% {
       transform: translate(-75%, 0);
-      filter: hue-rotate(60deg);
+      filter: hue-rotate(30deg);
     }
 
     0%,
