@@ -10,6 +10,10 @@ Fonts used:
 ====================================== */
 @import url(https://use.typekit.net/jps3ukf.css);
 /* ===================================
+Color Palette for bencuan.me - v3_2020
+Created by Ben Cuan
+====================================== */
+/* ===================================
 A collection of helpful Sass mixins.
 Created by Ben Cuan with contributions
 from various sources cited below.
@@ -37,10 +41,6 @@ from various sources cited below.
   Have different font sizes for each screen size.
   $phone is the font size for phones, and so on.
 */
-/* ===================================
-Color Palette for bencuan.me - v3_2020
-Created by Ben Cuan
-====================================== */
 /* ===================================
 Animations for bencuan.me - v3_2020
 Created by Ben Cuan
@@ -100,6 +100,29 @@ html {
     max-width: 80%;
   }
 }
+.link {
+  text-decoration: none;
+  color: #e097ff !important;
+  font-weight: 700;
+  position: relative;
+}
+.link:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+.link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -1px;
+  left: 0;
+  background-color: #e097ff;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
 /* ----------
 Color classes
 ------------- */
@@ -626,15 +649,15 @@ Content
   background-position: 0 50%;
   border-radius: calc(2 * 5px);
 }
-.content-box:hover {
-  box-shadow: 6px 6px 5px 0px black;
-  transform: translate(-5%, -3%);
-}
 .content-box:hover::after {
   background: linear-gradient(60deg, #e097ff, #26FFE6);
   background-size: 300% 300%;
   background-position: 0 50%;
-  animation: text-animation 4s infinite;
+  animation: text-animation 2s infinite;
+}
+.content-box:hover {
+  box-shadow: 6px 6px 5px 0px black;
+  transform: translate(-5%, -2%);
 }
 .content-box .content {
   left: 5px;
@@ -643,12 +666,88 @@ Content
   bottom: 5px;
   border-radius: 5px;
   background-color: #435166;
-  color: white;
   padding: 3%;
+}
+.content-box .content,
+.content-box .content * {
+  color: white;
+}
+
+@media only screen and (max-width: 767px) {
+  .content-text {
+    font-size: 20;
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .content-text {
+    font-size: 30;
+    font-size: 1.875rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .content-text {
+    font-size: 25;
+    font-size: 1.5625rem;
+  }
 }
 
 /* ----------
 About
 ------------- */
+.about-img {
+  border-radius: 10px;
+  border-width: 3px;
+  position: absolute;
+  right: -5%;
+  bottom: -5%;
+  height: 20rem;
+  width: 20rem;
+  background-color: #23bcff;
+  filter: brightness(0.8);
+  transition: all 0.5s;
+}
+
+#about-content:hover .about-img {
+  transform: scale(1.01);
+  filter: brightness(1);
+  box-shadow: 6px 6px 5px 0px black;
+}
+
+.tools-text {
+  color: gainsboro !important;
+}
+@media only screen and (max-width: 767px) {
+  .tools-text {
+    font-size: 15;
+    font-size: 0.9375rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .tools-text {
+    font-size: 25;
+    font-size: 1.5625rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .tools-text {
+    font-size: 20;
+    font-size: 1.25rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .tools-text {
+    text-align: center;
+  }
+}
+.tool-icons {
+  transform: scale(1.5);
+  text-align: center;
+}
+
+.tools-table {
+  padding-top: 3%;
+}
 
 /*# sourceMappingURL=custom.css.map */

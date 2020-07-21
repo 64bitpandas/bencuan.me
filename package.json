@@ -8,7 +8,8 @@
     "start": "npm-run-all --parallel watch serve postcss",
     "watch": "sass --watch css/sass/:css/build",
     "serve": "live-server",
-    "postcss": "postcss css/build/custom.css --use autoprefixer cssnano -d css/ --watch"
+    "postcss": "postcss css/build/custom.css --use autoprefixer cssnano -d css/ --watch",
+    "fonts": "fontcustom compile img/fontcustom --output img/fontcustom"
   },
   "repository": {
     "type": "git",

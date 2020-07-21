@@ -3,6 +3,7 @@ A collection of helpful Sass mixins.
 Created by Ben Cuan with contributions
 from various sources cited below.
 ====================================== */
+@use '_colors';
 
 /**
  * Rem units with px fallback from https://w3bits.com/rem-fallback/
@@ -103,10 +104,40 @@ from various sources cited below.
   @include screen('mobile') {
     @include font-size($phone);
   }
+
   @include screen('desktop') {
     @include font-size($computer);
   }
+
   @include screen('tablet') {
     @include font-size($tablet);
+  }
+}
+
+
+@mixin gradient-border($border-width) {
+  &::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * #{$border-width});
+    left: calc(-1 * #{$border-width});
+    z-index: -1;
+    width: calc(100% + #{$border-width} * 2);
+    height: calc(100% + #{$border-width} * 2);
+    background: linear-gradient(60deg,
+        colors.$highlight, colors.$accent);
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * #{$border-width});
+  }
+
+  &:hover {
+    &::after {
+      background: linear-gradient(60deg,
+          colors.$highlight, colors.$accent);
+      background-size: 300% 300%;
+      background-position: 0 50%;
+      animation: text-animation 2s infinite;
+    }
   }
 }
