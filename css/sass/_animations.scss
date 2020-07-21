@@ -1,0 +1,21 @@
+/* ===================================
+Animations for bencuan.me - v3_2020
+Created by Ben Cuan
+====================================== */
+
+@use '_mixins';
+
+// Linear gradient movement
+@include mixins.keyframes(text-animation) {
+  0% {
+    background-position: left
+  }
+
+  50% {
+    background-position: right
+  }
+
+  100% {
+    background-position: left
+  }
+}

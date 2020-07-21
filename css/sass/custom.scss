@@ -10,19 +10,26 @@ Imports
 @use '_mixins';
 @use '_colors';
 @use '_fonts';
+@use '_animations';
+
+/* ----------
+Variables
+------------- */
+$nav-height: 7%;
+$anim-speed: 0.5s;
 
 /* ----------
 Global
 ------------- */
 
 html {
-  transition-duration: 0.5s;
+  transition-duration: $anim-speed;
 }
 
-#content {
-  border-top: 5px solid colors.$highlight;
-  background-color: colors.$bg;
-  height: 1000%; //temp
+@include mixins.screen('desktop') {
+  .container {
+    max-width: 80%;
+  }
 }
 
 /* ----------
@@ -144,20 +151,6 @@ Landing
   background-size: 300%;
 
   animation: text-animation 10s infinite;
-
-  @keyframes text-animation {
-    0% {
-      background-position: left
-    }
-
-    50% {
-      background-position: right
-    }
-
-    100% {
-      background-position: left
-    }
-  }
 }
 
 .splash-desc {
@@ -197,7 +190,7 @@ Landing
     .fab,
     .fas {
       @include mixins.responsive-text(30, 50, 60);
-      transition: transform 0.5s;
+      transition: transform $anim-speed;
       transform: translateY(-15%);
     }
   }
@@ -205,7 +198,7 @@ Landing
   .fab,
   .fas {
     color: white;
-    transition: transform 0.5s;
+    transition: transform $anim-speed;
     @include mixins.responsive-text(20, 35, 40);
 
     @include mixins.screen('desktop') {
@@ -261,7 +254,7 @@ nav {
   top: 0;
   left: -10%;
   width: 120%;
-  height: 7%;
+  height: $nav-height;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(20px);
@@ -334,7 +327,7 @@ nav {
   }
 
   .col-1 {
-    transition: transform 0.5s;
+    transition: transform $anim-speed;
 
     &:hover {
       transform: scale(150%);
@@ -342,6 +335,132 @@ nav {
   }
 }
 
+/* ----------
+Content
+------------- */
+#content {
+  border-top: 5px solid colors.$highlight;
+  background-color: colors.$bg;
+  height: 1000%; //temp
+}
+
+.content-section {
+  padding-top: $nav-height;
+}
+
+.section-head {
+  color: white;
+  font-family: fonts.$forma;
+  font-weight: 700;
+  @include mixins.responsive-text(75, 100, 150);
+  text-decoration: underline;
+}
+
+.left-head {
+  text-align: left;
+  transform: translateX(-5%);
+  transition: transform $anim-speed;
+}
+
+.content-box {
+  $border-width: 5px;
+  border-radius: $border-width;
+  width: 100%;
+  font-family: fonts.$europa;
+  color: white;
+  transform: translateX(-5%);
+  background: #222;
+  transition: box-shadow $anim-speed, transform $anim-speed;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * #{$border-width});
+    left: calc(-1 * #{$border-width});
+    z-index: -1;
+    width: calc(100% + #{$border-width} * 2);
+    height: calc(100% + #{$border-width} * 2);
+    background: linear-gradient(60deg,
+        colors.$highlight, colors.$accent);
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * #{$border-width});
+  }
+
+  // Gradient border animation inspired by https: //codepen.io/alphardex/pen/vYEYGzp
+  &:hover {
+    box-shadow: 6px 6px 5px 0px rgb(0, 0, 0);
+    transform: translate(-5%, -3%);
+
+    &::after {
+      background: linear-gradient(60deg,
+          colors.$highlight, colors.$accent);
+      background-size: 300% 300%;
+      background-position: 0 50%;
+      animation: text-animation 4s infinite;
+    }
+  }
+
+  .content {
+    // position: absolute;
+    left: $border-width;
+    top: $border-width;
+    right: $border-width;
+    bottom: $border-width;
+    border-radius: $border-width;
+    background-color: colors.$bg-light;
+    color: white;
+    padding: 3%;
+  }
+
+
+}
+
+// .content-box {
+//   $border-width: 3px;
+//   border-radius: $border-width;
+//   width: 100%;
+//   font-family: fonts.$europa;
+//   color: white;
+//   padding: 5%;
+//   transform: translateX(-5%);
+//   transition: box-shadow $anim-speed, transform $anim-speed;
+
+//   &::after {
+//     position: absolute;
+//     content: "";
+//     top: calc(-1 * #{$border-width});
+//     left: calc(-1 * #{$border-width});
+//     z-index: -1;
+//     width: calc(100% + #{$border-width} * 2);
+//     height: calc(100% + #{$border-width} * 2);
+//     background: colors.$highlight;
+//     background-size: 300% 300%;
+//     background-position: 0 50%;
+//     border-radius: calc(2 * #{$border-width});
+//     animation: textAnimation 3s infinite;
+//   }
+
+//   // Gradient border animation inspired by https: //codepen.io/alphardex/pen/vYEYGzp
+//   &:hover {
+//     box-shadow: 6px 6px 5px 0px rgba(50, 50, 50, 0.3);
+//     transform: translate(-5%, -3%);
+
+//     &::after {
+//       background: linear-gradient(60deg,
+//           colors.$gradient1, colors.$accent);
+//     }
+//   }
+
+//   .content {
+//     position: absolute;
+//     left: $border-width;
+//     top: $border-width;
+//     right: $border-width;
+//     bottom: $border-width;
+//     border-radius: $border-width;
+//     background-color: #fff;
+//   }
 
 /* ----------
 About

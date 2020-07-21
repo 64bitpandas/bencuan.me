@@ -5,11 +5,14 @@ Created by Ben Cuan
 Fonts used:
  - Europa
  - Neue Haas Unica WG
+ - Forma DJR Micro
  - Roboto
 ====================================== */
 @import url(https://use.typekit.net/jps3ukf.css);
 /* ===================================
 A collection of helpful Sass mixins.
+Created by Ben Cuan with contributions
+from various sources cited below.
 ====================================== */
 /**
  * Rem units with px fallback from https://w3bits.com/rem-fallback/
@@ -39,11 +42,51 @@ Color Palette for bencuan.me - v3_2020
 Created by Ben Cuan
 ====================================== */
 /* ===================================
+Animations for bencuan.me - v3_2020
+Created by Ben Cuan
+====================================== */
+@-webkit-keyframes text-animation {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+@-moz-keyframes text-animation {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+@keyframes text-animation {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+/* ===================================
 Main stylesheet for bencuan.me - v3_2020
 Created by Ben Cuan
 ====================================== */
 /* ----------
 Imports
+------------- */
+/* ----------
+Variables
 ------------- */
 /* ----------
 Global
@@ -52,12 +95,11 @@ html {
   transition-duration: 0.5s;
 }
 
-#content {
-  border-top: 5px solid #e097ff;
-  background-color: #293241;
-  height: 1000%;
+@media only screen and (min-width: 1366px) {
+  .container {
+    max-width: 80%;
+  }
 }
-
 /* ----------
 Color classes
 ------------- */
@@ -233,17 +275,6 @@ Landing
   .splash-name {
     font-size: 150;
     font-size: 9.375rem;
-  }
-}
-@keyframes text-animation {
-  0% {
-    background-position: left;
-  }
-  50% {
-    background-position: right;
-  }
-  100% {
-    background-position: left;
   }
 }
 
@@ -527,6 +558,93 @@ nav .col-1 {
 }
 nav .col-1:hover {
   transform: scale(150%);
+}
+
+/* ----------
+Content
+------------- */
+#content {
+  border-top: 5px solid #e097ff;
+  background-color: #293241;
+  height: 1000%;
+}
+
+.content-section {
+  padding-top: 7%;
+}
+
+.section-head {
+  color: white;
+  font-family: forma-djr-micro, Helvetica, sans-serif;
+  font-weight: 700;
+  text-decoration: underline;
+}
+@media only screen and (max-width: 767px) {
+  .section-head {
+    font-size: 75;
+    font-size: 4.6875rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .section-head {
+    font-size: 150;
+    font-size: 9.375rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .section-head {
+    font-size: 100;
+    font-size: 6.25rem;
+  }
+}
+
+.left-head {
+  text-align: left;
+  transform: translateX(-5%);
+  transition: transform 0.5s;
+}
+
+.content-box {
+  border-radius: 5px;
+  width: 100%;
+  font-family: europa, roboto, Georgia, sans-serif;
+  color: white;
+  transform: translateX(-5%);
+  background: #222;
+  transition: box-shadow 0.5s, transform 0.5s;
+}
+.content-box::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * 5px);
+  left: calc(-1 * 5px);
+  z-index: -1;
+  width: calc(100% + 5px * 2);
+  height: calc(100% + 5px * 2);
+  background: linear-gradient(60deg, #e097ff, #26FFE6);
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * 5px);
+}
+.content-box:hover {
+  box-shadow: 6px 6px 5px 0px black;
+  transform: translate(-5%, -3%);
+}
+.content-box:hover::after {
+  background: linear-gradient(60deg, #e097ff, #26FFE6);
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  animation: text-animation 4s infinite;
+}
+.content-box .content {
+  left: 5px;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 5px;
+  background-color: #435166;
+  color: white;
+  padding: 3%;
 }
 
 /* ----------
