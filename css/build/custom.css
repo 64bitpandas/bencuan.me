@@ -624,7 +624,11 @@ Content
 .left-head {
   text-align: left;
   transform: translateX(-5%);
-  transition: transform 0.5s;
+}
+
+.right-head {
+  text-align: right;
+  transform: translateX(5%);
 }
 
 .content-box {
@@ -748,6 +752,123 @@ About
 
 .tools-table {
   padding-top: 3%;
+}
+
+/* ---------------
+Featured Projects
+------------------ */
+.feature-content {
+  padding: 1% !important;
+}
+
+.feature-label {
+  border-radius: 20px;
+  height: 80%;
+  width: 80%;
+  padding: 1rem;
+  padding-left: 3rem;
+  font-weight: 700;
+  position: relative;
+}
+@media only screen and (max-width: 767px) {
+  .feature-label {
+    font-size: 30;
+    font-size: 1.875rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .feature-label {
+    font-size: 50;
+    font-size: 3.125rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .feature-label {
+    font-size: 40;
+    font-size: 2.5rem;
+  }
+}
+
+.feature-tag {
+  position: absolute;
+  border-radius: 10px;
+  right: -20px;
+  top: -10px;
+  border-radius: 30px;
+  padding: 0.3rem 2rem;
+}
+@media only screen and (max-width: 767px) {
+  .feature-tag {
+    font-size: 10;
+    font-size: 0.625rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .feature-tag {
+    font-size: 30;
+    font-size: 1.875rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .feature-tag {
+    font-size: 20;
+    font-size: 1.25rem;
+  }
+}
+
+.feature-link {
+  font-size: 60px;
+  margin-left: 2vw;
+  border-radius: 50%;
+  display: inline-block;
+  height: 4vw;
+  width: 4vw;
+  text-align: center;
+  transition: all 0.5s;
+}
+.feature-link i {
+  transition: all 0.5s;
+  vertical-align: middle;
+  transform: translate(-5px);
+  border-radius: 20%;
+}
+.feature-link:hover i {
+  color: #e097ff;
+  transform: scale(1.25) translateY(-10px) !important;
+}
+
+.feature-link-container {
+  text-align: right;
+}
+
+.feature-img {
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+  transition: all 0.5s;
+  filter: brightness(0.8);
+  right: 0;
+  bottom: 0;
+}
+
+.feature-img-container {
+  margin: 0 !important;
+  width: 50%;
+}
+
+@media only screen and (max-width: 767px) {
+  .feature-img-container {
+    width: 100%;
+  }
+}
+.content-box:hover .feature-img {
+  transform: scale(1.01);
+  filter: brightness(1);
+  box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.content-box:hover .feature-link i {
+  transform: scale(1.1) translateY(-5px);
 }
 
 /*# sourceMappingURL=custom.css.map */
