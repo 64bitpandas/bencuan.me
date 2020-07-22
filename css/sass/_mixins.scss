@@ -170,6 +170,9 @@ from various sources cited below.
       background-position: 0 50%;
       animation: text-animation 2s infinite;
     }
+    .content {
+      background: transparent;
+    }
   }
 
   .content {
@@ -181,5 +184,6 @@ from various sources cited below.
     text-align: center;
     left: 0;
     color: white;
+    transition: all 0.5s;
   }
 }

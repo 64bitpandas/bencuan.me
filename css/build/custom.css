@@ -914,6 +914,9 @@ More Projects
   background-position: 0 50%;
   animation: text-animation 2s infinite;
 }
+.btn-proj:hover .content {
+  background: transparent;
+}
 .btn-proj .content {
   background: #293241;
   position: relative;
@@ -923,6 +926,7 @@ More Projects
   text-align: center;
   left: 0;
   color: white;
+  transition: all 0.5s;
 }
 @media only screen and (max-width: 767px) {
   .btn-proj {
@@ -945,6 +949,7 @@ More Projects
 .btn-proj:hover {
   transform: scale(1.1) translateY(-10px);
   box-shadow: 2px 6px 6px 0px black;
+  cursor: pointer;
 }
 
 .btn-proj-selected .content {

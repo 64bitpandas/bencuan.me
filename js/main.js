@@ -1,3 +1,12 @@
+/* ===================================
+Scripts for bencuan.me - v3_2020
+Created by Ben Cuan
+====================================== */
+
+
+/* -------------------
+Clip path animations
+---------------------- */
 
 // Reveals the info panel for a specified button (github, linkedin...).
 function showSplashInfo(name, width) {
@@ -52,3 +61,26 @@ function setFill(fillId, width, posX, posY) {
   document.getElementById(fillId).style.clipPath = "circle(" + width + "at " +
     posX + " " + posY + ")";
 }
+
+/* -------------------
+Project select
+---------------------- */
+
+let selections = ['all', 'web', 'game', 'app', 'other'];
+let currSelected = 'all';
+
+// Add onclick to all buttons
+for (let sel of selections) {
+  let btn = document.getElementById('proj-' + sel);
+  btn.onclick = () => {selectCategory(sel);}
+}
+
+function selectCategory(category) {
+  for(let sel of selections) {
+    let btn = document.getElementById('proj-' + sel);
+    btn.className = 'btn-proj'; // reset all buttons to default state
+  }
+
+  document.getElementById('proj-' + category).className += ' btn-proj-selected';
+}
+
