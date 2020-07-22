@@ -626,6 +626,11 @@ Content
   transform: translateX(-5%);
 }
 
+.center-head {
+  margin-top: 15vh;
+  text-align: center;
+}
+
 .right-head {
   text-align: right;
   transform: translateX(5%);
@@ -869,6 +874,81 @@ Featured Projects
 
 .content-box:hover .feature-link i {
   transform: scale(1.1) translateY(-5px);
+}
+
+/* ---------------
+More Projects
+------------------ */
+.proj-buttons {
+  left: -5%;
+  width: 110%;
+}
+
+.btn-proj {
+  display: inline-block;
+  position: relative;
+  color: white;
+  border-radius: 30rem;
+  margin: 1vw;
+  font-weight: 700;
+  transition: all 0.5s;
+}
+.btn-proj::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * 5px);
+  left: calc(-1 * 5px);
+  width: calc(100% + 5px * 2);
+  height: calc(100% + 5px * 2);
+  background: linear-gradient(60deg, #e097ff, #26FFE6);
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: 30rem;
+}
+.btn-proj:hover {
+  border: 3px transparent;
+}
+.btn-proj:hover::after {
+  background: linear-gradient(60deg, #e097ff, #26FFE6);
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  animation: text-animation 2s infinite;
+}
+.btn-proj .content {
+  background: #293241;
+  position: relative;
+  z-index: 100;
+  border-radius: 30rem;
+  padding: 0 3rem;
+  text-align: center;
+  left: 0;
+  color: white;
+}
+@media only screen and (max-width: 767px) {
+  .btn-proj {
+    font-size: 20;
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .btn-proj {
+    font-size: 50;
+    font-size: 3.125rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .btn-proj {
+    font-size: 30;
+    font-size: 1.875rem;
+  }
+}
+.btn-proj:hover {
+  transform: scale(1.1) translateY(-10px);
+  box-shadow: 2px 6px 6px 0px black;
+}
+
+.btn-proj-selected .content {
+  background: transparent;
 }
 
 /*# sourceMappingURL=custom.css.map */

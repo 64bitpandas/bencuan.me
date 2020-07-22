@@ -389,6 +389,11 @@ Content
   transform: translateX(-5%);
 }
 
+.center-head {
+  margin-top: 15vh;
+  text-align: center;
+}
+
 .right-head {
   text-align: right;
   transform: translateX(5%);
@@ -566,4 +571,41 @@ Featured Projects
 
 .content-box:hover .feature-link i {
   transform: scale(1.1) translateY(-5px);
+}
+
+/* ---------------
+More Projects
+------------------ */
+
+.proj-buttons {
+  left: -5%;
+  width: 110%;
+}
+
+.btn-proj {
+  // background: #222;
+  display: inline-block;
+  position: relative;
+  color: white;
+  @include mixins.gradient-button(5px, 30rem);
+  @include mixins.responsive-text(20, 30, 50);
+  // padding: 0 3vw;
+  margin: 1vw;
+  // border: transparent 3px;
+  // border-radius: 30rem;
+  font-weight: 700;
+  // border: 10px solid white;
+  transition: all $anim-speed;
+
+  &:hover {
+    // border: 10px solid transparent;
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 1);
+  }
+}
+
+.btn-proj-selected {
+  .content {
+    background: transparent;
+  }
 }
