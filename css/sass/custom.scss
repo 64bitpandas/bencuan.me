@@ -533,6 +533,7 @@ Featured Projects
   &:hover i {
     color: colors.$highlight;
     transform: scale(1.25) translateY(-10px) !important;
+    cursor: pointer;
   }
 }
 
@@ -609,4 +610,73 @@ More Projects
   .content {
     background: transparent;
   }
+}
+
+.proj-cards {
+  padding-top: 5vh;
+}
+
+// attach to content-box
+.proj-card {
+  transform: translateX(0px);
+
+  &:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+
+  .content {
+    background: colors.$bg;
+    transition: all $anim-speed;
+    min-height: 27rem;
+
+    &:hover {
+      background: colors.$bg-light;
+    }
+  }
+}
+
+.proj-name,
+.proj-desc,
+.proj-icons {
+  text-align: center;
+  font-family: fonts.$europa;
+  line-height: 1.2;
+}
+
+.proj-name {
+  @include mixins.responsive-text(50, 70, 100);
+
+  img {
+    width: 90%;
+  }
+}
+
+.proj-desc {
+  @include mixins.responsive-text(10, 20, 30);
+  line-height: 1;
+  padding-top: 1rem;
+}
+
+.proj-icons {
+  padding-top: 1.5rem;
+  @include mixins.responsive-text(10, 15, 20);
+}
+
+.proj-icon {
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.proj-link {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  transform: translateY(-10px);
+}
+
+.content-box:hover .proj-link {
+  transform: scale(1.05);
+}
+
+.proj-icon i {
+  @include mixins.responsive-text(20, 30, 40);
 }

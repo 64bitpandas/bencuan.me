@@ -840,6 +840,7 @@ Featured Projects
 .feature-link:hover i {
   color: #e097ff;
   transform: scale(1.25) translateY(-10px) !important;
+  cursor: pointer;
 }
 
 .feature-link-container {
@@ -954,6 +955,134 @@ More Projects
 
 .btn-proj-selected .content {
   background: transparent;
+}
+
+.proj-cards {
+  padding-top: 5vh;
+}
+
+.proj-card {
+  transform: translateX(0px);
+}
+.proj-card:hover {
+  transform: translateY(-8px) scale(1.01);
+}
+.proj-card .content {
+  background: #293241;
+  transition: all 0.5s;
+  min-height: 27rem;
+}
+.proj-card .content:hover {
+  background: #435166;
+}
+
+.proj-name,
+.proj-desc,
+.proj-icons {
+  text-align: center;
+  font-family: europa, roboto, Georgia, sans-serif;
+  line-height: 1.2;
+}
+
+@media only screen and (max-width: 767px) {
+  .proj-name {
+    font-size: 50;
+    font-size: 3.125rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .proj-name {
+    font-size: 100;
+    font-size: 6.25rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .proj-name {
+    font-size: 70;
+    font-size: 4.375rem;
+  }
+}
+.proj-name img {
+  width: 90%;
+}
+
+.proj-desc {
+  line-height: 1;
+  padding-top: 1rem;
+}
+@media only screen and (max-width: 767px) {
+  .proj-desc {
+    font-size: 10;
+    font-size: 0.625rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .proj-desc {
+    font-size: 30;
+    font-size: 1.875rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .proj-desc {
+    font-size: 20;
+    font-size: 1.25rem;
+  }
+}
+
+.proj-icons {
+  padding-top: 1.5rem;
+}
+@media only screen and (max-width: 767px) {
+  .proj-icons {
+    font-size: 10;
+    font-size: 0.625rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .proj-icons {
+    font-size: 20;
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .proj-icons {
+    font-size: 15;
+    font-size: 0.9375rem;
+  }
+}
+
+.proj-icon {
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.proj-link {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  transform: translateY(-10px);
+}
+
+.content-box:hover .proj-link {
+  transform: scale(1.05);
+}
+
+@media only screen and (max-width: 767px) {
+  .proj-icon i {
+    font-size: 20;
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .proj-icon i {
+    font-size: 40;
+    font-size: 2.5rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1365px) {
+  .proj-icon i {
+    font-size: 30;
+    font-size: 1.875rem;
+  }
 }
 
 /*# sourceMappingURL=custom.css.map */
