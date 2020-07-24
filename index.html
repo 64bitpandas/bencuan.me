@@ -35,7 +35,7 @@
     <div id="nav-fill-proj" class="nav-fill proj-color"></div>
     <div id="nav-fill-contact" class="nav-fill contact-color"></div>
     <div id="nav-fill-resume" class="nav-fill resume"></div>
-    <div class="row">
+    <div class="row no-mobile">
       <div class="col-1">
         <a href="#" id="nav-home"><img src="img/icon-no-bg.png"></a>
       </div>
@@ -53,6 +53,11 @@
         <a href="/resume" id="nav-resume" class="resume-button"> Resume </a>
       </div>
     </div>
+    <div class="mobile-only">
+      <div class="burger burger-rotate">
+        <div class="burger-lines"></div>
+      </div>
+    </div>
   </nav>
 
   <!-- START LANDING -->
@@ -62,7 +67,7 @@
         <div class="splash-hi">Hi! I'm</div>
         <div class="splash-name">Ben Cuan.</div>
         <div class="splash-desc">I'm a software developer and game designer.</div>
-        <div class="splash-button-container row">
+        <div class="splash-button-container row no-mobile">
           <div class="col-1"></div>
           <div class="col-2 splash-button-col">
             <div class="landing-btn github" id="github-btn" onclick="openInNewTab('https://github.com/64bitpandas')">
@@ -188,9 +193,9 @@
             </div>
             <div class="col-9 tools-text"><b>Linux of all flavors</b> as my OS of choice</div>
           </div>
+          <img class="about-img" src="img/icon.png"></img>
         </div>
 
-        <img class="about-img" src="img/icon.png"></img>
       </div>
     </div>
     <!-- END ABOUT -->
@@ -206,7 +211,7 @@
             <div class="col-9">
               <div class="feature-label github">
                 LaunchHacks
-                <div class="feature-tag itch">
+                <div class="feature-tag itch no-mobile">
                   Event
                 </div>
               </div>
