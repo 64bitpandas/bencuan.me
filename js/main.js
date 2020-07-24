@@ -24,8 +24,8 @@ function showSplashInfo(name, width) {
 // Handles background fill changes on navlink hover.
 function navFill(name, width, notHover = false) {
   link = document.getElementById("nav-" + name);
-  document.getElementById("nav-fill-" + name).style.zIndex =
-    (!notHover && width == 0) ? 5 : 10;
+  // document.getElementById("nav-fill-" + name).style.zIndex =
+  //   (!notHover && width == 0) ? 5 : 10;
   setFill(
     "nav-fill-" + name,
     width + "%",
@@ -48,6 +48,7 @@ for (let name of splashButtons) {
   };
 }
 
+let clicking = false;
 for (let link of navLinks) {
   navFill(link, 0);
   document.getElementById("nav-" + link).onmouseover = () => {
@@ -55,6 +56,14 @@ for (let link of navLinks) {
   };
   document.getElementById("nav-" + link).onmouseleave = () => {
     navFill(link, 0);
+  };
+  document.getElementById("nav-" + link).onclick = () => {
+    clicking = true;
+    setTimeout(() => {
+      document.getElementById("nav-back").className =
+        "nav-background " + link + "-color";
+      clicking = false;
+    }, 250);
   };
 }
 
@@ -109,4 +118,29 @@ function toggleMoreProjects() {
     moreBtn.innerHTML = `<div class="content">View More</div>`;
     document.getElementById("proj-cards").className = "truncated";
   }
+}
+
+/* -------------------
+Navbar waypoints
+---------------------- */
+makeWaypoint("landing-box", "home");
+makeWaypoint("about", "about");
+makeWaypoint("projects", "proj");
+makeWaypoint("contact", "contact");
+
+function makeWaypoint(element, fill) {
+  return new Waypoint({
+    element: document.getElementById(element),
+    handler: () => {
+      if (clicking) return;
+
+      for (let nav of navLinks) {
+        navFill(nav, 0);
+      }
+      navFill(fill, 200);
+      document.getElementById("nav-back").className =
+        "nav-background " + fill + "-color";
+      setTimeout(() => {navFill(fill, 0);}, 500);
+    },
+  });
 }

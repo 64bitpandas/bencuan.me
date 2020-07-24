@@ -84,7 +84,7 @@ Color classes
   background-color: colors.$itch;
 }
 
-.logo-color {
+.logo-color, .home-color {
   background-color: colors.$logo;
 }
 
@@ -314,7 +314,11 @@ nav {
   .nav-background {
     height: 100%;
     width: 100%;
-    background-color: colors.$logo;
+    // background-color: colors.$logo;
+  }
+
+  #nav-back {
+    transition: all $anim-speed / 2;
   }
 
   .nav-fill {
@@ -721,7 +725,9 @@ Contact Me
 }
 
 #contact {
+  padding-top: 10rem !important;
   padding-bottom: 10rem;
+  border: 0 !important;
 
   .section-head {
     margin-top: 0 !important;
