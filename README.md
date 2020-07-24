@@ -21,6 +21,7 @@ Some libraries and assets that I used are:
  - [Font Awesome](https://fontawesome.io)
  - [Adobe Fonts](https://fonts.adobe.com/)
  - [Fontcustom](https://fontcustom.github.io/fontcustom/)
+ - [Waypoints](https://github.com/imakewebthings/waypoints)
 
 If you run into any issues, please [open a new issue](https://github.com/64bitpandas/bencuan.me/issues).
 

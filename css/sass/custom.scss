@@ -23,6 +23,7 @@ Global
 
 html {
   transition-duration: $anim-speed;
+  scroll-behavior: smooth;
 }
 
 @include mixins.screen("desktop") {
@@ -85,6 +86,18 @@ Color classes
 
 .logo-color {
   background-color: colors.$logo;
+}
+
+.about-color {
+  background-color: colors.$about;
+}
+
+.proj-color {
+  background-color: colors.$projects;
+}
+
+.contact-color {
+  background-color: colors.$contact;
 }
 
 /* ----------
@@ -156,7 +169,7 @@ Landing
   padding: 2% 2% 5% 5%;
   margin-top: 2%;
   transition: all $anim-speed;
-  
+
   &:hover {
     transform: scale(1.005) translate(-49.8%, -51%) !important;
     box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.6);
@@ -335,7 +348,7 @@ nav {
 
     &:hover {
       cursor: pointer;
-      transform: scale(120%);
+      transform: scale(110%);
     }
   }
 
@@ -367,7 +380,7 @@ nav {
     transition: transform $anim-speed;
 
     &:hover {
-      transform: scale(150%);
+      transform: scale(110%);
     }
   }
 }

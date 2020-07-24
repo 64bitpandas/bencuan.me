@@ -22,21 +22,21 @@ function showSplashInfo(name, width) {
 }
 
 // Handles background fill changes on navlink hover.
-function navFill(name, width) {
+function navFill(name, width, notHover = false) {
   link = document.getElementById("nav-" + name);
   document.getElementById("nav-fill-" + name).style.zIndex =
-    width == 0 ? 5 : 10;
+    (!notHover && width == 0) ? 5 : 10;
   setFill(
     "nav-fill-" + name,
     width + "%",
     name == "resume" ? "100%" : "0px",
     link.parentElement.offsetTop + "px"
   );
-  console.log(document.getElementById("nav-fill-" + name).style.clipPath);
+  // console.log(document.getElementById("nav-fill-" + name).style.clipPath);
 }
 
 let splashButtons = ["github", "linkedin", "resume", "email", "itch"];
-let navLinks = ["home", "about", "exp", "proj", "contact", "resume"];
+let navLinks = ["home", "about", "proj", "contact", "resume"];
 
 for (let name of splashButtons) {
   showSplashInfo(name, 0);
