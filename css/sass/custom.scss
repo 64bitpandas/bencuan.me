@@ -61,6 +61,12 @@ html {
   }
 }
 
+::selection {
+  background-color: transparent;
+  font-weight: 1000;
+  color: colors.$selection;
+}
+
 /* ----------
 Color classes
 ------------- */
@@ -363,7 +369,7 @@ nav {
 
   a,
   i {
-    font-family: fonts.$neue-haas;
+    font-family: fonts.$europa;
     color: white;
     display: table-cell;
     vertical-align: middle;
