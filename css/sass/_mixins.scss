@@ -30,21 +30,15 @@ from various sources cited below.
     @media only screen and #{$desktop} {
       @content;
     }
-  }
-
-  @else if $size==tablet {
+  } @else if $size==tablet {
     @media only screen and #{$tablet} {
       @content;
     }
-  }
-
-  @else if $size==mobile {
+  } @else if $size==mobile {
     @media only screen and #{$mobile} {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     @media only screen and #{$size} {
       @content;
     }
@@ -80,7 +74,11 @@ from various sources cited below.
 
   @for $i from 1 to $steps {
     $g: append($g, fade-out($bg2, 1 / $i) percentage($i / $steps), comma);
-    $g: append($g, fade-out($bg2, 1 / $i) percentage(($i + 0.6) / $steps), comma);
+    $g: append(
+      $g,
+      fade-out($bg2, 1 / $i) percentage(($i + 0.6) / $steps),
+      comma
+    );
   }
 
   $g: append($g, $bg2);
@@ -101,19 +99,18 @@ from various sources cited below.
   $phone is the font size for phones, and so on.
 */
 @mixin responsive-text($phone, $tablet, $computer) {
-  @include screen('mobile') {
+  @include screen("mobile") {
     @include font-size($phone);
   }
 
-  @include screen('desktop') {
+  @include screen("desktop") {
     @include font-size($computer);
   }
 
-  @include screen('tablet') {
+  @include screen("tablet") {
     @include font-size($tablet);
   }
 }
-
 
 @mixin gradient-border($border-width) {
   &::after {
@@ -124,8 +121,7 @@ from various sources cited below.
     z-index: -1;
     width: calc(100% + #{$border-width} * 2);
     height: calc(100% + #{$border-width} * 2);
-    background: linear-gradient(60deg,
-        colors.$highlight, colors.$accent);
+    background: linear-gradient(60deg, colors.$highlight, colors.$accent);
     background-size: 300% 300%;
     background-position: 0 50%;
     border-radius: calc(2 * #{$border-width});
@@ -133,8 +129,7 @@ from various sources cited below.
 
   &:hover {
     &::after {
-      background: linear-gradient(60deg,
-          colors.$highlight, colors.$accent);
+      background: linear-gradient(60deg, colors.$highlight, colors.$accent);
       background-size: 300% 300%;
       background-position: 0 50%;
       animation: text-animation 2s infinite;
@@ -143,7 +138,6 @@ from various sources cited below.
 }
 
 @mixin gradient-button($border-width, $border-radius) {
-
   border-radius: $border-radius;
 
   &::after {
@@ -154,8 +148,7 @@ from various sources cited below.
     // z-index: -1;
     width: calc(100% + #{$border-width} * 2);
     height: calc(100% + #{$border-width} * 2);
-    background: linear-gradient(60deg,
-        colors.$highlight, colors.$accent);
+    background: linear-gradient(60deg, colors.$highlight, colors.$accent);
     background-size: 300% 300%;
     background-position: 0 50%;
     border-radius: $border-radius;
@@ -164,8 +157,7 @@ from various sources cited below.
   &:hover {
     border: 3px transparent;
     &::after {
-      background: linear-gradient(60deg,
-          colors.$highlight, colors.$accent);
+      background: linear-gradient(60deg, colors.$highlight, colors.$accent);
       background-size: 300% 300%;
       background-position: 0 50%;
       animation: text-animation 2s infinite;

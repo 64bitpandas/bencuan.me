@@ -8,14 +8,14 @@ Created by Ben Cuan
 // Linear gradient movement
 @include mixins.keyframes(text-animation) {
   0% {
-    background-position: left
+    background-position: left;
   }
 
   50% {
-    background-position: right
+    background-position: right;
   }
 
   100% {
-    background-position: left
+    background-position: left;
   }
 }

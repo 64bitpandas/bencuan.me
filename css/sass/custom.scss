@@ -3,7 +3,6 @@ Main stylesheet for bencuan.me - v3_2020
 Created by Ben Cuan
 ====================================== */
 
-
 /* ----------
 Imports
 ------------- */
@@ -26,7 +25,7 @@ html {
   transition-duration: $anim-speed;
 }
 
-@include mixins.screen('desktop') {
+@include mixins.screen("desktop") {
   .container {
     max-width: 80%;
   }
@@ -173,7 +172,11 @@ Landing
   @include mixins.responsive-text(100, 150, 225);
   line-height: 0.9;
 
-  background-image: linear-gradient(90deg, colors.$gradient4, colors.$gradient2);
+  background-image: linear-gradient(
+    90deg,
+    colors.$gradient4,
+    colors.$gradient2
+  );
   background-clip: text;
   color: transparent;
   background-size: 300%;
@@ -229,19 +232,18 @@ Landing
     transition: transform $anim-speed;
     @include mixins.responsive-text(20, 35, 40);
 
-    @include mixins.screen('desktop') {
+    @include mixins.screen("desktop") {
       padding-top: 23%;
     }
 
-    @include mixins.screen('tablet') {
+    @include mixins.screen("tablet") {
       padding-top: 26%;
     }
 
-    @include mixins.screen('mobile') {
+    @include mixins.screen("mobile") {
       padding-top: 30%;
     }
   }
-
 }
 
 // Info panels
@@ -303,7 +305,7 @@ nav {
     border-radius: 10px;
     z-index: 10;
     transition: clip-path 0.8s ease;
-    clip-path: circle(0% at 100px 100px)
+    clip-path: circle(0% at 100px 100px);
   }
 
   .row {
@@ -346,7 +348,6 @@ nav {
 
   i {
     padding-bottom: 1%;
-
   }
 
   img {
@@ -438,7 +439,6 @@ Content
   @include mixins.responsive-text(20, 25, 30);
 }
 
-
 /* ----------
 About
 ------------- */
@@ -454,7 +454,6 @@ About
   background-color: colors.$logo;
   filter: brightness(0.8);
   transition: all 0.5s;
-
 }
 
 #about-content:hover .about-img {
@@ -466,10 +465,9 @@ About
 .tools-text {
   @include mixins.responsive-text(15, 20, 25);
   color: rgba(220, 220, 220, 1) !important;
-
 }
 
-@include mixins.screen('mobile') {
+@include mixins.screen("mobile") {
   .tools-text {
     text-align: center;
   }
@@ -556,9 +554,7 @@ Featured Projects
   width: 50%;
 }
 
-
-
-@include mixins.screen('mobile') {
+@include mixins.screen("mobile") {
   .feature-img-container {
     width: 100%;
   }
