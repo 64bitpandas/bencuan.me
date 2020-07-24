@@ -14,7 +14,7 @@ Imports
 /* ----------
 Variables
 ------------- */
-$nav-height: 7%;
+$nav-height: 5rem;
 $anim-speed: 0.5s;
 
 /* ----------
@@ -386,6 +386,17 @@ nav {
     &:hover {
       transform: scale(110%);
     }
+  }
+
+  .resume-button {
+    display: inline-block;
+    background-color: colors.$resume;
+    padding: 0 1.25rem;
+    border-radius: 30px;
+    margin-top: ($nav-height) / 2 - 1.25rem;
+    // width: 50%;
+    // height: 80%;
+    text-align: center;
   }
 }
 
