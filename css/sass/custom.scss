@@ -608,8 +608,8 @@ More Projects
   }
 }
 
-.proj-cards {
-  padding-top: 5vh;
+#proj-cards {
+  padding-top: 10vh;
 }
 
 // attach to content-box
@@ -675,4 +675,12 @@ More Projects
 
 .proj-icon i {
   @include mixins.responsive-text(20, 30, 40);
+}
+
+#more-proj-btn {
+  margin-top: 5vh;
+}
+
+.truncated {
+  max-height: 200%;
 }
