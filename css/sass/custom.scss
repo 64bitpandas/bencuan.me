@@ -263,7 +263,7 @@ Landing
 
 .splash-button-container {
   height: 15%;
-  margin-top: 10%;
+  margin-top: 5%;
   width: 70%;
   margin-left: 15%;
   z-index: 15;
@@ -271,6 +271,12 @@ Landing
 
 .mobile-splash-buttons {
   padding-top: 2rem;
+}
+
+@include mixins.screen('desktop') {
+  .mobile-splash-buttons {
+    display: none;
+  }
 }
 
 @include mixins.screen('tablet') {

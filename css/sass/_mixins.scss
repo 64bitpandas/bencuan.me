@@ -22,11 +22,11 @@ from various sources cited below.
  * $size: one of three strings: desktop, tablet, or mobile
  */
 @mixin screen($size) {
-  $desktop: "(min-width: 1366px)";
-  $tablet: "(min-width: 768px) and (max-width: 1365px)";
+  $desktop: "(min-width: 1024px)";
+  $tablet: "(min-width: 768px) and (max-width: 1023px)";
   $mobile: "(max-width: 767px)";
   $not-mobile: "(min-width: 768px)";
-  $not-desktop: "(max-width: 1365px)";
+  $not-desktop: "(max-width: 1023px)";
 
   @if $size==desktop {
     @media only screen and #{$desktop} {
@@ -109,16 +109,18 @@ from various sources cited below.
   $phone is the font size for phones, and so on.
 */
 @mixin responsive-text($phone, $tablet, $computer) {
-  @include screen("mobile") {
-    @include font-size($phone);
-  }
+  $comp: "(min-width: 1366px)";
+  $smaller-comp: "(min-width: 768px) and (max-width: 1365px)";
+  $mobile: "(max-width: 767px)";
 
-  @include screen("desktop") {
-    @include font-size($computer);
+  @media only screen and #{$comp} {
+      @include font-size($computer);
   }
-
-  @include screen("tablet") {
-    @include font-size($tablet);
+  @media only screen and #{$smaller-comp} {
+      @include font-size($tablet);
+  }
+  @media only screen and #{$mobile} {
+      @include font-size($phone);
   }
 }
 
