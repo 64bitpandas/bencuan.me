@@ -29,7 +29,6 @@ html {
 
 html, body {
   width: 100vw;
-  overflow-x: hidden;
 }
 
 @include mixins.screen("desktop") {
@@ -49,6 +48,10 @@ html, body {
 
   .mobile-center {
     text-align: center;
+  }
+
+  html, body {
+    overflow-x: hidden;
   }
 }
 @include mixins.screen("not-mobile") {
