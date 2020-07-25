@@ -113,6 +113,15 @@ function selectCategory(category) {
   }
 
   document.getElementById("proj-" + category).className += " btn-proj-selected";
+
+  // document.getElementById("").style.disp
+  for (let card of document.getElementsByClassName("proj-card")) {
+    if (category == "all" || card.className.includes(category)) {
+      card.style.display = "flex";
+    } else {
+      card.style.display = "none";
+    }
+  }
 }
 
 let moreProjects = false;
@@ -180,3 +189,4 @@ function toggleBurger() {
     burgerMenu.className = burgerMenu.className.replace("open", "");
   }
 }
+
