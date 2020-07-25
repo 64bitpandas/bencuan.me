@@ -58,13 +58,23 @@ for (let link of navLinks) {
     navFill(link, 0);
   };
   document.getElementById("nav-" + link).onclick = () => {
-    clicking = true;
-    setTimeout(() => {
-      document.getElementById("nav-back").className =
-        "nav-background " + link + "-color";
-      clicking = false;
-    }, 250);
+    navClick(link);
   };
+  document.getElementById("mobile-nav-" + link).onclick = () => {
+    navClick(link);
+    toggleBurger();
+  };
+}
+
+function navClick(link) {
+clicking = true;
+setTimeout(() => {
+  document.getElementById("nav-back").className =
+    "nav-background " + link + "-color";
+  document.getElementById("burger-menu").className =
+    "mobile-only " + link + "-color";
+  clicking = false;
+}, 250);
 }
 
 // Opens the url in a new tab.
@@ -141,9 +151,32 @@ function makeWaypoint(element, fill) {
       navFill(fill, 200);
       document.getElementById("nav-back").className =
         "nav-background " + fill + "-color";
+      document.getElementById("burger-menu").className =
+        "mobile-only " + fill + "-color";
       setTimeout(() => {navFill(fill, 0);}, 500);
     },
   });
 }
 
 document.body.addEventListener('scroll', () => {Waypoint.refreshAll();});
+
+/* -------------------
+Burger menu
+---------------------- */
+let burgerOpen = false;
+let burgerBtn = document.getElementById('burger-btn');
+let burgerMenu = document.getElementById('burger-menu');
+burgerBtn.onclick = () => {
+  toggleBurger();
+}
+
+function toggleBurger() {
+  burgerOpen = !burgerOpen;
+  burgerBtn.className = "burger burger-rotate";
+  if (burgerOpen) {
+    burgerBtn.className += " open";
+    burgerMenu.className += " open";
+  } else {
+    burgerMenu.className = burgerMenu.className.replace("open", "");
+  }
+}

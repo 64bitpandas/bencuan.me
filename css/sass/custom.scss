@@ -48,7 +48,7 @@ html, body {
   }
 }
 @include mixins.screen("not-mobile") {
-  .mobile, .mobile * {
+  .mobile-only, .mobile-only * {
     display: none;
   }
 }
@@ -376,9 +376,10 @@ nav {
   nav {
     height: $nav-height * 0.75;
     img {
-      max-height: 30%;
-      max-width: $nav-height * 0.5;
+      max-height: 100%;
+      max-width: $nav-height * 0.75;
       left: 0;
+      position: absolute;
     }
 
     .col-1,
@@ -392,6 +393,36 @@ nav {
     }
 
     .row {
+      left: 0;
+    }
+
+    .burger {
+      position: absolute;
+      right: 1rem;
+      height: 100%;
+    }
+
+    #burger-menu {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      left: 100%;
+      transition: all $anim-speed;
+      text-align: center;
+      color: white;
+    }
+
+    .burger-link {
+      display: block;
+      margin-top: 3rem;
+    }
+    .burger-link, .burger-link i {
+      color: white;
+      font-size: 45px;
+      text-decoration: none;
+    }
+
+    #burger-menu.open {
       left: 0;
     }
   }
