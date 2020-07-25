@@ -27,7 +27,8 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body {
+html,
+body {
   width: 100vw;
 }
 
@@ -38,7 +39,8 @@ html, body {
 }
 
 @include mixins.screen("mobile") {
-  .no-mobile, .no-mobile * {
+  .no-mobile,
+  .no-mobile * {
     display: none;
   }
 
@@ -50,12 +52,14 @@ html, body {
     text-align: center;
   }
 
-  html, body {
+  html,
+  body {
     overflow-x: hidden;
   }
 }
 @include mixins.screen("not-mobile") {
-  .mobile-only, .mobile-only * {
+  .mobile-only,
+  .mobile-only * {
     display: none;
   }
 }
@@ -146,7 +150,7 @@ Landing
   height: 160%;
 }
 
-@include mixins.screen('desktop') {
+@include mixins.screen("desktop") {
   #landing {
     height: 100%;
   }
@@ -219,12 +223,11 @@ Landing
   }
 }
 
-@include mixins.screen('not-desktop') {
+@include mixins.screen("not-desktop") {
   .splash-box {
     height: 80%;
     width: 85%;
   }
-  
 }
 
 // Landing text styles
@@ -276,13 +279,13 @@ Landing
   padding-top: 2rem;
 }
 
-@include mixins.screen('desktop') {
+@include mixins.screen("desktop") {
   .mobile-splash-buttons {
     display: none;
   }
 }
 
-@include mixins.screen('tablet') {
+@include mixins.screen("tablet") {
   .splash-button-container {
     display: none;
   }
@@ -341,9 +344,9 @@ Landing
   }
 }
 
-@include mixins.screen('tablet') {
+@include mixins.screen("tablet") {
   .mobile-landing-btn {
-      width: 60%;
+    width: 60%;
   }
 }
 
@@ -468,7 +471,8 @@ nav {
       display: block;
       margin-top: 3rem;
     }
-    .burger-link, .burger-link i {
+    .burger-link,
+    .burger-link i {
       color: white;
       font-size: 45px;
       text-decoration: none;
@@ -579,14 +583,13 @@ Content
   }
 }
 
-
-@include mixins.screen('not-mobile') {
+@include mixins.screen("not-mobile") {
   .content-box {
     transform: translateX(-5%);
   }
 }
 
-@include mixins.screen('mobile') {
+@include mixins.screen("mobile") {
   .content-box {
     transform: translateX(0px);
   }
@@ -666,7 +669,7 @@ About
   }
 
   .tools-text {
-      margin-top: 0 !important;
+    margin-top: 0 !important;
   }
 
   .tool-icons {
@@ -688,7 +691,6 @@ About
 .tools-text {
   @include mixins.responsive-text(15, 20, 25);
   color: rgba(220, 220, 220, 1) !important;
-
 }
 
 @include mixins.screen("mobile") {
@@ -749,7 +751,7 @@ Featured Projects
   font-size: 45px;
 }
 
-@include mixins.screen('not-mobile') {
+@include mixins.screen("not-mobile") {
   .feature-link {
     margin-left: 2vw;
     border-radius: 50%;
@@ -758,14 +760,14 @@ Featured Projects
     width: 4vw;
     text-align: center;
     transition: all 0.5s;
-  
+
     i {
       transition: all 0.5s;
       vertical-align: middle;
       transform: translate(-5px);
       border-radius: 20%;
     }
-  
+
     &:hover i {
       color: colors.$highlight;
       transform: scale(1.25) translateY(-10px) !important;
@@ -776,8 +778,6 @@ Featured Projects
     text-align: right;
   }
 }
-
-
 
 .feature-img {
   position: relative;
@@ -857,27 +857,31 @@ More Projects
 
 #proj-cards {
   padding-top: 10vh;
+
+  @include mixins.screen("not-mobile") {
+    .row, .content-box {
+      display: flex;
+    }
+
+    .content {
+      flex: 1;
+    }
+  }
 }
 
 // attach to content-box
 .proj-card {
   transform: translateX(0px);
+  height: 100%;
 
   &:hover {
     transform: translateY(-8px) scale(1.01);
-  }
-
-  @include mixins.screen('not-mobile') {
-    .content {
-      min-height: 27rem;
-    }
   }
 
   .content {
     background: colors.$bg;
     transition: all $anim-speed;
     
-
     &:hover {
       background: colors.$bg-light;
     }
