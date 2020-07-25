@@ -364,7 +364,9 @@ nav {
 
   .row {
     height: 100%;
-    left: 10%;
+    left: 1rem;
+    right: 1rem;
+    width: 100%;
     text-align: center;
     position: absolute;
     top: 0;
@@ -444,7 +446,8 @@ nav {
     }
 
     .col-3 {
-      right: 0;
+      position: absolute;
+      right: 3rem !important;
       text-align: right;
     }
 
@@ -588,7 +591,7 @@ About
   transition: all 0.5s;
 }
 
-@include mixins.screen("not-mobile") {
+@include mixins.screen("desktop") {
   .about-img {
     position: absolute;
     right: -5%;
@@ -605,7 +608,7 @@ About
   }
 }
 
-@include mixins.screen("mobile") {
+@include mixins.screen("not-desktop") {
   .about-img {
     display: block;
     margin-left: auto;
@@ -618,6 +621,17 @@ About
 
   .tool-icons {
     margin-bottom: 0 !important;
+  }
+}
+
+@include mixins.screen("tablet") {
+  .tool-icons {
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .tools-text {
+    padding-bottom: 2rem;
   }
 }
 
