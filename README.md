@@ -2,7 +2,7 @@
 
 Hi there! I'm Ben, and here's my personal website, [bencuan.me](https://bencuan.me).
 
-![Insert image here when complete](#)
+![Screenshot](screenshot.png)
 
 I've been rebuilding my website every summer- if you're interested, here are the [2018](https://bencuan.me/2018) and [2019](https://bencuan.me/2019) iterations.
 
