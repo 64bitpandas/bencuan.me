@@ -1,39 +1,39 @@
 {
   "checksum": {
-    "previous": "d37e80424dd4002051b69d561ca7bace76bd4913dc24480536c98e9468a0b45f",
-    "current": "d37e80424dd4002051b69d561ca7bace76bd4913dc24480536c98e9468a0b45f"
+    "previous": "525982875b0e9bed33d4bbca614b1f73d16cb1de310760230053e08e04ef3957",
+    "current": "525982875b0e9bed33d4bbca614b1f73d16cb1de310760230053e08e04ef3957"
   },
   "fonts": [
-    "img/fontcustom/fontcustom_d37e80424dd4002051b69d561ca7bace.ttf",
-    "img/fontcustom/fontcustom_d37e80424dd4002051b69d561ca7bace.svg",
-    "img/fontcustom/fontcustom_d37e80424dd4002051b69d561ca7bace.woff",
-    "img/fontcustom/fontcustom_d37e80424dd4002051b69d561ca7bace.eot",
-    "img/fontcustom/fontcustom_d37e80424dd4002051b69d561ca7bace.woff2"
+    "dist/fontcustom/fontcustom_525982875b0e9bed33d4bbca614b1f73.ttf",
+    "dist/fontcustom/fontcustom_525982875b0e9bed33d4bbca614b1f73.svg",
+    "dist/fontcustom/fontcustom_525982875b0e9bed33d4bbca614b1f73.woff",
+    "dist/fontcustom/fontcustom_525982875b0e9bed33d4bbca614b1f73.eot",
+    "dist/fontcustom/fontcustom_525982875b0e9bed33d4bbca614b1f73.woff2"
   ],
   "glyphs": {
     "adobexd": {
       "codepoint": 61701,
-      "source": "img/fontcustom/adobexd.svg"
+      "source": "dist/img/fontcustom/adobexd.svg"
     },
     "archlinux": {
       "codepoint": 61696,
-      "source": "img/fontcustom/archlinux.svg"
+      "source": "dist/img/fontcustom/archlinux.svg"
     },
     "csharp": {
       "codepoint": 61702,
-      "source": "img/fontcustom/csharp.svg"
+      "source": "dist/img/fontcustom/csharp.svg"
     },
     "flask": {
       "codepoint": 61697,
-      "source": "img/fontcustom/flask.svg"
+      "source": "dist/img/fontcustom/flask.svg"
     },
     "linux": {
       "codepoint": 61698,
-      "source": "img/fontcustom/linux.svg"
+      "source": "dist/img/fontcustom/linux.svg"
     },
     "ubuntu": {
       "codepoint": 61699,
-      "source": "img/fontcustom/ubuntu.svg"
+      "source": "dist/img/fontcustom/ubuntu.svg"
     }
   },
   "options": {
@@ -50,14 +50,14 @@
     "font_name": "fontcustom",
     "force": false,
     "input": {
-      "templates": "img/fontcustom",
-      "vectors": "img/fontcustom"
+      "templates": "dist/img/fontcustom",
+      "vectors": "dist/img/fontcustom"
     },
     "no_hash": false,
     "output": {
-      "css": "img/fontcustom",
-      "fonts": "img/fontcustom",
-      "preview": "img/fontcustom"
+      "css": "dist/fontcustom",
+      "fonts": "dist/fontcustom",
+      "preview": "dist/fontcustom"
     },
     "preprocessor_path": null,
     "quiet": false,
@@ -67,7 +67,7 @@
     ]
   },
   "templates": [
-    "img/fontcustom/fontcustom.css",
-    "img/fontcustom/fontcustom-preview.html"
+    "dist/fontcustom/fontcustom.css",
+    "dist/fontcustom/fontcustom-preview.html"
   ]
 }

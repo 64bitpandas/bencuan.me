@@ -1,0 +1,397 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ben Cuan | Software Developer</title>
+  <meta name="description" content="Hi! I'm Ben, and this is my site :)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Ben Cuan | Software Developer">
+  <meta property="og:description" content="Hi! I'm Ben, and this is my site :)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bencuan.me">
+  <meta property="og:image" content="img/icon.png">
+  <meta property="og:site_name" content="bencuan.me">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="img/icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/simple-grid.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="fontcustom/fontcustom.css">
+  <link rel="stylesheet" href="css/custom.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+
+<body>
+  <nav>
+    <div class="nav-background" id="nav-back"></div>
+    <div id="nav-fill-home" class="nav-fill logo-color"></div>
+    <div id="nav-fill-about" class="nav-fill about-color"></div>
+    <div id="nav-fill-proj" class="nav-fill proj-color"></div>
+    <div id="nav-fill-contact" class="nav-fill contact-color"></div>
+    <div id="nav-fill-resume" class="nav-fill resume"></div>
+    <div class="row no-mobile">
+      <div class="col-1">
+        <a href="#landing" id="nav-home"><img src="img/icon-no-bg.png"></a>
+      </div>
+      <div class="col-2">
+        <a href="#about" id="nav-about"><i class="fas fa-info-circle"></i>  About</a>
+      </div>
+      <div class="col-2">
+        <a href="#projects" id="nav-proj"><i class="fas fa-paint-roller"></i>  Projects</a>
+      </div>
+      <div class="col-2">
+        <a href="#contact" id="nav-contact"><i class="fas fa-mobile"></i>  Contact</a>
+      </div>
+      <div class="col-2"></div>
+      <div class="col-3">
+        <a href="/resume" id="nav-resume" class="resume-button"> Resume </a>
+      </div>
+    </div>
+    <div class="mobile-only row">
+      <a href="#landing" id="mobile-nav-home"><img src="img/icon-no-bg.png"></a>
+      <div id="burger-btn" class="burger burger-rotate">
+        <div class="burger-lines"></div>
+      </div>
+    </div>
+
+    <div class="mobile-only logo-color" id="burger-menu">
+        <a href="#about" id="mobile-nav-about" class="burger-link" ><i class="fas fa-info-circle"></i>  About</a>
+        <a href="#projects" id="mobile-nav-proj" class="burger-link"><i class="fas fa-paint-roller"></i>  Projects</a>
+        <a href="#contact" id="mobile-nav-contact" class="burger-link"><i class="fas fa-mobile"></i>  Contact</a>
+        <a href="/resume" id="mobile-nav-resume" class="burger-link" ><i class="fas fa-file-pdf"></i>  Resume </a>
+    </div>
+</nav>
+   <!-- START LANDING -->
+  <div id="landing">
+    <div class="splash-gradient">
+      <div class="splash-box" id="landing-box">
+        <div class="splash-hi mobile-center">Hi! I'm</div>
+        <div class="splash-name mobile-center">Ben Cuan.</div>
+        <div class="splash-desc mobile-center">I'm a software developer and game designer.</div>
+        <div class="splash-button-container row no-mobile">
+          <div class="col-1"></div>
+          <div class="col-2 splash-button-col">
+            <div class="landing-btn github" id="github-btn" onclick="openInNewTab('https://github.com/64bitpandas')">
+              <i class="fab fa-github"></i>
+            </div>
+          </div>
+          <div class="col-2 splash-button-col">
+            <div class="landing-btn linkedin" id="linkedin-btn"
+              onclick="openInNewTab('https://linkedin.com/in/bencuan')">
+              <i class="fab fa-linkedin-in"></i>
+            </div>
+          </div>
+          <div class="col-2 splash-button-col">
+            <div class="landing-btn resume" id="resume-btn" onclick="openInNewTab('https://bencuan.me/resume')">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+          </div>
+          <div class="col-2 splash-button-col">
+            <div class="landing-btn email" id="email-btn" onclick="openInNewTab('mailto:contact@bencuan.me')">
+              <i class="fas fa-envelope-open-text"></i>
+            </div>
+          </div>
+          <div class="col-2 splash-button-col">
+            <div class="landing-btn itch" id="itch-btn" onclick="openInNewTab('https://64bitpandas.itch.io')">
+              <i class="fab fa-itch-io"></i>
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+
+        <div class="mobile-splash-buttons center">
+          <div class="row">
+            <div class="mobile-landing-btn github" onclick="openInNewTab('https://github.com/64bitpandas')">
+              <i class="fab fa-github"></i>  GitHub
+            </div>
+          </div>
+          <div class="row">
+            <div class="mobile-landing-btn linkedin" id="linkedin-btn"
+              onclick="openInNewTab('https://linkedin.com/in/bencuan')">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </div>
+          </div>
+          <div class="row">
+           <div class="mobile-landing-btn resume" id="resume-btn" onclick="openInNewTab('https://bencuan.me/resume')">
+              <i class="fas fa-file-pdf"></i>  Resume
+            </div>
+          </div>
+          <div class="row">
+            <div class="mobile-landing-btn email" id="email-btn" onclick="openInNewTab('mailto:contact@bencuan.me')">
+              <i class="fas fa-envelope-open-text"></i>  Email
+            </div>
+          </div>
+          <div class="row">
+           <div class="mobile-landing-btn itch" id="itch-btn" onclick="openInNewTab('https://64bitpandas.itch.io')">
+              <i class="fab fa-itch-io"></i>  Itch.io
+            </div>
+          </div>
+        </div>
+
+        <div class="github splash-info" id="github-splash">
+          <div class="splash-info-padding">
+            <div class="splash-hi">Check out my work on</div>
+            <div class="splash-info-big">Github.</div>
+            <div class="splash-desc">https://github.com/64bitpandas</div>
+          </div>
+        </div>
+        <div class="linkedin splash-info" id="linkedin-splash">
+          <div class="splash-info-padding">
+            <div class="splash-hi">Check out my profile on</div>
+            <div class="splash-info-big">LinkedIn.</div>
+            <div class="splash-desc">https://linkedin.com/in/bencuan</div>
+          </div>
+        </div>
+        <div class="resume splash-info" id="resume-splash">
+          <div class="splash-info-padding">
+            <div class="splash-hi">View my</div>
+            <div class="splash-info-big">Resume.</div>
+            <div class="splash-desc">https://bencuan.me/resume</div>
+          </div>
+        </div>
+        <div class="email splash-info" id="email-splash">
+          <div class="splash-info-padding">
+            <div class="splash-hi">Email me!</div>
+            <div class="splash-info-big splash-email">contact@bencuan.me</div>
+          </div>
+        </div>
+        <div class="itch splash-info" id="itch-splash">
+          <div class="splash-info-padding">
+            <div class="splash-hi">Play my games at</div>
+            <div class="splash-info-big">itch.io.</div>
+            <div class="splash-desc">https://itch.io/profile/64bitpandas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END LANDING -->
+
+  <div id="content">
+     <!-- START ABOUT -->
+<div id="about" class="container content-section">
+    <div class="section-head left-head">About Me</div>
+    <div class="content-box" id="about-content">
+    <div class="content content-text">
+        Hi there! I'm Ben, a student at UC Berkeley studying Computer Science and Psychology.
+        I'm an aspiring <b>full stack developer</b> who strives to make <b>responsive, beautiful frontends</b>
+        without compromising on <b>efficient, developer-friendly backends.</b>
+
+        <br><br>
+
+        In addition to the typical software stack, you can often find me <b>designing and developing games</b> with my
+        fellow developers at <a href="#" class="link">Trisagion Games</a>.
+
+        <br><br>
+
+        Here are some of the tools I use most frequently:
+
+        <div class="row tools-table">
+        <div class="col-2 tool-icons">
+            <i class="fab fa-html5"></i>
+            <i class="fab fa-sass"></i>
+            <i class="fab fa-js"></i>
+        </div>
+        <div class="col-9 tools-text"><b>HTML5/CSS/Sass/JavaScript (ES6+)</b> for frontend development</div>
+        </div>
+        <div class="row">
+        <div class="col-2 tool-icons">
+            <i class="fab fa-node-js"></i>
+            <i class="icon-flask"></i>
+        </div>
+        <div class="col-9 tools-text"><b>Node.js and Flask</b> for backend development</div>
+        </div>
+        <div class="row">
+        <div class="col-2 tool-icons">
+            <i class="fab fa-unity"></i>
+        </div>
+        <div class="col-9 tools-text"><b>C# with Unity for game development</b></div>
+        </div>
+        <div class="row">
+        <div class="col-2 tool-icons">
+            <i class="icon-adobexd"></i>
+        </div>
+        <div class="col-9 tools-text"><b>Adobe XD</b> for design</div>
+        </div>
+        <div class="row">
+        <div class="col-2 tool-icons">
+            <i class="icon-linux"></i>
+            <i class="icon-archlinux"></i>
+            <i class="icon-ubuntu"></i>
+        </div>
+        <div class="col-9 tools-text"><b>Linux of all flavors</b> as my OS of choice</div>
+        </div>
+        <img class="about-img" src="img/icon.png"></img>
+    </div>
+
+    </div>
+</div>
+<!-- END ABOUT -->
+    <!-- START PROJECTS -->
+<div id="projects" class="container content-section">
+    <div class="section-head right-head">Featured Projects</div>
+
+    <div class="content-box feature-box" id="proj-launchhacks">
+    <div class="content content-text feature-content">
+
+        <div class="row">
+        <div class="col-9">
+            <div class="feature-label github">
+            LaunchHacks
+            <div class="feature-tag itch no-mobile">
+                Event
+            </div>
+            </div>
+        </div>
+        <div class="col-3 feature-link-container">
+            <span class="feature-link" onclick="openInNewTab('https://github.com/64bitpandas')">
+            <i class="fab fa-github"></i>
+            </span>
+            <span class="feature-link" onclick="openInNewTab('https://github.com/64bitpandas')">
+            <i class="fas fa-external-link-square-alt"></i>
+            </span>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-6">
+            In 2019, I organized a 24 hour long hackathon for 100 high school students. Insert more content here!
+        </div>
+        <div class="col-6 feature-img-container">
+            <img src="img/launchhacks.jpg" class="feature-img">
+        </div>
+        </div>
+
+    </div>
+</div>
+    <!-- MORE PROJECTS SECTION -->
+<div class="section-head center-head">More Projects</div>
+
+<div class="row center proj-buttons">
+<div class="btn-proj btn-proj-selected" id="proj-all">
+    <div class="content">All</div>
+</div>
+<span class="btn-proj" id="proj-web">
+    <div class="content">Websites</div>
+</span>
+<span class="btn-proj" id="proj-game">
+    <div class="content">Games</div>
+</span>
+<span class="btn-proj" id="proj-app">
+    <div class="content">Apps</div>
+</span>
+<span class="btn-proj" id="proj-other">
+    <div class="content">Other</div>
+</span>
+</div>
+
+<!-- START PROJECT CARDS -->
+<div class="truncated" id="proj-cards">
+
+<!-- START ROW 1 -->
+<div class="row">
+
+    <!-- START COL-6 -->
+    <div class="col-6">
+
+    <div class="content-box proj-card proj-other">
+        <div class="content">
+
+        <div class="proj-name">Dotfiles</div>
+        <div class="center">
+            <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/64bitpandas')">
+            <i class="fab fa-github"></i>
+            </span>
+            <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/64bitpandas')">
+            <i class="fas fa-external-link-square-alt"></i>
+            </span>
+        </div>
+        <div class="proj-desc">A collection of personalized Linux configurations</div>
+        <div class="proj-icons">
+            <div class="proj-icon">
+            <i class="fab fa-github"></i>
+            <div class="icon-label">Test</div>
+            </div>
+            <div class="proj-icon">
+            <i class="fab fa-github"></i>
+            <div class="icon-label">Test</div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- END COL6 -->
+
+    <div class="col-6">
+
+    <div class="content-box proj-card proj-other">
+        <div class="content">
+
+        <div class="proj-name"><img src="img/dotfiles.png"></div>
+        <div class="center">
+            <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/64bitpandas')">
+            <i class="fab fa-github"></i>
+            </span>
+            <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/64bitpandas')">
+            <i class="fas fa-external-link-square-alt"></i>
+            </span>
+        </div>
+        <div class="proj-desc">A collection of personalized Linux configurations</div>
+        <div class="proj-icons">
+            <div class="proj-icon">
+            <i class="fab fa-github"></i>
+            <div class="icon-label">Test</div>
+            </div>
+            <div class="proj-icon">
+            <i class="fab fa-github"></i>
+            <div class="icon-label">Test</div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- END COL6 -->
+    </div>
+</div>
+<!-- END ROW 1 -->
+
+</div>
+<!-- END PROJECT CARDS -->
+      <!-- START CONTACT -->
+    <div id="contact" class="container content-section center">
+      <div class="section-head center-head">Contact Me</div>
+      <div class="contact-text center">
+        Thanks for taking a look at my site! If there's anything (literally anything) you'd like to
+        talk to me about, feel free to send an email to <a class="link" href="mailto:contact@bencuan.me">contact@bencuan.me</a>.
+      </div>
+      <div class="btn-proj btn-contact" onclick="openInNewTab('mailto:contact@bencuan.me')">
+        <div class="content">Email me!</div>
+      </div>
+      <div class="contact-text center">
+        I'm currently looking for Summer 2021 internships in the SF Bay Area.
+        If you know of any opportunities, I'd love to hear about them!
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END CONTENT -->
+  </div>
+
+  <footer id="footer">
+  <div class="footer-text center">Designed and developed with ❤️ by Ben Cuan, July 2020</div>
+  <div class="footer-text center"><a class="link" target="_blank" href="https://github.com/64bitpandas/bencuan.me">Browse the source at <i class="fab fa-github footer-icon"></i> !</a></div>
+  <div class="footer-text center"><a class="link" href="/2018">2018</a> | <a class="link" href="/2019">2019</a></div>
+</footer>
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="https://kit.fontawesome.com/585da7c89d.js" crossorigin="anonymous"></script>
+  <script src="js/vendor/noframework.waypoints.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

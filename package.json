@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm-run-all --parallel watch serve postcss",
-    "watch": "sass --watch css/sass/:css/build",
-    "serve": "live-server",
-    "postcss": "postcss css/build/custom.css --use autoprefixer cssnano -d css/ --watch",
-    "fonts": "fontcustom compile img/fontcustom --output img/fontcustom"
+    "watch": "sass --watch src/sass/:build/",
+    "serve": "@11ty/eleventy --serve",
+    "postcss": "postcss build/custom.css --use autoprefixer cssnano -d dist/css --watch",
+    "fonts": "fontcustom compile dist/img/fontcustom --output dist/fontcustom"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/64bitpandas/bencuan.me#readme",
   "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
     "autoprefixer": "^9.8.4",
     "cssnano": "^4.1.10",
     "live-server": "^1.2.1",
