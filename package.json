@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm-run-all --parallel watch serve postcss",
     "watch": "sass --watch src/sass/:build/",
-    "serve": "@11ty/eleventy --serve",
+    "serve": "eleventy --serve",
     "postcss": "postcss build/custom.css --use autoprefixer cssnano -d dist/css --watch",
     "fonts": "fontcustom compile dist/img/fontcustom --output dist/fontcustom"
   },
