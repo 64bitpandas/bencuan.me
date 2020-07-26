@@ -9,22 +9,32 @@
 
 <url>
   <loc>https://bencuan.me/</loc>
-  <lastmod>2019-08-19T21:41:40+00:00</lastmod>
+  <lastmod>2020-07-26T09:35:30+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://bencuan.me/resume/</loc>
+  <lastmod>2020-07-26T09:35:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://bencuan.me/2018/</loc>
-  <lastmod>2019-08-19T21:41:39+00:00</lastmod>
+  <lastmod>2020-07-26T09:35:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://bencuan.me/2019/</loc>
-  <lastmod>2020-07-06T21:41:39+00:00</lastmod>
+  <lastmod>2020-07-26T09:35:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://bencuan.me/assets/Resume2020-BenCuan.pdf</loc>
-  <lastmod>2020-03-08T21:41:39+00:00</lastmod>
+  <loc>https://bencuan.me/static/Resume-Summer2020-BenCuan.pdf</loc>
+  <lastmod>2020-07-26T09:35:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://bencuan.me/2018/assets/resume-bencuan.pdf</loc>
+  <lastmod>2020-07-26T09:35:30+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
