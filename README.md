@@ -12,7 +12,7 @@ First, run `npm i --save-dev` to install all dependencies.
 
 To serve locally, run `npm start`.
 
-As with most of my sites, this site is built on top of the fantastic [HTML5 Boilerplate](https://html5boilerplate.com/). I use plain HTML5 and Javascript with Sass. CSS is postprocessed using [postcss](https://postcss.org/) with [autoprefixer](https://github.com/postcss/autoprefixer) and [cssnano](https://cssnano.co/).
+As with most of my sites, this site is built on top of the fantastic [HTML5 Boilerplate](https://html5boilerplate.com/). For preprocessing, I use vanilla JavaScript and Sass with [Eleventy](https://www.11ty.dev/) for HTML preprocessing. CSS is postprocessed using [postcss](https://postcss.org/) with [autoprefixer](https://github.com/postcss/autoprefixer) and [cssnano](https://cssnano.co/).
 
 Some libraries and assets that I used are:
  - [Modernizr](https://modernizr.com/)
@@ -22,8 +22,13 @@ Some libraries and assets that I used are:
  - [Adobe Fonts](https://fonts.adobe.com/)
  - [Fontcustom](https://fontcustom.github.io/fontcustom/)
  - [Waypoints](https://github.com/imakewebthings/waypoints)
+ - [Animated Burgers](https://march08.github.io/animated-burgers/)
 
 If you run into any issues, please [open a new issue](https://github.com/64bitpandas/bencuan.me/issues).
+
+### Project Structure
+ - **dist/** contains all static assets (images, compiled CSS, fontcustom assets, JS).
+ - **src/** contains uncompiled Sass and Liquid files. Sass and Eleventy compile these assets into the dist/ folder.
 
 ## Contact
 
