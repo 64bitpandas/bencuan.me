@@ -87,7 +87,7 @@
   },
   {
     "name": "AegisVR",
-    "nameImg": "aegis.jpg",
+    "nameImg": "aegis.png",
     "description": "An interactive VR self defense guide",
     "type": "game",
     "github": "https://github.com/BananiumLabs/AegisVR/",
