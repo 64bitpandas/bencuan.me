@@ -1,0 +1,1091 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ben Cuan | Software Developer</title>
+  <meta name="description" content="Hi! I'm Ben, and this is my site :)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Ben Cuan | Software Developer">
+  <meta property="og:description" content="Hi! I'm Ben, and this is my site :)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bencuan.me">
+  <meta property="og:image" content="img/icon.png">
+  <meta property="og:site_name" content="bencuan.me">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="img/icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/simple-grid.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/fontcustom/fontcustom.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+
+<body>
+  <nav>
+    <div class="nav-background" id="nav-back"></div>
+    <div id="nav-fill-home" class="nav-fill logo-color"></div>
+    <div id="nav-fill-about" class="nav-fill about-color"></div>
+    <div id="nav-fill-proj" class="nav-fill proj-color"></div>
+    <div id="nav-fill-contact" class="nav-fill contact-color"></div>
+    <div id="nav-fill-resume" class="nav-fill resume"></div>
+    <div class="row no-mobile">
+      <div class="col-1">
+        <a href="#landing" id="nav-home"><img src="img/icon-no-bg.png"></a>
+      </div>
+      <div class="col-2">
+        <a href="#about" id="nav-about"><i class="fas fa-info-circle"></i>  About</a>
+      </div>
+      <div class="col-2">
+        <a href="#projects" id="nav-proj"><i class="fas fa-paint-roller"></i>  Projects</a>
+      </div>
+      <div class="col-2">
+        <a href="#contact" id="nav-contact"><i class="fas fa-mobile"></i>  Contact</a>
+      </div>
+      <div class="col-2"></div>
+      <div class="col-3">
+        <a href="/resume" id="nav-resume" class="resume-button"> Resume </a>
+      </div>
+    </div>
+    <div class="mobile-only row">
+      <a href="#landing" id="mobile-nav-home"><img src="img/icon-no-bg.png"></a>
+      <div id="burger-btn" class="burger burger-rotate">
+        <div class="burger-lines"></div>
+      </div>
+    </div>
+
+    <div class="mobile-only logo-color" id="burger-menu">
+        <a href="#about" id="mobile-nav-about" class="burger-link" ><i class="fas fa-info-circle"></i>  About</a>
+        <a href="#projects" id="mobile-nav-proj" class="burger-link"><i class="fas fa-paint-roller"></i>  Projects</a>
+        <a href="#contact" id="mobile-nav-contact" class="burger-link"><i class="fas fa-mobile"></i>  Contact</a>
+        <a href="/resume" id="mobile-nav-resume" class="burger-link" ><i class="fas fa-file-pdf"></i>  Resume </a>
+    </div>
+</nav>
+   <!-- START LANDING -->
+  <div id="landing">
+    <div class="splash-gradient">
+      <div class="splash-box" id="landing-box">
+        <div class="splash-hi mobile-center">Hi! I'm</div>
+        <div class="splash-name mobile-center">Ben Cuan.</div>
+        <div class="splash-desc mobile-center">I'm a software developer and game designer.</div>
+        <div class="splash-button-container row no-mobile">
+          <div class="col-1"></div>
+          <div class="col-2 splash-button-col">
+            <div class="landing-btn github" id="github-btn" onclick="openInNewTab('https://github.com/64bitpandas')">
+              <i class="fab fa-github"></i>
+            </div>
+          </div>
+          <div class="col-2 splash-button-col">
+            <div class="landing-btn linkedin" id="linkedin-btn"
+              onclick="openInNewTab('https://linkedin.com/in/bencuan')">
+              <i class="fab fa-linkedin-in"></i>
+            </div>
+          </div>
+          <div class="col-2 splash-button-col">
+            <div class="landing-btn resume" id="resume-btn" onclick="openInNewTab('resume')">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+          </div>
+          <div class="col-2 splash-button-col">
+            <div class="landing-btn email" id="email-btn" onclick="openInNewTab('mailto:contact@bencuan.me')">
+              <i class="fas fa-envelope-open-text"></i>
+            </div>
+          </div>
+          <div class="col-2 splash-button-col">
+            <div class="landing-btn itch" id="itch-btn" onclick="openInNewTab('https://64bitpandas.itch.io')">
+              <i class="fab fa-itch-io"></i>
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+
+        <div class="mobile-splash-buttons center">
+          <div class="row">
+            <div class="mobile-landing-btn github" onclick="openInNewTab('https://github.com/64bitpandas')">
+              <i class="fab fa-github"></i>  GitHub
+            </div>
+          </div>
+          <div class="row">
+            <div class="mobile-landing-btn linkedin" id="linkedin-btn"
+              onclick="openInNewTab('https://linkedin.com/in/bencuan')">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </div>
+          </div>
+          <div class="row">
+           <div class="mobile-landing-btn resume" id="resume-btn" onclick="openInNewTab('https://bencuan.me/resume')">
+              <i class="fas fa-file-pdf"></i>  Resume
+            </div>
+          </div>
+          <div class="row">
+            <div class="mobile-landing-btn email" id="email-btn" onclick="openInNewTab('mailto:contact@bencuan.me')">
+              <i class="fas fa-envelope-open-text"></i>  Email
+            </div>
+          </div>
+          <div class="row">
+           <div class="mobile-landing-btn itch" id="itch-btn" onclick="openInNewTab('https://64bitpandas.itch.io')">
+              <i class="fab fa-itch-io"></i>  Itch.io
+            </div>
+          </div>
+        </div>
+
+        <div class="github splash-info" id="github-splash">
+          <div class="splash-info-padding">
+            <div class="splash-hi">Check out my work on</div>
+            <div class="splash-info-big">Github.</div>
+            <div class="splash-desc">https://github.com/64bitpandas</div>
+          </div>
+        </div>
+        <div class="linkedin splash-info" id="linkedin-splash">
+          <div class="splash-info-padding">
+            <div class="splash-hi">Check out my profile on</div>
+            <div class="splash-info-big">LinkedIn.</div>
+            <div class="splash-desc">https://linkedin.com/in/bencuan</div>
+          </div>
+        </div>
+        <div class="resume splash-info" id="resume-splash">
+          <div class="splash-info-padding">
+            <div class="splash-hi">View my</div>
+            <div class="splash-info-big">Resume.</div>
+            <div class="splash-desc">https://bencuan.me/resume</div>
+          </div>
+        </div>
+        <div class="email splash-info" id="email-splash">
+          <div class="splash-info-padding">
+            <div class="splash-hi">Email me!</div>
+            <div class="splash-info-big splash-email">contact@bencuan.me</div>
+          </div>
+        </div>
+        <div class="itch splash-info" id="itch-splash">
+          <div class="splash-info-padding">
+            <div class="splash-hi">Play my games at</div>
+            <div class="splash-info-big">itch.io.</div>
+            <div class="splash-desc">https://itch.io/profile/64bitpandas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END LANDING -->
+
+  <div id="content">
+     <!-- START ABOUT -->
+<div id="about" class="container content-section">
+    <div class="section-head left-head">About Me</div>
+    <div class="content-box" id="about-content">
+    <div class="content content-text">
+        Hi there! I'm Ben, a student at UC Berkeley studying Computer Science and Psychology.
+        I'm an aspiring <b>full stack developer</b> who strives to make <b>responsive, beautiful frontends</b>
+        without compromising on <b>efficient, developer-friendly backends.</b>
+
+        <br><br>
+
+        In addition to the typical software stack, you can often find me <b>designing and developing games</b> with my
+        fellow developers at <a href="#" class="link">Trisagion Games</a>.
+
+        <br><br>
+
+        Here are some of the tools I use most frequently:
+
+        <div class="row tools-table">
+        <div class="col-2 tool-icons">
+            <i class="fab fa-html5"></i>
+            <i class="fab fa-sass"></i>
+            <i class="fab fa-js"></i>
+        </div>
+        <div class="col-9 tools-text"><b>HTML5/CSS/Sass/JavaScript (ES6+)</b> for frontend development</div>
+        </div>
+        <div class="row">
+        <div class="col-2 tool-icons">
+            <i class="fab fa-node-js"></i>
+            <i class="icon-flask"></i>
+        </div>
+        <div class="col-9 tools-text"><b>Node.js and Flask</b> for backend development</div>
+        </div>
+        <div class="row">
+        <div class="col-2 tool-icons">
+            <i class="fab fa-unity"></i>
+        </div>
+        <div class="col-9 tools-text"><b>C# with Unity for game development</b></div>
+        </div>
+        <div class="row">
+        <div class="col-2 tool-icons">
+            <i class="icon-adobexd"></i>
+        </div>
+        <div class="col-9 tools-text"><b>Adobe XD</b> for design</div>
+        </div>
+        <div class="row">
+        <div class="col-2 tool-icons">
+            <i class="icon-linux"></i>
+            <i class="icon-archlinux"></i>
+            <i class="icon-ubuntu"></i>
+        </div>
+        <div class="col-9 tools-text"><b>Linux of all flavors</b> as my OS of choice</div>
+        </div>
+        <img class="about-img" src="img/icon.png"></img>
+    </div>
+
+    </div>
+</div>
+<!-- END ABOUT -->
+    <div id="projects" class="container content-section">
+    <div class="section-head right-head">Featured Projects</div>
+
+    
+    <div class="content-box feature-box" id="proj-launchhacks">
+    <div class="content content-text feature-content">
+
+        <div class="row">
+        <div class="col-9">
+            <div class="feature-label gradient2-color">
+            LaunchHacks
+            <div class="feature-tag about-color no-mobile">
+                Event
+            </div>
+            </div>
+        </div>
+        <div class="col-3 feature-link-container">
+            <span class="feature-link" onclick="openInNewTab('https://github.com/BananiumLabs/LaunchHacksSite')">
+            <i class="fab fa-github"></i>
+            </span>
+            <span class="feature-link" onclick="openInNewTab('https://launchhacks.bananiumlabs.com')">
+            <i class="fas fa-external-link-square-alt"></i>
+            </span>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-6 feature-text">
+            In 2019, I organized a 24 long hackathon for 100 high school students in Fremont, CA. <br><br> As the lead organizer, I had the opportunity to work on many different aspects such as web development, contacting sponsors, and running workshops. <br><br> Organizing a hackathon for the first time took a lot of work, but I'm glad we were able to successfully contribute to the vibrant hackathon community!
+        </div>
+        <div class="col-6 feature-img-container">
+            <img src="img/launchhacks.jpg" class="feature-img">
+        </div>
+        </div>
+
+    </div>
+    </div>
+    
+    <div class="content-box feature-box" id="proj-launchhacks">
+    <div class="content content-text feature-content">
+
+        <div class="row">
+        <div class="col-9">
+            <div class="feature-label github">
+            Bullet Sanctum
+            <div class="feature-tag itch no-mobile">
+                Game
+            </div>
+            </div>
+        </div>
+        <div class="col-3 feature-link-container">
+            <span class="feature-link" onclick="openInNewTab('https://github.com/trisagion-games/bullet-sanctum')">
+            <i class="fab fa-github"></i>
+            </span>
+            <span class="feature-link" onclick="openInNewTab('https://64bitpandas.itch.io/bullet-sanctum')">
+            <i class="fas fa-external-link-square-alt"></i>
+            </span>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-6 feature-text">
+            Inspired by titles such as DOOM and Bayonetta, Bullet Sanctum is a game about banishing demons with unfettered virtue. <br><br> Play as The Crusader as you wield multiple guns with unique strengths and weaknesses, serving different purposes for both combat and level navigation. <br><br> Bullet Sanctum was developed in 31 days in Unity for Metroidvania Month 8.
+        </div>
+        <div class="col-6 feature-img-container">
+            <img src="img/bullet-sanctum.png" class="feature-img">
+        </div>
+        </div>
+
+    </div>
+    </div>
+    
+    <div class="content-box feature-box" id="proj-launchhacks">
+    <div class="content content-text feature-content">
+
+        <div class="row">
+        <div class="col-9">
+            <div class="feature-label contact-color">
+            Linux SysAdmin DeCal
+            <div class="feature-tag  no-mobile">
+                
+            </div>
+            </div>
+        </div>
+        <div class="col-3 feature-link-container">
+            <span class="feature-link" onclick="openInNewTab('https://github.com/0xcf/decal-web')">
+            <i class="fab fa-github"></i>
+            </span>
+            <span class="feature-link" onclick="openInNewTab('https://decal.ocf.io')">
+            <i class="fas fa-external-link-square-alt"></i>
+            </span>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-6 feature-text">
+            I'm currently a facilitator for the Linux Systems Administration DeCal, a student-run course managed by the <a class="link" href="https://ocf.io" target="_blank">Open Computing Facility</a> that serves as a crash course for UNIX systems, server engineering, and computer security. <br><br> As a facilitator, I help develop course materials, manage logistics, and give lectures. <br><br> Starting this fall, all course materials will be available online to everyone- so even if you're not a Berkeley student, feel free to join in on the fun!
+        </div>
+        <div class="col-6 feature-img-container">
+            <img src="img/ocf.png" class="feature-img">
+        </div>
+        </div>
+
+    </div>
+    </div>
+    
+</div>
+    <!-- MORE PROJECTS SECTION -->
+<div class="section-head center-head">More Projects</div>
+
+<div class="row center proj-buttons">
+<div class="btn-proj btn-proj-selected" id="proj-all">
+    <div class="content">All</div>
+</div>
+<span class="btn-proj" id="proj-app">
+    <div class="content">Apps</div>
+</span>
+<span class="btn-proj" id="proj-game">
+    <div class="content">Games</div>
+</span>
+<span class="btn-proj" id="proj-web">
+    <div class="content">Websites</div>
+</span>
+<span class="btn-proj" id="proj-other">
+    <div class="content">Other</div>
+</span>
+</div>
+
+<!-- START PROJECT CARDS -->
+<div class="truncated container" id="proj-cards">
+
+
+
+    
+    
+
+    <div class="proj-card-container proj-other ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        <img src="img/dotfiles.png">
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/bencuan.me/dotfiles')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                </div>
+                <div class="proj-desc">A collection of personalized Linux configurations</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="icon-linux"></i>
+                            <div class="icon-label">Linux</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-palette"></i>
+                            <div class="icon-label">Design</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="icon-gnubash"></i>
+                            <div class="icon-label">Bash</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-app ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        CarrotCane
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/BananiumLabs/CarrotCane')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('https://devpost.com/software/carrotcane')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">An object detection and tracking tool for the visually impaired</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-medal"></i>
+                            <div class="icon-label">Hackathon Winner</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-node-js"></i>
+                            <div class="icon-label">Node.js</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="icon-arduino"></i>
+                            <div class="icon-label">Arduino</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-app ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        <img src="img/audisea.png">
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/64bitpandas/AudiSea')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('https://bananiumlabs.github.io/AudiSea/')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">A VR landscape that syncs to your music</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-medal"></i>
+                            <div class="icon-label">Hackathon Winner</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="icon-a-frame"></i>
+                            <div class="icon-label">AFrame</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="icon-googlecardboard"></i>
+                            <div class="icon-label">Google Cardboard</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="icon-spotify"></i>
+                            <div class="icon-label">Spotify Web API</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-game ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        <img src="img/convergence.png">
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/trisagion-games/convergence-game')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('https://xkindredkinesis.itch.io/convergence')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">Play as a rogue sentient AI to uncover the shortcomings of the human race.</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-gamepad"></i>
+                            <div class="icon-label">Game</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-unity"></i>
+                            <div class="icon-label">Unity</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-game ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        <img src="img/aegis.png">
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/BananiumLabs/AegisVR/')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('https://aegis.bananiumlabs.com/')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">An interactive VR self defense guide</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="icon-a-frame"></i>
+                            <div class="icon-label">AFrame</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="icon-oculus"></i>
+                            <div class="icon-label">Oculus Rift</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-hand-sparkles"></i>
+                            <div class="icon-label">LeapMotion Tracking</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-game ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        <img src="img/irtp.png">
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/trisagion-games/its-rude-to-point')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('https://64bitpandas.itch.io/its-rude-to-point')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">A silly myriad of minigames played with a single finger</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-gamepad"></i>
+                            <div class="icon-label">Game</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-unity"></i>
+                            <div class="icon-label">Unity</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-other ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        CS61B Guidebook
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/64bitpandas/cs61b-notes')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('https://cs61b.bencuan.me/')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">An intuitive guide to data structures</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-chalkboard"></i>
+                            <div class="icon-label">Teaching Materials</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-java"></i>
+                            <div class="icon-label">Java</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-app ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        ElectroTab
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/BananiumLabs/ElectroTab')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                </div>
+                <div class="proj-desc">A highly customizable new tab replacement</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-angular"></i>
+                            <div class="icon-label">Angular2</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="icon-firebase"></i>
+                            <div class="icon-label">Firebase</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-game  hide-when-truncated ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        <img src="img/eggmageddon.gif">
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/trisagion-games/Eggmageddon')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('epicrider.itch.io/eggmageddon')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">Crack the case before you get poached!</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-gamepad"></i>
+                            <div class="icon-label">Game</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-egg"></i>
+                            <div class="icon-label">Eggs!</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-unity"></i>
+                            <div class="icon-label">Unity</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-web  hide-when-truncated ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        <img src="img/bananium.svg">
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/BananiumLabs/BananiumSite')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('https://bananiumlabs.com')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">Website for the nonprofit organization Bananium Labs</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-html5"></i>
+                            <div class="icon-label">HTML5</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-css3"></i>
+                            <div class="icon-label">CSS</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="icon-jquery"></i>
+                            <div class="icon-label">JQuery</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-app  hide-when-truncated ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        Honeydue
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/BananiumLabs/HoneyDue')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('https://devpost.com/software/honeydue')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">A sleek web-based homework planner</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-medal"></i>
+                            <div class="icon-label">Hackathon Winner</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-angular"></i>
+                            <div class="icon-label">Angular2</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-app  hide-when-truncated ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        HotSwap
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/BananiumLabs/HotSwap')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('https://devpost.com/software/hotswap-tech-9m3csh')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">A platform for book and supply exchanges for schools</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-medal"></i>
+                            <div class="icon-label">Hackathon Winner</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="icon-firebase"></i>
+                            <div class="icon-label">Firebase</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-web  hide-when-truncated ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        <img src="img/2tbs.png">
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/2TBS/2tbs-site')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('https://2tbs.bananiumlabs.com')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">Website for my former game development organization, Two Terabyte Studios</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-html5"></i>
+                            <div class="icon-label">HTML5</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-css3"></i>
+                            <div class="icon-label">CSS</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-game  hide-when-truncated ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        <img src="img/bullet-heaven.png">
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/trisagion-games/bullet-heaven')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                        <span class="feature-link proj-link" onclick="openInNewTab('https://epicrider.itch.io/bullet-heaven')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    
+                </div>
+                <div class="proj-desc">A bullet hell 'twin' stick shooter with 2% aim and 200% righteousness</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-gamepad"></i>
+                            <div class="icon-label">Game</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-unity"></i>
+                            <div class="icon-label">Unity</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <div class="proj-card-container proj-game  hide-when-truncated ">
+        <div class="content-box proj-card">
+            <div class="content">
+                <div class="proj-name">
+                    
+                        AtomBlast
+                    
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/BananiumLabs/AtomBlast.io')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    
+                </div>
+                <div class="proj-desc">A multiplayer proof-of-concept arena game based at the atomic level</div>
+                <div class="proj-icons">
+                    
+                        <div class="proj-icon">
+                            <i class="fas fa-gamepad"></i>
+                            <div class="icon-label">Game</div>
+                        </div>
+                    
+                        <div class="proj-icon">
+                            <i class="fab fa-js"></i>
+                            <div class="icon-label">PixiJS</div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+
+
+</div>
+ <div class="center">
+    <div id="more-proj-btn" class="btn-proj center" onclick="toggleMoreProjects()">
+        <div class="content">View More</div>
+    </div>
+</div>
+      <!-- START CONTACT -->
+    <div id="contact" class="container content-section center">
+      <div class="section-head center-head">Contact Me</div>
+      <div class="contact-text center">
+        Thanks for taking a look at my site! If there's anything (literally anything) you'd like to
+        talk to me about, feel free to send an email to <a class="link" href="mailto:contact@bencuan.me">contact@bencuan.me</a>.
+      </div>
+      <div class="btn-proj btn-contact" onclick="openInNewTab('mailto:contact@bencuan.me')">
+        <div class="content">Email me!</div>
+      </div>
+      <div class="contact-text center">
+        I'm currently looking for Summer 2021 internships in the SF Bay Area.
+        If you know of any opportunities, I'd love to hear about them!
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END CONTENT -->
+  </div>
+
+  <footer id="footer">
+  <div class="footer-text center">Designed and developed with ❤️ by Ben Cuan, July 2020</div>
+  <div class="footer-text center"><a class="link" target="_blank" href="https://github.com/64bitpandas/bencuan.me">Browse the source at <i class="fab fa-github footer-icon"></i> !</a></div>
+  <div class="footer-text center"><a class="link" href="/2018">2018</a> | <a class="link" href="/2019">2019</a></div>
+</footer>
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="https://kit.fontawesome.com/585da7c89d.js" crossorigin="anonymous"></script>
+  <script src="js/vendor/noframework.waypoints.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+[
+  {
+    "name": "Dotfiles",
+    "nameImg": "dotfiles.png",
+    "description": "A collection of personalized Linux configurations",
+    "type": "other",
+    "github": "https://github.com/bencuan.me/dotfiles",
+    "icons": [
+      {
+        "icon": "icon-linux",
+        "label": "Linux"
+      },
+      {
+        "icon": "fas fa-palette",
+        "label": "Design"
+      },
+      {
+        "icon": "icon-gnubash",
+        "label": "Bash"
+      }
+    ]
+  },
+  {
+    "name": "CarrotCane",
+    "description": "An object detection and tracking tool for the visually impaired",
+    "type": "app",
+    "github": "https://github.com/BananiumLabs/CarrotCane",
+    "link": "https://devpost.com/software/carrotcane",
+    "icons": [
+      {
+        "icon": "fas fa-medal",
+        "label": "Hackathon Winner"
+      },
+      {
+        "icon": "fab fa-node-js",
+        "label": "Node.js"
+      },
+      {
+        "icon": "icon-arduino",
+        "label": "Arduino"
+      }
+    ]
+  },
+  {
+    "name": "AudiSea",
+    "nameImg": "audisea.png",
+    "description": "A VR landscape that syncs to your music",
+    "type": "app",
+    "github": "https://github.com/64bitpandas/AudiSea",
+    "link": "https://bananiumlabs.github.io/AudiSea/",
+    "icons": [
+      {
+        "icon": "fas fa-medal",
+        "label": "Hackathon Winner"
+      },
+      {
+        "icon": "icon-a-frame",
+        "label": "AFrame"
+      },
+      {
+        "icon": "icon-googlecardboard",
+        "label": "Google Cardboard"
+      },
+      {
+        "icon": "icon-spotify",
+        "label": "Spotify Web API"
+      }
+    ]
+  },
+  {
+    "name": "C:\\ONVERGENCE",
+    "nameImg": "convergence.png",
+    "description": "Play as a rogue sentient AI to uncover the shortcomings of the human race.",
+    "type": "game",
+    "github": "https://github.com/trisagion-games/convergence-game",
+    "link": "https://xkindredkinesis.itch.io/convergence",
+    "icons": [
+      {
+        "icon": "fas fa-gamepad",
+        "label": "Game"
+      },
+      {
+        "icon": "fab fa-unity",
+        "label": "Unity"
+      }
+    ]
+  },
+  {
+    "name": "AegisVR",
+    "nameImg": "aegis.png",
+    "description": "An interactive VR self defense guide",
+    "type": "game",
+    "github": "https://github.com/BananiumLabs/AegisVR/",
+    "link": "https://aegis.bananiumlabs.com/",
+    "icons": [
+      {
+        "icon": "icon-a-frame",
+        "label": "AFrame"
+      },
+      {
+        "icon": "icon-oculus",
+        "label": "Oculus Rift"
+      },
+      {
+        "icon": "fas fa-hand-sparkles",
+        "label": "LeapMotion Tracking"
+      }
+    ]
+  },
+  {
+    "name": "It's Rude to Point",
+    "nameImg": "irtp.png",
+    "description": "A silly myriad of minigames played with a single finger",
+    "type": "game",
+    "github": "https://github.com/trisagion-games/its-rude-to-point",
+    "link": "https://64bitpandas.itch.io/its-rude-to-point",
+    "icons": [
+      {
+        "icon": "fas fa-gamepad",
+        "label": "Game"
+      },
+      {
+        "icon": "fab fa-unity",
+        "label": "Unity"
+      }
+    ]
+  },
+  {
+    "name": "CS61B Guidebook",
+    "description": "An intuitive guide to data structures",
+    "type": "other",
+    "github": "https://github.com/64bitpandas/cs61b-notes",
+    "link": "https://cs61b.bencuan.me/",
+    "icons": [
+      {
+        "icon": "fas fa-chalkboard",
+        "label": "Teaching Materials"
+      },
+      {
+        "icon": "fab fa-java",
+        "label": "Java"
+      }
+    ]
+  },
+  {
+    "name": "ElectroTab",
+    "description": "A highly customizable new tab replacement",
+    "type": "app",
+    "github": "https://github.com/BananiumLabs/ElectroTab",
+    "icons": [
+      {
+        "icon": "fab fa-angular",
+        "label": "Angular2"
+      },
+      {
+        "icon": "icon-firebase",
+        "label": "Firebase"
+      }
+    ]
+  },
+  {
+    "initiallyHidden": true,
+    "name": "Eggmageddon",
+    "nameImg": "eggmageddon.gif",
+    "description": "Crack the case before you get poached!",
+    "type": "game",
+    "github": "https://github.com/trisagion-games/Eggmageddon",
+    "link": "epicrider.itch.io/eggmageddon",
+    "icons": [
+      {
+        "icon": "fas fa-gamepad",
+        "label": "Game"
+      },
+      {
+        "icon": "fas fa-egg",
+        "label": "Eggs!"
+      },
+      {
+        "icon": "fab fa-unity",
+        "label": "Unity"
+      }
+    ]
+  },
+  {
+    "initiallyHidden": true,
+    "name": "bananiumlabs.com",
+    "nameImg": "bananium.svg",
+    "description": "Website for the nonprofit organization Bananium Labs",
+    "type": "web",
+    "github": "https://github.com/BananiumLabs/BananiumSite",
+    "link": "https://bananiumlabs.com",
+    "icons": [
+      {
+        "icon": "fab fa-html5",
+        "label": "HTML5"
+      },
+      {
+        "icon": "fab fa-css3",
+        "label": "CSS"
+      },
+      {
+        "icon": "icon-jquery",
+        "label": "JQuery"
+      }
+    ]
+  },
+  {
+    "initiallyHidden": true,
+    "name": "Honeydue",
+    "description": "A sleek web-based homework planner",
+    "type": "app",
+    "github": "https://github.com/BananiumLabs/HoneyDue",
+    "link": "https://devpost.com/software/honeydue",
+    "icons": [
+      {
+        "icon": "fas fa-medal",
+        "label": "Hackathon Winner"
+      },
+      {
+        "icon": "fab fa-angular",
+        "label": "Angular2"
+      }
+    ]
+  },
+  {
+    "initiallyHidden": true,
+    "name": "HotSwap",
+    "description": "A platform for book and supply exchanges for schools",
+    "type": "app",
+    "github": "https://github.com/BananiumLabs/HotSwap",
+    "link": "https://devpost.com/software/hotswap-tech-9m3csh",
+    "icons": [
+      {
+        "icon": "fas fa-medal",
+        "label": "Hackathon Winner"
+      },
+      {
+        "icon": "icon-firebase",
+        "label": "Firebase"
+      }
+    ]
+  },
+  {
+    "initiallyHidden": true,
+    "name": "2tbs.club",
+    "nameImg": "2tbs.png",
+    "description": "Website for my former game development organization, Two Terabyte Studios",
+    "type": "web",
+    "github": "https://github.com/2TBS/2tbs-site",
+    "link": "https://2tbs.bananiumlabs.com",
+    "icons": [
+      {
+        "icon": "fab fa-html5",
+        "label": "HTML5"
+      },
+      {
+        "icon": "fab fa-css3",
+        "label": "CSS"
+      }
+    ]
+  },
+  {
+    "initiallyHidden": true,
+    "name": "Bullet Heaven",
+    "nameImg": "bullet-heaven.png",
+    "description": "A bullet hell 'twin' stick shooter with 2% aim and 200% righteousness",
+    "type": "game",
+    "github": "https://github.com/trisagion-games/bullet-heaven",
+    "link": "https://epicrider.itch.io/bullet-heaven",
+    "icons": [
+      {
+        "icon": "fas fa-gamepad",
+        "label": "Game"
+      },
+      {
+        "icon": "fab fa-unity",
+        "label": "Unity"
+      }
+    ]
+  },
+  {
+    "initiallyHidden": true,
+    "name": "AtomBlast",
+    "description": "A multiplayer proof-of-concept arena game based at the atomic level",
+    "type": "game",
+    "github": "https://github.com/BananiumLabs/AtomBlast.io",
+    "icons": [
+      {
+        "icon": "fas fa-gamepad",
+        "label": "Game"
+      },
+      {
+        "icon": "fab fa-js",
+        "label": "PixiJS"
+      }
+    ]
+  }
+]
