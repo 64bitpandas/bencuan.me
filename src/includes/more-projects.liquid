@@ -34,7 +34,7 @@
             <div class="content">
                 <div class="proj-name">
                     {% if project.nameImg %}
-                        <img src="img/{{project.nameImg}}">
+                        <img src="img/{{project.nameImg}}" alt="{{project.name}}" loading="lazy">
                     {% else %}
                         {{project.name}}
                     {% endif %}
