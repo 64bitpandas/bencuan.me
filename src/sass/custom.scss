@@ -879,6 +879,11 @@ More Projects
 #proj-cards {
   padding-top: 10vh;
 
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr;
+
+
   @include mixins.screen("not-mobile") {
     .row, .content-box {
       display: flex;
@@ -886,6 +891,7 @@ More Projects
     .content {
       flex: 1;
     }
+    grid-template-columns: 1fr 1fr;
   }
 
   .row {
@@ -962,8 +968,8 @@ More Projects
   margin-top: 5vh;
 }
 
-.truncated {
-  max-height: 200%;
+.hide-when-truncated {
+  display: none;
 }
 
 /* ---------------

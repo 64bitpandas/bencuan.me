@@ -1,6 +1,5 @@
 [
   {
-    "newRow": true,
     "name": "Dotfiles",
     "nameImg": "dotfiles.png",
     "description": "A collection of personalized Linux configurations",
@@ -22,7 +21,6 @@
     ]
   },
   {
-    "newRow": false,
     "name": "CarrotCane",
     "description": "An object detection and tracking tool for the visually impaired",
     "type": "app",
@@ -44,7 +42,6 @@
     ]
   },
   {
-    "newRow": true,
     "name": "AudiSea",
     "nameImg": "audisea.png",
     "description": "A VR landscape that syncs to your music",
@@ -71,7 +68,6 @@
     ]
   },
   {
-    "newRow": false,
     "name": "C:\\ONVERGENCE",
     "nameImg": "convergence.png",
     "description": "Play as a rogue sentient AI to uncover the shortcomings of the human race.",
@@ -90,7 +86,6 @@
     ]
   },
   {
-    "newRow": true,
     "name": "AegisVR",
     "nameImg": "aegis.jpg",
     "description": "An interactive VR self defense guide",
@@ -113,7 +108,6 @@
     ]
   },
   {
-    "newRow": false,
     "name": "It's Rude to Point",
     "nameImg": "irtp.png",
     "description": "A silly myriad of minigames played with a single finger",
@@ -132,7 +126,6 @@
     ]
   },
   {
-    "newRow": true,
     "name": "CS61B Guidebook",
     "description": "An intuitive guide to data structures",
     "type": "other",
@@ -150,7 +143,6 @@
     ]
   },
   {
-    "newRow": false,
     "name": "ElectroTab",
     "description": "A highly customizable new tab replacement",
     "type": "app",
@@ -167,7 +159,7 @@
     ]
   },
   {
-    "newRow": true,
+    "initiallyHidden": true,
     "name": "Eggmageddon",
     "nameImg": "eggmageddon.gif",
     "description": "Crack the case before you get poached!",
@@ -190,7 +182,7 @@
     ]
   },
   {
-    "newRow": false,
+    "initiallyHidden": true,
     "name": "bananiumlabs.com",
     "nameImg": "bananium.svg",
     "description": "Website for the nonprofit organization Bananium Labs",
@@ -213,7 +205,7 @@
     ]
   },
   {
-    "newRow": true,
+    "initiallyHidden": true,
     "name": "Honeydue",
     "description": "A sleek web-based homework planner",
     "type": "app",
@@ -231,7 +223,7 @@
     ]
   },
   {
-    "newRow": false,
+    "initiallyHidden": true,
     "name": "HotSwap",
     "description": "A platform for book and supply exchanges for schools",
     "type": "app",
@@ -249,7 +241,7 @@
     ]
   },
   {
-    "newRow": true,
+    "initiallyHidden": true,
     "name": "2tbs.club",
     "nameImg": "2tbs.png",
     "description": "Website for my former game development organization, Two Terabyte Studios",
@@ -268,7 +260,7 @@
     ]
   },
   {
-    "newRow": false,
+    "initiallyHidden": true,
     "name": "Bullet Heaven",
     "nameImg": "bullet-heaven.png",
     "description": "A bullet hell 'twin' stick shooter with 2% aim and 200% righteousness",
@@ -287,7 +279,7 @@
     ]
   },
   {
-    "newRow": true,
+    "initiallyHidden": true,
     "name": "AtomBlast",
     "description": "A multiplayer proof-of-concept arena game based at the atomic level",
     "type": "game",

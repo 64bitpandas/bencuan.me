@@ -115,11 +115,17 @@ function selectCategory(category) {
   document.getElementById("proj-" + category).className += " btn-proj-selected";
 
   // document.getElementById("").style.disp
-  for (let card of document.getElementsByClassName("proj-card")) {
-    if (category == "all" || card.className.includes(category)) {
-      card.style.display = "flex";
+  for (let card of document.getElementsByClassName("proj-card-container")) {
+    if (category == "all") {
+      document.getElementById("more-proj-btn").style.display = "";
+      card.style.display = "";
+      if (moreProjects) toggleMoreProjects();
     } else {
-      card.style.display = "none";
+      if (card.className.includes(category))
+        card.style.display = "flex";
+      else
+        card.style.display = "none";
+      document.getElementById("more-proj-btn").style.display = "none";
     }
   }
 }
@@ -132,10 +138,14 @@ function toggleMoreProjects() {
   if (moreProjects) {
     moreBtn.className += " btn-proj-selected";
     moreBtn.innerHTML = `<div class="content">View Less</div>`;
-    document.getElementById("proj-cards").className = "";
+    for (let card of document.getElementsByClassName("hide-when-truncated")) {
+        card.style.display = "flex";
+    }
   } else {
     moreBtn.innerHTML = `<div class="content">View More</div>`;
-    document.getElementById("proj-cards").className = "truncated";
+    for (let card of document.getElementsByClassName("hide-when-truncated")) {
+        card.style.display = "none";
+    }
   }
 }
 

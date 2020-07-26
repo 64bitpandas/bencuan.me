@@ -5,14 +5,14 @@
 <div class="btn-proj btn-proj-selected" id="proj-all">
     <div class="content">All</div>
 </div>
-<span class="btn-proj" id="proj-web">
-    <div class="content">Websites</div>
+<span class="btn-proj" id="proj-app">
+    <div class="content">Apps</div>
 </span>
 <span class="btn-proj" id="proj-game">
     <div class="content">Games</div>
 </span>
-<span class="btn-proj" id="proj-app">
-    <div class="content">Apps</div>
+<span class="btn-proj" id="proj-web">
+    <div class="content">Websites</div>
 </span>
 <span class="btn-proj" id="proj-other">
     <div class="content">Other</div>
@@ -20,17 +20,17 @@
 </div>
 
 <!-- START PROJECT CARDS -->
-<div class="truncated" id="proj-cards">
+<div class="truncated container" id="proj-cards">
 
 {% for project in more-projects %}
 
     {% comment %} Start a new row on even numbers {% endcomment %}
-    {% if project.newRow %}
+    {% comment %} {% if project.newRow %}
         <div class="row">
-    {% endif %}
+    {% endif %} {% endcomment %}
 
-    <div class="col-6">
-        <div class="content-box proj-card proj-{{project.type}}">
+    <div class="proj-card-container proj-{{project.type}} {% if project.initiallyHidden %} hide-when-truncated {% endif %}">
+        <div class="content-box proj-card">
             <div class="content">
                 <div class="proj-name">
                     {% if project.nameImg %}
@@ -64,9 +64,9 @@
     </div>
 
     {% comment %} End row, if applicable {% endcomment %}
-    {% if project.newRow == false %}
+    {% comment %} {% if project.newRow == false %}
         </div>
-    {% endif %}
+    {% endif %} {% endcomment %}
 {% endfor %}
 
 
