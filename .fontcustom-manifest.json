@@ -1,16 +1,20 @@
 {
   "checksum": {
-    "previous": "525982875b0e9bed33d4bbca614b1f73d16cb1de310760230053e08e04ef3957",
-    "current": "525982875b0e9bed33d4bbca614b1f73d16cb1de310760230053e08e04ef3957"
+    "previous": "a273a57986c028203d5ee4c2093f6fbd91d422b8c640709f9937fdbb1a5ab96a",
+    "current": "a273a57986c028203d5ee4c2093f6fbd91d422b8c640709f9937fdbb1a5ab96a"
   },
   "fonts": [
-    "dist/fontcustom/fontcustom_525982875b0e9bed33d4bbca614b1f73.ttf",
-    "dist/fontcustom/fontcustom_525982875b0e9bed33d4bbca614b1f73.svg",
-    "dist/fontcustom/fontcustom_525982875b0e9bed33d4bbca614b1f73.woff",
-    "dist/fontcustom/fontcustom_525982875b0e9bed33d4bbca614b1f73.eot",
-    "dist/fontcustom/fontcustom_525982875b0e9bed33d4bbca614b1f73.woff2"
+    "dist/fontcustom/fontcustom_a273a57986c028203d5ee4c2093f6fbd.ttf",
+    "dist/fontcustom/fontcustom_a273a57986c028203d5ee4c2093f6fbd.svg",
+    "dist/fontcustom/fontcustom_a273a57986c028203d5ee4c2093f6fbd.woff",
+    "dist/fontcustom/fontcustom_a273a57986c028203d5ee4c2093f6fbd.eot",
+    "dist/fontcustom/fontcustom_a273a57986c028203d5ee4c2093f6fbd.woff2"
   ],
   "glyphs": {
+    "a-frame": {
+      "codepoint": 61703,
+      "source": "dist/img/fontcustom/a-frame.svg"
+    },
     "adobexd": {
       "codepoint": 61701,
       "source": "dist/img/fontcustom/adobexd.svg"
@@ -19,17 +23,45 @@
       "codepoint": 61696,
       "source": "dist/img/fontcustom/archlinux.svg"
     },
+    "arduino": {
+      "codepoint": 61704,
+      "source": "dist/img/fontcustom/arduino.svg"
+    },
     "csharp": {
       "codepoint": 61702,
       "source": "dist/img/fontcustom/csharp.svg"
+    },
+    "firebase": {
+      "codepoint": 61705,
+      "source": "dist/img/fontcustom/firebase.svg"
     },
     "flask": {
       "codepoint": 61697,
       "source": "dist/img/fontcustom/flask.svg"
     },
+    "gnubash": {
+      "codepoint": 61709,
+      "source": "dist/img/fontcustom/gnubash.svg"
+    },
+    "googlecardboard": {
+      "codepoint": 61706,
+      "source": "dist/img/fontcustom/googlecardboard.svg"
+    },
+    "jquery": {
+      "codepoint": 61708,
+      "source": "dist/img/fontcustom/jquery.svg"
+    },
     "linux": {
       "codepoint": 61698,
       "source": "dist/img/fontcustom/linux.svg"
+    },
+    "oculus": {
+      "codepoint": 61710,
+      "source": "dist/img/fontcustom/oculus.svg"
+    },
+    "spotify": {
+      "codepoint": 61707,
+      "source": "dist/img/fontcustom/spotify.svg"
     },
     "ubuntu": {
       "codepoint": 61699,
