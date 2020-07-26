@@ -4,6 +4,12 @@ module.exports = function (eleventyConfig) {
     strict_filters: true,
   });
 
+  eleventyConfig.addLiquidFilter("modulo", function (
+    num, mod
+  ) {
+    return num % mod;
+  });
+
   // Base Config
   return {
     dir: {

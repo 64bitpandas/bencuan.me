@@ -1,6 +1,43 @@
 [
     {
-        "name": "test",
-        "description": "lorem ipsum"
+        "newRow": true,
+        "name": "Dotfiles",
+        "nameImg": "dotfiles.png",
+        "description": "lorem ipsum",
+        "type": "other",
+        "github": "https://github.com/bencuan.me/dotfiles",
+        "icons": [
+            {
+                "icon": "fab fa-github",
+                "label": "Testing"
+            }
+        ]
+    },
+    {
+        "newRow": false,
+        "name": "Dotfiles",
+        "description": "lorem ipsum",
+        "type": "other",
+        "github": "https://github.com/bencuan.me/dotfiles",
+        "icons": [
+            {
+                "icon": "fab fa-github",
+                "label": "Testing"
+            }
+        ]
+    },
+    {
+        "newRow": true,
+        "name": "Dotfiles",
+        "nameImg": "dotfiles.png",
+        "description": "lorem ipsum",
+        "type": "other",
+        "github": "https://github.com/bencuan.me/dotfiles",
+        "icons": [
+            {
+                "icon": "fab fa-github",
+                "label": "Testing"
+            }
+        ]
     }
 ]

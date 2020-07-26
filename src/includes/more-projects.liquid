@@ -22,71 +22,51 @@
 <!-- START PROJECT CARDS -->
 <div class="truncated" id="proj-cards">
 
-<!-- START ROW 1 -->
-<div class="row">
+{% for project in more-projects %}
 
-    <!-- START COL-6 -->
-    <div class="col-6">
-
-    <div class="content-box proj-card proj-other">
-        <div class="content">
-
-        <div class="proj-name">Dotfiles</div>
-        <div class="center">
-            <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/64bitpandas')">
-            <i class="fab fa-github"></i>
-            </span>
-            <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/64bitpandas')">
-            <i class="fas fa-external-link-square-alt"></i>
-            </span>
-        </div>
-        <div class="proj-desc">A collection of personalized Linux configurations</div>
-        <div class="proj-icons">
-            <div class="proj-icon">
-            <i class="fab fa-github"></i>
-            <div class="icon-label">Test</div>
-            </div>
-            <div class="proj-icon">
-            <i class="fab fa-github"></i>
-            <div class="icon-label">Test</div>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    <!-- END COL6 -->
+    {% comment %} Start a new row on even numbers {% endcomment %}
+    {% if project.newRow %}
+        <div class="row">
+    {% endif %}
 
     <div class="col-6">
-
-    <div class="content-box proj-card proj-other">
-        <div class="content">
-
-        <div class="proj-name"><img src="img/dotfiles.png"></div>
-        <div class="center">
-            <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/64bitpandas')">
-            <i class="fab fa-github"></i>
-            </span>
-            <span class="feature-link proj-link" onclick="openInNewTab('https://github.com/64bitpandas')">
-            <i class="fas fa-external-link-square-alt"></i>
-            </span>
-        </div>
-        <div class="proj-desc">A collection of personalized Linux configurations</div>
-        <div class="proj-icons">
-            <div class="proj-icon">
-            <i class="fab fa-github"></i>
-            <div class="icon-label">Test</div>
+        <div class="content-box proj-card proj-{{project.type}}">
+            <div class="content">
+                <div class="proj-name">
+                    {% if project.nameImg %}
+                        <img src="img/{{project.nameImg}}">
+                    {% else %}
+                        {{project.name}}
+                    {% endif %}
+                </div>
+                <div class="center">
+                
+                    <span class="feature-link proj-link" onclick="openInNewTab('{{project.github}}')">
+                    <i class="fab fa-github"></i>
+                    </span>
+                    {% if project.link %}
+                        <span class="feature-link proj-link" onclick="openInNewTab('{{project.link}}')">
+                        <i class="fas fa-external-link-square-alt"></i>
+                        </span>
+                    {% endif %}
+                </div>
+                <div class="proj-desc">{{project.description}}</div>
+                <div class="proj-icons">
+                    {% for icon in project.icons %}
+                        <div class="proj-icon">
+                            <i class="{{icon.icon}}"></i>
+                            <div class="icon-label">{{icon.label}}</div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-            <div class="proj-icon">
-            <i class="fab fa-github"></i>
-            <div class="icon-label">Test</div>
-            </div>
-        </div>
         </div>
     </div>
-    <!-- END COL6 -->
-    </div>
-</div>
-<!-- END ROW 1 -->
+
+    {% comment %} End row, if applicable {% endcomment %}
+    {% if project.newRow == false %}
+        </div>
+    {% endif %}
+{% endfor %}
 
 </div>
-<!-- END PROJECT CARDS -->
