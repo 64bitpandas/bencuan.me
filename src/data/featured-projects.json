@@ -8,5 +8,23 @@
         "github": "https://github.com/BananiumLabs/LaunchHacksSite",
         "link": "https://launchhacks.bananiumlabs.com",
         "description": "In 2019, I organized a 24 long hackathon for 100 high school students in Fremont, CA. <br><br> As the lead organizer, I had the opportunity to work on many different aspects such as web development, contacting sponsors, and running workshops. <br><br> Organizing a hackathon for the first time took a lot of work, but I'm glad we were able to successfully contribute to the vibrant hackathon community!"
+    },
+    {
+        "name": "Bullet Sanctum",
+        "tag": "Game",
+        "color": "github",
+        "tagColor": "itch",
+        "image": "bullet-sanctum.png",
+        "github": "https://github.com/trisagion-games/bullet-sanctum",
+        "link": "https://64bitpandas.itch.io/bullet-sanctum",
+        "description": "Inspired by titles such as DOOM and Bayonetta, Bullet Sanctum is a game about banishing demons with unfettered virtue. <br><br> Play as The Crusader as you wield multiple guns with unique strengths and weaknesses, serving different purposes for both combat and level navigation. <br><br> Bullet Sanctum was developed in 31 days in Unity for Metroidvania Month 8."
+    },
+    {
+        "name": "Linux SysAdmin DeCal",
+        "color": "contact-color",
+        "image": "ocf.png",
+        "github": "https://github.com/0xcf/decal-web",
+        "link": "https://decal.ocf.io",
+        "description": "I'm currently a facilitator for the Linux Systems Administration DeCal, a student-run course managed by the <a class=\"link\" href=\"https://ocf.io\" target=\"_blank\">Open Computing Facility</a> that serves as a crash course for UNIX systems, server engineering, and computer security. <br><br> As a facilitator, I help develop course materials, manage logistics, and give lectures. <br><br> Starting this fall, all course materials will be available online to everyone- so even if you're not a Berkeley student, feel free to join in on the fun!"
     }
 ]

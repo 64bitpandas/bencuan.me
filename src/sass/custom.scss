@@ -739,6 +739,11 @@ Featured Projects
   font-family: fonts.$europa;
 }
 
+.feature-box {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .feature-text {
   @include mixins.responsive-text(15, 20, 25);
 }
@@ -878,7 +883,6 @@ More Projects
     .row, .content-box {
       display: flex;
     }
-
     .content {
       flex: 1;
     }
