@@ -421,6 +421,11 @@ nav {
     clip-path: circle(0% at 100px 100px);
   }
 
+  #nav-fill-resume {
+    left: 0;
+    right: -10px;
+  }
+
   .row {
     height: 100%;
     left: 1rem;
@@ -1011,4 +1016,12 @@ Footer
   font-family: fonts.$europa;
   font-weight: 300;
   font-style: normal;
+}
+
+
+// Resume
+#iframepdf {
+  height: 100%;
+  width: 100%;
+  position: fixed;
 }
