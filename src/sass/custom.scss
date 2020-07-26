@@ -139,6 +139,10 @@ Color classes
   background-color: colors.$contact;
 }
 
+.gradient2-color {
+  background-color: colors.$gradient2;
+}
+
 /* ----------
 Landing
 ------------- */
@@ -725,8 +729,13 @@ Featured Projects
   padding: 1rem;
   padding-left: 3rem;
   font-weight: 700;
-  @include mixins.responsive-text(30, 40, 50);
+  @include mixins.responsive-text(30, 45, 60);
   position: relative;
+  font-family: fonts.$europa;
+}
+
+.feature-text {
+  @include mixins.responsive-text(15, 20, 25);
 }
 
 @include mixins.screen("mobile") {
@@ -792,7 +801,7 @@ Featured Projects
 }
 
 .feature-img-container {
-  margin: 0 !important;
+  margin: 1rem 0 !important;
   width: 50%;
 }
 
