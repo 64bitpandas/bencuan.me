@@ -4,7 +4,7 @@
     "nameImg": "dotfiles.png",
     "description": "A collection of personalized Linux configurations",
     "type": "other",
-    "github": "https://github.com/bencuan.me/dotfiles",
+    "github": "https://github.com/64bitpandas/dotfiles",
     "icons": [
       {
         "icon": "icon-linux",
