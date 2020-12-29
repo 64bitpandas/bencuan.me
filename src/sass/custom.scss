@@ -30,7 +30,7 @@ html {
 
 html,
 body {
-  width: 100vw;
+  width: 100%;
 }
 
 @include mixins.screen("desktop") {
