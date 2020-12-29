@@ -25,6 +25,7 @@ Global
 html {
   transition-duration: $anim-speed;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 html,
