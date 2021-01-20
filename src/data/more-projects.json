@@ -1,5 +1,27 @@
 [
   {
+    "name": "Simultaneous Scrabble",
+    "nameImg": "simultaneousscrabble.png",
+    "description": "A multiplayer Scrabble game for 2-10 players",
+    "type": "app",
+    "github": "https://github.com/64bitpandas/SimultaneousScrabble",
+    "link": "https://scrabble.bencuan.me",
+    "icons": [
+      {
+        "icon": "fab fa-react",
+        "label": "React"
+      },
+      {
+        "icon": "fab fa-node-js",
+        "label": "Node.js"
+      },
+      {
+        "icon": "fas fa-gamepad",
+        "label": "Game"
+      }
+    ]
+  },
+  {
     "name": "Dotfiles",
     "nameImg": "dotfiles.png",
     "description": "A collection of personalized Linux configurations",
@@ -68,11 +90,29 @@
     ]
   },
   {
+    "name": "Bullet Sanctum",
+    "nameImg": "bulletsanctum_logo.png",
+    "description": "<b><i>It’s time for another crusade.</i></b>",
+    "type": "game",
+    "github": "https://github.com/hexcaliber-dev/BulletSanctum",
+    "link": "https://64bitpandas.itch.io/bullet-sanctum",
+    "icons": [
+      {
+        "icon": "fas fa-gamepad",
+        "label": "Game"
+      },
+      {
+        "icon": "fab fa-unity",
+        "label": "Unity"
+      }
+    ]
+  },
+  {
     "name": "C:\\ONVERGENCE",
     "nameImg": "convergence.png",
     "description": "Play as a rogue sentient AI to uncover the shortcomings of the human race.",
     "type": "game",
-    "github": "https://github.com/trisagion-games/convergence-game",
+    "github": "https://github.com/hexcaliber-dev/convergence-game",
     "link": "https://xkindredkinesis.itch.io/convergence",
     "icons": [
       {
@@ -112,7 +152,7 @@
     "nameImg": "irtp.png",
     "description": "A silly myriad of minigames played with a single finger",
     "type": "game",
-    "github": "https://github.com/trisagion-games/its-rude-to-point",
+    "github": "https://github.com/hexcaliber-dev/its-rude-to-point",
     "link": "https://64bitpandas.itch.io/its-rude-to-point",
     "icons": [
       {
@@ -160,11 +200,33 @@
   },
   {
     "initiallyHidden": true,
+    "name": "trackversal.com",
+    "description": "Website for the Trackversal project",
+    "type": "web",
+    "github": "https://github.com/Trackversal/trackversal.com",
+    "link": "https://trackversal.com",
+    "icons": [
+      {
+        "icon": "fab fa-react",
+        "label": "React"
+      },
+      {
+        "icon": "icon-gatsby",
+        "label": "Gatsby"
+      },
+      {
+        "icon": "fab fa-css3",
+        "label": "CSS"
+      }
+    ]
+  },
+  {
+    "initiallyHidden": true,
     "name": "Eggmageddon",
     "nameImg": "eggmageddon.gif",
     "description": "Crack the case before you get poached!",
     "type": "game",
-    "github": "https://github.com/trisagion-games/Eggmageddon",
+    "github": "https://github.com/hexcaliber-dev/Eggmageddon",
     "link": "epicrider.itch.io/eggmageddon",
     "icons": [
       {
@@ -265,7 +327,7 @@
     "nameImg": "bullet-heaven.png",
     "description": "A bullet hell 'twin' stick shooter with 2% aim and 200% righteousness",
     "type": "game",
-    "github": "https://github.com/trisagion-games/bullet-heaven",
+    "github": "https://github.com/hexcaliber-dev/bullet-heaven",
     "link": "https://epicrider.itch.io/bullet-heaven",
     "icons": [
       {

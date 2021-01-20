@@ -30,3 +30,48 @@ $projects: #38bc76;
 $contact: #a63a50;
 
 $selection: #edc2ff;
+
+
+/* ----------
+Color classes
+------------- */
+.github {
+    background-color: $github;
+  }
+  
+  .linkedin {
+    background-color: $linkedin;
+  }
+  
+  .resume {
+    background-color: $resume;
+  }
+  
+  .email {
+    background-color: $email;
+  }
+  
+  .itch {
+    background-color: $itch;
+  }
+  
+  .logo-color,
+  .home-color {
+    background-color: $logo;
+  }
+  
+  .about-color {
+    background-color: $about;
+  }
+  
+  .proj-color {
+    background-color: $projects;
+  }
+  
+  .contact-color {
+    background-color: $contact;
+  }
+  
+  .gradient2-color {
+    background-color: $gradient2;
+  }

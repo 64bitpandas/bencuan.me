@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "a273a57986c028203d5ee4c2093f6fbd91d422b8c640709f9937fdbb1a5ab96a",
-    "current": "a273a57986c028203d5ee4c2093f6fbd91d422b8c640709f9937fdbb1a5ab96a"
+    "previous": "943ed4d9af33c68212c1ed66ae2999c59f12e4bcd91c5329623a1a272ff98170",
+    "current": "943ed4d9af33c68212c1ed66ae2999c59f12e4bcd91c5329623a1a272ff98170"
   },
   "fonts": [
-    "dist/fontcustom/fontcustom_a273a57986c028203d5ee4c2093f6fbd.ttf",
-    "dist/fontcustom/fontcustom_a273a57986c028203d5ee4c2093f6fbd.svg",
-    "dist/fontcustom/fontcustom_a273a57986c028203d5ee4c2093f6fbd.woff",
-    "dist/fontcustom/fontcustom_a273a57986c028203d5ee4c2093f6fbd.eot",
-    "dist/fontcustom/fontcustom_a273a57986c028203d5ee4c2093f6fbd.woff2"
+    "dist/fontcustom/fontcustom_943ed4d9af33c68212c1ed66ae2999c5.ttf",
+    "dist/fontcustom/fontcustom_943ed4d9af33c68212c1ed66ae2999c5.svg",
+    "dist/fontcustom/fontcustom_943ed4d9af33c68212c1ed66ae2999c5.woff",
+    "dist/fontcustom/fontcustom_943ed4d9af33c68212c1ed66ae2999c5.eot",
+    "dist/fontcustom/fontcustom_943ed4d9af33c68212c1ed66ae2999c5.woff2"
   ],
   "glyphs": {
     "a-frame": {
@@ -31,6 +31,10 @@
       "codepoint": 61702,
       "source": "dist/img/fontcustom/csharp.svg"
     },
+    "django": {
+      "codepoint": 61711,
+      "source": "dist/img/fontcustom/django.svg"
+    },
     "firebase": {
       "codepoint": 61705,
       "source": "dist/img/fontcustom/firebase.svg"
@@ -38,6 +42,10 @@
     "flask": {
       "codepoint": 61697,
       "source": "dist/img/fontcustom/flask.svg"
+    },
+    "gatsby": {
+      "codepoint": 61712,
+      "source": "dist/img/fontcustom/gatsby.svg"
     },
     "gnubash": {
       "codepoint": 61709,
