@@ -1,7 +1,7 @@
 {
   "name": "bencuan.me",
-  "version": "2020.0.0",
-  "description": "My personal site, 2020 edition.",
+  "version": "2021.0.0",
+  "description": "My personal site, 2021 edition.",
   "main": "js/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
     "serve": "eleventy --serve",
     "postcss": "postcss temp/custom.css --use autoprefixer cssnano -d public/css --watch",
     "fonts": "fontcustom compile src/fontcustom --output static/fontcustom",
-    "build": "rm -r public && eleventy && sass src/sass/:temp && postcss temp/custom.css --use autoprefixer cssnano -d public/css"
+    "build": "rm -rf public && eleventy && sass src/sass/:temp && postcss temp/custom.css --use autoprefixer cssnano -d public/css"
   },
   "repository": {
     "type": "git",
