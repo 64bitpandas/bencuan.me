@@ -6,10 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm-run-all --parallel watch serve postcss",
-    "watch": "sass --watch src/sass/:build/",
+    "watch": "sass --watch src/sass/:temp/",
     "serve": "eleventy --serve",
-    "postcss": "postcss build/custom.css --use autoprefixer cssnano -d dist/css --watch",
-    "fonts": "fontcustom compile dist/img/fontcustom --output dist/fontcustom"
+    "postcss": "postcss temp/custom.css --use autoprefixer cssnano -d public/css --watch",
+    "fonts": "fontcustom compile src/fontcustom --output static/fontcustom",
+    "build": "rm -r public && eleventy && sass src/sass/:temp && postcss temp/custom.css --use autoprefixer cssnano -d public/css"
   },
   "repository": {
     "type": "git",

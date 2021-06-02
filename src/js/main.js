@@ -161,7 +161,6 @@ function makeWaypoint(element, fill) {
   return new Waypoint({
     element: document.getElementById(element),
     handler: () => {
-      console.log('hi');
       if (clicking) return;
 
       for (let nav of navLinks) {

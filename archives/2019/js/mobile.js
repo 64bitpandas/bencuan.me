@@ -12,73 +12,34 @@ let selectionMade = false;
 if (window.location.protocol === 'https:') //remote
   $('base').attr('href', '/bencuan.me/');
 
-  $(document).ready(() => {
+$(document).ready(() => {
 
-    // Redirect to mobile
-    if (screen.width <= 699) {
-      document.location = "mobile.html";
+  // Init lightgallery
+  $(".lightgallery").lightGallery({
+    thumbnail: true
+  });
+  $("#art-lightgallery").lightGallery({
+    thumbnail: true,
+    selector: '.art-image-container'
+  });
+
+
+  $('img').Lazy({
+    // your configuration goes here
+    scrollDirection: 'vertical',
+    effect: 'fadeIn',
+    visibleOnly: false,
+    onError: function (element) {
+      console.log('error loading ' + element.data('src'));
     }
-
-    // Init lightgallery
-    $(".lightgallery").lightGallery({
-      thumbnail: true
-    });
-    $("#art-lightgallery").lightGallery({
-      thumbnail: true,
-      selector: '.art-image-container'
-    });
-
-
-    $('img').Lazy({
-      // your configuration goes here
-      scrollDirection: 'vertical',
-      effect: 'fadeIn',
-      visibleOnly: false,
-      onError: function (element) {
-        console.log('error loading ' + element.data('src'));
-      }
-    });
-
-    $('.expand-button').hover(function() {
-      setTimeout(() => {
-        // Check to make sure button is still hovered over before fully expanding
-        if($('#' + $(this).attr('id') + ':hover').length > 0) {
-          $('.expand-button-content', this).css('width', 'auto');
-          $('.expand-button-content', this).fadeIn(500).removeClass('hidden').css('display', 'inline-block');
-        }
-      }, 100);
-    }, function () {
-      // Don't fade out if it isn't visible in the first place!
-      if($('.expand-button-content', this).css('display') !== 'none') {
-        $('.expand-button-content', this).css('width', '0%');
-        $('.expand-button-content', this).fadeOut(10);
-      }
-    });
-
-    $('#launch-button').hover(function() {
-      setTimeout(() => {
-        if($('#launch-button:hover').length > 0) {
-          $('#launch-button').html(`<i class="icon-rocket"></i>`)
-        }
-      }, 100);
-    }, function () {
-      // Don't fade out if it isn't visible in the first place!
-      setTimeout(() => {
-        if ($(this).attr('class') !== 'center launch-button-activated') {
-          if($('#launch-button').find('i').length > 0) {
-            $('#launch-button').html(`Launch Site`);
-          }
-        }
-      }, 100);
-    });
-
+  });
 
 
   // Buttons to link to other sites
-  $('#github-button').click (() => {openUrl('//github.com/64bitpandas');});
-  $('#linkedin-button').click (() => {openUrl('//linkedin.com/in/bencuan');});
-  $('#email-button').click (() => {openUrl('mailto:hello@bencuan.me');});
-  $('#resume-button').click (() => {openUrl('assets/Resume2020-BenCuan.pdf');});
+  $('#github-button').click(() => { openUrl('//github.com/64bitpandas'); });
+  $('#linkedin-button').click(() => { openUrl('//linkedin.com/in/bencuan'); });
+  $('#email-button').click(() => { openUrl('mailto:hello@bencuan.me'); });
+  $('#resume-button').click(() => { openUrl('assets/Resume2020-BenCuan.pdf'); });
   $('#back-button').click(() => {
     $('#content').css('animation', 'hide-content 1.5s ease-in-out 0s 1 forwards');
     $('#back-button-container').css('opacity', 1);
@@ -86,7 +47,7 @@ if (window.location.protocol === 'https:') //remote
 
 
   // Skip theme selection
-    $('#skip-button-container').click(() => { hideIntercept(); $('#logo').html(`<img src="img/profile.png">`);});
+  $('#skip-button-container').click(() => { hideIntercept(); $('#logo').html(`<img src="img/profile.png">`); });
 
   // Theme selection
   $('#welcome-box-pixel').click(() => {
@@ -99,7 +60,7 @@ if (window.location.protocol === 'https:') //remote
     }
   });
   $('#welcome-box-art').click(() => {
-    if(!selectionMade) {
+    if (!selectionMade) {
       selectionMade = true;
       $('.splash-image-art').addClass('splash-image-selected');
       $('#art-label').addClass('welcome-label-selected');
@@ -110,7 +71,6 @@ if (window.location.protocol === 'https:') //remote
 
   // Switch style when logo clicked
   $('#logo').click(() => {
-    console.log('hi');
     changeStyle();
   })
 
@@ -135,28 +95,32 @@ if (window.location.protocol === 'https:') //remote
     }, 5000);
   });
 
+  $('#launch-button').hover(function () {
+    setTimeout(() => {
+      if ($('#launch-button:hover').length > 0) {
+        $('#launch-button').html(`<i class="icon-rocket"></i>`)
+      }
+    }, 100);
+  }, function () {
+    // Don't fade out if it isn't visible in the first place!
+    setTimeout(() => {
+      if ($(this).attr('class') !== 'center launch-button-activated') {
+        if ($('#launch-button').find('i').length > 0) {
+          $('#launch-button').html(`Launch Site`);
+        }
+      }
+    }, 100);
+  });
+
 
   // Content squares
-  $('.content-square').click(function() {
+  $('.content-square').click(function () {
     openContent($(this));
   });
 
-  $('#about-square').hover(() => {
-    $('#about-img').attr('src', 'img/about-animation.gif');
-  }, () => {
-      $('#about-img').attr('src', 'img/panda.svg');
-  })
-
-  // $('#art-square').hover(() => {
-  //   $('#design-video').get(0).play();
-  // }, () => {
-  //     $('#design-video').get(0).pause();
-  //     $('#design-video').get(0).currentTime = 0;
-  // })
-
   $('#close-button-container').click(() => {
     currOpen.removeClass('content-square-activated').css('z-index', 9999);
-    $('.content-square-splash',currOpen).css('display', '');
+    $('.content-square-splash', currOpen).css('display', '');
     $('.content-square-details', currOpen).css('display', 'none');
 
     $('#back-button-container').css('opacity', 1);
@@ -176,7 +140,7 @@ if (window.location.protocol === 'https:') //remote
   })
 
   // Open/close modals
-  $('.code-image').click(function() {
+  $('.code-image').click(function () {
     openModal($(this).attr('id'));
   })
   $('#code-modals').click(() => {
@@ -226,7 +190,7 @@ function flashWhite() {
 function openContent($element) {
 
   // console.log(currOpen);
-  if(!currOpen) {
+  if (!currOpen) {
     currOpen = $element;
     $element.addClass('content-square-activated').removeClass('col-6');
     $('.content-square-splash', currOpen).css('display', 'none');
@@ -237,11 +201,11 @@ function openContent($element) {
     $('.content-label-bottom').hide();
     $('.content-label-top').hide();
 
-    if($element.attr('id') === 'org-square') {
+    if ($element.attr('id') === 'org-square') {
       $('#org-label').addClass('org-border');
       $('#close-button').addClass('expand-button-black');
     }
-    if($element.attr('id') === 'about-square') {
+    if ($element.attr('id') === 'about-square') {
       $('#about-modal-container').css('display', 'block');
       $('#about-modal-container').css('animation', 'show-after-delay 1s ease-in-out 1s 1 forwards');
       $('.about-modal').css('pointer-events', 'all');
@@ -268,7 +232,7 @@ function changeStyle() {
   flashWhite();
 
   // Switch from pixel to art
-  if(!$landing.hasClass('landing-art')) {
+  if (!$landing.hasClass('landing-art')) {
     $landing.addClass('landing-art');
     $('#logo').html(`<img src="img/profile-art.png">`);
   } else { // Switch from art to pixel
