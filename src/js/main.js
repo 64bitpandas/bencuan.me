@@ -52,7 +52,7 @@ let clicking = false;
 for (let link of navLinks) {
   navFill(link, 0);
   document.getElementById("nav-" + link).onmouseover = () => {
-    navFill(link, 200);
+    navFill(link, 250);
   };
   document.getElementById("nav-" + link).onmouseleave = () => {
     navFill(link, 0);
@@ -166,11 +166,15 @@ function makeWaypoint(element, fill) {
       for (let nav of navLinks) {
         navFill(nav, 0);
       }
-      navFill(fill, 200);
+      navFill(fill, 250);
       document.getElementById("nav-back").className =
         "nav-background " + fill + "-color";
       document.getElementById("burger-menu").className =
         "mobile-only " + fill + "-color";
+      document.getElementById("nav-resume").className =
+        "resume-button " + fill + "-color-secondary";
+      document.getElementById("nav-fill-resume").className =
+        "nav-fill " + fill + "-color-secondary";
       setTimeout(() => {navFill(fill, 0);}, 500);
     },
   });
