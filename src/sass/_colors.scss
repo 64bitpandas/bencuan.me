@@ -8,7 +8,7 @@ $blue-primary: #335CDC;
 $blue-secondary: #458ECD;
 $green-primary: #36BF64;
 $green-secondary: #6BC777;
-$orange-primary: #FF8B33;
+$orange-primary: #FF8547;
 $orange-secondary: #FFE74C;
 $red-primary: #FF4778;
 $red-secondary: #FF70A7;
@@ -39,6 +39,8 @@ $email: $purple-primary;
 $logo: $blue-primary;
 
 $selection: #edc2ff;
+$green-link: #B5FFAB; 
+$green-link-sel: #E0FFD0;
 
 /* ----------
 Color classes
@@ -63,34 +65,39 @@ Color classes
 	background-color: $itch;
 }
 
-.logo-color,
-.about-color {
-	background-color: $blue-primary;
-}
-
 .home-color {
   background-color: $purple-primary;
 }
 
+.logo-color,
+.about-color {
+	background-color: $blue-primary;
+}
+.teaching-color {
+  background-color: $green-primary;
+}
+
 .proj-color {
-	background-color: $green-primary;
+	background-color: $orange-primary;
 }
 
 .contact-color {
 	background-color: $red-primary;
 }
 
-.logo-color-secondary,
-.about-color-secondary {
-	background-color: $blue-secondary;
-}
 
 .home-color-secondary {
   background-color: $purple-secondary;
 }
-
+.logo-color-secondary,
+.about-color-secondary {
+  background-color: $blue-secondary;
+}
+.teaching-color-secondary {
+  background-color: $green-secondary;
+}
 .proj-color-secondary {
-	background-color: $green-secondary;
+	background-color: $orange-secondary;
 }
 
 .contact-color-secondary {

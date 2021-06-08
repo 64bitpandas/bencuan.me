@@ -36,7 +36,7 @@ function navFill(name, width, notHover = false) {
 }
 
 let splashButtons = ["github", "linkedin", "resume", "email", "itch"];
-let navLinks = ["home", "about", "proj", "contact", "resume"];
+let navLinks = ["home", "about", "teaching", "proj", "contact", "resume"];
 
 for (let name of splashButtons) {
   showSplashInfo(name, 0);
@@ -62,8 +62,26 @@ for (let link of navLinks) {
   };
   document.getElementById("mobile-nav-" + link).onclick = () => {
     navClick(link);
-    toggleBurger();
+    if (link !== "home")
+      toggleBurger();
   };
+}
+
+// Used for nav waypoint handling and clicks.
+function setTheme(fill) {
+    for (let nav of navLinks) {
+      navFill(nav, 0);
+    }
+    navFill(fill, 250);
+    document.getElementById("nav-back").className =
+      "nav-background " + fill + "-color";
+    document.getElementById("burger-menu").className =
+      "mobile-only " + fill + "-color";
+    document.getElementById("nav-resume").className =
+      "resume-button " + fill + "-color-secondary";
+    document.getElementById("nav-fill-resume").className =
+      "nav-fill " + fill + "-color-secondary";
+    setTimeout(() => {navFill(fill, 0);}, 500);
 }
 
 function navClick(link) {
@@ -74,8 +92,10 @@ setTimeout(() => {
   document.getElementById("burger-menu").className =
     "mobile-only " + link + "-color";
   clicking = false;
+  setTheme(link);
 }, 250);
 }
+
 
 // Opens the url in a new tab.
 function openInNewTab(url) {
@@ -154,6 +174,7 @@ Navbar waypoints
 ---------------------- */
 makeWaypoint("landing-box", "home");
 makeWaypoint("about", "about");
+makeWaypoint("teaching", "teaching");
 makeWaypoint("projects", "proj");
 makeWaypoint("contact", "contact");
 
@@ -162,20 +183,7 @@ function makeWaypoint(element, fill) {
     element: document.getElementById(element),
     handler: () => {
       if (clicking) return;
-
-      for (let nav of navLinks) {
-        navFill(nav, 0);
-      }
-      navFill(fill, 250);
-      document.getElementById("nav-back").className =
-        "nav-background " + fill + "-color";
-      document.getElementById("burger-menu").className =
-        "mobile-only " + fill + "-color";
-      document.getElementById("nav-resume").className =
-        "resume-button " + fill + "-color-secondary";
-      document.getElementById("nav-fill-resume").className =
-        "nav-fill " + fill + "-color-secondary";
-      setTimeout(() => {navFill(fill, 0);}, 500);
+      setTheme(fill);
     },
   });
 }

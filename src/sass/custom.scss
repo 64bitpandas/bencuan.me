@@ -546,7 +546,7 @@ Content
 }
 
 .center-head {
-  margin-top: 15vh;
+  margin-top: 8rem;
   text-align: center;
 }
 
@@ -684,6 +684,46 @@ About
 
 .tools-table {
   padding-top: 3%;
+}
+
+/* ----------
+Teaching
+------------- */
+.teaching-link {
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  
+
+  &, & i {
+    color: colors.$green-link !important;
+  }
+
+  i {
+    transition: all 0.35s ease-in-out;
+    margin-left: 0rem;
+  }
+
+  &::before {
+    height: 3px;
+    bottom: 1px;
+    background-color: colors.$green-link-sel; 
+  }
+}
+
+@include mixins.screen("desktop") {
+  .teaching-link {
+    font-size: 2.5rem;
+    &:hover {
+      i {
+        margin-left: 1rem;
+        color: colors.$green-link-sel !important;
+      }
+  
+      color: colors.$green-link-sel !important;
+    }
+  }
 }
 
 /* ---------------
