@@ -175,14 +175,14 @@ Landing
 .splash-hi {
   margin-top: 5%;
   color: white;
-  font-family: fonts.$neue-haas;
-  font-weight: 500;
+  font-family: fonts.$splash;
+  font-weight: 700;
   @include mixins.responsive-text(50, 75, 100);
 }
 
 .splash-name {
   color: white;
-  font-family: fonts.$neue-haas;
+  font-family: fonts.$splash-name;
   font-weight: 700;
   @include mixins.responsive-text(100, 150, 225);
   line-height: 0.9;
@@ -201,8 +201,8 @@ Landing
 
 .splash-desc {
   color: white;
-  font-family: fonts.$neue-haas;
-  font-weight: 500;
+  font-family: fonts.$splash;
+  font-weight: 700;
   padding-top: 2%;
   line-height: 1;
   @include mixins.responsive-text(20, 35, 50);
@@ -271,7 +271,7 @@ Landing
 }
 
 .mobile-landing-btn {
-  font-family: fonts.$forma;
+  font-family: fonts.$button;
   width: 80%;
   color: white;
   border-radius: 50px;
@@ -309,7 +309,7 @@ Landing
 
 .splash-info-big {
   color: white;
-  font-family: fonts.$neue-haas;
+  font-family: fonts.$splash;
   font-weight: 700;
   @include mixins.responsive-text(100, 150, 225);
   line-height: 0.9;
@@ -563,12 +563,12 @@ Content
 
 .section-head {
   color: white;
-  font-family: fonts.$forma;
+  font-family: fonts.$header;
   font-weight: 700;
   @include mixins.responsive-text(75, 100, 125);
   text-decoration: underline;
   line-height: 1.1;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 
 .center-head {
@@ -731,6 +731,7 @@ Teaching
   transition: all 0.3s ease-in-out;
   font-size: 1.5rem;
   margin-left: 0.5rem;
+  font-family: fonts.$button;
   
 
   &, & i {
@@ -781,7 +782,7 @@ Featured Projects
   font-weight: 700;
   @include mixins.responsive-text(40, 50, 65);
   position: relative;
-  font-family: fonts.$body;
+  font-family: fonts.$header;
 }
 
 .feature-box {
@@ -928,6 +929,7 @@ More Projects
   font-weight: 700;
   // border: 10px solid white;
   transition: all $anim-speed;
+  font-family: fonts.$button;
 
   &:hover {
     // border: 10px solid transparent;
