@@ -14,7 +14,7 @@ To serve locally, run `npm start`. Builds can be done with `npm run build`.
 
 The fontcustom icons are not compiled automatically; to do so, [install Fontcustom](https://fontcustom.github.io/fontcustom/) then run `npm run fonts`.
 
-As with most of my sites, this site is built on top of the fantastic [HTML5 Boilerplate](https://html5boilerplate.com/). For preprocessing, I use vanilla JavaScript and Sass with [Eleventy](https://www.11ty.dev/) for HTML preprocessing. CSS is postprocessed using [postcss](https://postcss.org/) with [autoprefixer](https://github.com/postcss/autoprefixer) and [cssnano](https://cssnano.co/).
+This site is built on top of [HTML5 Boilerplate](https://html5boilerplate.com/). For preprocessing, I use vanilla JavaScript and Sass with [Eleventy](https://www.11ty.dev/) for HTML preprocessing. CSS is postprocessed using [postcss](https://postcss.org/) with [autoprefixer](https://github.com/postcss/autoprefixer) and [cssnano](https://cssnano.co/).
 
 Some libraries and assets that I used are:
  - [Modernizr](https://modernizr.com/)

@@ -28,15 +28,9 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://bencuan.me/static/bencuan-resume-fa2020-v4.pdf</loc>
+  <loc>https://bencuan.me/2020/</loc>
   <lastmod>2020-07-26T09:35:30+00:00</lastmod>
-  <priority>0.64</priority>
+  <priority>0.80</priority>
 </url>
-<url>
-  <loc>https://bencuan.me/2018/assets/resume-bencuan.pdf</loc>
-  <lastmod>2020-07-26T09:35:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
 
 </urlset>
