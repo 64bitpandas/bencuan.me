@@ -146,35 +146,13 @@ Landing
   &:before {
     background-color: colors.$gradient3;
   }
-
-  @include mixins.keyframes(landingAnim) {
-    25% {
-      transform: translateY(-75%);
-      filter: hue-rotate(-30deg);
-    }
-
-    50% {
-      transform: translate(-75%, -75%);
-    }
-
-    75% {
-      transform: translate(-75%, 0);
-      filter: hue-rotate(30deg);
-    }
-
-    0%,
-    100% {
-      transform: translate(0, 0);
-      filter: hue-rotate(0deg);
-    }
-  }
 }
 
 .splash-box {
   @include mixins.center;
   width: 80%;
   height: 65%;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: transparent;
   border-radius: 10px;
   padding: 2% 2% 5% 5%;
   margin-top: 2%;
@@ -341,6 +319,54 @@ Landing
 .splash-email {
   margin-top: 7%;
   @include mixins.responsive-text(50, 75, 125);
+}
+
+#intro-splash {
+  background-color: transparent;
+  overflow: hidden;
+  pointer-events: none;
+  .box {
+    width:100%;
+    height:100%;
+    line-height:200px;
+    text-align:center;
+    font-size:25px;
+    font-weight:600;
+    text-transform:uppercase;
+    position:relative;
+    overflow:hidden;
+  }
+  .box:before {
+    overflow: hidden;
+    content:"";
+    position:absolute;
+    width:300vw;
+    height:300vw;
+    background: hsla(0,0%,100%,.6);
+    background-size: 00%;
+    animation: fill 2.5s ease-in-out forwards;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:40%;
+    z-index:-1;
+  }
+  z-index: -1;
+  @keyframes fill {
+    from {
+      top:100%;
+      transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+      top:-100px;
+      transform: translateX(-50%) rotate(180deg);
+      display: none;
+    }
+  }
+}
+
+.intro-appear {
+  animation: appear 2s ease-in forwards 1.5s;
+  clip-path: circle(0% at 50% 100%);
 }
 
 /* ----------
@@ -1040,7 +1066,7 @@ Footer
 #footer {
   background-color: colors.$footer;
   width: 100vw;
-  padding: 1.5rem 0rem;
+  padding: 3rem 0.5rem;
 
   .link {
     color: white !important;
@@ -1059,7 +1085,7 @@ Footer
 .footer-text {
   padding: 0.4rem;
   color: white;
-  @include mixins.responsive-text(10, 15, 20);
+  @include mixins.responsive-text(15, 20, 20);
   font-family: fonts.$body;
   font-weight: 300;
   font-style: normal;
