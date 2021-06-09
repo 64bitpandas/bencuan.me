@@ -465,6 +465,7 @@ nav {
     .burger-link {
       display: block;
       margin-top: 3rem;
+      font-family: fonts.$nav;
     }
     .burger-link,
     .burger-link i {
@@ -486,11 +487,14 @@ nav {
       margin: 0 !important;
       height: 100%;
       display: table;
-      transition: transform 0.25s;
 
-      &:hover {
+      a {
+        transition: all 0.25s;
+      }
+
+      &:hover a {
         cursor: pointer;
-        transform: scale(110%);
+        transform: scale(1.2);
       }
     }
 
@@ -791,7 +795,7 @@ Featured Projects
 }
 
 .feature-text {
-  @include mixins.responsive-text(15, 20, 25);
+  @include mixins.responsive-text(18, 20, 25);
 }
 
 .feature-header {
@@ -1012,7 +1016,7 @@ More Projects
 }
 
 .proj-desc {
-  @include mixins.responsive-text(10, 20, 30);
+  @include mixins.responsive-text(18, 20, 30);
   line-height: 1;
   padding-top: 1rem;
 }
