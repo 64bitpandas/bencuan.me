@@ -342,7 +342,7 @@ Landing
     position:absolute;
     width:300vw;
     height:300vw;
-    background: hsla(0,0%,100%,.7);
+    background: hsla(0,0%,100%,.6);
     background-size: 00%;
     animation: fill 2.5s ease-in-out forwards;
     left:50%;
@@ -613,8 +613,18 @@ Content
   background: #222;
   transition: box-shadow $anim-speed, transform $anim-speed;
 
+  &#about-content {
+    @include mixins.gradient-border($border-width, colors.$blue-primary, colors.$highlight);
+  }
+  &#teaching-content {
+    @include mixins.gradient-border($border-width, colors.$green-primary, colors.$blue-link);
+  }
+  &.feature-box, &.proj-card {
+    @include mixins.gradient-border($border-width, colors.$orange-primary, colors.$yellow-secondary);
+  }
+
   // Gradient border animation inspired by https: //codepen.io/alphardex/pen/vYEYGzp
-  @include mixins.gradient-border($border-width);
+  @include mixins.gradient-border($border-width, colors.$blue-primary, colors.$highlight);
 
   .content {
     // position: absolute;
@@ -718,8 +728,8 @@ Teaching
 .teaching-link {
   font-weight: bold;
   transition: all 0.3s ease-in-out;
-  margin-left: 2rem;
   font-size: 1.5rem;
+  margin-left: 0.5rem;
   
 
   &, & i {
@@ -741,6 +751,7 @@ Teaching
 @include mixins.screen("desktop") {
   .teaching-link {
     font-size: 2.5rem;
+    margin-left: 2rem;
     &:hover {
       i {
         margin-left: 1rem;
@@ -810,14 +821,13 @@ Featured Projects
 .feature-link {
   font-size: 45px;
   border-radius: 50%;
-  border: solid white 3px;
   margin: 1rem;
   height: 60px;
   width: 60px;
   i {
     transition: all 0.5s;
     // vertical-align: middle;
-    transform: translateY(-1px);
+    transform: translateY(-3px);
     border-radius: 20%;
   }
 }
@@ -861,12 +871,6 @@ Featured Projects
   }
 }
 
-@include mixins.screen("tablet") {
-  .feature-link {
-    border: none;
-  }
-}
-
 .feature-img {
   position: relative;
   width: 100%;
@@ -893,6 +897,11 @@ Featured Projects
   }
 }
 
+@include mixins.screen("desktop") {
+  .feature-link {
+    border: solid white 3px;
+  }
+}
 
 
 
@@ -909,7 +918,7 @@ More Projects
   display: inline-block;
   position: relative;
   color: white;
-  @include mixins.gradient-button(5px, 30rem);
+  @include mixins.gradient-button(5px, 30rem, colors.$yellow-primary, colors.$orange-primary);
   @include mixins.responsive-text(20, 30, 50);
   // padding: 0 3vw;
   margin: 0.5rem 1rem;
@@ -945,6 +954,7 @@ More Projects
   display: grid;
   gap: 3rem;
   grid-template-columns: 1fr;
+  // justify-items: center;
 
 
   @include mixins.screen("not-mobile") {
@@ -966,6 +976,7 @@ More Projects
 .proj-card {
   transform: translateX(0px);
   height: 100%;
+  position: relative;
 
   &:hover {
     transform: translateY(-8px) scale(1.01);
@@ -1048,6 +1059,7 @@ Contact Me
 
 .btn-contact {
   margin: 5vh;
+  @include mixins.gradient-button(5px, 30rem, colors.$red-primary, colors.$selection);
 }
 
 #contact {

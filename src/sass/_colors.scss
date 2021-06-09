@@ -5,7 +5,7 @@ Created by Ben Cuan
 
 // 2021 colors (https://coolors.co/5e2db4-7f4eb8-ff4778-ff70a7-335cdc-458ecd-36bf64-6bc777-ff8b33)
 $blue-primary: #335CDC;
-$blue-secondary: #458ECD;
+$blue-secondary: #1c96cc;
 $green-primary: #36BF64;
 $green-secondary: #6BC777;
 $orange-primary: #FF8547;
@@ -43,6 +43,7 @@ $logo: $blue-primary;
 $selection: #edc2ff;
 $green-link: #B5FFAB; 
 $green-link-sel: #E0FFD0;
+$blue-link: #ade8f4;
 
 /* ----------
 Color classes
@@ -114,4 +115,7 @@ Color classes
 
 .gradient2-color {
 	background-color: $gradient2;
+}
+.green-link {
+	color: $green-link !important;
 }

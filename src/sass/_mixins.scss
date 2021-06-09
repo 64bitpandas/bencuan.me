@@ -124,7 +124,7 @@ from various sources cited below.
   }
 }
 
-@mixin gradient-border($border-width) {
+@mixin gradient-border($border-width, $color1, $color2) {
   &::after {
     position: absolute;
     content: "";
@@ -133,7 +133,7 @@ from various sources cited below.
     z-index: -1;
     width: calc(100% + #{$border-width} * 2);
     height: calc(100% + #{$border-width} * 2);
-    background: linear-gradient(60deg, colors.$highlight, colors.$accent);
+    background: linear-gradient(60deg, $color1, $color2);
     background-size: 300% 300%;
     background-position: 0 50%;
     border-radius: calc(2 * #{$border-width});
@@ -141,7 +141,7 @@ from various sources cited below.
 
   &:hover {
     &::after {
-      background: linear-gradient(60deg, colors.$highlight, colors.$accent);
+      background: linear-gradient(60deg, $color1, $color2);
       background-size: 300% 300%;
       background-position: 0 50%;
       animation: text-animation 2s infinite;
@@ -149,7 +149,7 @@ from various sources cited below.
   }
 }
 
-@mixin gradient-button($border-width, $border-radius) {
+@mixin gradient-button($border-width, $border-radius, $color1, $color2) {
   border-radius: $border-radius;
 
   &::after {
@@ -160,7 +160,7 @@ from various sources cited below.
     // z-index: -1;
     width: calc(100% + #{$border-width} * 2);
     height: calc(100% + #{$border-width} * 2);
-    background: linear-gradient(60deg, colors.$highlight, colors.$accent);
+    background: linear-gradient(60deg, $color1, $color2);
     background-size: 300% 300%;
     background-position: 0 50%;
     border-radius: $border-radius;
@@ -169,7 +169,7 @@ from various sources cited below.
   &:hover {
     border: 3px transparent;
     &::after {
-      background: linear-gradient(60deg, colors.$highlight, colors.$accent);
+      background: linear-gradient(60deg, $color1, $color2);
       background-size: 300% 300%;
       background-position: 0 50%;
       animation: text-animation 2s infinite;
