@@ -325,6 +325,8 @@ Landing
   background-color: transparent;
   overflow: hidden;
   pointer-events: none;
+
+  // Adopted from https://www.gitto.tech/posts/liquid-fill-animation-effect-using-html-and-css-only/
   .box {
     width:100%;
     height:100%;
@@ -332,7 +334,6 @@ Landing
     text-align:center;
     font-size:25px;
     font-weight:600;
-    text-transform:uppercase;
     position:relative;
     overflow:hidden;
   }
@@ -351,17 +352,6 @@ Landing
     z-index:-1;
   }
   z-index: -1;
-  @keyframes fill {
-    from {
-      top:100%;
-      transform: translateX(-50%) rotate(0deg);
-    }
-    to {
-      top:-100px;
-      transform: translateX(-50%) rotate(180deg);
-      display: none;
-    }
-  }
 }
 
 .intro-appear {
@@ -1084,7 +1074,6 @@ Footer
 ------------------ */
 #footer {
   background-color: colors.$footer;
-  width: 100vw;
   padding: 3rem 0.5rem;
 
   .link {

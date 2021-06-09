@@ -72,3 +72,15 @@ Created by Ben Cuan
     clip-path: circle(300% at 50% 100%);
   }
 }
+
+@include mixins.keyframes(fill) {
+  from {
+    top:100%;
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    top:-100px;
+    transform: translateX(-50%) rotate(180deg);
+    display: none;
+  }
+}
