@@ -9,7 +9,9 @@ $blue-secondary: #458ECD;
 $green-primary: #36BF64;
 $green-secondary: #6BC777;
 $orange-primary: #FF8547;
-$orange-secondary: #FFE74C;
+$orange-secondary: #FFA070;
+$yellow-primary: #FEDB5D;
+$yellow-secondary: #FBCE74;
 $red-primary: #FF4778;
 $red-secondary: #FF70A7;
 $purple-primary: #5E2DB4;
@@ -80,6 +82,9 @@ Color classes
 .proj-color {
 	background-color: $orange-primary;
 }
+.more-proj-color {
+	background-color: $yellow-primary;
+}
 
 .contact-color {
 	background-color: $red-primary;
@@ -98,6 +103,9 @@ Color classes
 }
 .proj-color-secondary {
 	background-color: $orange-secondary;
+}
+.more-proj-color-secondary {
+	background-color: $yellow-secondary;
 }
 
 .contact-color-secondary {

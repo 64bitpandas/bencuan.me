@@ -92,7 +92,7 @@ setTimeout(() => {
   document.getElementById("burger-menu").className =
     "mobile-only " + link + "-color";
   clicking = false;
-  setTheme(link);
+  setTimeout(() => {setTheme(link);}, 500);
 }, 250);
 }
 

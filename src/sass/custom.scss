@@ -738,10 +738,10 @@ Featured Projects
   border-radius: 20px;
   height: 80%;
   width: 80%;
-  padding: 1rem;
+  // padding: 0.5rem;
   padding-left: 3rem;
   font-weight: 700;
-  @include mixins.responsive-text(30, 45, 60);
+  @include mixins.responsive-text(40, 50, 65);
   position: relative;
   font-family: fonts.$body;
 }
@@ -753,6 +753,12 @@ Featured Projects
 
 .feature-text {
   @include mixins.responsive-text(15, 20, 25);
+}
+
+.feature-header {
+  border-radius: 5px;
+  border: solid colors.$orange-secondary 5px;
+  box-sizing: border-box;
 }
 
 @include mixins.screen("mobile") {
@@ -777,33 +783,45 @@ Featured Projects
 
 .feature-link {
   font-size: 45px;
+  border-radius: 50%;
+  border: solid white 3px;
+  margin: 1rem;
+  height: 60px;
+  width: 60px;
+  i {
+    transition: all 0.5s;
+    // vertical-align: middle;
+    transform: translateY(-1px);
+    border-radius: 20%;
+  }
 }
+
+.feature-link-container {
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  box-sizing: border-box;
+  margin: .5rem 2%;
+}
+
 
 @include mixins.screen("not-mobile") {
   .feature-link {
-    margin-left: 2vw;
-    border-radius: 50%;
     display: inline-block;
-    height: 4vw;
-    width: 4vw;
     text-align: center;
     transition: all 0.5s;
-
-    i {
-      transition: all 0.5s;
-      vertical-align: middle;
-      transform: translate(-5px);
-      border-radius: 20%;
-    }
-
-    &:hover i {
-      color: colors.$highlight;
-      transform: scale(1.25) translateY(-10px) !important;
+    
+    &:hover {
+      i {
+        color: colors.$orange-secondary;
+      }
+      background-color: white;
       cursor: pointer;
+      transform: scale(1.25) translateY(-1px) !important;
     }
-  }
-  .feature-link-container {
-    text-align: right;
+      
   }
 
   .content-box:hover .feature-img {
@@ -812,8 +830,14 @@ Featured Projects
     box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.5);
   }
   
-  .content-box:hover .feature-link i {
-    transform: scale(1.1) translateY(-5px);
+  .content-box:hover .feature-link {
+    transform: scale(1.1);
+  }
+}
+
+@include mixins.screen("tablet") {
+  .feature-link {
+    border: none;
   }
 }
 
@@ -839,9 +863,7 @@ Featured Projects
 
   .feature-link-container {
     text-align: center;
-    padding: 1rem;
     font-size: 50px;
-    margin: 0 !important;
   }
 }
 

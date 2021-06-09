@@ -5,21 +5,18 @@
     <div class="content-box feature-box" id="proj-launchhacks">
     <div class="content content-text feature-content">
 
-        <div class="row">
-        <div class="col-9">
-            <div class="feature-label {{project.color}}">
+        <div class="row proj-color feature-header">
+        <div class="col-8">
+            <div class="feature-label proj-color">
             {{project.name}}
-            <div class="feature-tag {{project.tagColor}} no-mobile">
-                {{project.tag}}
-            </div>
             </div>
         </div>
-        <div class="col-3 feature-link-container">
+        <div class="col-4 feature-link-container">
             <span class="feature-link" onclick="openInNewTab('{{project.github}}')">
             <i class="fab fa-github"></i>
             </span>
             <span class="feature-link" onclick="openInNewTab('{{project.link}}')">
-            <i class="fas fa-external-link-square-alt"></i>
+            <i class="fas fa-globe"></i>
             </span>
         </div>
         </div>
