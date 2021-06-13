@@ -379,7 +379,7 @@ nav {
   }
 
   #nav-back {
-    transition: all $anim-speed / 2;
+    transition: all $anim-speed * 0.5;
   }
 
   .nav-fill {
@@ -528,8 +528,8 @@ nav {
       align-items: center;
       padding: 0.25rem 1.25rem;
       border-radius: 5px;
-      margin-top: ($nav-height) * 1 / 8;
-      height: ($nav-height) * 3 / 4 - 0.5rem;
+      margin-top: ($nav-height) * 0.125;
+      height: ($nav-height) * 0.75 - 0.5rem;
       width: 50%;
       margin-left: 35%;
       text-align: center;
