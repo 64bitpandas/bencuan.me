@@ -1,0 +1,72 @@
+/*
+  Icon Font: fontcustom
+*/
+
+@font-face {
+  font-family: "fontcustom";
+  src: url("./fontcustom_81eada93870a42dbfc3ee7dc64b1e560.eot");
+  src: url("./fontcustom_81eada93870a42dbfc3ee7dc64b1e560.eot?#iefix") format("embedded-opentype"),
+       url("./fontcustom_81eada93870a42dbfc3ee7dc64b1e560.woff2") format("woff2"),
+       url("./fontcustom_81eada93870a42dbfc3ee7dc64b1e560.woff") format("woff"),
+       url("./fontcustom_81eada93870a42dbfc3ee7dc64b1e560.ttf") format("truetype"),
+       url("./fontcustom_81eada93870a42dbfc3ee7dc64b1e560.svg#fontcustom") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "fontcustom";
+    src: url("./fontcustom_81eada93870a42dbfc3ee7dc64b1e560.svg#fontcustom") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-a-frame:before,
+.icon-adobexd:before,
+.icon-archlinux:before,
+.icon-arduino:before,
+.icon-csharp:before,
+.icon-django:before,
+.icon-firebase:before,
+.icon-flask:before,
+.icon-gatsby:before,
+.icon-gnubash:before,
+.icon-googlecardboard:before,
+.icon-jquery:before,
+.icon-linux:before,
+.icon-oculus:before,
+.icon-spotify:before,
+.icon-ubuntu:before {
+  display: inline-block;
+  font-family: "fontcustom";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-a-frame:before { content: "\f107"; }
+.icon-adobexd:before { content: "\f105"; }
+.icon-archlinux:before { content: "\f100"; }
+.icon-arduino:before { content: "\f108"; }
+.icon-csharp:before { content: "\f106"; }
+.icon-django:before { content: "\f10f"; }
+.icon-firebase:before { content: "\f109"; }
+.icon-flask:before { content: "\f101"; }
+.icon-gatsby:before { content: "\f110"; }
+.icon-gnubash:before { content: "\f10d"; }
+.icon-googlecardboard:before { content: "\f10a"; }
+.icon-jquery:before { content: "\f10c"; }
+.icon-linux:before { content: "\f102"; }
+.icon-oculus:before { content: "\f10e"; }
+.icon-spotify:before { content: "\f10b"; }
+.icon-ubuntu:before { content: "\f103"; }

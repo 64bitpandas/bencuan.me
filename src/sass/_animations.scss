@@ -1,5 +1,5 @@
 /* ===================================
-Animations for bencuan.me - v3_2020
+Animations for bencuan.me - v4_2021
 Created by Ben Cuan
 ====================================== */
 
@@ -17,5 +17,70 @@ Created by Ben Cuan
 
   100% {
     background-position: left;
+  }
+}
+
+// Splash wave animation
+@include mixins.keyframes(wave) {
+  0% {
+  }
+  100% {
+    transform: translateY(100vh) translateX(-30%);
+  }
+}
+
+@include mixins.keyframes(wave-background) {
+  0% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0;
+    // transform: translateY(100%);
+    display: none;
+  }
+}
+
+@include mixins.keyframes(landingAnim) {
+  25% {
+    transform: translateY(-75%);
+    filter: hue-rotate(-30deg);
+  }
+
+  50% {
+    transform: translate(-75%, -75%);
+  }
+
+  75% {
+    transform: translate(-75%, 0);
+    filter: hue-rotate(30deg);
+  }
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+    filter: hue-rotate(0deg);
+  }
+}
+
+@include mixins.keyframes(appear) {
+  0% {
+    clip-path: circle(0% at 50% 100%);
+  }
+
+  100% {
+    clip-path: circle(300% at 50% 100%);
+  }
+}
+
+@include mixins.keyframes(fill) {
+  from {
+    top:100%;
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    top:-100px;
+    transform: translateX(-50%) rotate(180deg);
+    display: none;
   }
 }

@@ -10,11 +10,23 @@ module.exports = function (eleventyConfig) {
     return num % mod;
   });
 
+  // Copy static files
+  let filesToCopy = {
+    "src/js": "js",
+    "archives": ".",
+    "static/img": "img",
+    "static/fontcustom": "fontcustom",
+    "static/resources": "resources",
+    "static/meta/*": ".",
+    "static/css/*": "css/.",
+  }
+  Object.keys(filesToCopy).map(file => {eleventyConfig.addPassthroughCopy({[file]: filesToCopy[file]})});
+
   // Base Config
   return {
     dir: {
       input: "src",
-      output: "dist",
+      output: "public",
       includes: "includes",
       layouts: "layouts",
       data: "data",

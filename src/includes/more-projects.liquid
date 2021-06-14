@@ -1,5 +1,5 @@
 <!-- MORE PROJECTS SECTION -->
-<div class="section-head center-head">More Projects</div>
+<div class="section-head center-head" id="more-proj">More Projects</div>
 
 <div class="row center proj-buttons">
 <div class="btn-proj btn-proj-selected" id="proj-all">
@@ -41,14 +41,14 @@
                 </div>
                 <div class="center">
                 
+                    {% if project.link %}
+                        <span class="feature-link proj-link" onclick="openInNewTab('{{project.link}}')">
+                        <i class="fas fa-globe"></i>
+                        </span>
+                    {% endif %}
                     <span class="feature-link proj-link" onclick="openInNewTab('{{project.github}}')">
                     <i class="fab fa-github"></i>
                     </span>
-                    {% if project.link %}
-                        <span class="feature-link proj-link" onclick="openInNewTab('{{project.link}}')">
-                        <i class="fas fa-external-link-square-alt"></i>
-                        </span>
-                    {% endif %}
                 </div>
                 <div class="proj-desc">{{project.description}}</div>
                 <div class="proj-icons">

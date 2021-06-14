@@ -1,79 +1,79 @@
 {
   "checksum": {
-    "previous": "943ed4d9af33c68212c1ed66ae2999c59f12e4bcd91c5329623a1a272ff98170",
-    "current": "943ed4d9af33c68212c1ed66ae2999c59f12e4bcd91c5329623a1a272ff98170"
+    "previous": "81eada93870a42dbfc3ee7dc64b1e560f1c4433f11c626ba29df2c3b71380058",
+    "current": "81eada93870a42dbfc3ee7dc64b1e560f1c4433f11c626ba29df2c3b71380058"
   },
   "fonts": [
-    "dist/fontcustom/fontcustom_943ed4d9af33c68212c1ed66ae2999c5.ttf",
-    "dist/fontcustom/fontcustom_943ed4d9af33c68212c1ed66ae2999c5.svg",
-    "dist/fontcustom/fontcustom_943ed4d9af33c68212c1ed66ae2999c5.woff",
-    "dist/fontcustom/fontcustom_943ed4d9af33c68212c1ed66ae2999c5.eot",
-    "dist/fontcustom/fontcustom_943ed4d9af33c68212c1ed66ae2999c5.woff2"
+    "static/fontcustom/fontcustom_81eada93870a42dbfc3ee7dc64b1e560.ttf",
+    "static/fontcustom/fontcustom_81eada93870a42dbfc3ee7dc64b1e560.svg",
+    "static/fontcustom/fontcustom_81eada93870a42dbfc3ee7dc64b1e560.woff",
+    "static/fontcustom/fontcustom_81eada93870a42dbfc3ee7dc64b1e560.eot",
+    "static/fontcustom/fontcustom_81eada93870a42dbfc3ee7dc64b1e560.woff2"
   ],
   "glyphs": {
     "a-frame": {
       "codepoint": 61703,
-      "source": "dist/img/fontcustom/a-frame.svg"
+      "source": "src/fontcustom/a-frame.svg"
     },
     "adobexd": {
       "codepoint": 61701,
-      "source": "dist/img/fontcustom/adobexd.svg"
+      "source": "src/fontcustom/adobexd.svg"
     },
     "archlinux": {
       "codepoint": 61696,
-      "source": "dist/img/fontcustom/archlinux.svg"
+      "source": "src/fontcustom/archlinux.svg"
     },
     "arduino": {
       "codepoint": 61704,
-      "source": "dist/img/fontcustom/arduino.svg"
+      "source": "src/fontcustom/arduino.svg"
     },
     "csharp": {
       "codepoint": 61702,
-      "source": "dist/img/fontcustom/csharp.svg"
+      "source": "src/fontcustom/csharp.svg"
     },
     "django": {
       "codepoint": 61711,
-      "source": "dist/img/fontcustom/django.svg"
+      "source": "src/fontcustom/django.svg"
     },
     "firebase": {
       "codepoint": 61705,
-      "source": "dist/img/fontcustom/firebase.svg"
+      "source": "src/fontcustom/firebase.svg"
     },
     "flask": {
       "codepoint": 61697,
-      "source": "dist/img/fontcustom/flask.svg"
+      "source": "src/fontcustom/flask.svg"
     },
     "gatsby": {
       "codepoint": 61712,
-      "source": "dist/img/fontcustom/gatsby.svg"
+      "source": "src/fontcustom/gatsby.svg"
     },
     "gnubash": {
       "codepoint": 61709,
-      "source": "dist/img/fontcustom/gnubash.svg"
+      "source": "src/fontcustom/gnubash.svg"
     },
     "googlecardboard": {
       "codepoint": 61706,
-      "source": "dist/img/fontcustom/googlecardboard.svg"
+      "source": "src/fontcustom/googlecardboard.svg"
     },
     "jquery": {
       "codepoint": 61708,
-      "source": "dist/img/fontcustom/jquery.svg"
+      "source": "src/fontcustom/jquery.svg"
     },
     "linux": {
       "codepoint": 61698,
-      "source": "dist/img/fontcustom/linux.svg"
+      "source": "src/fontcustom/linux.svg"
     },
     "oculus": {
       "codepoint": 61710,
-      "source": "dist/img/fontcustom/oculus.svg"
+      "source": "src/fontcustom/oculus.svg"
     },
     "spotify": {
       "codepoint": 61707,
-      "source": "dist/img/fontcustom/spotify.svg"
+      "source": "src/fontcustom/spotify.svg"
     },
     "ubuntu": {
       "codepoint": 61699,
-      "source": "dist/img/fontcustom/ubuntu.svg"
+      "source": "src/fontcustom/ubuntu.svg"
     }
   },
   "options": {
@@ -90,14 +90,14 @@
     "font_name": "fontcustom",
     "force": false,
     "input": {
-      "templates": "dist/img/fontcustom",
-      "vectors": "dist/img/fontcustom"
+      "templates": "src/fontcustom",
+      "vectors": "src/fontcustom"
     },
     "no_hash": false,
     "output": {
-      "css": "dist/fontcustom",
-      "fonts": "dist/fontcustom",
-      "preview": "dist/fontcustom"
+      "css": "static/fontcustom",
+      "fonts": "static/fontcustom",
+      "preview": "static/fontcustom"
     },
     "preprocessor_path": null,
     "quiet": false,
@@ -107,7 +107,7 @@
     ]
   },
   "templates": [
-    "dist/fontcustom/fontcustom.css",
-    "dist/fontcustom/fontcustom-preview.html"
+    "static/fontcustom/fontcustom.css",
+    "static/fontcustom/fontcustom-preview.html"
   ]
 }
