@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "81eada93870a42dbfc3ee7dc64b1e560f1c4433f11c626ba29df2c3b71380058",
-    "current": "81eada93870a42dbfc3ee7dc64b1e560f1c4433f11c626ba29df2c3b71380058"
+    "previous": "71a4a7c98a3dcf7289509dd1ce0bba40e0fe4bf6e3aa2b220cf39c90ee17c9e7",
+    "current": "71a4a7c98a3dcf7289509dd1ce0bba40e0fe4bf6e3aa2b220cf39c90ee17c9e7"
   },
   "fonts": [
-    "static/fontcustom/fontcustom_81eada93870a42dbfc3ee7dc64b1e560.ttf",
-    "static/fontcustom/fontcustom_81eada93870a42dbfc3ee7dc64b1e560.svg",
-    "static/fontcustom/fontcustom_81eada93870a42dbfc3ee7dc64b1e560.woff",
-    "static/fontcustom/fontcustom_81eada93870a42dbfc3ee7dc64b1e560.eot",
-    "static/fontcustom/fontcustom_81eada93870a42dbfc3ee7dc64b1e560.woff2"
+    "static/fontcustom/fontcustom_71a4a7c98a3dcf7289509dd1ce0bba40.ttf",
+    "static/fontcustom/fontcustom_71a4a7c98a3dcf7289509dd1ce0bba40.svg",
+    "static/fontcustom/fontcustom_71a4a7c98a3dcf7289509dd1ce0bba40.woff",
+    "static/fontcustom/fontcustom_71a4a7c98a3dcf7289509dd1ce0bba40.eot",
+    "static/fontcustom/fontcustom_71a4a7c98a3dcf7289509dd1ce0bba40.woff2"
   ],
   "glyphs": {
     "a-frame": {
@@ -62,6 +62,10 @@
     "linux": {
       "codepoint": 61698,
       "source": "src/fontcustom/linux.svg"
+    },
+    "max": {
+      "codepoint": 61713,
+      "source": "src/fontcustom/max.svg"
     },
     "oculus": {
       "codepoint": 61710,

@@ -104,6 +104,26 @@
     ]
   },
   {
+    "name": "Room of Sounds",
+    "description": "Unity-Max/MSP interoperability demo with a custom spatial audio engine",
+    "type": "other",
+    "github": "https://github.com/64bitpandas/RoomOfSounds",
+    "icons": [
+      {
+        "icon": "fab fa-unity",
+        "label": "Unity"
+      },
+      {
+        "icon": "icon-max",
+        "label": "Max"
+      },
+      {
+        "icon": "fas fa-network-wired",
+        "label": "Networking"
+      }
+    ]
+  },
+  {
     "name": "Bullet Sanctum",
     "nameImg": "bulletsanctum_logo.png",
     "description": "<b><i>It’s time for another crusade.</i></b>",
@@ -144,6 +164,7 @@
     ]
   },
   {
+    "initiallyHidden": true,
     "name": "CarrotCane",
     "description": "An object detection and tracking tool for the visually impaired",
     "type": "app",
