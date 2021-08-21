@@ -124,24 +124,6 @@
     ]
   },
   {
-    "name": "Bullet Sanctum",
-    "nameImg": "bulletsanctum_logo.png",
-    "description": "<b><i>It’s time for another crusade.</i></b>",
-    "type": "game",
-    "github": "https://github.com/hexcaliber-dev/BulletSanctum",
-    "link": "https://64bitpandas.itch.io/bullet-sanctum",
-    "icons": [
-      {
-        "icon": "fas fa-gamepad",
-        "label": "Game"
-      },
-      {
-        "icon": "fab fa-unity",
-        "label": "Unity"
-      }
-    ]
-  },
-  {
     "name": "hexcaliber.dev",
     "nameImg": "hexcaliber.png",
     "description": "Website for Hexcaliber Games",
@@ -164,7 +146,6 @@
     ]
   },
   {
-    "initiallyHidden": true,
     "name": "CarrotCane",
     "description": "An object detection and tracking tool for the visually impaired",
     "type": "app",
@@ -205,6 +186,25 @@
       {
         "icon": "fas fa-hand-sparkles",
         "label": "LeapMotion Tracking"
+      }
+    ]
+  },
+  {
+    "initiallyHidden": true,
+    "name": "Bullet Sanctum",
+    "nameImg": "bulletsanctum_logo.png",
+    "description": "<b><i>It’s time for another crusade.</i></b>",
+    "type": "game",
+    "github": "https://github.com/hexcaliber-dev/BulletSanctum",
+    "link": "https://64bitpandas.itch.io/bullet-sanctum",
+    "icons": [
+      {
+        "icon": "fas fa-gamepad",
+        "label": "Game"
+      },
+      {
+        "icon": "fab fa-unity",
+        "label": "Unity"
       }
     ]
   },
