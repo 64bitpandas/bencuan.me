@@ -42,13 +42,13 @@
                 <div class="center">
                 
                     {% if project.link %}
-                        <span class="feature-link proj-link" onclick="openInNewTab('{{project.link}}')">
-                        <i class="fas fa-globe"></i>
-                        </span>
+                        <a class="feature-link proj-link" href="{{project.link}}" target="_blank" rel="noopener">
+                            <i class="fas fa-globe"></i>
+                        </a>
                     {% endif %}
-                    <span class="feature-link proj-link" onclick="openInNewTab('{{project.github}}')">
-                    <i class="fab fa-github"></i>
-                    </span>
+                    <a class="feature-link proj-link" href="{{project.github}}" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
                 <div class="proj-desc">{{project.description}}</div>
                 <div class="proj-icons">
