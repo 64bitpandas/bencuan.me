@@ -1,0 +1,101 @@
+@use 'fonts';
+
+// COLORS
+$color-bg: #323B47;
+
+$padding: 7rem;
+
+h1, h2, h3 {
+    color: white;
+    padding-left: $padding;
+    padding-right: $padding;
+}
+
+h1 {
+    font-family: fonts.$header;
+    margin: 0;
+}
+
+h2 {
+    font-family: fonts.$header;
+    padding-top: 7rem;
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+
+body {
+    background-color: $color-bg;
+}
+
+.name {
+    padding: calc($padding - 2rem) $padding 0 $padding;
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.name-icons {
+    padding: 0 $padding;
+    color: white;
+    font-size: 2rem;
+}
+
+.name-icon {
+    color: white !important;
+    margin-right: 1rem;
+    transition: all 0.25s;
+
+    &:hover {
+        font-size: 125%;
+    }
+}
+
+// LINKS
+.link {
+    font-family: fonts.$header;
+    text-decoration: none;
+    color: white !important;
+    font-weight: normal;
+    position: relative;
+
+    &:hover {
+        &::before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+    }
+
+    // Link animation inspired by https://tobiasahlin.com/blog/css-trick-animating-link-underlines/
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -1px;
+        left: 0;
+        background-color: white;
+        visibility: hidden;
+        transform: scaleX(0);
+        font-weight: bold;
+        transition: all 0.05s ease-in-out 0s;
+    }
+}
+
+::selection {
+    background-color: transparent;
+    font-weight: 1000;
+    color: orange;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    padding: $padding;
+    padding-bottom: calc($padding - 2rem);
+    color: white;
+    font-family: fonts.$header;
+
+}
+
+.showarchive {
+    cursor: pointer;
+}
