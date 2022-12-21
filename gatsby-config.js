@@ -39,5 +39,14 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sass`,
+    {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: '2',
+        matomoUrl: 'https://matomo.bencuan.me',
+        siteUrl: 'https://bencuan.me'
+      }
+    }
   ],
 }
