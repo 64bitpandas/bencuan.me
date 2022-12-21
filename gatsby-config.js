@@ -48,6 +48,7 @@ module.exports = {
         matomoUrl: 'https://matomo.bencuan.me',
         siteUrl: 'https://bencuan.me'
       }
-    }
+    },
+    `gatsby-plugin-fontawesome-css`
   ],
 }
