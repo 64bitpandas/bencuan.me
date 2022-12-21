@@ -9,9 +9,12 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+import "../sass/layout.scss"
 
 const Layout = ({ children }) => {
+
+  const [showArchives, setShowArchives] = React.useState(false);
+  
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -23,28 +26,18 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div className="body">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <footer>
+        {showArchives ? 
+          ([2018, 2019, 2020, 2021].map((val => (<React.Fragment key={val}><a className="link" href={`/${val}`}>{val}</a>&nbsp;|&nbsp;</React.Fragment>))))
+          : (<><span tabIndex="0" role="button" className="link showarchive" onClick={() => { setShowArchives(true) }}>archives</span>&nbsp;|&nbsp;</>)
+        }
+
+        <a href="https://github.com/64bitpandas/bencuan.me" className="link" target="_blank" rel="noreferrer">source</a>
         </footer>
-      </div>
-    </>
+    </div>
   )
 }
 
