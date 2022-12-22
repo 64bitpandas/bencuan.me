@@ -1,3 +1,5 @@
+const express = require('express');
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -15,4 +17,8 @@ exports.createPages = async ({ actions }) => {
     context: {},
     defer: true,
   })
+}
+
+exports.onCreateDevServer = ({ app }) => {
+  app.use(express.static('archives'))
 }
