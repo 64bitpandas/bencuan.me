@@ -37,7 +37,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon-round.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-sass`,
@@ -49,6 +49,5 @@ module.exports = {
         siteUrl: 'https://bencuan.me'
       }
     },
-    `gatsby-plugin-fontawesome-css`
   ],
 }

@@ -1,8 +1,11 @@
+@use '../../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
+
 @font-face {
     font-family: Rubik;
     font-style: normal;
     src: url('../static/fonts/Rubik-VariableFont_wght.ttf');
 }
+
 @font-face {
     font-family: Rubik;
     font-style: italic;
@@ -21,12 +24,14 @@
     font-weight: normal;
     src: url('../static/fonts/PPNeueMontreal-Regular.woff2');
 }
+
 @font-face {
     font-family: NeueMontreal;
     font-style: normal;
     font-weight: lighter;
     src: url('../static/fonts/PPNeueMontreal-Book.woff2');
 }
+
 @font-face {
     font-family: NeueMontreal;
     font-style: normal;
@@ -34,5 +39,9 @@
     src: url('../static/fonts/PPNeueMontreal-Bold.woff2');
 }
 
-$header: Fraktion, Rubik, sans-serif;
-$body: NeueMontreal, Rubik, sans-serif;
+$header: Fraktion,
+Rubik,
+sans-serif;
+$body: NeueMontreal,
+Rubik,
+sans-serif;
