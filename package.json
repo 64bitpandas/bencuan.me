@@ -37,9 +37,8 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "getfonts": "if [ -f .env ]; then . ./.env; fi; wget -O fonts.zip $FONT_URL && unzip -o fonts.zip -d src/static/fonts && rm fonts.zip",
-    "prebuild": "npm run getfonts",
-    "predevelop": "npm run getfonts",
-    "postbuild": "cp -r archives/ public/"
+    "prebuild": "npm run getfonts && cp -r archives static",
+    "predevelop": "npm run getfonts"
   },
   "repository": {
     "type": "git",
