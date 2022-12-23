@@ -13,7 +13,8 @@ module.exports = {
     description: `bencuan's site`,
     author: `bencuan`,
     siteUrl: `https://bencuan.me`,
-    twitterUsername: `@64bitpandas`
+    twitterUsername: `@64bitpandas`,
+    image: `./src/images/og-banner.png`
   },
   plugins: [
     `gatsby-plugin-image`,
