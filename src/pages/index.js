@@ -16,7 +16,8 @@ const icons = [
   {
     icon: faMastodon,
     name: 'mastodon',
-    link: 'https://hachyderm.io/@bencuan'
+    link: 'https://hachyderm.io/@bencuan',
+    me: true
   },
   {
     icon: faGithubAlt,
@@ -64,11 +65,11 @@ const links = [
 ]
 
 const IndexPage = () => (
-  <Layout>
+  <Layout currPage='home'>
     <h1 className="name">ben cuan</h1>
     <div className="name-icons">
       {icons.map((val) =>
-        (<a href={val.link} key={val.name} className="name-icon" target="_blank" rel="noreferrer" aria-label={val.name}><FontAwesomeIcon icon={val.icon} /></a>)
+        (<a href={val.link} key={val.name} className="name-icon" target="_blank" rel={(val.me) ? "me noreferrer" : "noreferrer"} aria-label={val.name}><FontAwesomeIcon icon={val.icon} /></a>)
       )}
     </div>
     <div className="home-links">

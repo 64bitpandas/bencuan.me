@@ -12,7 +12,7 @@ import Header from "./header"
 import "../sass/layout.scss"
 import XLink from "./xlink"
 
-const Layout = ({ children }) => {
+const Layout = ({ currPage, children }) => {
 
   const [showArchives, setShowArchives] = React.useState(false);
   
@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="body">
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header currPage={currPage} siteTitle={`${currPage} | ${data.site.siteMetadata?.title}`} />
         <main>{children}</main>
         <footer>
         {showArchives ? 

@@ -1,5 +1,6 @@
 @use 'fonts';
 @use 'colors';
+@use 'mixins';
 
 $padding: 7rem;
 
@@ -7,8 +8,6 @@ h1,
 h2,
 h3 {
     color: white;
-    padding-left: $padding;
-    padding-right: $padding;
 }
 
 h1 {
@@ -129,10 +128,11 @@ footer {
     color: white;
     font-family: fonts.$header;
     font-size: 2.5rem;
-    padding-left: $padding;
     flex-grow: 1;
     text-decoration: none;
     transition: all 0.1s;
+    padding-left: $padding;
+    padding-right: $padding;
 
     &:hover {
         background: colors.$background-light;
@@ -148,5 +148,29 @@ footer {
         color: white;
         opacity: 1;
         width: inherit;
+    }
+
+}
+
+
+@include mixins.screen('desktop') {
+    .container {
+        padding-left: $padding;
+        padding-right: $padding;
+    }
+}
+
+.title {
+    color: white;
+    padding: calc($padding - 3rem) 0 0 0;
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.blue-link {
+    color: colors.$link !important;
+
+    &::before {
+        background-color: colors.$link !important;
     }
 }

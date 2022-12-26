@@ -9,7 +9,7 @@ header {
     padding: 1rem;
     display: flex;
     align-items: right;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 .status-circle {
@@ -19,4 +19,16 @@ header {
 
 .status-green {
     color: colors.$green;
+}
+
+.nav-links {
+    margin-left: 1rem;
+}
+.nav-current {
+    font-weight: 1000;
+    text-decoration: underline;
+}
+.nav-link {
+    font-size: 1.5rem;
+    color: white;
 }
