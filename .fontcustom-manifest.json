@@ -1,0 +1,44 @@
+{
+  "checksum": {
+    "previous": "",
+    "current": "7cc485c89467504343115b3985e266861f17c006b4d9ea620f0a5027f1a3cee0"
+  },
+  "fonts": [
+
+  ],
+  "glyphs": {
+  },
+  "options": {
+    "input": {
+      "vectors": "src/fontcustom",
+      "templates": "src/fontcustom"
+    },
+    "output": {
+      "fonts": "src/fonts",
+      "css": "src/fonts",
+      "preview": "src/fonts"
+    },
+    "config": false,
+    "templates": [
+      "css",
+      "preview"
+    ],
+    "font_name": "fontcustom",
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "css_selector": ".icon-{{glyph}}",
+    "preprocessor_path": null,
+    "autowidth": false,
+    "no_hash": false,
+    "css3": false,
+    "debug": false,
+    "force": false,
+    "quiet": false,
+    "copyright": ""
+  },
+  "templates": [
+
+  ]
+}

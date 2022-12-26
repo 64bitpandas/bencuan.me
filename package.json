@@ -37,6 +37,7 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "getfonts": "if [ -f .env ]; then . ./.env; fi; wget -O fonts.zip $FONT_URL && unzip -o fonts.zip -d src/fonts && rm fonts.zip",
+    "fontcustom": "fontcustom compile src/fontcustom --output src/fonts",
     "prebuild": "npm run getfonts && cp -r archives static"
   },
   "repository": {

@@ -5,7 +5,9 @@ $color-bg: #323B47;
 
 $padding: 7rem;
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: white;
     padding-left: $padding;
     padding-right: $padding;
@@ -34,19 +36,29 @@ body {
 }
 
 .name-icons {
-    padding: 0 $padding;
+    padding: 0.15rem $padding;
+    box-sizing: border-box;
     color: white;
     font-size: 2rem;
+    pointer-events: none;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
 }
 
 .name-icon {
     color: white !important;
     margin-right: 1rem;
     transition: all 0.25s;
+    pointer-events: auto;
 
-    &:hover {
-        font-size: 125%;
-    }
+}
+
+.name-icon:hover {
+    font-size: 115%;
 }
 
 // LINKS
@@ -98,4 +110,45 @@ footer {
 
 .showarchive {
     cursor: pointer;
+}
+
+.home-links {
+    margin-top: 3rem;
+}
+
+.home-link-icon {
+    filter: invert(49%) sepia(38%) saturate(4860%) hue-rotate(208deg) brightness(105%) contrast(101%);
+    opacity: 0;
+    width: 0;
+    display: var(--fa-display, inline-block);
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
+    transition: all 0.1s;
+}
+
+.home-link {
+    color: white;
+    font-family: fonts.$header;
+    font-size: 2.5rem;
+    padding-left: $padding;
+    flex-grow: 1;
+    text-decoration: none;
+    transition: all 0.1s;
+
+    &:hover {
+        background: #EEEEEE;
+        font-weight: 800;
+    }
+
+    &:hover a,
+    &:hover {
+        color: #5588FF !important;
+    }
+
+    &:hover .home-link-icon {
+        color: white;
+        opacity: 1;
+        width: inherit;
+    }
 }
