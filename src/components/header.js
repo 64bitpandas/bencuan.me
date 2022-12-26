@@ -1,21 +1,20 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircle } from "@fortawesome/free-solid-svg-icons"
 import "../sass/layout.scss";
 import "../sass/header.scss";
+import XLink from "./xlink";
 
 const Header = ({ siteTitle }) => (
   <header>
     <React.Fragment>
-      <Link
-        to="https://status.bencuan.me"
-        target="_blank"
-        className="link"
+      <XLink
+        href="https://status.bencuan.me"
+        label="status"
       >
         all systems operational
-      </Link>
-      <FontAwesomeIcon icon={faCircle} color="green" className="status-circle" />
+      </XLink>
+      <FontAwesomeIcon icon={faCircle} className="status-circle status-green" />
     </React.Fragment>
     {/* <img
       alt="Gatsby logo"

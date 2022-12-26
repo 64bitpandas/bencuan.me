@@ -1,7 +1,5 @@
 @use 'fonts';
-
-// COLORS
-$color-bg: #323B47;
+@use 'colors';
 
 $padding: 7rem;
 
@@ -26,7 +24,7 @@ h2 {
 }
 
 body {
-    background-color: $color-bg;
+    background-color: colors.$background;
 }
 
 .name {
@@ -95,7 +93,7 @@ body {
 ::selection {
     background-color: transparent;
     font-weight: 1000;
-    color: orange;
+    color: colors.$selection;
 }
 
 footer {
@@ -117,7 +115,7 @@ footer {
 }
 
 .home-link-icon {
-    filter: invert(49%) sepia(38%) saturate(4860%) hue-rotate(208deg) brightness(105%) contrast(101%);
+    filter: colors.$blue-filter;
     opacity: 0;
     width: 0;
     display: var(--fa-display, inline-block);
@@ -137,13 +135,13 @@ footer {
     transition: all 0.1s;
 
     &:hover {
-        background: #EEEEEE;
+        background: colors.$background-light;
         font-weight: 800;
     }
 
     &:hover a,
     &:hover {
-        color: #5588FF !important;
+        color: colors.$highlight !important;
     }
 
     &:hover .home-link-icon {

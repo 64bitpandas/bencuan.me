@@ -1,4 +1,5 @@
 @use 'fonts';
+@use 'colors';
 
 
 header {
@@ -14,4 +15,8 @@ header {
 .status-circle {
     margin: auto 0;
     margin-left: 1rem;
+}
+
+.status-green {
+    color: colors.$green;
 }

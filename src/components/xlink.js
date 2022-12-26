@@ -8,11 +8,11 @@
 import * as React from "react"
 import '../sass/layout.scss';
 
-function XLink({ href, label, children, className}) {
+function XLink({ href, label, children, className, hasArrow=true}) {
 
   return (
-    <a className={(className) ? className: "link"} href={href} target="_blank" rel="noreferer" aria-label={label}>
-      {children}
+    <a className={(className) ? className: "link"} href={href} target="_blank" rel="noreferrer" aria-label={label}>
+      {children}{hasArrow && (<>&nbsp;↗</>)}
     </a>
   )
 }
