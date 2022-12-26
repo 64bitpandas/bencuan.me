@@ -10,6 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "../sass/layout.scss"
+import XLink from "./xlink"
 
 const Layout = ({ children }) => {
 
@@ -35,7 +36,7 @@ const Layout = ({ children }) => {
           : (<><span tabIndex="0" role="button" className="link showarchive" onClick={() => { setShowArchives(true) }}>archives</span>&nbsp;|&nbsp;</>)
         }
 
-        <a href="https://github.com/64bitpandas/bencuan.me" className="link" target="_blank" rel="noreferrer">source</a>
+        <XLink href="https://github.com/64bitpandas/bencuan.me" label="source">source</XLink>
         </footer>
     </div>
   )

@@ -5,6 +5,12 @@ import Seo from "../components/seo"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithubAlt, faItchIo, faMastodon } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons"
+import azuleaLogo from "../fontcustom/azulea.svg";
+import ghostLogo from "../fontcustom/ghost.svg";
+import bookLogo from "../fontcustom/book.svg";
+import hexcaliberLogo from "../fontcustom/hexcaliber.svg";
+import turtleLogo from "../fontcustom/turtlenet.svg";
+import XLink from "../components/xlink"
 
 const icons = [
   {
@@ -29,6 +35,34 @@ const icons = [
   }
 ]
 
+const links = [
+  {
+    name: 'blog',
+    icon:  ghostLogo,
+    link: 'https://azulea.me'
+  },
+  {
+    name: 'turtlenet',
+    icon:  turtleLogo,
+    link: 'https://turtlenet.bencuan.me'
+  },
+  {
+    name: 'notes',
+    icon:  bookLogo,
+    link: 'https://notes.bencuan.me'
+  },
+  {
+    name: 'games',
+    icon:  hexcaliberLogo,
+    link: 'https://hexcaliber.dev'
+  },
+  // {
+  //   name: 'music',
+  //   icon:  azuleaLogo,
+  //   link: 'https://azulea.me'
+  // },
+]
+
 const IndexPage = () => (
   <Layout>
     <h1 className="name">ben cuan</h1>
@@ -37,7 +71,11 @@ const IndexPage = () => (
         (<a href={val.link} key={val.name} className="name-icon" target="_blank" rel="noreferrer" aria-label={val.name}><FontAwesomeIcon icon={val.icon} /></a>)
       )}
     </div>
-    <h2>under construction</h2>
+    <div className="home-links">
+      {links.map((val) =>
+        (<div style={{display: "flex"}}><XLink className="home-link" href={val.link} label={val.name}><img src={val.icon} className="home-link-icon" /> {val.name} </XLink></div>)
+      )}
+    </div>
   </Layout>
 )
 
