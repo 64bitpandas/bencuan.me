@@ -38,22 +38,22 @@ const icons = [
 const links = [
   {
     name: 'blog',
-    icon:  ghostLogo,
-    link: 'https://azulea.me'
+    icon: ghostLogo,
+    link: 'https://blog.bencuan.me'
   },
   {
     name: 'turtlenet',
-    icon:  turtleLogo,
+    icon: turtleLogo,
     link: 'https://turtlenet.bencuan.me'
   },
   {
     name: 'notes',
-    icon:  bookLogo,
+    icon: bookLogo,
     link: 'https://notes.bencuan.me'
   },
   {
     name: 'games',
-    icon:  hexcaliberLogo,
+    icon: hexcaliberLogo,
     link: 'https://hexcaliber.dev'
   },
   // {
@@ -67,13 +67,17 @@ const IndexPage = () => (
   <Layout>
     <h1 className="name">ben cuan</h1>
     <div className="name-icons">
-      {icons.map((val) => 
+      {icons.map((val) =>
         (<a href={val.link} key={val.name} className="name-icon" target="_blank" rel="noreferrer" aria-label={val.name}><FontAwesomeIcon icon={val.icon} /></a>)
       )}
     </div>
     <div className="home-links">
       {links.map((val) =>
-        (<div style={{display: "flex"}}><XLink className="home-link" href={val.link} label={val.name}><img src={val.icon} className="home-link-icon" /> {val.name} </XLink></div>)
+        (<div style={{ display: "flex" }} key={val.name}>
+          <XLink className="home-link" href={val.link} label={val.name} hasArrow={false}>
+            <img src={val.icon} alt={val.name} className="home-link-icon" /> {val.name} 
+          </XLink>
+        </div>)
       )}
     </div>
   </Layout>
