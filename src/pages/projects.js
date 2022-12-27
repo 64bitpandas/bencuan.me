@@ -9,8 +9,17 @@ const statuses = ['planning', 'development', 'production', 'LTS'];
 
 const activeProjects = [
   {
-    name: 'turtlenet',
+    name: 'blog',
     status: 'production',
+    link: 'https://blog.bencuan.me',
+    description: [
+      'some thoughts, goals, and dreams.',
+      'platform active, article production in progress.'
+    ]
+  },
+  {
+    name: 'turtlenet',
+    status: 'development',
     link: 'https://turtlenet.bencuan.me',
     description: [
       'a beginner’s guide to homelabbing.',
@@ -26,6 +35,12 @@ const activeProjects = [
       'currently compiling existing notes and consolidating into one location.'
     ]
   },
+  {
+    name: 'azulea',
+    status: 'planning',
+    link: 'https://azulea.me',
+    description: ['coming soon to a major music distributor near you']
+  },
 ];
 
 const completedProjects = [
@@ -39,6 +54,26 @@ const completedProjects = [
     link: 'https://scrabbleserver.bencuan.me',
     description: 'multiplayer online scrabble where everyone plays at the same time'
   },
+  {
+    name: 'inboxier',
+    link: 'https://github.com/64bitpandas/inboxier',
+    description: 'a true Google Inbox extension for gmail, with built-in bundling'
+  },
+  {
+    name: 'room-of-sounds',
+    link: 'https://github.com/64bitpandas/RoomOfSounds',
+    description: 'Unity to Max/MSP interoperability demo'
+  },
+  {
+    name: 'piazza-archiver',
+    link: 'https://github.com/64bitpandas/piazza-archiver',
+    description: 'download all Piazza posts from a course in json format'
+  },
+  {
+    name: 'launchhacks',
+    link: 'https://launchhacks.bananium.com',
+    description: 'just another high school hackathon'
+  },
 ]
 
 const ProjectsPage = () => (
@@ -48,9 +83,11 @@ const ProjectsPage = () => (
         {activeProjects.map((proj) => (
           <div className="proj-container">
             <div className="proj-sidebar">
+              <div className="center">
               {statuses.map((status) => 
                 (<div className={`proj-status ${(status === proj.status) ? 'curr-status' : ''}`} key={status}>{status}</div>)
               )}
+              </div>
             </div>
             <div className="proj-content">
               <XLink href={proj.link} label={proj.name} className="link proj-link">{proj.name}</XLink>
