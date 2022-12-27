@@ -1,6 +1,10 @@
 @use 'fonts';
 @use 'colors';
 
+h2 {
+    padding-top: 3rem;
+}
+
 .proj-link {
     font-size: 1.5rem;
     font-weight: bold;
@@ -14,18 +18,22 @@
 }
 
 .proj-sidebar {
-    border-right: solid white 1px;
+    border-right: solid colors.$background-light 1px;
     margin: 0.25rem;
     margin-right: 1rem;
     padding: 0.1rem;
     padding-right: 1rem;
+    display: flex;
+    align-items: center;
 }
 .proj-status {
-    color: white;
+    color: colors.$background-light;
     font-family: fonts.$header;
+    font-size: 1.25rem;
 }
 
 .curr-status {
+    color: white;
     font-weight: bold;
     text-decoration: underline;
 }

@@ -15,7 +15,7 @@ const AboutPage = () => (
       <p>
         I’m Ben (he/him), currently finishing up undergrad at UC Berkeley. 
         Instead of going to class I hide at the 
-        <XLink className="link blue-link" href="https://ocf.io" label="ocf">Open Computing Facility</XLink>, 
+        <XLink className="link blue-link" href="https://ocf.io" label="ocf"> Open Computing Facility</XLink>, 
         teach <XLink className="link blue-link" href="https://cs186berkeley.net" label="cs186">CS 186</XLink>, 
         play <XLink className="link blue-link" href="https://catan.bencuan.me" label="boardgames"> board games</XLink>, 
         make music, and go climbing. Let me know if you’d like to join me for any of these activities :)
