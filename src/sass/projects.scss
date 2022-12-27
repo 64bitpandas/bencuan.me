@@ -1,0 +1,31 @@
+@use 'fonts';
+@use 'colors';
+
+.proj-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.proj-container {
+    background-color: colors.$background-alt;
+    display: flex;
+    padding: 0.5rem;
+    margin: 2rem 0;
+}
+
+.proj-sidebar {
+    border-right: solid white 1px;
+    margin: 0.25rem;
+    margin-right: 1rem;
+    padding: 0.1rem;
+    padding-right: 1rem;
+}
+.proj-status {
+    color: white;
+    font-family: fonts.$header;
+}
+
+.curr-status {
+    font-weight: bold;
+    text-decoration: underline;
+}
