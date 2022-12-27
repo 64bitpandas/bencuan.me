@@ -174,3 +174,11 @@ footer {
         background-color: colors.$link !important;
     }
 }
+
+p {
+    color: white;
+    font-family: fonts.$header;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+}
