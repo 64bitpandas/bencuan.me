@@ -10,7 +10,9 @@ import ghostLogo from "../fontcustom/ghost.svg";
 import bookLogo from "../fontcustom/book.svg";
 import hexcaliberLogo from "../fontcustom/hexcaliber.svg";
 import turtleLogo from "../fontcustom/turtlenet.svg";
-import XLink from "../components/xlink"
+import XLink from "../components/xlink";
+
+import "../sass/home.scss";
 
 const icons = [
   {
