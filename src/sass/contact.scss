@@ -1,0 +1,20 @@
+@use 'fonts';
+@use 'colors';
+
+p {
+    font-size: 1.5rem;
+}
+
+.contact-icon {
+    margin-right: 1rem;
+    transform: scale(1.25);
+}
+
+.contact-img {
+    display: var(--fa-display, inline-block);
+    height: 1.5em;
+    overflow: visible;
+    vertical-align: -0.5em;
+    transition: all 0.1s;
+    margin-right: 0.1rem;
+}
