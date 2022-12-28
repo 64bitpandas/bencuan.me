@@ -27,18 +27,18 @@ const Layout = ({ currPage, children }) => {
   `)
 
   return (
-    <div className="body">
+    <body>
       <Header currPage={currPage} siteTitle={`${currPage} | ${data.site.siteMetadata?.title}`} />
-        <main>{children}</main>
-        <footer>
-        {showArchives ? 
-          ([2018, 2019, 2020, 2021].map((val => (<React.Fragment key={val}><a className="link" href={`/${val}`}>{val}</a>&nbsp;|&nbsp;</React.Fragment>))))
-          : (<><span tabIndex="0" role="button" className="link showarchive" onClick={() => { setShowArchives(true) }}>archives</span>&nbsp;|&nbsp;</>)
-        }
+      <main>{children}</main>
+      <footer>
+      {showArchives ? 
+        ([2018, 2019, 2020, 2021].map((val => (<React.Fragment key={val}><a className="link" href={`/${val}`}>{val}</a>&nbsp;|&nbsp;</React.Fragment>))))
+        : (<><span tabIndex="0" role="button" className="link showarchive" onClick={() => { setShowArchives(true) }}>archives</span>&nbsp;|&nbsp;</>)
+      }
 
-        <XLink href="https://github.com/64bitpandas/bencuan.me" label="source">source</XLink>
-        </footer>
-    </div>
+      <XLink href="https://github.com/64bitpandas/bencuan.me" label="source">source</XLink>
+      </footer>
+    </body>
   )
 }
 

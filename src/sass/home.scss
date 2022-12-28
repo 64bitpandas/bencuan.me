@@ -1,0 +1,80 @@
+@use 'fonts';
+@use 'colors';
+@use 'mixins';
+
+$padding: 7rem;
+
+.home-links {
+    margin-top: 3rem;
+}
+
+.home-link-icon {
+    filter: colors.$blue-filter;
+    opacity: 0;
+    width: 0;
+    display: var(--fa-display, inline-block);
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
+    transition: all 0.1s;
+}
+
+.home-link {
+    color: white;
+    font-family: fonts.$header;
+    font-size: 2.5rem;
+    flex-grow: 1;
+    text-decoration: none;
+    transition: all 0.1s;
+    padding-left: $padding;
+    padding-right: $padding;
+
+    &:hover {
+        background: colors.$background-light;
+        font-weight: 800;
+    }
+
+    &:hover a,
+    &:hover {
+        color: colors.$highlight !important;
+    }
+
+    &:hover .home-link-icon {
+        color: white;
+        opacity: 1;
+        width: inherit;
+    }
+
+}
+
+.name {
+    padding: calc($padding - 2rem) $padding 0 $padding;
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.name-icons {
+    padding: 0.15rem $padding;
+    box-sizing: border-box;
+    color: white;
+    font-size: 2rem;
+    pointer-events: none;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+}
+
+.name-icon {
+    color: white !important;
+    margin-right: 1rem;
+    transition: all 0.25s;
+    pointer-events: auto;
+
+}
+
+.name-icon:hover {
+    font-size: 115%;
+}

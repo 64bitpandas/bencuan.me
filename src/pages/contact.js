@@ -27,7 +27,7 @@ const ContactPage = () => (
 
       <p>
         <img src={matrixIcon} alt="matrix" className="contact-img" />
-        <XLink href="https://matrix.to/#/@bencuan:ocf.berkeley.edu" label="matrix"> matrix: @bencuan:ocf.berkeley.edu</XLink>
+        <XLink href="https://matrix.to/#/@bencuan:ocf.berkeley.edu" label="matrix">matrix: @bencuan:ocf.berkeley.edu</XLink>
       </p>
 
       <p>
