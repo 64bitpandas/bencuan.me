@@ -34,25 +34,37 @@ const Header = ({ siteTitle, currPage }) => {
   
   return (
     <header>
-        <div className="nav-links">
-          {
-            links.map((link, i, row) => (
-              <span className="nav-link" key={link.name}>
-                <Link className={(currPage === link.name) ? "link nav-link nav-current" : "link nav-link"} to={link.url}>{link.name}</Link>
-                {(i+1 !== row.length) && (<span>&nbsp;|&nbsp;</span>)}
-              </span>
-            ))
-          }
+        <div className={`nav-container ${(mobileNavVisible) ? "mobile-visible" : "mobile-hidden"}`}>
+          <div className="nav-links">
+            {
+              links.map((link, i, row) => (
+                <span className="nav-link" key={link.name}>
+                  <Link className={(currPage === link.name) ? "link nav-link nav-current" : "link nav-link"} to={link.url}>{link.name}</Link>
+                  {(i + 1 !== row.length) && (!mobileNavVisible) && (<span>&nbsp;|&nbsp;</span>)}
+                </span>
+              ))
+            }
+          </div>
+          <div className="nav-status">
+            <XLink
+              href="https://status.bencuan.me"
+              label="status"
+            >
+              all systems operational
+            </XLink>
+            <FontAwesomeIcon icon={faCircle} className="status-circle status-green" />
+          </div>
         </div>
-        <div>
-          <XLink
-            href="https://status.bencuan.me"
-            label="status"
-          >
-            all systems operational
-          </XLink>
-          <FontAwesomeIcon icon={faCircle} className="status-circle status-green" />
+        <div className="nav-container-mobile">
+          <button className={`hamburger hamburger--vortex ${(mobileNavVisible) ? 'is-active' : ''}`} type="button"
+            aria-label="Menu" aria-controls="navigation" aria-expanded={mobileNavVisible} onClick={mobileClick}>
+            <span className="hamburger-box">
+              <span className="hamburger-inner"></span>
+            </span>
+          </button>
         </div>
+        
+        
       {/* <img
         alt="Gatsby logo"
         height={20}

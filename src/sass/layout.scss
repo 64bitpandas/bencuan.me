@@ -2,7 +2,7 @@
 @use 'colors';
 @use 'mixins';
 
-$padding: 7rem;
+$padding: 10vw;
 
 h1,
 h2,
@@ -22,16 +22,23 @@ h2 {
 }
 
 body {
+    margin: 0;
+}
+.body {
     background-color: colors.$background;
     min-height: 100vh;
     margin: 0;
 
     display: flex;
     flex-direction: column;
-}
 
+}
 main {
     flex: 1;
+    @include mixins.screen("not-desktop") {
+         z-index: 1;
+        // position: absolute;
+     }
 }
 
 // LINKS
@@ -40,28 +47,31 @@ main {
     text-decoration: none;
     color: white !important;
     font-weight: normal;
-    position: relative;
 
-    &:hover {
-        &::before {
-            visibility: visible;
-            transform: scaleX(1);
+    @include mixins.screen("desktop") {
+        position: relative;
+
+        &:hover {
+            &::before {
+                visibility: visible;
+                transform: scaleX(1);
+            }
         }
-    }
 
-    // Link animation inspired by https://tobiasahlin.com/blog/css-trick-animating-link-underlines/
-    &::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        bottom: -1px;
-        left: 0;
-        background-color: white;
-        visibility: hidden;
-        transform: scaleX(0);
-        font-weight: bold;
-        transition: all 0.05s ease-in-out 0s;
+        // Link animation inspired by https://tobiasahlin.com/blog/css-trick-animating-link-underlines/
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -1px;
+            left: 0;
+            background-color: white;
+            visibility: hidden;
+            transform: scaleX(0);
+            font-weight: bold;
+            transition: all 0.05s ease-in-out 0s;
+        }
     }
 }
 
@@ -73,26 +83,26 @@ main {
 
 footer {
     bottom: 0;
-    padding: $padding;
-    padding-bottom: calc($padding - 2rem);
+    padding: 3rem $padding;
     color: white;
     font-family: fonts.$header;
+
+    @include mixins.screen("not-desktop") {
+        text-align: center;
+    }
 }
 
 .showarchive {
     cursor: pointer;
 }
 
-@include mixins.screen('desktop') {
-    .container {
-        padding-left: $padding;
-        padding-right: $padding;
-    }
+.container {
+    padding: 0 $padding;
+    padding-top: 100px;
 }
 
 .title {
     color: white;
-    padding: calc($padding - 3rem) 0 0 0;
     font-weight: 700;
     font-size: 4rem;
 }

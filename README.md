@@ -20,17 +20,13 @@ Select styles are available for download for free at the links above, or all sty
 
 Alternatively, the open-source Rubik font is made available as a backup, in which no additional configuration is needed.
 
-### Custom Icons
-Custom SVG's are converted into a webfont using Fontcustom, and compiled into the `src/fonts/` folder. To add additional icons, follow the [Fontcustom installation instructions](https://fontcustom.github.io/fontcustom/), place all SVG's into `src/fontcustom`, then run `npm run fontcustom`.
-
-If 
 
 ### Credits
  - [Gatsby](https://www.gatsbyjs.com/)
- - [Fontcustom](https://github.com/FontCustom/fontcustom)
  - [Fontawesome](https://fontawesome.com/)
  - [normalize.css](https://necolas.github.io/normalize.css/)
  - [Pangram Pangram](https://pangrampangram.com/)
+ - [Hamburgers](https://github.com/jonsuh/hamburgers)
 
 ## Contact
 

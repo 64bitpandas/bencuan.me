@@ -2,16 +2,21 @@
 @use 'colors';
 @use 'mixins';
 
-$padding: 7rem;
+$padding: 15vw;
 
 .home-links {
     margin-top: 3rem;
 }
 
 .home-link-icon {
-    filter: colors.$blue-filter;
-    opacity: 0;
-    width: 0;
+    filter: brightness(0) invert(100%);
+
+    @include mixins.screen("desktop") {
+        filter: colors.$blue-filter;
+        opacity: 0;
+        width: 0;
+    }
+
     display: var(--fa-display, inline-block);
     height: 1em;
     overflow: visible;
@@ -22,33 +27,43 @@ $padding: 7rem;
 .home-link {
     color: white;
     font-family: fonts.$header;
-    font-size: 2.5rem;
     flex-grow: 1;
     text-decoration: none;
     transition: all 0.1s;
     padding-left: $padding;
     padding-right: $padding;
+    align-items: center;
+    font-size: 2.5rem;
 
-    &:hover {
-        background: colors.$background-light;
-        font-weight: 800;
+    
+    @include mixins.screen("desktop") {
+        &:hover {
+            background: colors.$background-light;
+            font-weight: 800;
+        }
+    
+        &:hover a,
+        &:hover {
+            color: colors.$highlight !important;
+        }
+    
+        &:hover .home-link-icon {
+            color: white;
+            opacity: 1;
+            width: inherit;
+        }
     }
 
-    &:hover a,
-    &:hover {
-        color: colors.$highlight !important;
-    }
-
-    &:hover .home-link-icon {
-        color: white;
-        opacity: 1;
-        width: inherit;
-    }
 
 }
 
 .name {
-    padding: calc($padding - 2rem) $padding 0 $padding;
+    padding: 7rem $padding 0 $padding;
+
+    @include mixins.screen("not-desktop") {
+        padding-top: 150px;
+    }
+
     font-weight: 700;
     font-size: 4rem;
 }

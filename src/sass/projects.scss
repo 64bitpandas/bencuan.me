@@ -1,5 +1,6 @@
 @use 'fonts';
 @use 'colors';
+@use 'mixins';
 
 h2 {
     padding-top: 3rem;
@@ -15,25 +16,49 @@ h2 {
     display: flex;
     padding: 0.5rem;
     margin: 2rem 0;
+
+    @include mixins.screen("not-desktop") {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
 }
 
 .proj-sidebar {
-    border-right: solid colors.$background-light 1px;
-    margin: 0.25rem;
-    margin-right: 1rem;
+    border-bottom: solid colors.$background-light 1px;
     padding: 0.1rem;
-    padding-right: 1rem;
     display: flex;
-    align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    
+    @include mixins.screen("desktop") {
+        margin: 1rem;
+        padding-right: 1rem;
+        align-items: center;
+        border-right: solid colors.$background-light 1px;
+        border-bottom: none;
+    }
+
 }
+
+
+
 .proj-status {
     color: colors.$background-light;
     font-family: fonts.$header;
-    font-size: 1.25rem;
+
+    @include mixins.screen("desktop") {
+        font-size: 1.25rem;
+    }
+
 }
 
 .curr-status {
     color: white;
     font-weight: bold;
     text-decoration: underline;
+}
+
+.proj-content {
+    margin-top: 1rem;
 }

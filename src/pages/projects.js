@@ -35,12 +35,12 @@ const activeProjects = [
       'currently compiling existing notes and consolidating into one location.'
     ]
   },
-  {
-    name: 'azulea',
-    status: 'planning',
-    link: 'https://azulea.me',
-    description: ['coming soon to a major music distributor near you']
-  },
+  // {
+  //   name: 'azulea',
+  //   status: 'planning',
+  //   link: 'https://azulea.me',
+  //   description: ['coming soon to a major music distributor near you']
+  // },
 ];
 
 const completedProjects = [
@@ -81,9 +81,9 @@ const ProjectsPage = () => (
     <div className="container">
       <h1 className="title">project status</h1>
         {activeProjects.map((proj) => (
-          <div className="proj-container">
+          <div className="proj-container" key={proj.name}>
             <div className="proj-sidebar">
-              <div className="center">
+              <div className="center-desktop">
               {statuses.map((status) => 
                 (<div className={`proj-status ${(status === proj.status) ? 'curr-status' : ''}`} key={status}>{status}</div>)
               )}
@@ -91,14 +91,14 @@ const ProjectsPage = () => (
             </div>
             <div className="proj-content">
               <XLink href={proj.link} label={proj.name} className="link proj-link">{proj.name}</XLink>
-              <p>{proj.description.map(line => (<>{line}<br/></>))}</p>
+              <p>{proj.description.map(line => (<React.Fragment key={line}>{line}<br/></React.Fragment>))}</p>
             </div>
           </div>
         ))}
 
       <h2>completed projects</h2>
       {completedProjects.map((proj) => (
-        <div className="completed-project">
+        <div className="completed-project" key={proj.name}>
           <XLink href={proj.link} label={proj.name} className="link proj-link">{proj.name}</XLink>
           <p>{proj.description}</p>
         </div>
