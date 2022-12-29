@@ -27,7 +27,7 @@ const Layout = ({ currPage, children }) => {
   `)
 
   return (
-    <body>
+    <div className="body">
       <Header currPage={currPage} siteTitle={`${currPage} | ${data.site.siteMetadata?.title}`} />
       <main>{children}</main>
       <footer>
@@ -38,7 +38,7 @@ const Layout = ({ currPage, children }) => {
 
       <XLink href="https://github.com/64bitpandas/bencuan.me" label="source">source</XLink>
       </footer>
-    </body>
+    </div>
   )
 }
 

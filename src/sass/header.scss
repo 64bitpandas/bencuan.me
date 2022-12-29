@@ -1,14 +1,26 @@
 @use 'fonts';
 @use 'colors';
+@use 'mixins';
 
+$hamburger-layer-color : white;
+$hamburger-layer-width : 30px;
+@import '../../node_modules/hamburgers/_sass/hamburgers/hamburgers';
 
 header {
-    font-family: fonts.$header; 
+    font-family: fonts.$header;
     font-weight: 400;
     padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 99;
+
+    @include mixins.screen("not-desktop") {
+        position: fixed;
+        background-color: colors.$background-alt;
+        width: 100vw;
+        padding: 0;
+    }
 }
 
 .status-circle {
@@ -20,14 +32,90 @@ header {
     color: colors.$green;
 }
 
-.nav-links {
-    margin-left: 1rem;
+
+@include mixins.screen("desktop") {
+    .nav-links {
+        margin-left: 1rem;
+    }
 }
+
 .nav-current {
     font-weight: 1000;
     text-decoration: underline;
 }
+
 .nav-link {
     font-size: 1.5rem;
     color: white;
+
+    @include mixins.screen("not-desktop") {
+        font-size: 3rem;
+        text-align: center;
+        max-width: 100vw;
+    }
+
+}
+
+.nav-container-mobile {
+    display: none;
+
+    @include mixins.screen("not-desktop") {
+        display: flex;
+        left: 0;
+        right: 0;
+        top: 0;
+        max-width: 100vw;
+        z-index: 1001;
+    }
+
+}
+
+@include mixins.screen("not-desktop") {
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 5rem;
+    }
+}
+
+.nav-container {
+    justify-content: space-between;
+    margin: 0.5rem;
+    margin-right: 1rem;
+    @include mixins.screen("not-desktop") {
+        margin: 0;
+        display: flex;
+        bottom: 0;
+        flex-direction: column;
+        display: block;
+        position: fixed;
+        transform: translateX(-100vw);
+        transition: all 0.15s;
+        background-color: colors.$background-alt;
+
+        &.mobile-visible {
+            transition: all 0.15s;
+            transform: translateX(0);
+        }
+    }
+
+    left: 0;
+    right: 0;
+    max-width: 100vw;
+    position: absolute;
+
+    top: 0;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+}
+
+
+@include mixins.screen("not-desktop") {
+    .nav-status {
+        display: flex;
+        justify-content: center;   
+        margin-top: 20vh;
+    }
 }
