@@ -32,6 +32,10 @@ header {
     color: colors.$green;
 }
 
+.status-red {
+    color: colors.$red;
+}
+
 
 @include mixins.screen("desktop") {
     .nav-links {
