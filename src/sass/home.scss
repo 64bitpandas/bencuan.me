@@ -59,13 +59,15 @@ $padding: 15vw;
 
 .name {
     padding: 7rem $padding 0 $padding;
-
+    font-size: 4rem;
+    
     @include mixins.screen("not-desktop") {
-        padding-top: 150px;
+        line-height: 4rem;
+        padding-top: 100px;
+        font-size: 3.5rem;
     }
 
     font-weight: 700;
-    font-size: 4rem;
 }
 
 .name-icons {
