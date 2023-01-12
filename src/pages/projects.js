@@ -20,7 +20,7 @@ const activeProjects = [
   {
     name: 'turtlenet',
     status: 'development',
-    link: 'https://turtlenet.bencuan.me',
+    link: 'https://devlog.bencuan.me/series/turtlenet',
     description: [
       'a beginner’s guide to homelabbing.',
       'infrastructure has been established; documentation in progress.'
@@ -28,11 +28,11 @@ const activeProjects = [
   },
   {
     name: 'notes',
-    status: 'development',
+    status: 'production',
     link: 'https://notes.bencuan.me',
     description: [
       'deciphering Berkeley CS classes for general consumption on an Obsidian-friendly markdown rendering engine.',
-      'currently compiling existing notes and consolidating into one location.'
+      'currently writing notes for spring 2023 classes.'
     ]
   },
   // {
@@ -48,6 +48,11 @@ const completedProjects = [
     name: 'catan',
     link: 'https://catan.bencuan.me',
     description: 'roll without replacement for extra spicy strategy'
+  },
+  {
+    name: 'amethyst',
+    link: 'https://amethyst.bencuan.me',
+    description: 'hugo theme for obsidian notes'
   },
   {
     name: 'simultaneous-scrabble',

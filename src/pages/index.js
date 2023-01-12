@@ -47,7 +47,7 @@ const links = [
   {
     name: 'turtlenet',
     icon: turtleLogo,
-    link: 'https://turtlenet.bencuan.me'
+    link: 'https://devlog.bencuan.me/series/turtlenet'
   },
   {
     name: 'notes',
