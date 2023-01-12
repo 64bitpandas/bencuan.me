@@ -28,9 +28,31 @@ const links = [
 
 const Header = ({ siteTitle, currPage }) => {
   const [mobileNavVisible, setMobileNavVisible] = React.useState(false);
+  const [operational, setOperational] = React.useState(true);
+  const [latestCommit, setLatestCommit] = React.useState("")
+
   const mobileClick = () => {
     setMobileNavVisible(!mobileNavVisible);
   }
+
+  React.useEffect(() => {
+    // fetch status
+    try {
+      fetch("https://api.bencuan.me/status").then((response) => response.text()).then((data) => {setOperational(data === 'OK')});
+    } catch {
+      setOperational(false);
+    }
+
+    // fetch latest commit
+    // try {
+    //   fetch("https://api.bencuan.me/latest-commit").then((response) => response.json()).then((data) => {
+    //     console.log(data);
+    //   });
+
+    // } catch {
+
+    // }
+  })
   
   return (
     <header>
@@ -50,9 +72,9 @@ const Header = ({ siteTitle, currPage }) => {
               href="https://status.bencuan.me"
               label="status"
             >
-              all systems operational
+              {(operational) ? "all systems operational" : "service outage - click for details"}
             </XLink>
-            <FontAwesomeIcon icon={faCircle} className="status-circle status-green" />
+            <FontAwesomeIcon icon={faCircle} className={`status-circle ${(operational) ? "status-green" : "status-red" }`} />
           </div>
         </div>
         <div className="nav-container-mobile">
