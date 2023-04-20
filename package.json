@@ -14,7 +14,7 @@
     "gatsby-plugin-manifest": "^5.3.1",
     "gatsby-plugin-matomo": "^0.14.0",
     "gatsby-plugin-sass": "^6.3.1",
-    "gatsby-plugin-sharp": "^5.3.2",
+    "gatsby-plugin-sharp": "^5.8.1",
     "gatsby-source-filesystem": "^5.3.1",
     "gatsby-transformer-sharp": "^5.3.1",
     "hamburgers": "^1.2.1",
