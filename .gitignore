@@ -1,10 +1,3 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
 # Runtime data
 pids
 *.pid
@@ -51,15 +44,25 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# dotenv environment variable files
-.env*
+# build output
+dist/
+public/
+static/
+# generated types
+.astro/
 
-# gatsby files
-.cache/
-/public
-/static
+# dependencies
+node_modules/
 
-archives/2022/static/PP*
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
 
 # Mac files
 .DS_Store
@@ -70,3 +73,6 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# fonts
+archives/2022/static/PP*
