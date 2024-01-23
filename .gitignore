@@ -56,8 +56,10 @@ typings/
 
 # gatsby files
 .cache/
-public
-static
+/public
+/static
+
+archives/2022/static/PP*
 
 # Mac files
 .DS_Store
