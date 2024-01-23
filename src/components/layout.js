@@ -32,7 +32,7 @@ const Layout = ({ currPage, children }) => {
       <main>{children}</main>
       <footer>
       {showArchives ? 
-        ([2018, 2019, 2020, 2021].map((val => (<React.Fragment key={val}><a className="link" href={`/${val}`}>{val}</a>&nbsp;|&nbsp;</React.Fragment>))))
+        ([2018, 2019, 2020, 2021, 2022].map((val => (<React.Fragment key={val}><a className="link" href={`/${val}`}>{val}</a>&nbsp;|&nbsp;</React.Fragment>))))
         : (<><span tabIndex="0" role="button" className="link showarchive" onClick={() => { setShowArchives(true) }}>archives</span>&nbsp;|&nbsp;</>)
       }
 
