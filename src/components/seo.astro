@@ -1,0 +1,36 @@
+---
+import { SEO } from "astro-seo";
+const {title, description} = Astro.props;
+---
+
+<SEO
+  title={title}
+  description={description}
+  openGraph={{
+    basic: {
+      title: title,
+      type: "website",
+      image: "https://raw.githubusercontent.com/64bitpandas/bencuan.me/main/src/images/og-banner.png",
+    },
+    optional: {
+      siteName: "Ben's Site"
+    }
+  }}
+  twitter={{
+    creator: "@bencuan_",
+  }}
+  extend={{
+    // extending the default link tags
+    link: [{ rel: "icon", href: "/favicon.ico" }],
+    // extending the default meta tags
+    meta: [
+      {
+        name: "twitter:image",
+        content: "https://raw.githubusercontent.com/64bitpandas/bencuan.me/main/src/images/og-banner.png",
+      },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+    ],
+  }}
+/>
+
