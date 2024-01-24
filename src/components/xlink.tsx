@@ -9,6 +9,7 @@ type props = {
   hasArrow?: boolean,
 }
 
+/** Link to an external website. */
 const XLink = ({ href, label, children, className, hasArrow=true}: props) => {
   return (
     <a className={(className) ? className: "link"} href={href} target="_blank" rel="noreferrer" aria-label={label}>
