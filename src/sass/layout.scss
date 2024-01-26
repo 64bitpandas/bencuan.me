@@ -43,7 +43,6 @@ main {
 
 // LINKS
 .link {
-    font-family: fonts.$header;
     text-decoration: none;
     color: white !important;
     font-weight: normal;
@@ -85,7 +84,7 @@ footer {
     bottom: 0;
     padding: 3rem $padding;
     color: white;
-    font-family: fonts.$header;
+    font-family: fonts.$ui;
 
     @include mixins.screen("not-desktop") {
         text-align: center;
@@ -117,7 +116,7 @@ footer {
 
 p {
     color: white;
-    font-family: fonts.$header;
+    font-family: fonts.$body;
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
     margin-top: 0;

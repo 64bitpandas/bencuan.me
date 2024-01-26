@@ -32,7 +32,6 @@ type props = {
 const Header = ({ siteTitle, currPage }: props) => {
   const [mobileNavVisible, setMobileNavVisible] = React.useState(false);
   const [operational, setOperational] = React.useState(true);
-  const [latestCommit, setLatestCommit] = React.useState("")
 
   const mobileClick = () => {
     setMobileNavVisible(!mobileNavVisible);
@@ -41,53 +40,43 @@ const Header = ({ siteTitle, currPage }: props) => {
   React.useEffect(() => {
     // fetch status
     try {
-      fetch("https://api.bencuan.me/status").then((response) => response.text()).then((data) => {setOperational(data === 'OK')});
+      fetch("https://api.bencuan.me/status").then((response) => response.text()).then((data) => { setOperational(data === 'OK') });
     } catch {
       setOperational(false);
     }
-
-    // fetch latest commit
-    // try {
-      fetch("https://api.bencuan.me/latest-commit").then((response) => response.json()).then((data) => {
-        console.log(data);
-      });
-
-    // } catch {
-
-    // }
   })
-  
+
   return (
     <header>
-        <div className={`nav-container ${(mobileNavVisible) ? "mobile-visible" : "mobile-hidden"}`}>
-          <div className="nav-links">
-            {
-              links.map((link, i, row) => (
-                <span className="nav-link" key={link.name}>
-                  <a className={(currPage === link.name) ? "link nav-link nav-current" : "link nav-link"} href={link.url}>{link.name}</a>
-                  {(i + 1 !== row.length) && (!mobileNavVisible) && (<span>&nbsp;|&nbsp;</span>)}
-                </span>
-              ))
-            }
-          </div>
-          <div className="nav-status">
-            <XLink
-              href="https://status.bencuan.me"
-              label="status"
-            >
-              {(operational) ? "all systems operational" : "service outage - click for details"}
-            </XLink>
-            <FontAwesomeIcon icon={faCircle} className={`status-circle ${(operational) ? "status-green" : "status-red" }`} />
-          </div>
+      <div className={`nav-container ${(mobileNavVisible) ? "mobile-visible" : "mobile-hidden"}`}>
+        <div className="nav-links">
+          {
+            links.map((link, i, row) => (
+              <span className="nav-link" key={link.name}>
+                <a className={(currPage === link.name) ? "link nav-link nav-current" : "link nav-link"} href={link.url}>{link.name}</a>
+                {(i + 1 !== row.length) && (!mobileNavVisible) && (<span>&nbsp;|&nbsp;</span>)}
+              </span>
+            ))
+          }
         </div>
-        <div className="nav-container-mobile">
-          <button className={`hamburger hamburger--vortex ${(mobileNavVisible) ? 'is-active' : ''}`} type="button"
-            aria-label="Menu" aria-controls="navigation" aria-expanded={mobileNavVisible} onClick={mobileClick}>
-            <span className="hamburger-box">
-              <span className="hamburger-inner"></span>
-            </span>
-          </button>
+        <div className="nav-status">
+          <XLink
+            href="https://status.bencuan.me"
+            label="status"
+          >
+            {(operational) ? "all systems operational" : "service outage - click for details"}
+          </XLink>
+          <FontAwesomeIcon icon={faCircle} className={`status-circle ${(operational) ? "status-green" : "status-red"}`} />
         </div>
+      </div>
+      <div className="nav-container-mobile">
+        <button className={`hamburger hamburger--vortex ${(mobileNavVisible) ? 'is-active' : ''}`} type="button"
+          aria-label="Menu" aria-controls="navigation" aria-expanded={mobileNavVisible} onClick={mobileClick}>
+          <span className="hamburger-box">
+            <span className="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
     </header>
   );
 }

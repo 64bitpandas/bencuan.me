@@ -132,6 +132,12 @@
     font-weight: 500;
 }
 
+@font-face {
+    font-family: Pine;
+    src: url('/fonts/PineTree.otf') format('opentype');
+    font-weight: 500;
+}
+
 $header: Eiko,
 Lora,
 sans-serif;
@@ -140,4 +146,7 @@ Lora,
 serif;
 $ui: Fraktion,
 Rubik,
+sans-serif;
+$special: Pine,
+Novela,
 sans-serif;
