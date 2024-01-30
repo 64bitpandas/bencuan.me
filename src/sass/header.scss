@@ -2,7 +2,7 @@
 @use 'colors';
 @use 'mixins';
 
-$hamburger-layer-color : white;
+$hamburger-layer-color : colors.$text;
 $hamburger-layer-width : 30px;
 @import '../../node_modules/hamburgers/_sass/hamburgers/hamburgers';
 
@@ -50,7 +50,7 @@ header {
 
 .nav-link {
     font-size: 1.5rem;
-    color: white;
+    color: colors.$text;
 
     @include mixins.screen("not-desktop") {
         font-size: 3rem;

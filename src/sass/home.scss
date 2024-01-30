@@ -35,45 +35,39 @@ $padding: 15vw;
     align-items: center;
     font-size: 2.5rem;
 
-    
+
     @include mixins.screen("desktop") {
         &:hover {
             background: colors.$background-light;
             font-weight: 800;
         }
-    
+
         &:hover a,
         &:hover {
             color: colors.$highlight !important;
         }
-    
+
         &:hover .home-link-icon {
             color: white;
             opacity: 1;
             width: inherit;
         }
     }
-
-
 }
 
 .name {
-    padding: 7rem $padding 0 $padding;
-    font-size: 4rem;
-    
-    @include mixins.screen("not-desktop") {
-        line-height: 4rem;
-        padding-top: 100px;
-        font-size: 3.5rem;
-    }
+    margin-top: 3rem;
+    font-size: fonts.$s5;
+    font-family: fonts.$special;
 
+    color: colors.$text;
     font-weight: normal;
 }
 
 .name-icons {
     padding: 0.15rem $padding;
     box-sizing: border-box;
-    color: white;
+    color: colors.$text;
     font-size: 2rem;
     pointer-events: none;
     transition: all 0.25s ease-in-out;
