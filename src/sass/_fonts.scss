@@ -150,3 +150,15 @@ sans-serif;
 $special: Pine,
 Novela,
 sans-serif;
+
+
+
+$s-2: clamp(0.774rem, 0.81rem + -0.048vi, 0.8rem);
+$s-1: clamp(1rem, 0.989rem + 0.057vi, 1.032rem);
+$s0: clamp(1.25rem, 1.205rem + 0.227vi, 1.375rem);
+$s1: clamp(1.563rem, 1.464rem + 0.492vi, 1.833rem);
+$s2: clamp(1.953rem, 1.775rem + 0.891vi, 2.443rem);
+$s3: clamp(2.441rem, 2.145rem + 1.483vi, 3.257rem);
+$s4: clamp(3.052rem, 2.583rem + 2.345vi, 4.341rem);
+$s5: clamp(3.815rem, 3.097rem + 3.586vi, 5.787rem);
+$s6: clamp(4.768rem, 3.697rem + 5.356vi, 7.714rem);

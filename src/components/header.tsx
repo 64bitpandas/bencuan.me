@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircle } from "@fortawesome/free-solid-svg-icons"
 import "../sass/layout.scss";
 import "../sass/header.scss";
-import XLink from "./xlink";
+import { XLink } from "./links";
 
 const links = [
   {
@@ -54,7 +54,7 @@ const Header = ({ siteTitle, currPage }: props) => {
             links.map((link, i, row) => (
               <span className="nav-link" key={link.name}>
                 <a className={(currPage === link.name) ? "link nav-link nav-current" : "link nav-link"} href={link.url}>{link.name}</a>
-                {(i + 1 !== row.length) && (!mobileNavVisible) && (<span>&nbsp;|&nbsp;</span>)}
+                {(i + 1 !== row.length) && (!mobileNavVisible) && (<span>&nbsp;/&nbsp;</span>)}
               </span>
             ))
           }

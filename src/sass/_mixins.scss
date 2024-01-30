@@ -47,36 +47,3 @@
         }
     }
 }
-
-/**
- * Rem units with px fallback from https://w3bits.com/rem-fallback/
- * $size: Font-size to be converted from `px` to `rem`
- * $base: Base font-size (Change its value as per your need)
- * @return void
- */
-@mixin font-size($size, $base: 16) {
-    font-size: $size; // fallback for old browsers
-    font-size: math.div($size, $base) * 1rem;
-}
-
-/*
-  Have different font sizes for each screen size.
-  $phone is the font size for phones, and so on.
-*/
-@mixin responsive-text($phone, $tablet, $computer) {
-    $comp: "(min-width: 1366px)";
-    $smaller-comp: "(min-width: 768px) and (max-width: 1365px)";
-    $mobile: "(max-width: 767px)";
-
-    @media only screen and #{$comp} {
-        @include font-size($computer);
-    }
-
-    @media only screen and #{$smaller-comp} {
-        @include font-size($tablet);
-    }
-
-    @media only screen and #{$mobile} {
-        @include font-size($phone);
-    }
-}

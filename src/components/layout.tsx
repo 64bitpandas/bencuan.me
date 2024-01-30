@@ -9,7 +9,7 @@ import React, { type ReactNode } from "react";
 
 import Header from "./header"
 import "../sass/layout.scss"
-import XLink from "./xlink"
+import { XLink } from "./links"
 
 type props = {
   currPage: string,
@@ -38,8 +38,9 @@ const Layout = ({ currPage, children, description }: props) => {
   return (
     <div className="body">
       <Header currPage={currPage} siteTitle={`${currPage}`} />
-      <main> {children} </main>
+      <main className="container"> {children} </main>
       <footer>
+        <hr/>
         {
           showArchives ?
             ([2018, 2019, 2020, 2021, 2022].map((val => (<React.Fragment key={val} > <a className="link" href={`/${val}`}> {val} </a>&nbsp;|&nbsp;</React.Fragment >))))
