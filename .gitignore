@@ -76,3 +76,6 @@ yarn-error.log
 
 # fonts
 archives/2022/static/PP*
+
+# netlify
+.netlify

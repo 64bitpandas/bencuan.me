@@ -1,15 +1,21 @@
 ---
 import Layout from '../components/layout';
 import Seo from '../components/seo.astro';
+import Visitors from '../components/visitors.tsx';
 import '../sass/home.scss';
 ---
 
 <head>
     <Seo title="bencuan's website" description='builder' />
 </head>
-<Layout currPage="bencuan" client:load>
+<Layout currPage="bencuan" client:idle>
     <h1 class="name">ben cuan</h1>
     <p class="splash">
         I build things and write about them sometimes.
     </p>
+    
+    <div class="text">
+        <p>> new? read the foreword</p>
+        <p><Visitors client:idle/></p>
+    </div>
 </Layout>
