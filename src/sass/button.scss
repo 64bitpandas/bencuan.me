@@ -1,0 +1,17 @@
+@use 'fonts';
+@use 'colors';
+@use 'mixins';
+
+.button {
+    border: solid colors.$purple 2px;
+    border-radius: 10px;
+    padding: 2px;
+    background: rgba(136, 57, 239, 0.1);
+    cursor: pointer;
+    font-family: fonts.$ui;
+    font-size: fonts.$s-1;
+}
+
+.hidden {
+    display: none;
+}

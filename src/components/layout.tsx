@@ -29,7 +29,7 @@ const Layout = ({ currPage, children, description }: props) => {
         if (sha && date) {
           const parsedDate = new Date(date);
           const sDate = `${parsedDate.getFullYear()}.${('0' + (parsedDate.getMonth() + 1)).slice(-2) }.${('0' + parsedDate.getDate()).slice(-2)}`
-          setLatestCommit('@' + sha.substring(0, 6) + ' // ' + sDate);
+          setLatestCommit(`v6.${sha.substring(0,6)} ${sDate}`);
         }
       });
     } catch { } //don't display anything if api is down
@@ -43,15 +43,15 @@ const Layout = ({ currPage, children, description }: props) => {
         <hr/>
         {
           showArchives ?
-            ([2018, 2019, 2020, 2021, 2022].map((val => (<React.Fragment key={val} > <a className="link" href={`/${val}`}> {val} </a>&nbsp;|&nbsp;</React.Fragment >))))
-            : (<><span tabIndex={0} role="button" className="link showarchive" onClick={() => { setShowArchives(true) }}> archives </span>&nbsp;|&nbsp;</>)
+            ([2018, 2019, 2020, 2021, 2022].map((val => (<React.Fragment key={val} > <a className="link" href={`/${val}`}> {val} </a>&nbsp;/&nbsp;</React.Fragment >))))
+            : (<><span tabIndex={0} role="button" className="link showarchive" onClick={() => { setShowArchives(true) }}> archives </span>&nbsp;//&nbsp;</>)
         }
 
         <XLink href="https://github.com/64bitpandas/bencuan.me" label="source" > source </XLink>
 
         {
           latestCommit ?
-            <a className="link" href="https://github.com/64bitpandas/bencuan.me">{latestCommit}</a>
+            <div><XLink href="https://github.com/64bitpandas/bencuan.me" label="source">{latestCommit}</XLink></div>
           : <></>
         }
       </footer>

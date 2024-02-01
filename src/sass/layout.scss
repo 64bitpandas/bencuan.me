@@ -109,6 +109,11 @@ footer {
     font-size: 4rem;
 }
 
+.text {
+    font-size: fonts.$s0;
+    font-family: fonts.$body;
+}
+
 .blue-link {
     color: colors.$link !important;
 
