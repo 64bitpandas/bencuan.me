@@ -8,6 +8,7 @@
     "@astrojs/check": "^0.4.1",
     "@astrojs/netlify": "^4.1.1",
     "@astrojs/react": "^3.0.9",
+    "@astrojs/sitemap": "^3.0.5",
     "@astrojs/ts-plugin": "^1.4.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
@@ -20,6 +21,7 @@
     "hamburgers": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-tooltip": "^5.26.0",
     "sass": "^1.70.0",
     "typescript": "^5.3.3"
   },
