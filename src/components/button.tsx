@@ -10,7 +10,7 @@ type props = {
 const Button = ({href, onClick, className, children}: props) => {
 
     if (href) {
-        <a href={href} className={`button ${className}`} target="_blank" rel="noopener">{children}</a>
+        return <a href={href} className={`button ${className}`} target="_blank" rel="noopener">{children}</a>
     } else {
         return (<span className={`button ${className}`} onClick={onClick}>{children}</span>)
     }

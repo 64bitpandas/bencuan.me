@@ -24,7 +24,7 @@ const Visitors = () => {
 
 
     const display = (<>
-        {`> ${visitors} people were here ${(btnVisible) ? 'before you' : 'including you!'}`} <Button onClick={updateClaps} className={(btnVisible ? "" : "hidden")}>i was here too!</Button>
+        {`> ${visitors} people were here ${(btnVisible) ? 'before you' : 'including you!'}`} <Button onClick={updateClaps} className={(btnVisible ? "" : "hidden")}>hey i was here too!</Button>
     </>)
 
     return (visitors) ? display : <></>

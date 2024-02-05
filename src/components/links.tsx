@@ -1,6 +1,7 @@
 import { type ReactNode } from "react"
 import { Tooltip } from 'react-tooltip'
-import '../sass/layout.scss';
+import {v4 as uuid } from 'uuid';
+import '../sass/links.scss';
 
 type props = {
   href: string,
@@ -12,6 +13,7 @@ type props = {
 
 /** Link to an external website. */
 export const XLink = ({ href, label, children, className, hasArrow=true}: props) => {
+  const id = uuid().toString().substring(0, 6);
   return (
     <>
       <a
@@ -20,11 +22,11 @@ export const XLink = ({ href, label, children, className, hasArrow=true}: props)
         target="_blank"
         rel="noreferrer"
         aria-label={label}
-        id={`#xlink-${label}`}
+        id={`link-${id}`}
       >
         {children}{hasArrow && (<>&nbsp;↗</>)}
       </a>
-      <Tooltip anchorSelect={`#xlink-${label}`} clickable>
+      <Tooltip anchorSelect={`#link-${id}`} className="custom-tooltip" clickable>
         <a href={href} target="_blank" rel="noreferrer" aria-label={label}>{href}</a>
       </Tooltip>
     </>

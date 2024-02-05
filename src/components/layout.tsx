@@ -29,7 +29,7 @@ const Layout = ({ currPage, children, description }: props) => {
         if (sha && date) {
           const parsedDate = new Date(date);
           const sDate = `${parsedDate.getFullYear()}.${('0' + (parsedDate.getMonth() + 1)).slice(-2) }.${('0' + parsedDate.getDate()).slice(-2)}`
-          setLatestCommit(`v6.${sha.substring(0,6)} ${sDate}`);
+          setLatestCommit(`v6@${sha.substring(0,6)}_${sDate}`);
         }
       });
     } catch { } //don't display anything if api is down

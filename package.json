@@ -8,6 +8,7 @@
     "@astrojs/check": "^0.4.1",
     "@astrojs/netlify": "^4.1.1",
     "@astrojs/react": "^3.0.9",
+    "@astrojs/rss": "^4.0.4",
     "@astrojs/sitemap": "^3.0.5",
     "@astrojs/ts-plugin": "^1.4.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
@@ -16,6 +17,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/react": "^18.2.48",
+    "@types/uuid": "^9.0.8",
     "astro": "^4.2.3",
     "astro-seo": "^0.8.0",
     "hamburgers": "^1.2.1",
@@ -23,7 +25,8 @@
     "react-dom": "^18.2.0",
     "react-tooltip": "^5.26.0",
     "sass": "^1.70.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "prettier": "^2.8.0"
