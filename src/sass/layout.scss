@@ -44,38 +44,6 @@ main {
     }
 }
 
-// LINKS
-.link {
-    text-decoration: none;
-    color: colors.$text !important;
-    font-weight: normal;
-
-    @include mixins.screen("desktop") {
-        position: relative;
-
-        &:hover {
-            &::before {
-                visibility: visible;
-                transform: scaleX(1);
-            }
-        }
-
-        // Link animation inspired by https://tobiasahlin.com/blog/css-trick-animating-link-underlines/
-        &::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -1px;
-            left: 0;
-            background-color: colors.$text;
-            visibility: hidden;
-            transform: scaleX(0);
-            font-weight: bold;
-            transition: all 0.05s ease-in-out 0s;
-        }
-    }
-}
 
 ::selection {
     background-color: transparent;
@@ -112,14 +80,6 @@ footer {
 .text {
     font-size: fonts.$s0;
     font-family: fonts.$body;
-}
-
-.blue-link {
-    color: colors.$link !important;
-
-    &::before {
-        background-color: colors.$link !important;
-    }
 }
 
 p {

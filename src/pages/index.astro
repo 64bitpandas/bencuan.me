@@ -2,6 +2,7 @@
 import Layout from '../components/layout';
 import Seo from '../components/seo.astro';
 import Visitors from '../components/visitors.tsx';
+import Button from '../components/button.tsx';
 import '../sass/home.scss';
 ---
 
@@ -13,6 +14,10 @@ import '../sass/home.scss';
     <p class="splash">
         I build things and write about them sometimes.
     </p>
+    <div class="home-buttons">
+        <Button href="/rss.xml">rss</Button>
+        <Button href="/rss.xml">newsletter</Button>
+    </div>
     
     <div class="text">
         <p>> new? read the foreword</p>
