@@ -56,6 +56,7 @@ footer {
     padding: 3rem $padding;
     color: colors.$text;
     font-family: fonts.$ui;
+    font-weight: 200;
 
     @include mixins.screen("not-desktop") {
         text-align: center;

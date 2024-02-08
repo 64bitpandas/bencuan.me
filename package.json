@@ -44,7 +44,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "getfonts": "if [ -f .env ]; then . ./.env; fi; wget -O fonts.zip $FONT_URL && unzip -o fonts.zip -d public/fonts && unzip -o fonts.zip -d archives/2022/static && rm fonts.zip",
     "fontcustom": "fontcustom compile src/fontcustom --output public/fonts",
-    "prebuild": "npm run getfonts && cp -r archives static"
+    "prebuild": "npm run getfonts && cp -r archives public"
   },
   "repository": {
     "type": "git",
