@@ -11,17 +11,32 @@ const links = [
     url: "/"
   },
   {
+    name: "blog",
+    url: "/blog"
+  },
+  {
     name: "about",
     url: "/about"
   },
+]
+
+const moreLinks = [
   {
     name: "projects",
     url: "/projects"
   },
   {
-    name: "contact",
-    url: "/contact"
-  }
+    name: "library",
+    url: "/library"
+  },
+  {
+    name: "recipes",
+    url: "/recipes"
+  },
+  {
+    name: "services",
+    url: "https://status.tsh.sh"
+  },
 ]
 
 type props = {
@@ -31,20 +46,10 @@ type props = {
 
 const Header = ({ siteTitle, currPage }: props) => {
   const [mobileNavVisible, setMobileNavVisible] = React.useState(false);
-  const [operational, setOperational] = React.useState(true);
-
+  const [moreMenuVisible, setMoreMenuVisible] = React.useState(false);
   const mobileClick = () => {
     setMobileNavVisible(!mobileNavVisible);
   }
-
-  React.useEffect(() => {
-    // fetch status
-    try {
-      fetch("https://api.bencuan.me/status").then((response) => response.text()).then((data) => { setOperational(data === 'OK') });
-    } catch {
-      setOperational(false);
-    }
-  })
 
   return (
     <header>
@@ -58,17 +63,29 @@ const Header = ({ siteTitle, currPage }: props) => {
               </span>
             ))
           }
+          {(mobileNavVisible) ? <hr /> : <></>}
+          {
+            (mobileNavVisible) ? moreLinks.map((link, i, row) => (
+              <span className="nav-link" key={link.name}>
+                <a className={(currPage === link.name) ? "link nav-link nav-current" : "link nav-link"} href={link.url}>{link.name}</a>
+                {(i + 1 !== row.length) && (!mobileNavVisible) && (<span>&nbsp;/&nbsp;</span>)}
+              </span>
+            )) : <></>
+          }
         </div>
-        <div className="nav-status">
-          <XLink
-            href="https://status.bencuan.me"
-            label="status"
-          >
-            {(operational) ? "all systems operational" : "service outage - click for details"}
-          </XLink>
-          <FontAwesomeIcon icon={faCircle} className={`status-circle ${(operational) ? "status-green" : "status-red"}`} />
-        </div>
+        <a className="link nav-link nav-more" href="#" onClick={() => setMoreMenuVisible(!moreMenuVisible)}>
+          more
+        </a>
       </div>
+      <ul className={`nav-more-menu ${(moreMenuVisible) ? 'nav-visible' : ''}`}>
+        {
+          moreLinks.map((link, i, row) => (
+            <li className="nav-link" key={link.name}>
+              <a className={(currPage === link.name) ? "link nav-link nav-current" : "link nav-link"} href={link.url}>{link.name}</a>
+            </li>
+          ))
+        }
+      </ul>
       <div className="nav-container-mobile">
         <button className={`hamburger hamburger--vortex ${(mobileNavVisible) ? 'is-active' : ''}`} type="button"
           aria-label="Menu" aria-controls="navigation" aria-expanded={mobileNavVisible} onClick={mobileClick}>
@@ -77,7 +94,7 @@ const Header = ({ siteTitle, currPage }: props) => {
           </span>
         </button>
       </div>
-    </header>
+    </header >
   );
 }
 

@@ -41,6 +41,16 @@ header {
     .nav-links {
         margin-left: 1rem;
     }
+
+    .nav-more-menu {
+        position: absolute;
+        right: 0;
+        top: 1em;
+        list-style-type: none;
+        text-align: left;
+        display: none;
+        background-color: white;
+    }
 }
 
 .nav-current {
@@ -81,12 +91,18 @@ header {
         text-align: center;
         margin-top: 5rem;
     }
+
+    .nav-more-menu,
+    .nav-more {
+        display: none;
+    }
 }
 
 .nav-container {
     justify-content: space-between;
     margin: 0.5rem;
     margin-right: 1rem;
+
     @include mixins.screen("not-desktop") {
         margin: 0;
         display: flex;
@@ -115,11 +131,6 @@ header {
     z-index: 999;
 }
 
-
-@include mixins.screen("not-desktop") {
-    .nav-status {
-        display: flex;
-        justify-content: center;   
-        margin-top: 20vh;
-    }
+.nav-visible {
+    display: block;
 }
