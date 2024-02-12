@@ -1,0 +1,13 @@
+@use 'fonts';
+@use 'colors';
+@use 'mixins';
+
+.blog-title {
+    font-family: fonts.$header;
+    font-weight: 500;
+    font-size: fonts.$s4;
+}
+
+h2 {
+    padding-top: 2rem;
+}

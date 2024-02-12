@@ -3,7 +3,7 @@ import { Tooltip } from 'react-tooltip'
 import {v4 as uuid } from 'uuid';
 import '../sass/links.scss';
 
-type props = {
+type xProps = {
   href: string,
   label: string,
   children?: ReactNode,
@@ -12,7 +12,7 @@ type props = {
 }
 
 /** Link to an external website. */
-export const XLink = ({ href, label, children, className, hasArrow=true}: props) => {
+export const XLink = ({ href, label, children, className, hasArrow=true}: xProps) => {
   const id = uuid().toString().substring(0, 6);
   return (
     <>
@@ -33,5 +33,15 @@ export const XLink = ({ href, label, children, className, hasArrow=true}: props)
   )
 }
 
+type iProps = {
+  href: string,
+  children?: ReactNode,
+  className?: string,
+}
+
 /** Link to an internal page. */
-export const ILink = ({ }) => {}
+export const ILink = ({ href, children, className }: iProps) => (
+  <a href={href} className={(className) ? className : "internal-link"}>
+    {children}
+  </a>
+)

@@ -1,0 +1,16 @@
+---
+import Layout from '../components/layout';
+import Seo from '../components/seo.astro';
+import '../sass/blog.scss';
+const {frontmatter} = Astro.props;
+// export const components = {blockquote: Blockquote}
+// import Blockquote from '../components/Blockquote.astro';
+---
+
+<head>
+    <Seo title="bencuan's website" description='builder' />
+</head>
+<Layout currPage="bencuan" client:idle>
+    <h1 class="blog-title">{frontmatter.title}</h1>
+    <slot />
+</Layout>
