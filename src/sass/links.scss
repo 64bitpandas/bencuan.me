@@ -16,6 +16,7 @@
                 visibility: visible;
                 transform: scaleX(1);
             }
+
             color: colors.$link;
 
             +.custom-tooltip {
@@ -49,15 +50,62 @@
 }
 
 :root {
-  --rt-transition-show-delay: 0.05s;
-  --rt-transition-closing-delay: 0.05s;
+    --rt-transition-show-delay: 0.05s;
+    --rt-transition-closing-delay: 0.05s;
 }
 
 .custom-tooltip {
     background-color: white !important;
     transform: translateY(20px) !important;
     transition: all ease-in-out 0.25s !important;
+
     &:hover {
         transform: translateY(0px) !important;
+    }
+}
+
+.internal-link {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    padding: 0px 3px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+    animation: ilink-tr 0.25s reverse;
+    background-color: colors.$gray;
+
+    &:hover {
+        color: colors.$text-highlight;
+        background-color: colors.$highlight;
+        font-weight: 500;
+
+        &::before {
+            animation: ilink-bl 0.25s forwards;
+        }
+
+        &::after {
+            animation: ilink-tr 0.25s forwards;
+        }
+    }
+}
+
+@keyframes ilink-bl {
+    0% {
+        clip-path: ellipse(0% 0% at 0 100%);
+    }
+
+    100% {
+        clip-path: ellipse(100% 100% at 100% 100%);
+    }
+}
+
+@keyframes ilink-tr {
+    0% {
+        clip-path: ellipse(0% 0% at 100% 0%);
+    }
+
+    100% {
+        clip-path: ellipse(100% 100% at 0% 0%);
     }
 }

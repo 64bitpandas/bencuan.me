@@ -9,7 +9,7 @@ import React, { type ReactNode } from "react";
 
 import Header from "./header"
 import "../sass/layout.scss"
-import { XLink } from "./links"
+import { ILink, XLink } from "./links"
 
 type props = {
   currPage: string,
@@ -47,7 +47,7 @@ const Layout = ({ currPage, children, description }: props) => {
             : (<><span tabIndex={0} role="button" className="link showarchive" onClick={() => { setShowArchives(true) }}> archives </span>&nbsp;//&nbsp;</>)
         }
 
-        <XLink href="https://github.com/64bitpandas/bencuan.me" label="source" > source </XLink>
+        <ILink href="/colophon">colophon</ILink>
 
         {
           latestCommit ?

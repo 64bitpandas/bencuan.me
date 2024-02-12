@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import Seo from '../components/seo.astro';
 import Visitors from '../components/visitors.tsx';
 import Button from '../components/button.tsx';
+import { ILink } from '../components/links.tsx';
 import '../sass/home.scss';
 ---
 
@@ -20,7 +21,7 @@ import '../sass/home.scss';
     </div>
     
     <div class="text">
-        <p>> new? read the foreword</p>
+        <p>> new? read the <ILink href="/foreword">foreword</ILink></p>
         <p><Visitors client:idle/></p>
     </div>
 </Layout>
