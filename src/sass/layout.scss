@@ -40,6 +40,10 @@ main {
     }
 }
 
+code {
+    font-family: fonts.$code;
+}
+
 
 ::selection {
     background-color: #babbf1;
@@ -93,12 +97,10 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-thumb {
-    background: colors.$text;
+    background: #a8b0df;
     border-radius: 3px;
-    // box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25),inset -2px -2px 2px rgba(0,0,0,.25);
 }
 
 html::-webkit-scrollbar-track {
-    // background: linear-gradient(90deg,#434343,#434343 1px,#111 0,#111);
     background-color: colors.$background-alt;
 }

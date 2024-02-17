@@ -138,6 +138,12 @@
     font-weight: 500;
 }
 
+@font-face {
+    font-family: FiraCode;
+    src: url('/fonts/FiraCode-VF.ttf') format('truetype');
+    font-weight: 1 999;
+}
+
 $header: Eiko,
 Lora,
 sans-serif;
@@ -150,7 +156,8 @@ sans-serif;
 $special: Pine,
 Novela,
 sans-serif;
-
+$code: FiraCode,
+monospace;
 
 
 $s-2: clamp(0.774rem, 0.81rem + -0.048vi, 0.8rem);
