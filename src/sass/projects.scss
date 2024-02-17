@@ -9,13 +9,16 @@ h2 {
 .proj-link {
     font-size: 1.5rem;
     font-weight: bold;
+    font-family: fonts.$ui;
 }
 
 .proj-container {
-    background-color: colors.$background-alt;
+    background-color: colors.$background-light;
     display: flex;
     padding: 0.5rem;
     margin: 2rem 0;
+    border: solid 1px colors.$blue;
+    border-radius: 5px;
 
     @include mixins.screen("not-desktop") {
         flex-direction: column;
@@ -25,17 +28,17 @@ h2 {
 }
 
 .proj-sidebar {
-    border-bottom: solid colors.$background-light 1px;
+    border-bottom: solid colors.$blue 2px;
     padding: 0.1rem;
     display: flex;
     margin-right: 1rem;
     margin-bottom: 1rem;
-    
+
     @include mixins.screen("desktop") {
         margin: 1rem;
         padding-right: 1rem;
         align-items: center;
-        border-right: solid colors.$background-light 1px;
+        border-right: solid colors.$blue 2px;
         border-bottom: none;
     }
 
@@ -44,8 +47,8 @@ h2 {
 
 
 .proj-status {
-    color: colors.$background-light;
-    font-family: fonts.$header;
+    color: colors.$text;
+    font-family: fonts.$ui;
 
     @include mixins.screen("desktop") {
         font-size: 1.25rem;
@@ -54,11 +57,27 @@ h2 {
 }
 
 .curr-status {
-    color: white;
     font-weight: bold;
     text-decoration: underline;
 }
 
+.status-production {
+    color: colors.$purple;
+}
+
+.status-LTS {
+    color: colors.$green;
+}
+
+.status-planning {
+    color: colors.$orange;
+}
+
+.status-development {
+    color: colors.$rosewater;
+}
+
 .proj-content {
     margin-top: 1rem;
+    font-family: fonts.$ui;
 }

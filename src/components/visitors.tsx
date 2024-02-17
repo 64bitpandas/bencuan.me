@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "./button";
+import "../sass/visitors.scss";
 
 const Visitors = () => {
     const [visitors, setVisitors] = useState("");
@@ -23,10 +24,16 @@ const Visitors = () => {
     }
 
 
-    const display = (<>
-        {`> ${visitors} people were here ${(btnVisible) ? 'before you' : 'including you!'}`} <Button onClick={updateClaps} className={(btnVisible ? "" : "hidden")}>hey i was here too!</Button>
-    </>)
-
+    const display = ((btnVisible) ? (
+        <>
+            {`> ${visitors} people were here before you`} <Button onClick={updateClaps} >🙋 hey i'm here too!</Button>
+        </>
+    ) : (
+        <span className="including-you">
+            {`> ${visitors} people were here including you :)`}
+        </span>
+    ));
+    
     return (visitors) ? display : <></>
 }
 

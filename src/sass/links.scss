@@ -17,7 +17,7 @@
                 transform: scaleX(1);
             }
 
-            color: colors.$link;
+            color: colors.$lavender;
 
             +.custom-tooltip {
                 transform: translateY(0px) !important;
@@ -32,7 +32,7 @@
             height: 2px;
             bottom: -1px;
             left: 0;
-            background-color: colors.$link;
+            background-color: colors.$lavender;
             visibility: hidden;
             transform: scaleX(0);
             font-weight: bold;
@@ -42,10 +42,10 @@
 }
 
 .blue-link {
-    color: colors.$link !important;
+    color: colors.$lavender !important;
 
     &::before {
-        background-color: colors.$link !important;
+        background-color: colors.$lavender !important;
     }
 }
 
@@ -77,7 +77,7 @@
 
     &:hover {
         color: colors.$text-highlight;
-        background-color: colors.$highlight;
+        background-color: colors.$blue;
         font-weight: 500;
 
         &::before {

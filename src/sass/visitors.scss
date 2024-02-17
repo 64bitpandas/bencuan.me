@@ -1,0 +1,18 @@
+@use 'fonts';
+@use 'colors';
+@use 'mixins';
+
+.including-you {
+    animation: forwards 0.7s ease-in-out 0s 1 highlight;
+}
+
+@keyframes highlight {
+    0% {
+        background-color: colors.$lavender;
+        color: white;
+    }
+    100% {
+        background-color: colors.$background;
+        color: colors.$text;
+    }
+}

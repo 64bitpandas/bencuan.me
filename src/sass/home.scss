@@ -44,7 +44,7 @@ $padding: 15vw;
 
         &:hover a,
         &:hover {
-            color: colors.$highlight !important;
+            color: colors.$blue !important;
         }
 
         &:hover .home-link-icon {
@@ -62,30 +62,4 @@ $padding: 15vw;
 
     color: colors.$text;
     font-weight: normal;
-}
-
-.name-icons {
-    padding: 0.15rem $padding;
-    box-sizing: border-box;
-    color: colors.$text;
-    font-size: 2rem;
-    pointer-events: none;
-    transition: all 0.25s ease-in-out;
-
-    &:hover {
-        padding-bottom: 0;
-        padding-top: 0;
-    }
-}
-
-.name-icon {
-    color: white !important;
-    margin-right: 1rem;
-    transition: all 0.25s;
-    pointer-events: auto;
-
-}
-
-.name-icon:hover {
-    font-size: 115%;
 }

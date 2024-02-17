@@ -37,6 +37,10 @@ const moreLinks = [
     name: "services",
     url: "https://status.tsh.sh"
   },
+  {
+    name: "games",
+    url: "https://hexcaliber.dev"
+  },
 ]
 
 type props = {

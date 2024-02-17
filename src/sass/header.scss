@@ -100,8 +100,7 @@ header {
 
 .nav-container {
     justify-content: space-between;
-    margin: 0.5rem;
-    margin-right: 1rem;
+    margin: 1.25rem;
 
     @include mixins.screen("not-desktop") {
         margin: 0;
