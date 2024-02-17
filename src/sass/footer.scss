@@ -1,0 +1,36 @@
+@use 'fonts';
+@use 'colors';
+@use 'mixins';
+
+.footer-icons {
+    padding: 0.15rem;
+    box-sizing: border-box;
+    color: colors.$text;
+    font-size: 1.35rem;
+    pointer-events: none;
+    transition: all 0.15s ease-in-out;
+}
+
+.footer-icon {
+    color: colors.$text !important;
+    margin-right: 1rem;
+    transition: all 0.15s ease-in-out;
+    pointer-events: auto;
+}
+
+.footer-icon:hover {
+    color: colors.$blue !important;
+}
+
+.close-archives {
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+        color: colors.$blue;
+    }
+}
+
+.show-archive {
+    user-select: none;
+}

@@ -1,4 +1,6 @@
 ---
+import { faRss, faNewspaper } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../components/layout';
 import Seo from '../components/seo.astro';
 import Visitors from '../components/visitors.tsx';
@@ -16,8 +18,8 @@ import '../sass/home.scss';
         I build things and write about them sometimes.
     </p>
     <div class="home-buttons">
-        <Button href="/rss.xml">rss</Button>
-        <Button href="/rss.xml">newsletter</Button>
+        <Button href="/rss.xml"><FontAwesomeIcon icon={faRss} />rss</Button>
+        <Button href="/rss.xml"><FontAwesomeIcon icon={faNewspaper} />newsletter</Button>
     </div>
     
     <div class="text">

@@ -10,28 +10,27 @@ const activeProjects = [
   {
     name: 'blog',
     status: 'production',
-    link: 'https://blog.bencuan.me',
+    link: 'https://bencuan.me/blog',
     description: [
       'some thoughts, goals, and dreams.',
-      'platform active, article production in progress.'
+      'article production in progress.'
     ]
   },
   {
     name: 'turtlenet',
-    status: 'development',
+    status: 'production',
     link: 'https://devlog.bencuan.me/series/turtlenet',
     description: [
       'a beginner’s guide to homelabbing.',
-      'infrastructure has been established; documentation in progress.'
+      'prepping for season 2...'
     ]
   },
   {
     name: 'notes',
-    status: 'production',
+    status: 'LTS',
     link: 'https://notes.bencuan.me',
     description: [
       'deciphering Berkeley CS classes for general consumption on an Obsidian-friendly markdown rendering engine.',
-      'currently writing notes for spring 2023 classes.'
     ]
   },
   // {
@@ -52,6 +51,11 @@ const completedProjects = [
     name: 'amethyst',
     link: 'https://amethyst.bencuan.me',
     description: 'hugo theme for obsidian notes'
+  },
+  {
+    name: 'dotfiles',
+    link: 'https://github.com/64bitpandas/dotfiles',
+    description: 'pretty linux configs'
   },
   {
     name: 'simultaneous-scrabble',
@@ -84,7 +88,7 @@ const completedProjects = [
 <head>
     <Seo title="bencuan's website" description='builder' />
 </head>
-<Layout currPage='projects'>
+<Layout currPage='projects' client:idle>
 <div class="container">
     <h1 class="title">project status</h1>
     {activeProjects.map((proj) => (
@@ -92,7 +96,7 @@ const completedProjects = [
         <div class="proj-sidebar">
             <div class="center-desktop">
             {statuses.map((status) => 
-            (<div class={`proj-status ${(status === proj.status) ? 'curr-status' : ''}`} key={status}>{status}</div>)
+            (<div class={`proj-status ${(status === proj.status) ? `curr-status status-${proj.status}` : ''}`}>{status}</div>)
             )}
             </div>
         </div>
