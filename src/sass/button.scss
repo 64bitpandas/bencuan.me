@@ -2,17 +2,119 @@
 @use 'colors';
 @use 'mixins';
 
-.button {
-    border: solid colors.$purple 2px;
-    border-radius: 10px;
-    padding: 2px;
-    background: rgba(136, 57, 239, 0.1);
-    cursor: pointer;
-    font-family: fonts.$ui;
-    font-size: fonts.$s-1;
-    text-decoration: none;
+
+// for houdini
+:root {
+    --angle: 45deg;
+    --opacity: 1;
+    --g: 255;
 }
 
 .hidden {
     display: none;
+}
+
+
+.button {
+    border: solid colors.$purple 2px;
+    border-radius: 10px;
+    padding: 2px 4px;
+    cursor: pointer;
+    font-family: fonts.$ui;
+    font-size: fonts.$s-1;
+    color: colors.$text !important;
+    text-decoration: none;
+    position: relative;
+    box-sizing: border-box;
+
+    a {
+        color: colors.$text !important;
+        text-decoration: none;
+    }
+
+    z-index: 0;
+    overflow: hidden;
+
+    background-clip: padding-box,
+    border-box;
+
+    &:hover {
+        animation:
+            rotate 0.5s ease-out infinite,
+            opacity 2s linear infinite,
+            grow 1s alternate ease-out infinite,
+            pinker 1s alternate ease-out infinite;
+        border: solid transparent 2px;
+    }
+
+    background-image: linear-gradient(to right,
+        rgb(255 var(--g) 255 / var(--opacity)),
+        rgb(255 var(--g) 255 / var(--opacity))),
+    conic-gradient(from var(--angle),
+        colors.$lavender 0deg 90deg,
+        colors.$purple 90deg 180deg,
+        colors.$blue 180deg 270deg,
+        colors.$teal 270deg 360deg);
+
+    background-origin: border-box;
+}
+
+@keyframes huerotate {
+    0% {
+        filter: hue-rotate(0);
+    }
+
+    50% {
+        filter: hue-rotate(40deg);
+    }
+}
+
+@keyframes grow {
+    from {
+        font-weight: normal;
+        transform: scale(1);
+    }
+
+    to {
+        font-weight: bold;
+        transform: scale(1.02);
+    }
+}
+
+@supports (background: paint(houdini)) {
+    @property --angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --g {
+        syntax: "<number>";
+        initial-value: 255;
+        inherits: false;
+    }
+
+    @keyframes rotate {
+        0% {
+            --angle: 0deg;
+        }
+
+        50% {
+            --angle: 180deg;
+        }
+
+        100% {
+            --angle: 360deg;
+        }
+    }
+
+    @keyframes pinker {
+        from {
+            --g: 255;
+        }
+
+        to {
+            --g: 190;
+        }
+    }
 }
