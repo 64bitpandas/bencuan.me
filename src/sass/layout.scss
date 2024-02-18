@@ -24,6 +24,7 @@ h2 {
 body {
     margin: 0;
     background-color: colors.$background;
+    overflow-x: hidden;
 }
 
 .body {
@@ -94,6 +95,7 @@ p {
 // SCROLLBAR
 html::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
 }
 
 html::-webkit-scrollbar-thumb {

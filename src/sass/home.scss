@@ -8,53 +8,6 @@ $padding: 15vw;
     margin-top: 3rem;
 }
 
-.home-link-icon {
-    filter: brightness(0) invert(100%);
-
-    @include mixins.screen("desktop") {
-        filter: colors.$blue-filter;
-        opacity: 0;
-        width: 0;
-    }
-
-    display: var(--fa-display, inline-block);
-    height: 1em;
-    overflow: visible;
-    vertical-align: -0.125em;
-    transition: all 0.1s;
-}
-
-.home-link {
-    color: white;
-    font-family: fonts.$header;
-    flex-grow: 1;
-    text-decoration: none;
-    transition: all 0.1s;
-    padding-left: $padding;
-    padding-right: $padding;
-    align-items: center;
-    font-size: 2.5rem;
-
-
-    @include mixins.screen("desktop") {
-        &:hover {
-            background: colors.$background-light;
-            font-weight: 800;
-        }
-
-        &:hover a,
-        &:hover {
-            color: colors.$blue !important;
-        }
-
-        &:hover .home-link-icon {
-            color: white;
-            opacity: 1;
-            width: inherit;
-        }
-    }
-}
-
 .name {
     margin-top: 3rem;
     font-size: fonts.$s5;
