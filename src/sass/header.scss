@@ -23,20 +23,6 @@ header {
     }
 }
 
-.status-circle {
-    margin: auto 0;
-    margin-left: 1rem;
-}
-
-.status-green {
-    color: colors.$green;
-}
-
-.status-red {
-    color: colors.$red;
-}
-
-
 @include mixins.screen("not-mobile") {
     .nav-links {
         margin-left: 1rem;
@@ -68,7 +54,7 @@ header {
     font-size: 1.5rem;
     color: colors.$text;
 
-    @include mixins.screen("not-desktop") {
+    @include mixins.screen("mobile") {
         font-size: 3rem;
         text-align: center;
         max-width: 100vw;
@@ -78,10 +64,10 @@ header {
 .nav-container-mobile {
     display: none;
 
-    @include mixins.screen("not-desktop") {
+    @include mixins.screen("mobile") {
         display: flex;
         left: 0;
-        right: 0;
+        left: 0;
         top: 0;
         max-width: 100vw;
         z-index: 1001;
@@ -89,7 +75,7 @@ header {
 
 }
 
-@include mixins.screen("not-desktop") {
+@include mixins.screen("mobile") {
     .nav-links {
         display: flex;
         flex-direction: column;
@@ -107,7 +93,7 @@ header {
     justify-content: space-between;
     margin: 1.25rem;
 
-    @include mixins.screen("not-desktop") {
+    @include mixins.screen("mobile") {
         margin: 0;
         display: flex;
         bottom: 0;
@@ -135,32 +121,7 @@ header {
     z-index: 999;
 }
 
-.nav-invisible {
-    animation: slide-left 0.5s forwards ease-out;
-}
-
-.nav-more-more {
-    animation: forwards 0.7s ease-in-out 0s 1 highlight2;
-}
-
-.nav-more-less {
-    animation: forwards 0.7s ease-in-out 0s 1 highlight3;
-}
-
-.more-link-icon {
-    @include mixins.screen("desktop") {
-        filter: colors.$blue-filter;
-    }
-
-    display: var(--fa-display, inline-block);
-    height: 1em;
-    overflow: visible;
-    vertical-align: -0.15em;
-    transition: all 0.1s;
-    right: 0.25em;
-    position: absolute;
-}
-
+// more links
 .more-link-container {
     width: 100%;
     margin: 0;
@@ -194,6 +155,50 @@ header {
     padding-right: 1.5em;
 }
 
+.more-link-icon {
+    @include mixins.screen("not-mobile") {
+        filter: colors.$blue-filter;
+    }
+
+    display: var(--fa-display, inline-block);
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.15em;
+    transition: all 0.1s;
+    right: 0.25em;
+    position: absolute;
+}
+
+// slide in/out and highlight animations on expansion/collapse
+.nav-invisible {
+    animation: slide-left 0.5s forwards ease-out;
+}
+
+.nav-more-more {
+    animation: forwards 0.7s ease-in-out 0s 1 highlight2;
+}
+
+.nav-more-less {
+    animation: forwards 0.7s ease-in-out 0s 1 highlight3;
+}
+
+
+@keyframes slide-right {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
 @keyframes highlight2 {
     0% {
         background-color: colors.$blue;
@@ -215,21 +220,5 @@ header {
     100% {
         background-color: colors.$background;
         color: colors.$text;
-    }
-}
-
-@keyframes slide-right {
-    to {
-        transform: translateX(0);
-    }
-}
-
-@keyframes slide-left {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(100%);
     }
 }
