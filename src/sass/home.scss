@@ -8,6 +8,10 @@ $padding: 15vw;
     margin-top: 3rem;
 }
 
+.splash {
+    margin-bottom: 1rem;
+}
+
 .name {
     margin-top: 3rem;
     font-size: fonts.$s5;
@@ -15,4 +19,8 @@ $padding: 15vw;
 
     color: colors.$text;
     font-weight: normal;
+}
+
+.home-buttons {
+    margin-bottom: 2rem;
 }
