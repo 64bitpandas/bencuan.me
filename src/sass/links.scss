@@ -7,6 +7,7 @@
     text-decoration: none;
     color: colors.$text;
     font-weight: normal;
+    transition: all 0.1s ease-in-out;
 
     @include mixins.screen("not-mobile") {
         position: relative;
@@ -17,6 +18,7 @@
                 transform: scaleX(1);
             }
 
+            font-weight: bold;
             color: colors.$lavender;
 
             +.custom-tooltip {
@@ -36,16 +38,23 @@
             visibility: hidden;
             transform: scaleX(0);
             font-weight: bold;
-            transition: all 0.05s ease-in-out 0s;
+            transition: all 0.1s ease-in-out 0s;
         }
     }
 }
 
 .blue-link {
     color: colors.$lavender !important;
+    // font-family: fonts.$ui;
+    transition: all 0.25s ease-in-out;
 
     &::before {
         background-color: colors.$lavender !important;
+    }
+
+    &:hover {
+        color: colors.$blue !important;
+        font-weight: bold;
     }
 }
 
@@ -108,4 +117,8 @@
     100% {
         clip-path: ellipse(100% 100% at 0% 0%);
     }
+}
+
+.arrow {
+    font-family: fonts.$ui;
 }

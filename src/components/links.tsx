@@ -24,7 +24,7 @@ export const XLink = ({ href, label, children, className, hasArrow = true }: xPr
         id={`link-${id}`}
       >
         {children}
-        {hasArrow && <>&nbsp;↗</>}
+        {hasArrow && <span className="arrow">&nbsp;↗</span>}
       </a>
     </>
   )
@@ -42,3 +42,16 @@ export const ILink = ({ href, children, className }: iProps) => (
     {children}
   </a>
 )
+
+/** Used as a component pass-in to MDX. */
+export const MDLink = ({ href, children }) => {
+  console.log(href)
+  if (href.startsWith("https://bencuan.me")) {
+    return <ILink href={href}>{children}</ILink>
+  }
+  return (
+    <XLink href={href} label={href} className="blue-link">
+      {children}
+    </XLink>
+  )
+}
