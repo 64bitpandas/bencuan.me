@@ -1,13 +1,13 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from 'react';
 
 type blockquoteProps = {
-  children?: ReactNode
-}
+  children?: ReactNode;
+};
 
 export const Blockquote = () => (
   <blockquote className="quote">
     test quote <slot />
   </blockquote>
-)
+);
 
-export const components = { blockquote: Blockquote }
+export const components = { blockquote: Blockquote };
