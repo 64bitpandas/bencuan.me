@@ -1,0 +1,29 @@
+---
+import Layout from '../components/layout.jsx';
+import Seo from '../components/seo.astro';
+import '../sass/blog.scss';
+import type { MarkdownLayoutProps } from 'astro';
+import { MDLink } from '../components/links.tsx';
+import { getCollection } from 'astro:content';
+// 1. Generate a new path for every collection entry
+export const prerender = true;
+export async function getStaticPaths() {
+  console.log("HI")
+  const entries = await getCollection('root');
+  return entries.map(entry => ({
+    params: { root: entry.slug }, props: { entry },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<head>
+    <Seo title="bencuan's website" description='builder' />
+</head>
+<Layout currPage="bencuan" client:idle>
+    <!-- <h1 class="blog-title">{entry.data.title}</h1> -->
+    <!-- {entry.slug} -->
+    <Content components={{a: MDLink}} />
+</Layout>

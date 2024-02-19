@@ -26,6 +26,7 @@
     text-decoration: none;
     position: relative;
     box-sizing: border-box;
+    transition: all 0.25s linear;
 
     a {
         color: colors.$text !important;
@@ -41,9 +42,8 @@
     &:hover {
         animation:
             rotate 0.5s ease-out infinite,
-            opacity 2s linear infinite,
-            grow 1s alternate ease-out infinite,
-            pinker 1s alternate ease-out infinite;
+            grow 0.75s alternate ease-out infinite,
+            pinker 0.75s alternate ease-out infinite;
         border: solid transparent 2px;
     }
 
