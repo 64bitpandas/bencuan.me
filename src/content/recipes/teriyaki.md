@@ -1,6 +1,6 @@
 ---
 title: Teriyaki Sauce
-description:
+description: saucy sauce
 slug: teriyaki
 category: sauces
 time: 15min

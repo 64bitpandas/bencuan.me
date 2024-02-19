@@ -18,7 +18,7 @@ type props = {
   description?: string,
 }
 const Layout = ({ currPage, children, description }: props) => {
-
+  console.log("current page: ", currPage)
   return (
     <div className="body">
       <Header currPage={currPage} siteTitle={`${currPage}`} />

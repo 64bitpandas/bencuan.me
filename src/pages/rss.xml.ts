@@ -1,18 +1,23 @@
-import rss from '@astrojs/rss';
+import rss from "@astrojs/rss";
+import { getCollection } from "astro:content";
 
-export function GET(context: { site: any; }) {
-    return rss({
-        // `<title>` field in output xml
-        title: 'bencuan',
-        // `<description>` field in output xml
-        description: 'I build things and write about them sometimes.',
-        // Pull in your project "site" from the endpoint context
-        // https://docs.astro.build/en/reference/api-reference/#contextsite
-        site: context.site,
-        // Array of `<item>`s in output xml
-        // See "Generating items" section for examples using content collections and glob imports
-        items: [],
-        // (optional) inject custom xml
-        customData: `<language>en-us</language>`,
-    });
+// https://docs.astro.build/en/guides/rss/#using-content-collections
+export async function GET(context: { site: any }) {
+  // this feed only includes blog posts for now
+  const blog = await getCollection("blog");
+  return rss({
+    title: "bencuan",
+    description: "I build things and write about them sometimes.",
+    // Pull in your project "site" from the endpoint context
+    // https://docs.astro.build/en/reference/api-reference/#contextsite
+    site: context.site,
+    items: blog.map(post => ({
+      title: post.data.title,
+      pubDate: post.data.date,
+      description: post.data.description,
+      link: `/blog/${post.slug}/`,
+    })),
+    // (optional) inject custom xml
+    customData: `<language>en-us</language>`,
+  });
 }

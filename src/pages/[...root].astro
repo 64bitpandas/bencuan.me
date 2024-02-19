@@ -1,11 +1,10 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../components/layout.jsx';
 import Seo from '../components/seo.astro';
 import '../sass/blog.scss';
-import type { MarkdownLayoutProps } from 'astro';
 import { MDLink } from '../components/links.tsx';
-import { getCollection } from 'astro:content';
-// 1. Generate a new path for every collection entry
+
 export const prerender = true;
 export async function getStaticPaths() {
   console.log("HI")
@@ -22,8 +21,8 @@ const { Content } = await entry.render();
 <head>
     <Seo title="bencuan's website" description='builder' />
 </head>
-<Layout currPage="bencuan" client:idle>
-    <!-- <h1 class="blog-title">{entry.data.title}</h1> -->
-    <!-- {entry.slug} -->
+<Layout currPage={entry.data.title} client:idle>
+    <h1 class="blog-title">{entry.data.title}</h1>
+    <p class="blog-date">{entry.data.date}</h1>
     <Content components={{a: MDLink}} />
 </Layout>

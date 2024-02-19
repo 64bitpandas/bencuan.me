@@ -12,14 +12,15 @@
     @include mixins.screen("not-mobile") {
         position: relative;
 
-        &:hover {
+        &:hover,
+        &.nav-current {
             &::before {
                 visibility: visible;
                 transform: scaleX(1);
             }
 
             font-weight: bold;
-            color: colors.$lavender;
+            color: colors.$blue;
 
             +.custom-tooltip {
                 transform: translateY(0px) !important;
@@ -27,7 +28,8 @@
         }
 
         // Link animation inspired by https://tobiasahlin.com/blog/css-trick-animating-link-underlines/
-        &::before {
+        &::before,
+        &.nav-current::before {
             content: "";
             position: absolute;
             width: 100%;

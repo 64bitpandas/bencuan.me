@@ -46,8 +46,12 @@ header {
 }
 
 .nav-current {
-    font-weight: 1000;
-    text-decoration: underline;
+    color: colors.$lavender !important;
+    text-decoration: underline !important;
+
+    &:hover {
+        color: colors.$blue !important;
+    }
 }
 
 .nav-link {
