@@ -2,8 +2,6 @@
 @use 'colors';
 @use 'mixins';
 
-
-// for houdini
 :root {
     --angle: 45deg;
     --opacity: 1;
@@ -14,7 +12,9 @@
     display: none;
 }
 
-
+// inspired by https://web.dev/articles/css-border-animations
+// houdini not supported in firefox, sorry firefox users you get
+// a less pretty button
 .button {
     border: solid colors.$purple 2px;
     border-radius: 10px;

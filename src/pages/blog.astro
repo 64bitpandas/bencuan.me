@@ -1,0 +1,15 @@
+---
+import Layout from '../components/layout';
+import Seo from '../components/seo.astro';
+import '../sass/home.scss';
+---
+
+<head>
+    <Seo title="bencuan's website" description='builder' />
+</head>
+<Layout currPage="blog" client:idle>
+    <h1>blog</h1>
+    <p class="splash">
+        I build things and write about them sometimes.
+    </p>
+</Layout>
