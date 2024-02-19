@@ -1,0 +1,42 @@
+---
+import Layout from "../components/layout"
+import Seo from "../components/seo.astro"
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faMastodon, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { XLink } from "../components/links.tsx";
+---
+
+<head>
+    <Seo title="contact | bencuan" description='contact me' />
+</head>
+<Layout currPage='contact'>
+    <div class="container ui-text">
+        <h1 class="title">contact</h1>
+        <p>
+        let's be friends!
+        </p>
+
+        <p>
+        <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
+        <span><b>email:</b> contact (at) bencuan.me</span>
+        </p>
+
+        <p>
+        <FontAwesomeIcon icon={faTwitter} className="contact-icon" />
+        <XLink href="https://twitter.com/bencuan_" label="twitter"><b>twitter:</b> @bencuan_</XLink>
+        </p>
+
+        <p>
+        <FontAwesomeIcon icon={faMastodon} className="contact-icon" />
+        <XLink href="https://hachyderm.io/@bencuan" label="mastodon"><b>mastodon:</b> @bencuan@hachyderm.io</XLink>
+        </p>
+
+        <p>
+        <FontAwesomeIcon icon={faLinkedin} className="contact-icon" />
+        <XLink href="https://linkedin.com/in/bencuan" label="linkedin"><b>linkedin:</b> linkedin.com/in/bencuan</XLink>
+        </p>
+
+    </div>
+</Layout>
+)
