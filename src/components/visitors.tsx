@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react"
-import Button from "./button"
-import "../sass/visitors.scss"
+import { useEffect, useState } from 'react';
+import '../sass/visitors.scss';
+import Button from './button';
 
 const Visitors = () => {
-  const [visitors, setVisitors] = useState("")
-  const [btnVisible, setBtnVisible] = useState(true)
+  const [visitors, setVisitors] = useState('');
+  const [btnVisible, setBtnVisible] = useState(true);
 
   async function getVisitors() {
-    const res = await fetch("https://api.bencuan.me/get-claps")
-    setVisitors(await res.text())
-    console.log(visitors)
+    const res = await fetch('https://api.bencuan.me/get-claps');
+    setVisitors(await res.text());
+    console.log(visitors);
   }
   useEffect(() => {
-    getVisitors()
-  })
+    getVisitors();
+  });
 
   const updateClaps = () => {
-    fetch("https://api.bencuan.me/update-claps", {
-      method: "POST",
-    })
-    getVisitors()
-    setBtnVisible(false)
-  }
+    fetch('https://api.bencuan.me/update-claps', {
+      method: 'POST',
+    });
+    getVisitors();
+    setBtnVisible(false);
+  };
 
   const display = btnVisible ? (
     <>
@@ -29,9 +29,9 @@ const Visitors = () => {
     </>
   ) : (
     <span className="including-you">{`> ${visitors} people were here including you :)`}</span>
-  )
+  );
 
-  return visitors ? display : <></>
-}
+  return visitors ? display : <></>;
+};
 
-export default Visitors
+export default Visitors;

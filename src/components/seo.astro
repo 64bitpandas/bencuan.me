@@ -1,7 +1,8 @@
 ---
-import { SEO } from "astro-seo";
-const {title, description} = Astro.props;
+import { SEO } from 'astro-seo';
+const { title, description } = Astro.props;
 ---
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <SEO
@@ -10,28 +11,27 @@ const {title, description} = Astro.props;
   openGraph={{
     basic: {
       title: title,
-      type: "website",
-      image: "https://raw.githubusercontent.com/64bitpandas/bencuan.me/main/src/images/og-banner.png",
+      type: 'website',
+      image: 'https://raw.githubusercontent.com/64bitpandas/bencuan.me/main/src/images/og-banner.png',
     },
     optional: {
-      siteName: "Ben's Site"
-    }
+      siteName: "Ben's Site",
+    },
   }}
   twitter={{
-    creator: "@bencuan_",
+    creator: '@bencuan_',
   }}
   extend={{
     // extending the default link tags
-    link: [{ rel: "icon", href: "/favicon.ico" }],
+    link: [{ rel: 'icon', href: '/favicon.ico' }],
     // extending the default meta tags
     meta: [
       {
-        name: "twitter:image",
-        content: "https://raw.githubusercontent.com/64bitpandas/bencuan.me/main/src/images/og-banner.png",
+        name: 'twitter:image',
+        content: 'https://raw.githubusercontent.com/64bitpandas/bencuan.me/main/src/images/og-banner.png',
       },
-      { name: "twitter:title", content: title },
-      { name: "twitter:description", content: description },
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:description', content: description },
     ],
   }}
 />
-
