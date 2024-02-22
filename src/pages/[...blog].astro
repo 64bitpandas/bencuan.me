@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../components/layout.jsx';
+import Layout from '../components/layout.tsx';
 import Seo from '../components/seo.astro';
 import '../sass/blog.scss';
 import { MDLink } from '../components/links.tsx';
@@ -8,13 +8,12 @@ import { ToDateString } from '../components/factories';
 
 export const prerender = true;
 export async function getStaticPaths() {
-  const entries = await getCollection('root');
+  const entries = await getCollection('blog');
   return entries.map(entry => ({
-    params: { root: entry.slug },
+    params: { blog: entry.slug },
     props: { entry },
   }));
 }
-// 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
@@ -22,7 +21,8 @@ const { Content } = await entry.render();
 <head>
   <Seo title={entry.data.title} description={entry.data.description} />
 </head>
-<Layout currPage={entry.data.title} client:idle>
+<Layout currPage={'blog'} client:idle>
   <h1 class="blog-title">{entry.data.title}</h1>
+  <p class="blog-date">{ToDateString(entry.data.date, true)}</p>
   <Content components={{ a: MDLink }} />
 </Layout>

@@ -1,0 +1,70 @@
+---
+title: Banana Cake
+description: the best solution for overripe bananas
+slug: banana-cake
+category: baking
+time: 60
+difficulty: 1
+rating: 2
+price: $
+spicy: 0
+veg: 1
+asian: false
+---
+
+## notes
+
+- trust me on the pineapple. it is the secret ingredient.
+- my sweetness preference is on the low end. if you like sweet things, add an extra 1/3 to 1/2 cup sugar.
+
+## tools
+
+- Large baking pan (11x7in)
+  - Can also make muffins, multiple batches, or a fractional recipe if you don't have this exact size. I do not recommend using a loaf pan, it's too deep and might come out dry.
+- Oven
+- Small and large mixing bowls
+- Spatula
+- Blender (optional)
+
+## ingredients
+
+### dry
+
+- 3 cups flour
+- 1 cup sugar
+- 1 tsp salt
+- 1 tsp baking soda
+- 1 tsp cinnamon
+
+### wet
+
+- about half a can of 20oz crushed pineapple (with juice)
+- 2 tsp vanilla
+- 2-3 ripe bananas, mashed
+- 1 1/3 cup canola oil
+- 3 eggs
+
+### optional addons
+
+- chocolate chips
+- chopped pecans or other nuts
+  - Don't want to chop nuts? pulse in a blender for 0.5s
+
+## steps
+
+1. Preheat oven to 350 degrees.
+2. Mash bananas and pineapples together in a small bowl.
+3. In a large bowl, mix all dry ingredients together.
+4. Add all wet ingredients into the bowl, and mix.
+5. Add optional ingredients if desired.
+6. Bake 40 minutes.
+
+## troubleshooting
+
+- didn't rise? your baking soda might be dead, buy a new box.
+- you will know it's done if you stick a knife/fork/toothpick in the middle, and it comes out clean.
+
+## pairings
+
+- banana cake + vanilla ice cream
+- honestly great just by itself

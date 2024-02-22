@@ -3,13 +3,13 @@ title: Teriyaki Sauce
 description: saucy sauce
 slug: teriyaki
 category: sauces
-time: 15min
+time: 15
 difficulty: 0
 rating: 2
 price: $
 spicy: 0
 veg: 2
-asian: 1
+asian: true
 ---
 
 ## notes

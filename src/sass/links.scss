@@ -90,34 +90,6 @@
         color: colors.$text-highlight;
         background-color: colors.$blue;
         font-weight: 500;
-
-        &::before {
-            animation: ilink-bl 0.25s forwards;
-        }
-
-        &::after {
-            animation: ilink-tr 0.25s forwards;
-        }
-    }
-}
-
-@keyframes ilink-bl {
-    0% {
-        clip-path: ellipse(0% 0% at 0 100%);
-    }
-
-    100% {
-        clip-path: ellipse(100% 100% at 100% 100%);
-    }
-}
-
-@keyframes ilink-tr {
-    0% {
-        clip-path: ellipse(0% 0% at 100% 0%);
-    }
-
-    100% {
-        clip-path: ellipse(100% 100% at 0% 0%);
     }
 }
 

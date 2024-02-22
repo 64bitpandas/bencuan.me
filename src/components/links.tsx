@@ -36,6 +36,11 @@ type iProps = {
   className?: string;
 };
 
+type mdProps = {
+  href: string;
+  children?: ReactNode;
+};
+
 /** Link to an internal page. */
 export const ILink = ({ href, children, className }: iProps) => (
   <a href={href} className={className ? className : 'internal-link'}>
@@ -44,7 +49,7 @@ export const ILink = ({ href, children, className }: iProps) => (
 );
 
 /** Used as a component pass-in to MDX. */
-export const MDLink = ({ href, children }) => {
+export const MDLink = ({ href, children }: mdProps) => {
   console.log(href);
   if (href.startsWith('https://bencuan.me')) {
     return <ILink href={href}>{children}</ILink>;
