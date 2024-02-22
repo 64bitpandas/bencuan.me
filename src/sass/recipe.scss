@@ -1,0 +1,42 @@
+@use 'fonts';
+@use 'colors';
+@use 'mixins';
+
+.recipe-title {
+    font-family: fonts.$sans;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: fonts.$s3;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+    font-family: fonts.$sans;
+}
+
+h2 {
+    padding-top: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: fonts.$s2;
+}
+
+h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+p,
+ul,
+li {
+    font-size: fonts.$s0;
+    color: colors.$text;
+}
+
+ul,
+li {
+    margin: 0;
+}

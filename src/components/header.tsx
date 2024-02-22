@@ -1,6 +1,3 @@
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
-import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 import bookLogo from '../fontcustom/book.svg';
 import chalkboardLogo from '../fontcustom/chalkboard.svg';
@@ -9,9 +6,13 @@ import kitchenLogo from '../fontcustom/kitchen.svg';
 import turtleLogo from '../fontcustom/turtlenet.svg';
 import '../sass/header.scss';
 import '../sass/layout.scss';
-import { XLink } from './links';
 
-const links = [
+export type HeaderLink = {
+  name: string;
+  url: string;
+};
+
+const links: HeaderLink[] = [
   {
     name: 'home',
     url: '/',
@@ -55,22 +56,23 @@ const moreLinks = [
 ];
 
 type props = {
-  siteTitle: string;
   currPage: string;
+  customPages?: HeaderLink[];
 };
 
-const Header = ({ siteTitle, currPage }: props) => {
+const Header = ({ currPage, customPages }: props) => {
   const [mobileNavVisible, setMobileNavVisible] = React.useState(false);
   const [moreMenuVisible, setMoreMenuVisible] = React.useState(false);
   const mobileClick = () => {
     setMobileNavVisible(!mobileNavVisible);
   };
+  const allLinks = customPages ? links.concat(customPages) : links;
 
   return (
     <header>
       <div className={`nav-container ${mobileNavVisible ? 'mobile-visible' : 'mobile-hidden'}`}>
         <div className="nav-links">
-          {links.map((link, i, row) => (
+          {allLinks.map((link, i, row) => (
             <span className="nav-link" key={link.name}>
               <a className={currPage === link.name ? 'link nav-link nav-current' : 'link nav-link'} href={link.url}>
                 {link.name}

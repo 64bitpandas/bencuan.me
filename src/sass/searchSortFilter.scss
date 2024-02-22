@@ -1,0 +1,25 @@
+@use 'fonts';
+@use 'colors';
+@use 'mixins';
+
+.sort,
+.filter {
+    font-family: fonts.$ui;
+}
+
+.category-btn,
+.filter-btn {
+    color: colors.$text;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+    user-select: none;
+    margin: 4px 6px;
+
+    &:hover {
+        color: colors.$blue;
+    }
+
+    &.category-selected {
+        font-weight: bold;
+    }
+}
