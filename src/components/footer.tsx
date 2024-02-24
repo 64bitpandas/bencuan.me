@@ -1,16 +1,11 @@
 import { faGithub, faLinkedin, faMastodon, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faRss } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { type ReactNode } from 'react';
+import { SiSubstack } from '@icons-pack/react-simple-icons';
+import React from 'react';
 import '../sass/footer.scss';
 import { ILink, XLink } from './links';
 
 const icons = [
-  {
-    icon: faRss,
-    name: 'rss',
-    link: '/rss.xml',
-  },
   {
     icon: faGithub,
     name: 'github',
@@ -31,6 +26,11 @@ const icons = [
     name: 'mastodon',
     link: 'https://hachyderm.io/@bencuan',
     me: true,
+  },
+  {
+    simpleIcon: SiSubstack,
+    name: 'substack',
+    link: 'https://substack.com/@bencuan',
   },
 ];
 
@@ -69,7 +69,7 @@ const Footer = () => {
             rel={val.me ? 'me noreferrer' : 'noreferrer'}
             aria-label={val.name}
           >
-            <FontAwesomeIcon icon={val.icon} />
+            {val.icon ? <FontAwesomeIcon icon={val.icon} /> : <val.simpleIcon className="simple-icon" />}
           </a>
         ))}
       </div>
