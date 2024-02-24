@@ -2,9 +2,8 @@
 import { getCollection } from 'astro:content';
 import Layout from '../components/layout.jsx';
 import Seo from '../components/seo.astro';
-import '../sass/blog.scss';
 import { MDLink } from '../components/links.tsx';
-import { ToDateString } from '../components/factories';
+import '../sass/blog.scss';
 
 export const prerender = true;
 export async function getStaticPaths() {

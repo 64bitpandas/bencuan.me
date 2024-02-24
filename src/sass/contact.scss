@@ -22,3 +22,37 @@ p {
     transition: all 0.1s;
     margin-right: 0.5rem;
 }
+
+p.splash {
+    font-family: fonts.$body !important;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem;
+    box-shadow: 0 1px 5px #00000099;
+    border-radius: 10px;
+    margin: auto;
+
+    position: relative;
+
+    transition-duration: 300ms;
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease-out;
+    max-width: 800px;
+
+    p {
+        margin: 0.6rem 0.3rem;
+    }
+}
+
+
+@include mixins.screen("desktop") {
+    .card:hover {
+        transition-duration: 300ms;
+        box-shadow: 0 5px 20px 5px #00000044;
+        transform: scale(1.03);
+    }
+}

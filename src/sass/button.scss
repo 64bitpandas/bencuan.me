@@ -59,6 +59,43 @@
     background-origin: border-box;
 }
 
+// hue rotation only
+.button-simple {
+    border: solid colors.$purple 3px;
+    border-radius: 10px;
+    padding: 2px 4px;
+    font-family: fonts.$ui;
+    font-size: fonts.$s-1;
+    color: colors.$text !important;
+    text-decoration: none;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 0.25s linear;
+
+    z-index: 0;
+    overflow: hidden;
+
+    background-clip: padding-box,
+        border-box;
+
+    &:hover {
+        animation:
+            rotate 2s linear infinite;
+        border: solid transparent 5px;
+    }
+
+    background-image: linear-gradient(to right,
+        rgb(255 var(--g) 255 / var(--opacity)),
+        rgb(255 var(--g) 255 / var(--opacity))),
+    conic-gradient(from var(--angle),
+        colors.$lavender 0deg 90deg,
+        colors.$purple 90deg 180deg,
+        colors.$blue 180deg 270deg,
+        colors.$teal 270deg 360deg);
+
+    background-origin: border-box;
+}
+
 @keyframes huerotate {
     0% {
         filter: hue-rotate(0);
