@@ -36,8 +36,11 @@ export const BlogFactory = (blog: Blog): ReactNode => (
 );
 
 export const RecipeFactory = (recipe: Recipe): ReactNode => (
-  <div key={recipe.slug}>
-    <ILink href={recipe.slug}>{recipe.title}</ILink> | <span>{recipe.description}</span>
+  <div key={recipe.slug} className="recipe-container">
+    <ILink href={recipe.slug} className="internal-link recipe-link">
+      {recipe.title}
+    </ILink>{' '}
+    <span className="ssf-recipe-description">{recipe.description}</span>
   </div>
 );
 

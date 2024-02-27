@@ -1,10 +1,10 @@
 ---
 import Layout from '../components/layout';
 import Seo from '../components/seo.astro';
-import '../sass/home.scss';
 import { getCollection } from 'astro:content';
 import SearchSortFilter from '../components/searchSortFilter.tsx';
 import type { Recipe } from '../components/factories';
+import '../sass/recipe.scss';
 
 const collection = await getCollection('recipes');
 const items = collection.map(item => ({ ...item.data, slug: item.slug }));
@@ -14,11 +14,13 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug }));
   <Seo title="ben's recipes" description="builder" />
 </head>
 <Layout currPage="recipes" customPages={[{ name: 'recipes', url: '/recipes' }]} client:load>
-  <h1>recipes</h1>
+  <h1 class="recipe-title">recipes</h1>
   <p class="splash">I build things and write about them sometimes.</p>
 
+  <h2>menu</h2>
   <SearchSortFilter
     sortCategories={['title', 'date', 'rating', 'difficulty', 'time']}
+    itemCategories={['baking', 'sauces', 'veggies', 'protein', 'starch', 'snacks']}
     items={items}
     type="recipe"
     client:load

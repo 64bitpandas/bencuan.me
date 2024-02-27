@@ -19,10 +19,19 @@ h2 {
     margin: 2rem 0;
     border: solid 1px colors.$blue;
     border-radius: 5px;
+    transition-duration: 300ms;
 
     @include mixins.screen("not-desktop") {
         flex-direction: column;
         padding: 1rem;
+    }
+
+    @include mixins.screen("desktop") {
+        &:hover {
+            transform: scale(1.02);
+            border-width: 3px;
+            box-shadow: 0px 4px 15px -6px rgba(0, 0, 0, 0.75);
+        }
     }
 
 }

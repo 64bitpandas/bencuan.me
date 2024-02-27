@@ -21,6 +21,7 @@
     "@types/react": "^18.2.48",
     "@types/uuid": "^9.0.8",
     "astro": "^4.2.3",
+    "astro-auto-import": "^0.4.2",
     "astro-seo": "^0.8.0",
     "hamburgers": "^1.2.1",
     "prettier-plugin-astro": "^0.13.0",

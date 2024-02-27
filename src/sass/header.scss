@@ -10,12 +10,14 @@ header {
     font-family: fonts.$special;
     font-weight: 400;
     padding: 1rem;
+    height: 4rem;
+    background-color: colors.$background;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 99;
 
-    @include mixins.screen("not-desktop") {
+    @include mixins.screen("mobile") {
         position: fixed;
         background-color: colors.$background-alt;
         width: 100vw;
@@ -55,7 +57,7 @@ header {
 }
 
 .nav-link {
-    font-size: 1.5rem;
+    font-size: fonts.$s1;
     color: colors.$text;
 
     @include mixins.screen("mobile") {

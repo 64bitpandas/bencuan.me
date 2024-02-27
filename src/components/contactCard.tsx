@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { type ReactNode, useRef } from 'react';
 import '../sass/button.scss';
 import '../sass/contact.scss';
-import { XLink } from './links';
+import { MDLink } from './links';
 
 const ContactCard = () => {
   const inputRef = useRef<HTMLDivElement>(null);
@@ -20,29 +20,17 @@ const ContactCard = () => {
 
         <p>
           <FontAwesomeIcon icon={faTwitter} className="contact-icon" />
-          <b>twitter:</b>
-          <XLink href="https://twitter.com/bencuan_" label="twitter">
-            {' '}
-            @bencuan_
-          </XLink>
+          <b>twitter:</b> <MDLink href="https://twitter.com/bencuan_">@bencuan_</MDLink>
         </p>
 
         <p>
           <FontAwesomeIcon icon={faMastodon} className="contact-icon" />
-          <b>mastodon:</b>
-          <XLink href="https://hachyderm.io/@bencuan" label="mastodon">
-            {' '}
-            @bencuan@hachyderm.io
-          </XLink>
+          <b>mastodon:</b> <MDLink href="https://hachyderm.io/@bencuan">@bencuan@hachyderm.io</MDLink>
         </p>
 
         <p>
           <FontAwesomeIcon icon={faLinkedin} className="contact-icon" />
-          <b>linkedin:</b>
-          <XLink href="https://linkedin.com/in/bencuan" label="linkedin">
-            {' '}
-            linkedin.com/in/bencuan
-          </XLink>
+          <b>linkedin:</b> <MDLink href="https://linkedin.com/in/bencuan">linkedin.com/in/bencuan</MDLink>
         </p>
       </div>
     </div>

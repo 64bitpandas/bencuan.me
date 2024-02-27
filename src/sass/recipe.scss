@@ -4,7 +4,6 @@
 
 .recipe-title {
     font-family: fonts.$sans;
-    font-weight: 500;
     letter-spacing: 1px;
     font-size: fonts.$s3;
 }
@@ -18,6 +17,11 @@ li {
     font-family: fonts.$sans;
 }
 
+h1,
+h2 {
+    font-weight: 500;
+}
+
 h2 {
     padding-top: 1rem;
     margin-bottom: 0.75rem;
@@ -27,6 +31,8 @@ h2 {
 h3 {
     margin-top: 1rem;
     margin-bottom: 0.5rem;
+    font-weight: 400;
+    font-size: fonts.$s1;
 }
 
 p,
@@ -38,5 +44,5 @@ li {
 
 ul,
 li {
-    margin: 0;
+    margin: 10px 0.25rem;
 }
