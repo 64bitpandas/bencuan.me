@@ -46,6 +46,14 @@ p.splash {
     p {
         margin: 0.6rem 0.3rem;
     }
+
+    .blue-link {
+        text-decoration: none;
+    }
+
+    .blue-link:hover {
+        text-decoration: underline;
+    }
 }
 
 

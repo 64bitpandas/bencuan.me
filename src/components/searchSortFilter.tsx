@@ -5,7 +5,7 @@ import { BlogFactory, type Recipe, RecipeFactory, RecipeFilterCategories } from 
 type props = {
   items: any[];
   type: FactoryType;
-  itemCategories?: Category[];
+  itemCategories?: string[];
   sortCategories?: string[];
   useSearch?: boolean;
 };
@@ -17,15 +17,10 @@ type SortState = {
 
 export type FactoryType = 'blog' | 'recipe' | 'book';
 
-export type Category = {
-  name: string;
-  description?: string;
-};
-
 /**
  * A generic component that allows for sorting, searching, and filtering.
  */
-const SearchSortFilter = ({ sortCategories, items, type, useSearch }: props) => {
+const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategories }: props) => {
   const [sortState, setSortState] = useState<SortState>({ category: '', state: 'none' });
   const [filterState, setFilterState] = useState<Record<string, (item: any) => boolean>>({});
   let filterCategories: Record<string, (item: any) => boolean> | undefined;
@@ -117,8 +112,17 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch }: props) => 
     <>
       {sortCategories && <div className="sort">sort by: {sortButtons}</div>}
       {filterCategories && <div className="filter">filter by: {filterButtons}</div>}
-
-      {filteredItems.sort(sortFn).map(factory)}
+      {itemCategories
+        ? itemCategories.map(category => (
+            <>
+              <h3>{category}</h3>
+              {filteredItems
+                .filter((item: any) => item.category === category)
+                .sort(sortFn)
+                .map(factory)}
+            </>
+          ))
+        : filteredItems.sort(sortFn).map(factory)}
     </>
   );
 };

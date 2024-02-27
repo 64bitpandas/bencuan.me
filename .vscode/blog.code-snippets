@@ -1,0 +1,8 @@
+{
+  "Footnote": {
+    "scope": "md, mdx",
+    "prefix": "footnote",
+    "body": ["<Footnote n='$1' client:idle />", "<FootnoteRef n='$1' client:idle>$2</FootnoteRef>"],
+    "description": "Insert footnote ref",
+  },
+}

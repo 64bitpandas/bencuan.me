@@ -40,6 +40,13 @@
 }
 
 @font-face {
+    font-family: NeueMontreal;
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/PPNeueMontreal-Medium.woff2') format('woff2');
+}
+
+@font-face {
     font-family: Novela;
     src: url('../fonts/novela-black-webfont.woff2') format('woff2');
     font-weight: bolder;
@@ -138,6 +145,20 @@
     font-weight: 500;
 }
 
+
+@font-face {
+    font-family: Garamond;
+    src: url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
+    font-weight: 1 999;
+}
+
+@font-face {
+    font-style: italic;
+    font-family: Garamond;
+    src: url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 1 999;
+}
+
 @font-face {
     font-family: FiraCode;
     src: url('/fonts/FiraCode-VF.ttf') format('truetype');
@@ -147,7 +168,7 @@
 $header: Eiko,
 Lora,
 sans-serif;
-$body: Novela,
+$body: Garamond,
 Lora,
 serif;
 $ui: Fraktion,
