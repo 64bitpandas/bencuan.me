@@ -78,7 +78,11 @@ footer {
 
 .container {
     padding: 0 $padding;
-    padding-top: 100px;
+
+    @include mixins.screen("mobile") {
+        padding-top: 100px;
+    }
+
 }
 
 .title {
