@@ -2,7 +2,7 @@
 @use 'colors';
 @use 'mixins';
 
-$hamburger-layer-color : colors.$text;
+$hamburger-layer-color : white;
 $hamburger-layer-width : 30px;
 @import '../../node_modules/hamburgers/_sass/hamburgers/hamburgers';
 
@@ -19,7 +19,7 @@ header {
 
     @include mixins.screen("mobile") {
         position: fixed;
-        background-color: colors.$background-alt;
+        background-color: colors.$lavender;
         width: 100vw;
         padding: 0;
     }
@@ -103,12 +103,13 @@ header {
         margin: 0;
         display: flex;
         bottom: 0;
+        top: 4rem;
         flex-direction: column;
         display: block;
         position: fixed;
         transform: translateX(-100vw);
         transition: all 0.15s;
-        background-color: colors.$background-alt;
+        background-color: colors.$background-light;
 
         &.mobile-visible {
             transition: all 0.15s;

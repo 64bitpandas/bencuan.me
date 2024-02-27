@@ -66,7 +66,7 @@ const Header = ({ currPage, customPages }: props) => {
   const mobileClick = () => {
     setMobileNavVisible(!mobileNavVisible);
   };
-  const allLinks = customPages ? links.concat(customPages) : links;
+  const allLinks = customPages && !mobileNavVisible ? links.concat(customPages) : links;
 
   return (
     <header>

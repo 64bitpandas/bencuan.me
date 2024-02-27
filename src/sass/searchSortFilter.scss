@@ -15,12 +15,15 @@
     user-select: none;
     margin: 4px 6px;
 
-    &:hover {
-        color: colors.$blue;
+    @include mixins.screen("desktop") {
+        &:hover {
+            color: colors.$blue;
+        }
     }
 
     &.category-selected {
         font-weight: bold;
+        color: colors.$blue;
     }
 }
 
