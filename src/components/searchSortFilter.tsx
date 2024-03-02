@@ -1,4 +1,4 @@
-import { type Factory, type ReactElement, type ReactNode, useState } from 'react';
+import { type Factory, type ReactElement, type ReactNode, useState, Fragment } from 'react';
 import '../sass/searchSortFilter.scss';
 import { BlogFactory, type Recipe, RecipeFactory, RecipeFilterCategories } from './factories';
 
@@ -63,8 +63,8 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
 
   const sortButtons = (
     <>
-      {sortCategories
-        ?.map(category => (
+      {sortCategories && 
+        sortCategories.map(category => (
           <span
             className={`category-btn ${sortState.category === category ? 'category-selected' : ''}`}
             key={category}
@@ -74,7 +74,8 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
             {sortState.category === category && (sortState.state === 'asc' ? '↑' : '↓')}
           </span>
         ))
-        ?.reduce((prev, curr) => [prev, '|', curr])}
+        //@ts-ignore mixed use of string and Element
+        .reduce((prev, curr) => [prev, '|', curr])}
     </>
   );
   const filterButtons = filterCategories
@@ -100,6 +101,7 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
             </span>
           );
         })
+        //@ts-ignore mixed use of string and Element
         .reduce((prev, curr) => [prev, '|', curr])
     : undefined;
 
@@ -114,13 +116,13 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
       {filterCategories && <div className="filter">filter by: {filterButtons}</div>}
       {itemCategories
         ? itemCategories.map(category => (
-            <>
+            <Fragment key={category}>
               <h3>{category}</h3>
               {filteredItems
                 .filter((item: any) => item.category === category)
                 .sort(sortFn)
                 .map(factory)}
-            </>
+            </Fragment>
           ))
         : filteredItems.sort(sortFn).map(factory)}
     </>

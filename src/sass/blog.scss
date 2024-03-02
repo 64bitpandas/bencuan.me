@@ -43,19 +43,19 @@ blockquote {
 
 .footnote-icon,
 .footnote {
-    color: colors.$purple;
+    color: colors.$lavender;
     text-decoration: none !important;
     transition: all 0.2s;
 
     &:hover {
-        color: colors.$lavender;
+        color: black;
         transform: scale(1.1);
         font-weight: bold;
     }
 }
 
 .footnote {
-    font-size: fonts.$s0;
+    font-size: fonts.$s-1;
     vertical-align: super;
     font-family: fonts.$ui;
 }

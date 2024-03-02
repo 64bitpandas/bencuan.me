@@ -2,13 +2,6 @@
 @use 'colors';
 @use 'mixins';
 
-.recipe-title {
-    font-family: fonts.$sans;
-    letter-spacing: 1px;
-    font-size: fonts.$s4;
-    font-weight: 500;
-}
-
 h1,
 h2,
 h3,
@@ -17,8 +10,10 @@ h5,
 h6,
 p,
 ul,
+ol,
 li {
     font-family: fonts.$sans;
+    color: colors.$text;
 }
 
 h1,
@@ -27,32 +22,52 @@ h2 {
 }
 
 h2 {
-    padding-top: 1rem;
+    padding-top: 1rem !important;
     margin-bottom: 0.75rem;
     font-size: fonts.$s2;
 }
 
 h3 {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.25rem;
     font-weight: 400;
     font-size: fonts.$s1;
 }
 
 h4 {
-    font-weight: 400;
+    font-size: fonts.$s0;
+    font-weight: normal;
+}
+
+h5 {
+    font-size: fonts.$s-1;
+    font-weight: normal;
 }
 
 p,
 ul,
 li {
-    font-size: fonts.$s0;
-    color: colors.$text;
+    font-size: fonts.$s-1;
 }
 
 ul,
 li {
-    margin: 10px 0.25rem;
+    margin: 6px 0.2rem;
+}
+
+ol, ul {
+    margin-top: 0;
+    padding-left: 20px;
+}
+
+
+.recipe-title {
+    font-family: fonts.$sans;
+    letter-spacing: 1px;
+    font-size: fonts.$s4;
+    font-weight: 500;
+    text-transform: lowercase;
+    margin-top: 1rem;
 }
 
 .recipe-container {
@@ -64,6 +79,16 @@ li {
 .ssf-recipe-description {
     font-family: fonts.$sans;
     font-size: fonts.$s-2;
+}
+
+.recipe-description {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+}
+
+.recipe-modifiers {
+    margin-top: 0.25rem;
+    margin-bottom: 2rem;
 }
 
 .recipe-icon {

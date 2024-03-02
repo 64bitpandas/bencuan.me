@@ -16,16 +16,18 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug }));
 </head>
 <Layout currPage="recipes" customPages={[{ name: 'recipes', url: '/recipes' }]} client:load>
   <h1 class="recipe-title">recipes</h1>
-  <p class="splash">I build things and write about them sometimes.</p>
-
-  <p class="small-text"><IconList icon={faStar} count={1} className={'star'} /> rare</p>
-  <p class="small-text"><IconList icon={faStar} count={2} className={'star'} /> epic</p>
-  <p class="small-text"><IconList icon={faStar} count={3} className={'star'} /> legendary</p>
-  <p class="small-text"><IconList icon={faSprout} count={1} className={'sprout'} /> vegetarian</p>
-  <p class="small-text"><IconList icon={faSprout} count={2} className={'sprout'} /> vegan</p>
-  <p class="small-text"><IconList icon={faBowlRice} count={1} /> asian grocery required</p>
-  <p class="small-text"><IconList icon={faPepperHot} count={1} className={'pepper'} /> spicy</p>
-  <p class="small-text"><IconList icon={faClock} count={1} className={'clock'} /> quick</p>
+  <p class="splash">Simple, opinionated, battle-tested recipes: no life story, slideshows, or annoying popups.</p>
+  <p></p>
+  <span class="small-text ui-text">
+    <div><IconList icon={faStar} count={1} className={'star'} /> rare</div>
+    <div><IconList icon={faStar} count={2} className={'star'} /> epic</div>
+    <div><IconList icon={faStar} count={3} className={'star'} /> legendary</div>
+    <div><IconList icon={faSprout} count={1} className={'sprout'} /> vegetarian</div>
+    <div><IconList icon={faSprout} count={2} className={'sprout'} /> vegan</div>
+    <div><IconList icon={faBowlRice} count={1} /> asian grocery required</div>
+    <div><IconList icon={faPepperHot} count={1} className={'pepper'} /> spicy</div>
+    <div><IconList icon={faClock} count={1} className={'clock'} /> quick {'(≤15 min)'}</div>
+  </span>
   <h2>menu</h2>
   <SearchSortFilter
     sortCategories={['title', 'date', 'rating', 'difficulty', 'time']}
