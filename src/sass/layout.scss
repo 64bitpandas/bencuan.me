@@ -125,3 +125,7 @@ html::-webkit-scrollbar-thumb {
 html::-webkit-scrollbar-track {
     background-color: colors.$background-alt;
 }
+
+.small-text {
+    font-size: fonts.$s-1;
+}

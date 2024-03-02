@@ -3,8 +3,9 @@ import Layout from '../components/layout';
 import Seo from '../components/seo.astro';
 import { getCollection } from 'astro:content';
 import SearchSortFilter from '../components/searchSortFilter.tsx';
-import type { Recipe } from '../components/factories';
+import { IconList, type Recipe } from '../components/factories';
 import '../sass/recipe.scss';
+import { faBowlRice, faClock, faPepperHot, faSprout, faStar } from '@fortawesome/free-solid-svg-icons';
 
 const collection = await getCollection('recipes');
 const items = collection.map(item => ({ ...item.data, slug: item.slug }));
@@ -17,10 +18,18 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug }));
   <h1 class="recipe-title">recipes</h1>
   <p class="splash">I build things and write about them sometimes.</p>
 
+  <p class="small-text"><IconList icon={faStar} count={1} className={'star'} /> rare</p>
+  <p class="small-text"><IconList icon={faStar} count={2} className={'star'} /> epic</p>
+  <p class="small-text"><IconList icon={faStar} count={3} className={'star'} /> legendary</p>
+  <p class="small-text"><IconList icon={faSprout} count={1} className={'sprout'} /> vegetarian</p>
+  <p class="small-text"><IconList icon={faSprout} count={2} className={'sprout'} /> vegan</p>
+  <p class="small-text"><IconList icon={faBowlRice} count={1} /> asian grocery required</p>
+  <p class="small-text"><IconList icon={faPepperHot} count={1} className={'pepper'} /> spicy</p>
+  <p class="small-text"><IconList icon={faClock} count={1} className={'clock'} /> quick</p>
   <h2>menu</h2>
   <SearchSortFilter
     sortCategories={['title', 'date', 'rating', 'difficulty', 'time']}
-    itemCategories={['baking', 'sauces', 'veggies', 'protein', 'starch', 'snacks']}
+    itemCategories={['baking', 'cooking', 'building blocks']}
     items={items}
     type="recipe"
     client:load
