@@ -6,6 +6,8 @@ import '../sass/recipe.scss';
 import { MDLink } from '../components/links.tsx';
 import { Footnote } from '../components/blog';
 import { components } from '../components/blog';
+import { IconList } from '../components/factories.tsx';
+import { faBowlRice, faStar } from '@fortawesome/free-solid-svg-icons';
 
 export const prerender = true;
 export async function getStaticPaths() {
@@ -24,5 +26,12 @@ const { Content } = await entry.render();
 </head>
 <Layout currPage={'recipes'} customPages={[{ name: 'recipes', url: '/recipes' }]} client:idle>
   <h1 class="recipe-title">{entry.data.title}</h1>
+  <h3 class="recipe-description">{entry.data.description}</h3>
+  <h4 class="recipe-modifiers">
+    <IconList icon={faStar} count={entry.data.rating} className="star" />
+    <IconList icon={faBowlRice} count={entry.data.asian ? 1 : 0} className="" />
+    {entry.data.veg == 1 && <span class="veg">// vegetarian</span>}
+    {entry.data.veg == 2 && <span class="vegan">// vegan</span>}
+  </h4>
   <Content components={components} />
 </Layout>

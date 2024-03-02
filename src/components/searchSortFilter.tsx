@@ -74,7 +74,7 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
             {sortState.category === category && (sortState.state === 'asc' ? '↑' : '↓')}
           </span>
         ))
-        .reduce((prev, curr) => [prev, '|', curr])}
+        ?.reduce((prev, curr) => [prev, '|', curr])}
     </>
   );
   const filterButtons = filterCategories

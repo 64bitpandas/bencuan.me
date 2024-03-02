@@ -1,3 +1,6 @@
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faBowlRice, faClock, faPepperHot, faSprout, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { ReactNode } from 'react';
 import '../sass/searchSortFilter.scss';
 import { ILink } from './links';
@@ -17,11 +20,28 @@ export type Recipe = {
   category: string;
   time: number;
   difficulty: number;
-  rating: number;
-  price?: string;
-  spicy?: number;
-  veg?: number;
-  asian?: boolean;
+  rating: number; // number of stars
+  price?: string; // can be any string, typically some number of $'s
+  spicy?: number; // number of chilis
+  veg?: number; // 0 for omni, 1 for vegetarian, 2 for vegan
+  asian?: boolean; // true if it requires asian grocery
+};
+
+type iconProps = {
+  icon: IconProp;
+  count: number;
+  className?: string;
+};
+
+// Creates `count` number of FontAwesome icons.
+export const IconList = ({ icon, count, className }: iconProps) => {
+  const icons = [];
+  for (let i = 0; i < count; i++) {
+    icons.push(
+      <FontAwesomeIcon key={i} icon={icon} className={className ? className + ' recipe-icon' : 'recipe-icon'} />,
+    );
+  }
+  return icons;
 };
 
 export const ToDateString = (date: Date, pretty?: boolean): string => {
@@ -40,7 +60,12 @@ export const RecipeFactory = (recipe: Recipe): ReactNode => (
     <ILink href={recipe.slug} className="internal-link recipe-link">
       {recipe.title}
     </ILink>{' '}
-    <span className="ssf-recipe-description">{recipe.description}</span>
+    <IconList icon={faClock} count={recipe.time <= 15 ? 1 : 0} className="clock" />
+    <IconList icon={faStar} count={recipe.rating} className="star" />
+    <IconList icon={faSprout} count={recipe.veg ?? 0} className="sprout" />
+    <IconList icon={faBowlRice} count={recipe.asian ? 1 : 0} className="" />
+    <IconList icon={faPepperHot} count={recipe.spicy ?? 0} className="pepper" />
+    {/* <span className="ssf-recipe-description">{recipe.description}</span> */}
   </div>
 );
 
@@ -48,4 +73,5 @@ export const RecipeFilterCategories = {
   vegetarian: (item: Recipe) => (item.veg ? item.veg >= 1 : false),
   vegan: (item: Recipe) => (item.veg ? item.veg === 2 : false),
   'no asian grocery': (item: Recipe) => !item.asian,
+  quick: (item: Recipe) => item.time <= 15,
 };

@@ -12,6 +12,9 @@
 h1,
 h2,
 h3,
+h4,
+h5,
+h6,
 p,
 ul,
 li {
@@ -36,6 +39,10 @@ h3 {
     font-size: fonts.$s1;
 }
 
+h4 {
+    font-weight: 400;
+}
+
 p,
 ul,
 li {
@@ -46,4 +53,36 @@ li {
 ul,
 li {
     margin: 10px 0.25rem;
+}
+
+.recipe-container {
+    margin: 1rem 0;
+    font-size: fonts.$s-1;
+    font-family: fonts.$ui;
+}
+
+.ssf-recipe-description {
+    font-family: fonts.$sans;
+    font-size: fonts.$s-2;
+}
+
+.recipe-icon {
+    font-size: fonts.$s-2;
+    padding: 1px;
+}
+
+.star {
+    color: colors.$yellow;
+}
+
+.sprout {
+    color: colors.$green;
+}
+
+.pepper {
+    color: colors.$red;
+}
+
+.clock {
+    color: colors.$blue;
 }
