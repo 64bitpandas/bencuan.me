@@ -74,7 +74,7 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
             {sortState.category === category && (sortState.state === 'asc' ? '↑' : '↓')}
           </span>
         ))
-        //@ts-ignore mixed use of string and Element
+        //@ts-ignore mixed use of string and Element 
         .reduce((prev, curr) => [prev, '|', curr])}
     </>
   );

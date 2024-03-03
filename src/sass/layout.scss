@@ -4,129 +4,151 @@
 
 $padding: 10vw;
 
-html {
-    scroll-behavior: smooth;
+:root {
+  --rt-transition-closing-delay: 0.5s;
+}
 
-    @media (prefers-reduced-motion: reduce) {
-        html {
-            scroll-behavior: auto;
-        }
+html {
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
     }
+  }
 }
 
 h1,
 h2,
 h3 {
-    color: colors.$text;
-    font-family: fonts.$header;
+  color: colors.$text;
+  font-family: fonts.$header;
 }
 
 h1 {
-    margin: 0;
+  margin: 0;
 }
 
 h2 {
-    padding-top: 7rem;
-    font-weight: 400;
-    font-size: 2.5rem;
+  padding-top: 7rem;
+  font-weight: 400;
+  font-size: 2.5rem;
 }
 
 body {
-    margin: 0;
-    background-color: colors.$background;
-    overflow-x: hidden;
+  margin: 0;
+  background-color: colors.$background;
+  overflow-x: hidden;
 }
 
 .body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-    flex: 1;
+  flex: 1;
 
-    @include mixins.screen("not-desktop") {
-        z-index: 1;
-    }
+  @include mixins.screen('not-desktop') {
+    z-index: 1;
+  }
 }
 
 code {
-    font-family: fonts.$code;
+  font-family: fonts.$code;
 }
 
-
 ::selection {
-    background-color: #babbf1;
+  background-color: #babbf1;
 }
 
 footer {
-    bottom: 0;
-    padding: 3rem $padding;
-    color: colors.$text;
-    font-family: fonts.$ui;
-    font-weight: 200;
+  bottom: 0;
+  padding: 3rem $padding;
+  color: colors.$text;
+  font-family: fonts.$ui;
+  font-weight: 200;
 
-    @include mixins.screen("not-desktop") {
-        text-align: center;
-    }
+  @include mixins.screen('not-desktop') {
+    text-align: center;
+  }
 }
 
 .showarchive {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .container {
-    padding: 0 $padding;
+  padding: 0 $padding;
 
-    @include mixins.screen("mobile") {
-        padding-top: 100px;
-    }
-
+  @include mixins.screen('mobile') {
+    padding-top: 100px;
+  }
 }
 
 .title {
-    color: colors.$text;
-    font-family: fonts.$special;
-    font-weight: 700;
-    font-size: 4rem;
+  color: colors.$text;
+  font-family: fonts.$special;
+  font-weight: 700;
+  font-size: 4rem;
 }
 
 .text {
-    font-size: fonts.$s0;
-    font-family: fonts.$body;
+  font-size: fonts.$s0;
+  font-family: fonts.$body;
 }
 
 p {
-    color: colors.$text;
-    font-family: fonts.$body;
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    margin-top: 0;
+  color: colors.$text;
+  font-family: fonts.$body;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
 }
 
 .ui-text,
 .ui-text p {
-    font-family: fonts.$ui;
-    color: colors.$text;
+  font-family: fonts.$ui;
+  color: colors.$text;
 }
-
 
 // SCROLLBAR
 html::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 html::-webkit-scrollbar-thumb {
-    background: #a8b0df;
-    border-radius: 3px;
+  background: #a8b0df;
+  border-radius: 3px;
 }
 
 html::-webkit-scrollbar-track {
-    background-color: colors.$background-alt;
+  background-color: colors.$background-alt;
 }
 
 .small-text {
-    font-size: fonts.$s-1;
+  font-size: fonts.$s-1;
+}
+
+.react-tooltip {
+  /* From https://css.glass */
+  background: rgba(30, 102, 245, 0.8) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(12px) !important;
+  animation: appear 0.5s forwards;
+  color: white !important;
+  font-family: fonts.$ui;
+  padding: 2px 5px !important;
+  opacity: 1 !important;
+}
+
+@keyframes appear {
+  from {
+    transform: translateY(15px);
+  }
+  to {
+    transform: translateY(10px);
+  }
 }
