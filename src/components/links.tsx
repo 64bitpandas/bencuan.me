@@ -1,4 +1,5 @@
 import { type ReactNode } from 'react';
+import { Tooltip } from 'react-tooltip';
 import { v4 as uuid } from 'uuid';
 import '../sass/links.scss';
 
@@ -8,10 +9,13 @@ type xProps = {
   children?: ReactNode;
   className?: string;
   hasArrow?: boolean;
+  tooltipContent?: string;
 };
 
+const hrefToId = (href: string) => href.replaceAll(/\/|\:/g, '');
+
 /** Link to an external website. */
-export const XLink = ({ href, label, children, className, hasArrow = true }: xProps) => {
+export const XLink = ({ href, label, children, className, hasArrow = true, tooltipContent }: xProps) => {
   const id = uuid().toString().substring(0, 6);
   return (
     <>
@@ -22,6 +26,8 @@ export const XLink = ({ href, label, children, className, hasArrow = true }: xPr
         rel="noreferrer"
         aria-label={label}
         id={`link-${id}`}
+        data-tooltip-content={tooltipContent}
+        data-tooltip-id="tooltip"
       >
         {children}
         {hasArrow && <span className="arrow">&nbsp;↗</span>}
@@ -50,12 +56,11 @@ export const ILink = ({ href, children, className }: iProps) => (
 
 /** Used as a component pass-in to MDX. */
 export const MDLink = ({ href, children }: mdProps) => {
-  console.log(href);
   if (href.startsWith('https://bencuan.me')) {
     return <ILink href={href}>{children}</ILink>;
   }
   return (
-    <XLink href={href} label={href} className="blue-link">
+    <XLink href={href} label={href} tooltipContent={href} className="blue-link">
       {children}
     </XLink>
   );
