@@ -18,7 +18,14 @@ type props = {
 const Layout = ({ currPage, children, customPages }: props) => {
   return (
     <div className="body">
-      <Tooltip id="tooltip" className="link-tooltip" noArrow></Tooltip>
+      <Tooltip
+        disableStyleInjection
+        id="tooltip"
+        className="link-tooltip"
+        noArrow
+        delayShow={150}
+        delayHide={150}
+      ></Tooltip>
       <Header currPage={currPage} customPages={customPages} />
       <main className="container"> {children}</main>
 

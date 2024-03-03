@@ -5,7 +5,7 @@
 $padding: 10vw;
 
 :root {
-  --rt-transition-closing-delay: 0.5s;
+  --rt-transition-closing-delay: 0.15s;
 }
 
 html {
@@ -137,18 +137,23 @@ html::-webkit-scrollbar-track {
   background: rgba(30, 102, 245, 0.8) !important;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
   backdrop-filter: blur(12px) !important;
-  animation: appear 0.5s forwards;
   color: white !important;
   font-family: fonts.$ui;
   padding: 2px 5px !important;
-  opacity: 1 !important;
+  transform: translateY(10px);
 }
 
-@keyframes appear {
+.react-tooltip__closing {
+  animation: disappear 0.15s forwards 0.05s;
+}
+
+@keyframes disappear {
   from {
-    transform: translateY(15px);
+    opacity: 1;
+    transform: translateY(10px);
   }
   to {
-    transform: translateY(10px);
+    opacity: 0;
+    transform: translateY(15px);
   }
 }
