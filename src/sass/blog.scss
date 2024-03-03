@@ -12,6 +12,14 @@ h2 {
     padding-top: 2rem;
 }
 
+p,
+ul,
+ol {
+    font-family: fonts.$body;
+    color: colors.$text;
+    font-size: fonts.$s0;
+}
+
 blockquote {
     position: relative;
     margin: 0 0 1.5rem 0;

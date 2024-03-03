@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import AutoImport from 'astro-auto-import';
 import { defineConfig } from 'astro/config';
 import wikiLinkPlugin from 'remark-wiki-link';
+import emoji from 'remark-emoji';
 
 // https://astro.build/config
 const SITE = 'https://bencuan.me';
@@ -37,6 +38,12 @@ export default defineConfig({
           aliasDivider: '|',
         },
       ],
+      [
+        emoji,
+        {
+          accessible: true,
+        }
+      ]
     ],
     gfm: true,
   },
