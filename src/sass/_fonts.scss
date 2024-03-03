@@ -165,11 +165,17 @@
     font-weight: 1 999;
 }
 
+@font-face {
+    font-family: NotoColorEmoji;
+    src: url('/fonts/NotoColorEmoji-Regular.ttf') format('truetype');
+}
+
 $header: Eiko,
 Lora,
 sans-serif;
 $body: Garamond,
 Lora,
+NotoColorEmoji,
 serif;
 $ui: Fraktion,
 Rubik,
