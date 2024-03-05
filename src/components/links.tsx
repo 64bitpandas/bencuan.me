@@ -12,7 +12,7 @@ type xProps = {
   tooltipContent?: string;
 };
 
-const hrefToId = (href: string) => href.replaceAll(/\/|\:/g, '');
+const stripHttp = (href: string) => href.replace(/^https?:\/\//, '');
 
 /** Link to an external website. */
 export const XLink = ({ href, label, children, className, hasArrow = true, tooltipContent }: xProps) => {
@@ -60,7 +60,7 @@ export const MDLink = ({ href, children }: mdProps) => {
     return <ILink href={href}>{children}</ILink>;
   }
   return (
-    <XLink href={href} label={href} tooltipContent={href} className="blue-link">
+    <XLink href={href} label={href} tooltipContent={stripHttp(href)} className="blue-link">
       {children}
     </XLink>
   );
