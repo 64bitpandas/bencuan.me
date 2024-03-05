@@ -1,0 +1,62 @@
+---
+import Layout from '../components/layout';
+import Seo from '../components/seo.astro';
+import { getCollection } from 'astro:content';
+import SearchSortFilter from '../components/searchSortFilter';
+import { IconList, type Recipe } from '../components/factories';
+import '../sass/blog.scss';
+import '../sass/library.scss';
+import { faBowlRice, faClock, faPepperHot, faSprout, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const collection = await getCollection('library');
+const items = collection.map(item => ({ ...item.data, slug: item.slug }));
+---
+
+<head>
+  <Seo title="ben's library" description="builder" />
+</head>
+<Layout currPage="recipes" customPages={[{ name: 'recipes', url: '/recipes' }]} client:load>
+  <h1 class="blog-title">bookshelf</h1>
+
+  <h2>about</h2>
+  <p>
+    I like collecting physical books on a physical bookshelf. The experience of reading isn’t complete to me without
+    carrying around something tangible and being able to associate ideas and stories with the time and place I
+    discovered them.
+  </p>
+
+  <p>
+    While I tend to save, highlight, link, and hop all around digital content, I just start books on page 1 and trust
+    the author to deliver a self-contained experience. You won’t see any notes from me besides the short post-reading
+    reviews on this page.
+  </p>
+
+  <p>
+    If you have book recs, submit them here! I’ll save them in the back of my mind, and if I ever stumble across it in a
+    bookstore or library I might grab it.
+  </p>
+
+  <h2>ratings</h2>
+
+  <p>
+    ∅ no stars: I enjoyed every book on this list, so having no stars doesn’t mean it was bad! But YMMV on these: they
+    range anywhere from ‘just above average’ to ‘absolutely incredible but not for a general audience’.
+  </p>
+  <p>
+    <IconList icon={faStar} count={1} className="intro-star" /> one star: great read! I had a fun time and learned something
+    new.
+  </p>
+  <p>
+    <IconList icon={faStar} count={2} className="intro-star two-stars" /> two stars: I recommend this book to anyone who
+    likes reading. I regularly revisit it and I think about its ideas pretty regularly. new.
+  </p>
+  <p>
+    <IconList icon={faStar} count={3} className="intro-star three-stars" /> three stars: reserved for the best of the best.
+    this book changed my life and maybe it will change yours too. new.
+  </p>
+
+  <p></p>
+  <h2>list</h2>
+  <SearchSortFilter sortCategories={['title', 'author', 'rating']} items={items} type="book" client:load />
+</Layout>

@@ -1,9 +1,9 @@
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faBowlRice, faClock, faPepperHot, faSprout, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faBowlRice, faClock, faLocationDot, faPepperHot, faSprout, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { ReactNode } from 'react';
 import '../sass/searchSortFilter.scss';
-import { ILink } from './links';
+import { ILink, XLink } from './links';
 
 // Contains some common conversion functions.
 
@@ -27,6 +27,17 @@ export type Recipe = {
   asian?: boolean; // true if it requires asian grocery
 };
 
+export type Book = {
+  title: string;
+  author: string;
+  place: string;
+  image: string;
+  rating: number;
+  description: string;
+  genres: string[];
+  placeUrl?: string;
+};
+
 type iconProps = {
   icon: IconProp;
   count: number;
@@ -45,7 +56,7 @@ export const IconList = ({ icon, count, className }: iconProps) => {
 };
 
 export const ToDateString = (date: Date, pretty?: boolean): string => {
-  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return pretty ? date.toLocaleDateString('en-us', options) : date.toISOString().split('T')[0];
 };
 
@@ -75,3 +86,36 @@ export const RecipeFilterCategories = {
   'no asian grocery': (item: Recipe) => !item.asian,
   quick: (item: Recipe) => item.time <= 15,
 };
+
+export const BookFactory = (book: Book): ReactNode => (
+  <div className="book-container">
+    <img src={`/img/books/${book.image}`} alt={book.title} />
+    <div className="book-right">
+      <div>
+        <span className="book-title">{book.title}</span>
+        <span className="book-author">by {book.author}</span>
+      </div>
+
+      <div>
+        <span className="book-genres">{book.genres.join(' / ')}</span>
+        <span className="book-place">
+          {'  // '}
+          <FontAwesomeIcon icon={faLocationDot} className="pin" />
+          {book.placeUrl ? (
+            <XLink href={book.placeUrl} label={book.place}>
+              {book.place}
+            </XLink>
+          ) : (
+            book.place
+          )}
+        </span>
+      </div>
+
+      <div>
+        <IconList icon={faStar} count={book.rating} className={`intro-star star${book.rating}`} />
+      </div>
+
+      <p className="book-description">{book.description}</p>
+    </div>
+  </div>
+);

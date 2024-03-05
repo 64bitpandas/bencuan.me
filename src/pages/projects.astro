@@ -2,6 +2,7 @@
 import Layout from '../components/layout';
 import Seo from '../components/seo.astro';
 import { XLink } from '../components/links.tsx';
+import '../sass/blog.scss';
 import '../sass/projects.scss';
 
 const statuses = ['planning', 'development', 'production', 'LTS'];
@@ -80,50 +81,50 @@ const completedProjects = [
 ---
 
 <head>
-  <Seo title="bencuan's website" description="builder" />
+  <Seo title="bencuan's projects" description="builder" />
 </head>
 <Layout currPage="projects" client:idle>
-  <div class="container">
-    <h1 class="title">project status</h1>
-    {
-      activeProjects.map(proj => (
-        <div class="proj-container">
-          <div class="proj-sidebar">
-            <div class="center-desktop">
-              {statuses.map(status => (
-                <div class={`proj-status ${status === proj.status ? `curr-status status-${proj.status}` : ''}`}>
-                  {status}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div class="proj-content">
-            <XLink href={proj.link} label={proj.name} className="link proj-link">
-              {proj.name}
-            </XLink>
-            <p>
-              {proj.description.map(line => (
-                <>
-                  {line}
-                  <br />
-                </>
-              ))}
-            </p>
+  <!-- <div class="container"> -->
+  <h1 class="blog-title">project status</h1>
+  {
+    activeProjects.map(proj => (
+      <div class="proj-container">
+        <div class="proj-sidebar">
+          <div class="center-desktop">
+            {statuses.map(status => (
+              <div class={`proj-status ${status === proj.status ? `curr-status status-${proj.status}` : ''}`}>
+                {status}
+              </div>
+            ))}
           </div>
         </div>
-      ))
-    }
-
-    <h2>completed projects</h2>
-    {
-      completedProjects.map(proj => (
-        <div class="completed-project">
+        <div class="proj-content">
           <XLink href={proj.link} label={proj.name} className="link proj-link">
             {proj.name}
           </XLink>
-          <p>{proj.description}</p>
+          <p>
+            {proj.description.map(line => (
+              <>
+                {line}
+                <br />
+              </>
+            ))}
+          </p>
         </div>
-      ))
-    }
-  </div>
+      </div>
+    ))
+  }
+
+  <h2>completed projects</h2>
+  {
+    completedProjects.map(proj => (
+      <div class="completed-project">
+        <XLink href={proj.link} label={proj.name} className="link proj-link">
+          {proj.name}
+        </XLink>
+        <p>{proj.description}</p>
+      </div>
+    ))
+  }
+  <!-- </div> -->
 </Layout>

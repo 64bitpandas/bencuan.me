@@ -3,64 +3,62 @@
 @use 'mixins';
 
 p {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .contact-icon {
-    margin-right: 1rem;
+  margin-right: 1rem;
 
-    @include mixins.screen('desktop') {
-        transform: scale(1.25);
-    }
+  @include mixins.screen('desktop') {
+    transform: scale(1.25);
+  }
 }
 
 .contact-img {
-    display: var(--fa-display, inline-block);
-    height: 1.5em;
-    overflow: visible;
-    vertical-align: -0.5em;
-    transition: all 0.1s;
-    margin-right: 0.5rem;
+  display: var(--fa-display, inline-block);
+  height: 1.5em;
+  overflow: visible;
+  vertical-align: -0.5em;
+  transition: all 0.1s;
+  margin-right: 0.5rem;
 }
 
 p.splash {
-    font-family: fonts.$body !important;
+  font-family: fonts.$body !important;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1.5rem;
-    box-shadow: 0 1px 5px #00000099;
-    border-radius: 10px;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  box-shadow: 0 1px 5px #00000099;
+  border-radius: 10px;
 
-    position: relative;
+  position: relative;
 
-    transition-duration: 300ms;
-    transition-property: transform, box-shadow;
-    transition-timing-function: ease-out;
-    max-width: 800px;
+  transition-duration: 300ms;
+  transition-property: transform, box-shadow;
+  transition-timing-function: ease-out;
+  max-width: 800px;
 
-    p {
-        margin: 0.6rem 0.3rem;
-    }
+  p {
+    margin: 0.6rem 0.3rem;
+  }
 
-    .blue-link {
-        text-decoration: none;
-    }
+  .blue-link {
+    text-decoration: none;
+  }
 
-    .blue-link:hover {
-        text-decoration: underline;
-    }
+  .blue-link:hover {
+    text-decoration: underline;
+  }
 }
 
-
-@include mixins.screen("desktop") {
-    .card:hover {
-        transition-duration: 300ms;
-        box-shadow: 0 5px 20px 5px #00000044;
-        transform: scale(1.03);
-    }
+@include mixins.screen('desktop') {
+  .card:hover {
+    transition-duration: 300ms;
+    box-shadow: 0 5px 20px 5px #00000044;
+    transform: scale(1.03);
+  }
 }

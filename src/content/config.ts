@@ -26,10 +26,24 @@ const blog = defineCollection({
     date: z.date(),
   }),
 });
+const library = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    author: z.string(),
+    place: z.string(),
+    image: z.string(),
+    rating: z.number(),
+    description: z.string(),
+    genres: z.array(z.string()),
+    placeUrl: z.optional(z.string()),
+  }),
+});
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
   recipes,
   root,
   blog,
+  library,
 };

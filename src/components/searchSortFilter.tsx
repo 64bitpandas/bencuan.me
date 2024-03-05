@@ -1,6 +1,6 @@
-import { type Factory, type ReactElement, type ReactNode, useState, Fragment } from 'react';
+import { type Factory, Fragment, type ReactElement, type ReactNode, useState } from 'react';
 import '../sass/searchSortFilter.scss';
-import { BlogFactory, type Recipe, RecipeFactory, RecipeFilterCategories } from './factories';
+import { BlogFactory, BookFactory, type Recipe, RecipeFactory, RecipeFilterCategories } from './factories';
 
 type props = {
   items: any[];
@@ -33,6 +33,9 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
       factory = RecipeFactory;
       filterCategories = RecipeFilterCategories;
       break;
+    case 'book':
+      factory = BookFactory;
+      break;
     default:
       console.error('unsupported factory type', type);
       return;
@@ -63,19 +66,20 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
 
   const sortButtons = (
     <>
-      {sortCategories && 
-        sortCategories.map(category => (
-          <span
-            className={`category-btn ${sortState.category === category ? 'category-selected' : ''}`}
-            key={category}
-            onClick={() => doSort(category)}
-          >
-            {category}
-            {sortState.category === category && (sortState.state === 'asc' ? '↑' : '↓')}
-          </span>
-        ))
-        //@ts-ignore mixed use of string and Element 
-        .reduce((prev, curr) => [prev, '|', curr])}
+      {sortCategories &&
+        sortCategories
+          .map(category => (
+            <span
+              className={`category-btn ${sortState.category === category ? 'category-selected' : ''}`}
+              key={category}
+              onClick={() => doSort(category)}
+            >
+              {category}
+              {sortState.category === category && (sortState.state === 'asc' ? '↑' : '↓')}
+            </span>
+          ))
+          //@ts-ignore mixed use of string and Element
+          .reduce((prev, curr) => [prev, '|', curr])}
     </>
   );
   const filterButtons = filterCategories
@@ -107,7 +111,6 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
 
   let filteredItems = items;
   for (const key of Object.keys(filterState)) {
-    console.log(key);
     filteredItems = filteredItems.filter(filterState[key]);
   }
   return (
@@ -115,8 +118,8 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
       {sortCategories && <div className="sort">sort by: {sortButtons}</div>}
       {filterCategories && <div className="filter">filter by: {filterButtons}</div>}
       {itemCategories
-        ? itemCategories.map(category => (
-            <Fragment key={category}>
+        ? itemCategories.map((category, id) => (
+            <Fragment key={id}>
               <h3>{category}</h3>
               {filteredItems
                 .filter((item: any) => item.category === category)

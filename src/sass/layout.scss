@@ -81,6 +81,9 @@ footer {
 
 .container {
   padding: 0 $padding;
+  max-width: 1366px;
+  min-width: min(80vw, 1366px);
+  margin: auto;
 
   @include mixins.screen('mobile') {
     padding-top: 100px;
