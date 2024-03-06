@@ -6,8 +6,10 @@ import SearchSortFilter from '../components/searchSortFilter';
 import { IconList, type Recipe } from '../components/factories';
 import '../sass/blog.scss';
 import '../sass/library.scss';
+import '../sass/button.scss';
 import { faBowlRice, faClock, faPepperHot, faSprout, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from '../components/button';
 
 const collection = await getCollection('library');
 const items = collection.map(item => ({ ...item.data, slug: item.slug }));
@@ -15,6 +17,7 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug }));
 
 <head>
   <Seo title="ben's library" description="builder" />
+  <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
 <Layout currPage="recipes" customPages={[{ name: 'recipes', url: '/recipes' }]} client:load>
   <h1 class="blog-title">bookshelf</h1>
@@ -33,8 +36,8 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug }));
   </p>
 
   <p>
-    If you have book recs, submit them here! I’ll save them in the back of my mind, and if I ever stumble across it in a
-    bookstore or library I might grab it.
+    If you have book recs, submit them <button class="button" data-tally-open="meeJ1J">here!</button> I’ll save them in the
+    back of my mind, and if I ever stumble across it in a bookstore or library I'll grab it and let you know.
   </p>
 
   <h2>ratings</h2>
