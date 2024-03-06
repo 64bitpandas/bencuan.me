@@ -16,6 +16,16 @@
 }
 
 .book-container {
+  @include mixins.screen('not-mobile') {
+    &:hover {
+      border-left: solid colors.$pink 5px;
+      transform: scale(1.01);
+
+      .book-title {
+        font-weight: 500;
+      }
+    }
+  }
   display: flex;
   position: relative;
   flex-direction: row;
@@ -26,19 +36,14 @@
   font-family: fonts.$body;
   transition: all 0.15s ease-in-out;
   border-left: solid transparent 0px;
-  &:hover {
-    border-left: solid colors.$pink 5px;
-    transform: scale(1.01);
-
-    .book-title {
-      font-weight: 500;
-    }
-  }
 
   img {
     height: 90%;
     margin-right: 1rem;
-    margin-left: 2rem;
+
+    @include mixins.screen('not-mobile') {
+      margin-left: 2rem;
+    }
   }
 
   .book-right {
@@ -62,7 +67,10 @@
 
   .book-author {
     margin-right: 0.5rem;
-    white-space: nowrap;
+
+    @include mixins.screen('not-mobile') {
+      white-space: nowrap;
+    }
   }
 
   .pin {
