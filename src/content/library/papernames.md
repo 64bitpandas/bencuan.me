@@ -10,4 +10,4 @@ date: 2024-02-01
 ---
 
 Paper Names jumps between three perspectives- a Chinese-American immigrant, his daughter, and their morally questionable lawyer friend- as a family grapples with differing perspectives and a lingering incompatibility with a world of entitlement.
-Having lived, worked, and studied with hundreds of people in similar situations, this book hit close to home and redefines the American Dream in a way that makes so much sense to me.
+Having lived, worked, and studied with hundreds of people in similar situations, this book hit close to home and redefines the American Dream in a way that really resonates with me.
