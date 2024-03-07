@@ -1,7 +1,7 @@
 ---
 title: Speaker for the Dead
 author: Orson Scott Card
-place: Half Price Books, Berkeley
+place: half price books berkeley
 image: speaker.jpg
 rating: 2
 date: 2020-03-02

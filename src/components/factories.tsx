@@ -104,17 +104,18 @@ export const BookFactory = (book: Book): ReactNode => (
             {' // '}
           </span>
         )}
-        <span className="book-place">
-          <FontAwesomeIcon icon={faLocationDot} className="pin" />
-          {book.place &&
-            (book.placeUrl ? (
+        {book.place && (
+          <span className="book-place">
+            <FontAwesomeIcon icon={faLocationDot} className="pin" />
+            {book.placeUrl ? (
               <XLink href={book.placeUrl} label={book.place} className="link blue-link">
                 {book.place}
               </XLink>
             ) : (
               book.place
-            ))}
-        </span>
+            )}
+          </span>
+        )}
       </div>
 
       <div>

@@ -1,7 +1,7 @@
 ---
 title: 'Golden Gates: Fighting for Housing in America'
 author: Conor Dougherty
-place: Pegasus Books Oakland
+place: pegasus books oakland
 image: goldengates.jpg
 rating: 0
 date: 2023-10-01

@@ -1,11 +1,11 @@
 ---
 title: Children of the Mind
 author: Orson Scott Card
-# place:
+place: half price books berkeley
 image: children-of-the-mind.jpeg
 rating: 1
 date: 2020-03-01
-# placeUrl:
+placeUrl: https://maps.app.goo.gl/DGHWfusEcb3NgyPZ9
 # genres:
 ---
 

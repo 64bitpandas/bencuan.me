@@ -1,7 +1,7 @@
 ---
 title: The Three Body Problem
 author: Cixin Liu
-place: UC Berkeley Main Stacks
+place: uc berkeley main stacks
 image: threebody.jpeg
 rating: 1
 date: 2021-01-01
