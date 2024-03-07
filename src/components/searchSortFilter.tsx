@@ -8,6 +8,7 @@ type props = {
   itemCategories?: string[];
   sortCategories?: string[];
   useSearch?: boolean;
+  defaultSort?: SortState;
 };
 
 type SortState = {
@@ -20,8 +21,8 @@ export type FactoryType = 'blog' | 'recipe' | 'book';
 /**
  * A generic component that allows for sorting, searching, and filtering.
  */
-const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategories }: props) => {
-  const [sortState, setSortState] = useState<SortState>({ category: '', state: 'none' });
+const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategories, defaultSort }: props) => {
+  const [sortState, setSortState] = useState<SortState>(defaultSort ?? { category: '', state: 'none' });
   const [filterState, setFilterState] = useState<Record<string, (item: any) => boolean>>({});
   let filterCategories: Record<string, (item: any) => boolean> | undefined;
   var factory: (item: any) => ReactNode;

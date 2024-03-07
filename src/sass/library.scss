@@ -4,7 +4,7 @@
 
 .intro-star {
   font-size: fonts.$s-1;
-  color: colors.$yellow;
+  color: colors.$pink;
 }
 
 .star2 {
@@ -12,7 +12,7 @@
 }
 
 .star3 {
-  color: colors.$red;
+  color: colors.$purple;
 }
 
 .book-container {
@@ -29,21 +29,20 @@
   display: flex;
   position: relative;
   flex-direction: row;
-  align-items: center;
   margin-top: 2rem;
-  height: 12rem;
+  min-height: 12rem;
   color: colors.$text;
   font-family: fonts.$body;
   transition: all 0.15s ease-in-out;
   border-left: solid transparent 0px;
 
   img {
-    height: 90%;
+    height: 12rem;
     margin-right: 1rem;
 
-    @include mixins.screen('not-mobile') {
-      margin-left: 2rem;
-    }
+    // @include mixins.screen('not-mobile') {
+    //   margin-left: 2rem;
+    // }
   }
 
   .book-right {
@@ -59,10 +58,14 @@
   }
 
   .book-author,
-  .book-place,
   .book-genres {
     font-size: fonts.$s-1;
     font-family: fonts.$header;
+  }
+
+  .book-place {
+    font-size: fonts.$s-1;
+    // font-family: fonts.$header;
   }
 
   .book-author {
@@ -80,5 +83,6 @@
   .book-description {
     font-size: fonts.$s-1;
     margin-top: 0.5rem;
+    margin-bottom: 0;
   }
 }

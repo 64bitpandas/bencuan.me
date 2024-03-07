@@ -3,16 +3,15 @@ import Layout from '../components/layout';
 import Seo from '../components/seo.astro';
 import { getCollection } from 'astro:content';
 import SearchSortFilter from '../components/searchSortFilter';
-import { IconList, type Recipe } from '../components/factories';
+import { IconList } from '../components/factories';
 import '../sass/blog.scss';
 import '../sass/library.scss';
 import '../sass/button.scss';
-import { faBowlRice, faClock, faPepperHot, faSprout, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Button from '../components/button';
 
 const collection = await getCollection('library');
-const items = collection.map(item => ({ ...item.data, slug: item.slug }));
+const items = collection.map(item => ({ ...item.data, slug: item.slug, description: item.body }));
 ---
 
 <head>
@@ -25,8 +24,9 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug }));
   <h2>about</h2>
   <p>
     I like collecting physical books on a physical bookshelf. The experience of reading isn’t complete to me without
-    carrying around something tangible and being able to associate ideas and stories with the time and place I
-    discovered them.
+    carrying around something tangible and being able to associate ideas and stories with the <FontAwesomeIcon
+      icon={faLocationDot}
+    /> time and place I discovered them.
   </p>
 
   <p>
@@ -51,15 +51,21 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug }));
     new.
   </p>
   <p>
-    <IconList icon={faStar} count={2} className="intro-star two-stars" /> two stars: I recommend this book to anyone who
-    likes reading. I regularly revisit it and I think about its ideas pretty regularly. new.
+    <IconList icon={faStar} count={2} className="intro-star star2" /> two stars: I recommend this book to anyone who likes
+    reading. I think about its ideas and revisit it pretty regularly.
   </p>
   <p>
-    <IconList icon={faStar} count={3} className="intro-star three-stars" /> three stars: reserved for the best of the best.
-    this book changed my life and maybe it will change yours too. new.
+    <IconList icon={faStar} count={3} className="intro-star star3" /> three stars: this book changed my life and maybe it
+    will change yours too.
   </p>
 
   <p></p>
   <h2>list</h2>
-  <SearchSortFilter sortCategories={['title', 'author', 'rating']} items={items} type="book" client:load />
+  <SearchSortFilter
+    sortCategories={['title', 'author', 'rating']}
+    items={items}
+    type="book"
+    defaultSort={{ category: 'date', state: 'desc' }}
+    client:load
+  />
 </Layout>

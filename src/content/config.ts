@@ -31,11 +31,11 @@ const library = defineCollection({
   schema: z.object({
     title: z.string(),
     author: z.string(),
-    place: z.string(),
     image: z.string(),
     rating: z.number(),
-    description: z.string(),
-    genres: z.array(z.string()),
+    date: z.date(),
+    genres: z.optional(z.string()),
+    place: z.optional(z.string()),
     placeUrl: z.optional(z.string()),
   }),
 });
