@@ -30,11 +30,12 @@ export type Recipe = {
 export type Book = {
   title: string;
   author: string;
-  place: string;
   image: string;
   rating: number;
   description: string;
-  genres: string[];
+  date: Date;
+  genres?: string;
+  place?: string;
   placeUrl?: string;
 };
 
@@ -97,17 +98,22 @@ export const BookFactory = (book: Book): ReactNode => (
       </div>
 
       <div>
-        <span className="book-genres">{book.genres.join(' / ')}</span>
+        {book.genres && (
+          <span className="book-genres">
+            {book.genres}
+            {' // '}
+          </span>
+        )}
         <span className="book-place">
-          {'  // '}
           <FontAwesomeIcon icon={faLocationDot} className="pin" />
-          {book.placeUrl ? (
-            <XLink href={book.placeUrl} label={book.place}>
-              {book.place}
-            </XLink>
-          ) : (
-            book.place
-          )}
+          {book.place &&
+            (book.placeUrl ? (
+              <XLink href={book.placeUrl} label={book.place} className="link blue-link">
+                {book.place}
+              </XLink>
+            ) : (
+              book.place
+            ))}
         </span>
       </div>
 

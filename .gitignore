@@ -46,7 +46,6 @@ typings/
 
 # build output
 dist/
-public/
 static/
 # generated types
 .astro/
@@ -80,3 +79,6 @@ archives/2022/static/PP*
 
 # netlify
 .netlify
+
+# fonts
+public/fonts
