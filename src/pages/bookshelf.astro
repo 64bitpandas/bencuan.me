@@ -15,10 +15,10 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug, descripti
 ---
 
 <head>
-  <Seo title="ben's library" description="builder" />
+  <Seo title="ben's bookshelf" description="builder" />
   <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
-<Layout currPage="recipes" customPages={[{ name: 'recipes', url: '/recipes' }]} client:load>
+<Layout currPage="bookshelf" customPages={[{ name: 'bookshelf', url: '/bookshelf' }]} client:load>
   <h1 class="blog-title">bookshelf</h1>
 
   <h2>about</h2>

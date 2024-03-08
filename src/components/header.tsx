@@ -34,8 +34,8 @@ const moreLinks = [
     icon: chalkboardLogo,
   },
   {
-    name: 'library',
-    url: '/library',
+    name: 'bookshelf',
+    url: '/bookshelf',
     icon: bookLogo,
   },
   {
