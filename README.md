@@ -4,30 +4,47 @@
 
 Hi there! I'm Ben, and here's my personal website.
 
-I've been rebuilding my website every year- if you're interested, here are the [2018](https://bencuan.me/2018), [2019](https://bencuan.me/2019), [2020](https://bencuan.me/2020), and [2021](https://bencuan.me/2021) iterations.
+I've been rebuilding my website every year- if you're interested, here are the [2018](https://bencuan.me/2018), [2019](https://bencuan.me/2019), [2020](https://bencuan.me/2020), [2021](https://bencuan.me/2021), and [2022](https://bencuan.me/2022) iterations.
+
+## About
+
+Visit the [colophon](https://bencuan.me/colophon) for technical and philosophical information about this site.
 
 ## Development
 
 ### Quick Start
-Make sure you have [NodeJS and NPM installed](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
-Then, run `npm i --save-dev` to install all dependencies, and `npm run develop` to start the development server.
+Make sure you have [Yarn v4 or greater](https://yarnpkg.com/getting-started/install).
+
+Then, run `yarn` to install all dependencies, and `yarn dev` to start the development server. You should the be able to navigate to `localhost:4321` using your favorite web browser.
 
 ### Fonts
-I use fonts from [Pangram Pangram](https://pangrampangram.com/) (specifically [Fraktion Sans](https://pangrampangram.com/products/fraktion) and [Neue Montreal](https://pangrampangram.com/products/neue-montreal)), licensed for personal use.
 
-Select styles are available for download for free at the links above, or all styles can be purchased for $29 [here](https://pangrampangram.com/products/fsp). Place the fonts in the `src/fonts` directory and you should be good to go!
+I license the following fonts for personal web use:
 
-Alternatively, the open-source Rubik font is made available as a backup, in which no additional configuration is needed.
+- [Fraktion Sans](https://pangrampangram.com/products/fraktion)
+- [Neue Montreal](https://pangrampangram.com/products/neue-montreal)
+- [Eiko](https://pangrampangram.com/products/eiko)
+- [Novela](https://www.atipofoundry.com/fonts/novela)
+- [Pine Tree](https://creativemarket.com/UppercapType/6881392-Pine-Tree-Hand-Drawn-Sans)
 
+These fonts are not included in this repo. Feel free to acquire the appropriate licenses and place them in the `public/fonts` directory if you are interested in recreating the appearance of my site. A full list of expected files can be found in `src/sass/_fonts.scss`.
+
+The following open source fonts are included by default:
+
+- Rubik (sans-serif)
+- Garamond (serif)
 
 ### Credits
- - [Gatsby](https://www.gatsbyjs.com/)
- - [Fontawesome](https://fontawesome.com/)
- - [normalize.css](https://necolas.github.io/normalize.css/)
- - [Pangram Pangram](https://pangrampangram.com/)
- - [Hamburgers](https://github.com/jonsuh/hamburgers)
+
+- [Astro](https://astro.build)
+- [React](https://react.dev)
+- [MDX](https://mdxjs.com)
+- [Fontawesome](https://fontawesome.com/)
+- [remark-wiki-link](https://github.com/landakram/remark-wiki-link)
+- [astro-seo](https://github.com/jonasmerlin/astro-seo)
+- [Hamburgers](https://github.com/jonsuh/hamburgers)
 
 ## Contact
 
-Anything you want to tell me about? Send an email over to [contact@bencuan.me](mailto:contact@bencuan.me)!
+https://bencuan.me/contact
