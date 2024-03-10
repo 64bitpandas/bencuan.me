@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../components/layout.astro';
-import Seo from '../components/seo.astro';
 import '../sass/recipe.scss';
 import { components } from '../components/blog';
 import { IconList } from '../components/factories.tsx';
@@ -24,7 +23,6 @@ const { Content } = await entry.render();
   description={entry.data.description}
   currPage={''}
   customPages={[{ name: 'recipes', url: '/recipes' }]}
-  client:idle
 >
   <h1 class="recipe-title">{entry.data.title}</h1>
   <h3 class="recipe-description">{entry.data.description}</h3>
