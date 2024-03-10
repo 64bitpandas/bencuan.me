@@ -1,5 +1,5 @@
 ---
-import Layout from '../components/layout';
+import Layout from '../components/layout.astro';
 import Seo from '../components/seo.astro';
 import SearchSortFilter from '../components/searchSortFilter.tsx';
 import '../sass/home.scss';
@@ -10,10 +10,7 @@ const collection = await getCollection('blog');
 const items = collection.map(item => ({ ...item.data, slug: item.slug }));
 ---
 
-<head>
-  <Seo title="bencuan's website" description="builder" />
-</head>
-<Layout currPage="blog" client:idle>
+<Layout title="bencuan's blog" description="long-form writing projects" currPage="blog">
   <h1 class="blog-title">blog</h1>
   <p class="splash"></p>
 

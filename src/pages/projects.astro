@@ -1,5 +1,5 @@
 ---
-import Layout from '../components/layout';
+import Layout from '../components/layout.astro';
 import Seo from '../components/seo.astro';
 import { XLink } from '../components/links.tsx';
 import '../sass/blog.scss';
@@ -80,10 +80,7 @@ const completedProjects = [
 ];
 ---
 
-<head>
-  <Seo title="bencuan's projects" description="builder" />
-</head>
-<Layout currPage="projects" client:idle>
+<Layout currPage="projects" title="bencuan's projects" description="i make things">
   <!-- <div class="container"> -->
   <h1 class="blog-title">project status</h1>
   {

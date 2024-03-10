@@ -4,24 +4,28 @@
   font-family: Rubik;
   font-style: normal;
   src: url('/fonts/Rubik-VariableFont_wght.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: Rubik;
   font-style: italic;
   src: url('/fonts/Rubik-Italic-VariableFont_wght.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: Fraktion;
   src: url('/fonts/PPFraktionSans-Variable.ttf');
   font-weight: 1 999;
+  font-display: swap;
 }
 
 @font-face {
   font-family: NeueMontreal;
   font-style: normal;
   font-weight: normal;
+  font-display: swap;
   src: url('/fonts/PPNeueMontreal-Regular.woff2');
 }
 
@@ -29,6 +33,7 @@
   font-family: NeueMontreal;
   font-style: normal;
   font-weight: lighter;
+  font-display: swap;
   src: url('/fonts/PPNeueMontreal-Book.woff2');
 }
 
@@ -36,6 +41,7 @@
   font-family: NeueMontreal;
   font-style: normal;
   font-weight: bold;
+  font-display: swap;
   src: url('/fonts/PPNeueMontreal-Bold.woff2');
 }
 
@@ -43,6 +49,7 @@
   font-family: NeueMontreal;
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url('/fonts/PPNeueMontreal-Medium.woff2') format('woff2');
 }
 
@@ -50,6 +57,7 @@
   font-family: Novela;
   src: url('/fonts/novela-black-webfont.woff2') format('woff2');
   font-weight: bolder;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -57,6 +65,7 @@
   font-family: Novela;
   src: url('/fonts/novela-blackitalic-webfont.woff2') format('woff2');
   font-weight: bolder;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -64,6 +73,7 @@
   font-family: Novela;
   src: url('/fonts/novela-bold-webfont.woff2') format('woff2');
   font-weight: bold;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -71,6 +81,7 @@
   font-family: Novela;
   src: url('/fonts/novela-bolditalic-webfont.woff2') format('woff2');
   font-weight: bold;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -78,6 +89,7 @@
   font-family: Novela;
   src: url('/fonts/novela-regular-webfont.woff2') format('woff2');
   font-weight: normal;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -85,6 +97,7 @@
   font-family: Novela;
   src: url('/fonts/novela-regularitalic-webfont.woff2') format('woff2');
   font-weight: normal;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -92,6 +105,7 @@
   font-family: Novela;
   src: url('/fonts/novela-semibold-webfont.woff2') format('woff2');
   font-weight: 500;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -99,6 +113,7 @@
   font-family: Novela;
   src: url('/fonts/novela-semibolditalic-webfont.woff2') format('woff2');
   font-weight: 500;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -106,12 +121,14 @@
   font-family: Lora;
   src: url('/fonts/Lora-VariableFont_wght.ttf') format('ttf');
   font-weight: 1 999;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Lora;
   src: url('/fonts/Lora-Italic-VariableFont_wght.ttf') format('truetype');
   font-weight: 1 999;
+  font-display: swap;
   font-style: italic;
 }
 
@@ -119,36 +136,42 @@
   font-family: Eiko;
   src: url('/fonts/PPEiko-Regular.ttf') format('truetype');
   font-weight: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Eiko;
   src: url('/fonts/PPEiko-Heavy.ttf') format('truetype');
   font-weight: bold;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Eiko;
   src: url('/fonts/PPEiko-Medium.ttf') format('truetype');
   font-weight: 500;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Pine;
   src: url('/fonts/PineTree.otf') format('opentype');
   font-weight: 500;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Garamond;
   src: url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
   font-weight: 1 999;
+  font-display: swap;
 }
 
 @font-face {
   font-style: italic;
   font-family: Garamond;
   src: url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
   font-weight: 1 999;
 }
 
@@ -156,6 +179,7 @@
   font-family: FiraCode;
   src: url('/fonts/FiraCode-VF.ttf') format('truetype');
   font-weight: 1 999;
+  font-display: swap;
 }
 
 @font-face {

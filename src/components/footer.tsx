@@ -92,7 +92,7 @@ const Footer = () => {
             <a className="link" href={`/${val}`}>
               {val}
             </a>
-            &nbsp;/&nbsp;
+            {' / '}
           </React.Fragment>
         ))
       ) : (
@@ -107,7 +107,7 @@ const Footer = () => {
           >
             archives
           </span>
-          &nbsp;//&nbsp;
+          {' // '}
         </>
       )}
 
