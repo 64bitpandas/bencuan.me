@@ -1,6 +1,13 @@
 import { type Factory, Fragment, type ReactElement, type ReactNode, useState } from 'react';
 import '../sass/searchSortFilter.scss';
-import { BlogFactory, BookFactory, type Recipe, RecipeFactory, RecipeFilterCategories } from './factories';
+import {
+  BlogFactory,
+  BookFactory,
+  type FactoryFn,
+  type Recipe,
+  RecipeFactory,
+  RecipeFilterCategories,
+} from './factories';
 
 type props = {
   items: any[];
@@ -16,8 +23,6 @@ type SortState = {
   state: 'asc' | 'desc' | 'none';
 };
 
-export type FactoryType = 'blog' | 'recipe' | 'book';
-
 /**
  * A generic component that allows for sorting, searching, and filtering.
  */
@@ -25,7 +30,7 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
   const [sortState, setSortState] = useState<SortState>(defaultSort ?? { category: '', state: 'none' });
   const [filterState, setFilterState] = useState<Record<string, (item: any) => boolean>>({});
   let filterCategories: Record<string, (item: any) => boolean> | undefined;
-  var factory: (item: any) => ReactNode;
+  var factory: FactoryFn;
   switch (type) {
     case 'blog':
       factory = BlogFactory;
@@ -47,7 +52,7 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
       if (sortState.state === 'desc') {
         setSortState({ category, state: 'asc' });
       } else {
-        setSortState({ category: '', state: 'none' });
+        setSortState(defaultSort ?? { category: '', state: 'none' });
       }
     } else {
       setSortState({ category, state: 'desc' });

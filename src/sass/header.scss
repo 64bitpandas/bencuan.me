@@ -45,6 +45,10 @@ header {
     animation: slide-right 0.5s forwards ease-out;
     transition: all 0.1s;
   }
+
+  .nav-more-menu-initial {
+    animation: none !important;
+  }
 }
 
 .nav-current {

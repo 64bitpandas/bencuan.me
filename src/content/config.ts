@@ -24,6 +24,7 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.date(),
+    category: z.string(),
   }),
 });
 const library = defineCollection({
