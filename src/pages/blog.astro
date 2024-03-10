@@ -17,5 +17,11 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug }));
   <h1 class="blog-title">blog</h1>
   <p class="splash"></p>
 
-  <SearchSortFilter sortCategories={['title', 'date']} items={items} type="blog" client:load />
+  <SearchSortFilter
+    sortCategories={['title', 'date']}
+    items={items}
+    itemCategories={['meta']}
+    type="blog"
+    client:load
+  />
 </Layout>

@@ -6,6 +6,10 @@ import '../sass/searchSortFilter.scss';
 import { ILink, XLink } from './links';
 
 // Contains some common conversion functions.
+export type FactoryType = 'blog' | 'recipe' | 'book';
+
+// MUST return a ReactNode with the key prop, or bad things will happen
+export type FactoryFn = (item: any) => ReactNode;
 
 type Blog = {
   title: string;
@@ -57,13 +61,13 @@ export const IconList = ({ icon, count, className }: iconProps) => {
 };
 
 export const ToDateString = (date: Date, pretty?: boolean): string => {
-  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-  return pretty ? date.toLocaleDateString('en-us', options) : date.toISOString().split('T')[0];
+  const options: Intl.DateTimeFormatOptions = { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' };
+  return pretty ? date.toLocaleDateString('en-us', options) : date.toISOString().split('T')[0].replaceAll('-', '.');
 };
 
 export const BlogFactory = (blog: Blog): ReactNode => (
-  <div key={blog.slug}>
-    <ILink href={blog.slug}>{blog.title}</ILink> | <span>{ToDateString(blog.date)}</span>
+  <div key={blog.slug} className="blog-ssf-entry">
+    <ILink href={blog.slug}>{blog.title}</ILink> <span className="blog-ssf-date">{ToDateString(blog.date)}</span>
   </div>
 );
 
@@ -89,7 +93,7 @@ export const RecipeFilterCategories = {
 };
 
 export const BookFactory = (book: Book): ReactNode => (
-  <div className="book-container">
+  <div key={book.title} className="book-container">
     <img src={`/img/books/${book.image}`} alt={book.title} />
     <div className="book-right">
       <div>

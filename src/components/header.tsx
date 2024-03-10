@@ -62,7 +62,7 @@ type props = {
 
 const Header = ({ currPage, customPages }: props) => {
   const [mobileNavVisible, setMobileNavVisible] = React.useState(false);
-  const [moreMenuVisible, setMoreMenuVisible] = React.useState(false);
+  const [moreMenuVisible, setMoreMenuVisible] = React.useState<undefined | boolean>(undefined);
   const mobileClick = () => {
     setMobileNavVisible(!mobileNavVisible);
   };
@@ -95,11 +95,15 @@ const Header = ({ currPage, customPages }: props) => {
           )}
         </div>
         <a className={`link nav-link nav-more`} href="#" onClick={() => setMoreMenuVisible(!moreMenuVisible)}>
-          {moreMenuVisible ? <span className="nav-more-less">less</span> : <span className="nav-more-more">more</span>}
+          {moreMenuVisible === true && <span className="nav-more-less">less</span>}
+          {moreMenuVisible === false && <span className="nav-more-more">more</span>}
+          {moreMenuVisible === undefined && <span>more</span>}
         </a>
       </div>
       <div className="nav-more-menu-container">
-        <ul className={`nav-more-menu ${moreMenuVisible ? 'nav-visible' : 'nav-invisible'}`}>
+        <ul
+          className={`nav-more-menu ${moreMenuVisible === true ? 'nav-visible' : 'nav-invisible'} ${moreMenuVisible === undefined ? 'nav-more-menu-initial' : ''}`}
+        >
           {moreLinks.map((link, i, row) => (
             <div className="more-link-container" key={link.name}>
               <a className="nav-link more-link" href={link.url}>
