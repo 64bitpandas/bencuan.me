@@ -17,7 +17,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@icons-pack/react-simple-icons": "^9.3.0",
+    "@icons-pack/react-simple-icons": "^9.4.0",
     "@types/react": "^18.2.48",
     "@types/uuid": "^9.0.8",
     "astro": "^4.2.3",
@@ -51,7 +51,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "getfonts": "if [ -f .env ]; then . ./.env; fi; wget -O fonts.zip $FONT_URL && unzip -o fonts.zip -d public/fonts && unzip -o fonts.zip -d archives/2022/static && rm fonts.zip",
     "fontcustom": "fontcustom compile src/fontcustom --output public/fonts",
-    "prebuild": "npm run getfonts && cp -r archives public"
+    "prebuild": "yarn run getfonts && cp -r archives public"
   },
   "repository": {
     "type": "git",

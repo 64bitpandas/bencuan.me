@@ -662,10 +662,10 @@
   dependencies:
     prop-types "^15.8.1"
 
-"@icons-pack/react-simple-icons@^9.3.0":
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/@icons-pack/react-simple-icons/-/react-simple-icons-9.3.0.tgz#a3901d7eb0f2f4109d8f2c584f537cea056aa238"
-  integrity sha512-e2VRDFrhI9rCkEdkuAUhf/Ool0cwusWnwKqMACbIRMLHXxnHp1SdnGlRaEEjDeF4R0pQaEkmVNs2x2vn1sl+7A==
+"@icons-pack/react-simple-icons@^9.4.0":
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/@icons-pack/react-simple-icons/-/react-simple-icons-9.4.0.tgz#37871d830f9ec9cfa1d1aab186036df2ab075f26"
+  integrity sha512-fZtC4Zv53hE+IQE2dJlFt3EB6UOifwTrUNMuEu4hSXemtqMahd05Dpvj2K0j2ewVc+j/ibavud3xjfaMB2Nj7g==
 
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
