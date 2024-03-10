@@ -35,6 +35,17 @@ The following open source fonts are included by default:
 - Rubik (sans-serif)
 - Garamond (serif)
 
+### DevEx
+
+If you use VSCode, things should be fairly plug-and-play.
+
+- format/lint: Prettier should run on save. You may need to install the extension.
+- creating footnotes: You can use the included vscode snippets to create footnote components for MDX:
+  - `footnote`
+  - `ref`
+
+\*\*
+
 ### Credits
 
 - [Astro](https://astro.build)
