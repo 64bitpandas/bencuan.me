@@ -1,10 +1,10 @@
-import { type Factory, Fragment, type ReactElement, type ReactNode, useState } from 'react';
+import { Fragment, useState } from 'react';
 import '../sass/searchSortFilter.scss';
 import {
   BlogFactory,
   BookFactory,
   type FactoryFn,
-  type Recipe,
+  type FactoryType,
   RecipeFactory,
   RecipeFilterCategories,
 } from './factories';

@@ -1,5 +1,5 @@
 ---
-import Layout from '../components/layout';
+import Layout from '../components/layout.astro';
 import Seo from '../components/seo.astro';
 import { getCollection } from 'astro:content';
 import SearchSortFilter from '../components/searchSortFilter';
@@ -14,16 +14,17 @@ const collection = await getCollection('library');
 const items = collection.map(item => ({ ...item.data, slug: item.slug, description: item.body }));
 ---
 
-<head>
-  <Seo title="ben's bookshelf" description="builder" />
-  <script async src="https://tally.so/widgets/embed.js"></script>
-</head>
-<Layout currPage="bookshelf" customPages={[{ name: 'bookshelf', url: '/bookshelf' }]} client:load>
+<Layout
+  title="ben's bookshelf"
+  description="my book reccs"
+  currPage="bookshelf"
+  customPages={[{ name: 'bookshelf', url: '/bookshelf' }]}
+>
   <h1 class="blog-title">bookshelf</h1>
 
   <h2>about</h2>
   <p>
-    I like collecting physical books on a physical bookshelf. The experience of reading isn’t complete to me without
+    I like collecting physical books on a physical bookshelf. The experience of reading isn't complete to me without
     carrying around something tangible and being able to associate ideas and stories with the <FontAwesomeIcon
       icon={faLocationDot}
     /> time and place I discovered them.
@@ -31,12 +32,12 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug, descripti
 
   <p>
     While I tend to save, highlight, link, and hop all around digital content, I just start books on page 1 and trust
-    the author to deliver a self-contained experience. You won’t see any notes from me besides the short post-reading
+    the author to deliver a self-contained experience. You won't see any notes from me besides the short post-reading
     reviews on this page.
   </p>
 
   <p>
-    If you have book recs, submit them <button class="button" data-tally-open="meeJ1J">here!</button> I’ll save them in the
+    If you have book recs, submit them <button class="button" data-tally-open="meeJ1J">here!</button> I'll save them in the
     back of my mind, and if I ever stumble across it in a bookstore or library I'll grab it and let you know.
   </p>
 
@@ -44,8 +45,8 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug, descripti
 
   <p>
     ∅ no stars: If I didn't think a book was worth recommending, it won't be on this list- so having no stars isn't a
-    bad thing! But YMMV on these: they range anywhere from ‘just above average’ to ‘absolutely incredible but not for a
-    general audience’.
+    bad thing! But YMMV on these: they range anywhere from 'just above average' to 'absolutely incredible but not for a
+    general audience'.
   </p>
   <p>
     <IconList icon={faStar} count={1} className="intro-star" /> one star: great read! I had a fun time and learned something
@@ -70,3 +71,6 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug, descripti
     client:load
   />
 </Layout>
+<head>
+  <script async src="https://tally.so/widgets/embed.js"></script>
+</head>

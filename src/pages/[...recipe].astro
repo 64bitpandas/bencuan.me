@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../components/layout.jsx';
+import Layout from '../components/layout.astro';
 import Seo from '../components/seo.astro';
 import '../sass/recipe.scss';
 import { components } from '../components/blog';
@@ -19,18 +19,43 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<head>
-  <Seo title={entry.data.title} description={entry.data.description} />
-</head>
-<Layout currPage={''} customPages={[{ name: 'recipes', url: '/recipes' }]} client:idle>
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+  currPage={''}
+  customPages={[{ name: 'recipes', url: '/recipes' }]}
+  client:idle
+>
   <h1 class="recipe-title">{entry.data.title}</h1>
   <h3 class="recipe-description">{entry.data.description}</h3>
   <h5 class="recipe-modifiers">
     <IconList icon={faStar} count={entry.data.rating} className="star" />
-    {entry.data.veg == 1 && <span class="veg">{entry.data.rating > 0 && '//'} <IconList icon={faSprout} count={1} className={'sprout'} /> vegetarian</span>}
-    {entry.data.veg == 2 && <span class="vegan">{entry.data.rating > 0 && '//'} <IconList icon={faSprout} count={1} className={'sprout'} /> vegan</span>}
-    <span>// {<IconList icon={faClock} count={1} className={entry.data.time <= 15 ? 'clock' : ''} />} {entry.data.time}min</span>
-    {entry.data.asian && <span> // <IconList icon={faBowlRice} count={entry.data.asian ? 1 : 0} className="" /> needs asian ingredients</span>}
+    {
+      entry.data.veg == 1 && (
+        <span class="veg">
+          {entry.data.rating > 0 && '//'} <IconList icon={faSprout} count={1} className={'sprout'} /> vegetarian
+        </span>
+      )
+    }
+    {
+      entry.data.veg == 2 && (
+        <span class="vegan">
+          {entry.data.rating > 0 && '//'} <IconList icon={faSprout} count={1} className={'sprout'} /> vegan
+        </span>
+      )
+    }
+    <span
+      >// {(<IconList icon={faClock} count={1} className={entry.data.time <= 15 ? 'clock' : ''} />)}
+      {entry.data.time}min</span
+    >
+    {
+      entry.data.asian && (
+        <span>
+          {' '}
+          // <IconList icon={faBowlRice} count={entry.data.asian ? 1 : 0} className="" /> needs asian ingredients
+        </span>
+      )
+    }
   </h5>
   <Content components={components} />
 </Layout>

@@ -77,7 +77,7 @@ const Header = ({ currPage, customPages }: props) => {
               <a className={currPage === link.name ? 'link nav-link nav-current' : 'link nav-link'} href={link.url}>
                 {link.name}
               </a>
-              {i + 1 !== row.length && !mobileNavVisible && <span>&nbsp;/&nbsp;</span>}
+              {i + 1 !== row.length && !mobileNavVisible && <span> / </span>}
             </span>
           ))}
           {mobileNavVisible ? <hr /> : <></>}
@@ -87,7 +87,7 @@ const Header = ({ currPage, customPages }: props) => {
                 <a className={currPage === link.name ? 'link nav-link nav-current' : 'link nav-link'} href={link.url}>
                   {link.name}
                 </a>
-                {i + 1 !== row.length && !mobileNavVisible && <span>&nbsp;/&nbsp;</span>}
+                {i + 1 !== row.length && !mobileNavVisible && <span> / </span>}
               </span>
             ))
           ) : (
@@ -101,17 +101,17 @@ const Header = ({ currPage, customPages }: props) => {
         </a>
       </div>
       <div className="nav-more-menu-container">
-        <ul
+        <div
           className={`nav-more-menu ${moreMenuVisible === true ? 'nav-visible' : 'nav-invisible'} ${moreMenuVisible === undefined ? 'nav-more-menu-initial' : ''}`}
         >
           {moreLinks.map((link, i, row) => (
             <div className="more-link-container" key={link.name}>
               <a className="nav-link more-link" href={link.url}>
-                {link.name} <img src={link.icon.src} alt={link.name} className="more-link-icon" />
+                {link.name} <img src={link.icon.src} alt={`image of ${link.name}`} className="more-link-icon" />
               </a>
             </div>
           ))}
-        </ul>
+        </div>
       </div>
       <div className="nav-container-mobile">
         <button

@@ -1,10 +1,10 @@
 ---
 import { SEO } from 'astro-seo';
 const { title, description } = Astro.props;
+
+console.log(title, description);
 ---
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <SEO
   title={title}
   description={description}
@@ -15,7 +15,7 @@ const { title, description } = Astro.props;
       image: 'https://raw.githubusercontent.com/64bitpandas/bencuan.me/main/src/images/og-banner.png',
     },
     optional: {
-      siteName: "Ben's Site",
+      siteName: "bencuan's site",
     },
   }}
   twitter={{

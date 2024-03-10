@@ -1,14 +1,16 @@
 ---
-import Layout from '../components/layout';
+import Layout from '../components/layout.astro';
 import Seo from '../components/seo.astro';
 import ContactCard from '../components/contactCard.tsx';
 import '../sass/contact.scss';
 ---
 
-<head>
-  <Seo title="contact | bencuan" description="contact me" />
-</head>
-<Layout currPage="contact" customPages={[{ name: 'contact', url: '/contact' }]}>
+<Layout
+  title="contact | bencuan"
+  description="contact me"
+  currPage="contact"
+  customPages={[{ name: 'contact', url: '/contact' }]}
+>
   <div class="container ui-text">
     <h1 class="title">contact</h1>
     <p class="splash">let's be friends!</p>

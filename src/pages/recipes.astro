@@ -1,5 +1,5 @@
 ---
-import Layout from '../components/layout';
+import Layout from '../components/layout.astro';
 import Seo from '../components/seo.astro';
 import { getCollection } from 'astro:content';
 import SearchSortFilter from '../components/searchSortFilter.tsx';
@@ -11,10 +11,12 @@ const collection = await getCollection('recipes');
 const items = collection.map(item => ({ ...item.data, slug: item.slug }));
 ---
 
-<head>
-  <Seo title="ben's recipes" description="builder" />
-</head>
-<Layout currPage="recipes" customPages={[{ name: 'recipes', url: '/recipes' }]} client:load>
+<Layout
+  title="ben's recipes"
+  description="simple food"
+  currPage="recipes"
+  customPages={[{ name: 'recipes', url: '/recipes' }]}
+>
   <h1 class="recipe-title">recipes</h1>
   <p class="splash">Simple work-in-progress recipes.</p>
   <p></p>
