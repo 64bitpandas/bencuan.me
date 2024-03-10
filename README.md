@@ -44,8 +44,6 @@ If you use VSCode, things should be fairly plug-and-play.
   - `footnote`
   - `ref`
 
-\*\*
-
 ### Credits
 
 - [Astro](https://astro.build)
