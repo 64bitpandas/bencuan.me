@@ -4,8 +4,8 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import AutoImport from 'astro-auto-import';
 import { defineConfig } from 'astro/config';
-import wikiLinkPlugin from 'remark-wiki-link';
 import emoji from 'remark-emoji';
+import wikiLinkPlugin from 'remark-wiki-link';
 
 // https://astro.build/config
 const SITE = 'https://bencuan.me';
@@ -42,9 +42,12 @@ export default defineConfig({
         emoji,
         {
           accessible: true,
-        }
-      ]
+        },
+      ],
     ],
     gfm: true,
+  },
+  redirects: {
+    '/foreword': '/blog/foreword',
   },
 });
