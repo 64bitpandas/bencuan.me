@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../components/layout.astro';
 import '../sass/recipe.scss';
-import { components } from '../components/blog';
+import { components } from '../components/blog.tsx';
 import { IconList } from '../components/factories.tsx';
 import { faBowlRice, faClock, faSprout, faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,7 +10,7 @@ export const prerender = true;
 export async function getStaticPaths() {
   const entries = await getCollection('recipes');
   return entries.map(entry => ({
-    params: { recipe: entry.slug },
+    params: { recipe: 'recipes/' + entry.slug },
     props: { entry },
   }));
 }

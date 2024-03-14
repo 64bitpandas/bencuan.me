@@ -73,7 +73,7 @@ export const BlogFactory = (blog: Blog): ReactNode => (
 
 export const RecipeFactory = (recipe: Recipe): ReactNode => (
   <div key={recipe.slug} className="recipe-container">
-    <ILink href={recipe.slug} className="internal-link recipe-link">
+    <ILink href={'recipes/' + recipe.slug} className="internal-link recipe-link">
       {recipe.title}
     </ILink>{' '}
     <IconList icon={faClock} count={recipe.time <= 15 ? 1 : 0} className="clock" />
