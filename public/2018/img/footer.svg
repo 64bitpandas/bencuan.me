@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   class="demo__top-svgBg"
+   viewBox="0 0 366 256"
+   version="1.1"
+   id="svg937"
+   sodipodi:docname="footer.svg"
+   inkscape:version="0.92.2 2405546, 2018-03-11">
+  <metadata
+     id="metadata943">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs941" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     id="namedview939"
+     showgrid="false"
+     inkscape:zoom="2.5024951"
+     inkscape:cx="175.68518"
+     inkscape:cy="140.16736"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g935" />
+  <g
+     class="svgBg__objects"
+     id="g935">
+    <path
+       class="svgBg__bg svgBg__bg1"
+       d="m 0,221.71338 88,-27.60033 136,35.26709 124,-33.73374 18,10.73347 v 50.01972 l -366,0.3996 z"
+       id="path899"
+       inkscape:connector-curvature="0"
+       style="fill:#86d7db;stroke-width:0.87560028"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       class="svgBg__bg svgBg__bg2"
+       d="m 0,240.73966 106,-13.52161 166,24.33891 70,-32.45188 24,13.52161 v 23.7729 l -366,0.3996 z"
+       id="path901"
+       inkscape:connector-curvature="0"
+       style="fill:#3c929a;stroke-width:0.82224137"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       class="svgBg__bg svgBg__bg3"
+       d="m 0,252.02983 62,-6.68799 173,-8.02558 70,-2.0064 61,5.35039 v 15.73934 l -366,0.3996 z"
+       id="path903"
+       inkscape:connector-curvature="0"
+       style="fill:#416175;stroke-width:0.81780136"
+       sodipodi:nodetypes="cccccccc" />
+    <g
+       class="svgBg__tree svgBg__tree-1 m--left"
+       data-id="1"
+       id="g909"
+       transform="translate(-1.1988035,89.910266)">
+      <path
+         class="svgBg__tree-leafs svgBg__tree-part"
+         d="m 54,127 c 23,0 8,-32 0,-64 -8,32 -23,64 0,64"
+         id="path905"
+         inkscape:connector-curvature="0"
+         style="fill:#389296" />
+      <path
+         class="svgBg__tree-trunk svgBg__tree-part"
+         d="m 56,147 q -1,-32 -2,-64 -1,32 -2,63"
+         id="path907"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       class="svgBg__tree svgBg__tree-2 m--left"
+       data-id="2"
+       id="g915"
+       transform="translate(-1.1988035,89.910266)">
+      <path
+         class="svgBg__tree-leafs svgBg__tree-part"
+         d="m 67,124 c 23,0 8,-32 0,-65 -8,33 -23,65 0,65"
+         id="path911"
+         inkscape:connector-curvature="0"
+         style="fill:#389296" />
+      <path
+         class="svgBg__tree-trunk svgBg__tree-part"
+         d="m 69,144 q -1,-32 -2,-64 -1,32 -2,63"
+         id="path913"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       class="svgBg__tree svgBg__tree-3 m--right"
+       data-id="3"
+       id="g921"
+       transform="translate(-6,88.309865)">
+      <path
+         class="svgBg__tree-leafs svgBg__tree-part"
+         d="m 264,129 c 23,0 8,-32 0,-65 -8,33 -23,65 0,65"
+         id="path917"
+         inkscape:connector-curvature="0"
+         style="fill:#389296" />
+      <path
+         class="svgBg__tree-trunk svgBg__tree-part"
+         d="m 266,149 q -1,-32 -2,-64 -1,32 -2,63"
+         id="path919"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       class="svgBg__tree svgBg__tree-4 m--right"
+       data-id="4"
+       id="g927"
+       transform="translate(-6,89.90827)">
+      <path
+         class="svgBg__tree-leafs svgBg__tree-part"
+         d="m 287,128 c 23,0 8,-32 0,-65 -8,33 -23,65 0,65"
+         id="path923"
+         inkscape:connector-curvature="0"
+         style="fill:#207277" />
+      <path
+         class="svgBg__tree-trunk svgBg__tree-part"
+         d="m 289,148 q -1,-32 -2,-64 -1,32 -2,63"
+         id="path925"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       class="svgBg__tree svgBg__tree-5 m--right"
+       data-id="5"
+       id="g933"
+       transform="translate(-6,88.309865)">
+      <path
+         class="svgBg__tree-leafs svgBg__tree-part"
+         d="m 313,128 c 23,0 8,-32 0,-65 -8,33 -23,65 0,65"
+         id="path929"
+         inkscape:connector-curvature="0"
+         style="fill:#389296" />
+      <path
+         class="svgBg__tree-trunk svgBg__tree-part"
+         d="m 315,148 q -1,-32 -2,-64 -1,32 -2,63"
+         id="path931"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>

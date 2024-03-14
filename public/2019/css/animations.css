@@ -1,0 +1,268 @@
+/* ====================================
+ * ANIMATIONS
+ * ==================================== */
+
+@keyframes launch-intercept {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    background-color: black;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    background-color: white;
+  }
+  55% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+    background-color: white;
+  }
+  100% {
+    opacity: 1;
+    background-color: black;
+  }
+}
+
+@keyframes welcome-invert-text {
+  to {
+    opacity: 1;
+    color: black;
+  }
+}
+
+@keyframes launch-content {
+  0% {}
+  20% {
+    transform: translateY(-100vh);
+  }
+  50% {
+    transform: translateY(-70vh);
+  }
+  30%, 70% {
+    transform: translateY(-85vh);
+  }
+  40%, 60% {
+    transform: translateY(-75vh);
+  }
+  80% {
+    transform: translateY(-100vh);
+  }
+  85%, 95% {
+    transform: translateY(-92vh);
+  }
+  90% {
+    transform: translateY(-90vh);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes launch-content-nobounce {
+  0% {}
+  20%, 99% {
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes launch-content-rope {
+  to {
+    height: 12vh;
+    bottom: 0;
+  }
+}
+
+@keyframes hide-rope {
+  from {
+    height: 12vh;
+    bottom: 0;
+  }
+  to {
+    height: 0;
+    bottom: 12vh;
+  }
+}
+
+@keyframes hide-content {
+  from {
+    transform: translateY(-100vh)
+  }
+  to {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes show-after-delay {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hide-after-delay {
+  to {
+    opacity: 0;
+    display: none;
+    height: 0;
+  }
+}
+
+@keyframes paint-fill {
+  50% {
+    box-shadow: 0px 0px 12px 1px black;
+  }
+  100% {
+    -webkit-mask-position-y: 0vh;
+    -webkit-mask-position-x: -50vh;
+  }
+}
+
+/* Typing Effect Credits: https: //css-tricks.com/snippets/css/typewriter-effect/ */
+
+/* The typing effect */
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%
+  }
+}
+
+/* The typewriter cursor effect */
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+@keyframes glitch-anim-1 {
+  0% {
+    clip: rect(30px, 450px, 76px, 0);
+  }
+  20% {
+    clip: rect(29px, 450px, 16px, 0);
+  }
+  40% {
+    clip: rect(76px, 450px, 3px, 0);
+  }
+  60% {
+    clip: rect(42px, 450px, 78px, 0);
+  }
+  80% {
+    clip: rect(3px, 450px, 60px, 0);
+  }
+  100% {
+    clip: rect(53px, 450px, 5px, 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip: rect(70px, 450px, 76px, 0);
+  }
+  20% {
+    clip: rect(25px, 450px, 18px, 0);
+  }
+  40% {
+    clip: rect(61px, 450px, 50px, 0);
+  }
+  60% {
+    clip: rect(53px, 450px, 5px, 0);
+  }
+  80% {
+    clip: rect(70px, 450px, 80px, 0);
+  }
+  100% {
+    clip: rect(12px, 450px, 78px, 0);
+  }
+}
+
+@keyframes org-img-anim-2 {
+  0% {
+    /* On the left, 0 width */
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  33%, 66% {
+    /* Full width */
+    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+  }
+  100% {
+    /* On the right, 0 width */
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+}
+
+@keyframes org-img-anim-3 {
+  0%, 33% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  66% {
+    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+  }
+  100% {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+}
+
+@keyframes code-square-ground {
+  100% {
+    transform: translateX(-60%);
+  }
+}
+
+@keyframes code-square-panda {
+  10%, 30%, 50%, 70%, 90% {
+    background-image: url('../img/frame2.png');
+  }
+  20%, 40%, 60%, 80% {
+    background-image: url('../img/frame1.png');
+  }
+  40% {
+    transform: translateY(0);
+  }
+  55% {
+    transform: translateY(-200%);
+  }
+  70%, 75% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(-150%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes org-border {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes blur-delay {
+  to {
+    filter: blur(5px);
+  }
+}
