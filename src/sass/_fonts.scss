@@ -189,10 +189,10 @@
 
 $header: Novela, Lora, sans-serif;
 $body: Garamond, Lora, NotoColorEmoji, serif;
-$ui: Fraktion, Rubik, sans-serif;
-$special: Pine, Novela, sans-serif;
-$code: FiraCode, monospace;
-$sans: NeueMontreal, sans-serif;
+$ui: Fraktion, Rubik, NotoColorEmoji, sans-serif;
+$special: Pine, Novela, NotoColorEmoji, sans-serif;
+$code: FiraCode, NotoColorEmoji, monospace;
+$sans: NeueMontreal, NotoColorEmoji, sans-serif;
 
 $s-2: clamp(0.774rem, 0.81rem + -0.048vi, 0.8rem);
 $s-1: clamp(1rem, 0.989rem + 0.057vi, 1.032rem);
