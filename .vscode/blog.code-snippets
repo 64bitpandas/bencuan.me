@@ -5,8 +5,6 @@
     "body": ["<Footnote n='$1' client:idle />"],
     "description": "Insert footnote",
   },
-}
-{
   "FootnoteRef": {
     "scope": "mdx",
     "prefix": "ref",

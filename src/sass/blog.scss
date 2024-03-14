@@ -1,23 +1,31 @@
 @use 'fonts';
 @use 'colors';
 @use 'mixins';
+@use 'spacing';
 
 .blog-title {
   font-family: fonts.$header;
   font-weight: 500;
   font-size: fonts.$s4;
-  margin-top: 2rem;
+  margin-top: spacing.$s2xl;
 }
 
 h2 {
-  padding-top: 0;
-  margin-bottom: 1rem;
+  margin-top: spacing.$s2xl;
+  margin-bottom: spacing.$sl;
+  padding: 0;
 }
 
 h3 {
   font-size: fonts.$s1;
   font-weight: 450;
-  margin-bottom: 1rem;
+  margin-top: spacing.$sxl;
+  margin-bottom: spacing.$ss;
+}
+
+img {
+  max-width: 100%;
+  margin: spacing.$sm 0;
 }
 
 p,
@@ -115,4 +123,55 @@ blockquote {
 
 .blog-ssf-date {
   font-size: fonts.$s-1;
+}
+
+.pinetree {
+  font-family: fonts.$special;
+}
+
+.novela {
+  font-family: Novela;
+}
+
+.garamond {
+  font-family: Garamond;
+}
+
+.fraktion {
+  font-family: Fraktion;
+}
+
+.montreal {
+  font-family: NeueMontreal;
+}
+
+.hoverweight {
+  font-size: fonts.$s1;
+  font-family: fonts.$ui;
+  color: colors.$blue;
+
+  &:hover {
+    animation: hover 1s linear infinite alternate;
+  }
+
+  @keyframes hover {
+    from {
+      font-weight: 100;
+    }
+
+    to {
+      font-weight: 800;
+    }
+  }
+}
+
+.footnote-ref {
+  color: colors.$text;
+}
+
+.visitors {
+  font-size: fonts.$s-1;
+  color: colors.$text;
+  font-family: fonts.$ui;
+  margin-left: 2rem;
 }

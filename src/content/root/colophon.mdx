@@ -4,26 +4,473 @@ description: how it's made™ bencuan.me edition
 slug: /colophon
 ---
 
-## about the colophon
+## wait what's a colophon?
 
 > `/käləˌfän/`: an inscription at the end of a book or manuscript usually with facts about its production ([Merriam-Webster](https://www.merriam-webster.com/dictionary/colophon))
 
-Historically, writers would
+The colophon is an anachronistic literary construct that [appears to have fallen out of fashion for nearly two centuries](https://books.google.com/ngrams/graph?content=colophon&year_start=1800&year_end=2019&corpus=en-2019&smoothing=3):
+![colophon ngram](/img/colophon/ngram.png)
 
-> A colophon is a useful place to share the principles that govern your website. Having the key principles that govern your site in one place means that any user who visits does not need to read through the archives of your site or speak with you to understand what mattered most to you when you constructed your site.34
+With the birth of the internet, we now have a completely new media format to cultivate-- and there's so much more to explain about the inner workings of a website compared to a book. Recently, the term seems to be gaining traction within the IndieWeb community. Here's an excerpt from their [wiki](https://indieweb.org/colophon):
+
+  > A colophon is a useful place to share the principles that govern your website. For instance, if you do not track users, or if you have taken specific precautions to protect privacy, you can list these principles on your colophon. 
+  > Having the key principles that govern your site in one place means that any user who visits does not need to read through the archives of your site or speak with you to understand what mattered most to you when you constructed your site.
+
+Although it's definitely not mainstream yet, I'm starting to see them pop up more frequently in random places, like the website of [my favorite coffee roaster](https://www.andytownsf.com/colophon). It seems like a neat idea, so I'll throw one in the mix!
 
 ## my homepage for the internet
 
+
 > Our digital artifacts and spaces are reflections of our real selves. We feel like we outgrow digital spaces just as we change, learn, and grow in real life. -[jacky zhao on website redesigns](https://jzhao.xyz/thoughts/websites-as-homes#on-website-redesigns)
 
-I've rebuilt my website every year for the past 6 years.
+I've rebuilt my website every year for the past 6 years, more as a hobby than out of necessity. 
 
-The first five editions didn't serve too much of a purpose besides
+This year marks a major shift in design philosophy. In every past iteration, the website was the focus in itself, raising the opportunity to figure out the limits of my design/engineering abilities at the time. But this time around, the redesign is purely functional. I have *actual real content* for once, and it needs a place to live!
 
-Here is a [[about|good wikilink]]
 
-## code
+## design
 
-```js
-console.log("hi")
+### colors
+I was going to make my own color scheme, but ultimately decided to leave this one to the experts. This site uses the [Catppuccin theme](https://github.com/catppuccin). Here's the full palette, nabbed from their README:
+
+<details>
+
+<summary>:sunflower: Latte</summary>
+
+<table>
+
+<tr>
+
+<th></th>
+
+<th>Labels</th>
+
+<th>Hex</th>
+
+<th>RGB</th>
+
+<th>HSL</th>
+
+</tr>
+
+<tr>
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_rosewater.png" width="23"/></td>
+
+<td>Rosewater</td>
+
+<td><code>#dc8a78</code></td>
+
+<td><code>rgb(220, 138, 120)</code></td>
+
+<td><code>hsl(11, 59%, 67%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_flamingo.png" width="23"/></td>
+
+<td>Flamingo</td>
+
+<td><code>#dd7878</code></td>
+
+<td><code>rgb(221, 120, 120)</code></td>
+
+<td><code>hsl(0, 60%, 67%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_pink.png" width="23"/></td>
+
+<td>Pink</td>
+
+<td><code>#ea76cb</code></td>
+
+<td><code>rgb(234, 118, 203)</code></td>
+
+<td><code>hsl(316, 73%, 69%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_mauve.png" width="23"/></td>
+
+<td>Mauve</td>
+
+<td><code>#8839ef</code></td>
+
+<td><code>rgb(136, 57, 239)</code></td>
+
+<td><code>hsl(266, 85%, 58%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_red.png" width="23"/></td>
+
+<td>Red</td>
+
+<td><code>#d20f39</code></td>
+
+<td><code>rgb(210, 15, 57)</code></td>
+
+<td><code>hsl(347, 87%, 44%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_maroon.png" width="23"/></td>
+
+<td>Maroon</td>
+
+<td><code>#e64553</code></td>
+
+<td><code>rgb(230, 69, 83)</code></td>
+
+<td><code>hsl(355, 76%, 59%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_peach.png" width="23"/></td>
+
+<td>Peach</td>
+
+<td><code>#fe640b</code></td>
+
+<td><code>rgb(254, 100, 11)</code></td>
+
+<td><code>hsl(22, 99%, 52%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_yellow.png" width="23"/></td>
+
+<td>Yellow</td>
+
+<td><code>#df8e1d</code></td>
+
+<td><code>rgb(223, 142, 29)</code></td>
+
+<td><code>hsl(35, 77%, 49%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_green.png" width="23"/></td>
+
+<td>Green</td>
+
+<td><code>#40a02b</code></td>
+
+<td><code>rgb(64, 160, 43)</code></td>
+
+<td><code>hsl(109, 58%, 40%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_teal.png" width="23"/></td>
+
+<td>Teal</td>
+
+<td><code>#179299</code></td>
+
+<td><code>rgb(23, 146, 153)</code></td>
+
+<td><code>hsl(183, 74%, 35%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_sky.png" width="23"/></td>
+
+<td>Sky</td>
+
+<td><code>#04a5e5</code></td>
+
+<td><code>rgb(4, 165, 229)</code></td>
+
+<td><code>hsl(197, 97%, 46%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_sapphire.png" width="23"/></td>
+
+<td>Sapphire</td>
+
+<td><code>#209fb5</code></td>
+
+<td><code>rgb(32, 159, 181)</code></td>
+
+<td><code>hsl(189, 70%, 42%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_blue.png" width="23"/></td>
+
+<td>Blue</td>
+
+<td><code>#1e66f5</code></td>
+
+<td><code>rgb(30, 102, 245)</code></td>
+
+<td><code>hsl(220, 91%, 54%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_lavender.png" width="23"/></td>
+
+<td>Lavender</td>
+
+<td><code>#7287fd</code></td>
+
+<td><code>rgb(114, 135, 253)</code></td>
+
+<td><code>hsl(231, 97%, 72%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_text.png" width="23"/></td>
+
+<td>Text</td>
+
+<td><code>#4c4f69</code></td>
+
+<td><code>rgb(76, 79, 105)</code></td>
+
+<td><code>hsl(234, 16%, 35%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_subtext1.png" width="23"/></td>
+
+<td>Subtext1</td>
+
+<td><code>#5c5f77</code></td>
+
+<td><code>rgb(92, 95, 119)</code></td>
+
+<td><code>hsl(233, 13%, 41%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_subtext0.png" width="23"/></td>
+
+<td>Subtext0</td>
+
+<td><code>#6c6f85</code></td>
+
+<td><code>rgb(108, 111, 133)</code></td>
+
+<td><code>hsl(233, 10%, 47%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_overlay2.png" width="23"/></td>
+
+<td>Overlay2</td>
+
+<td><code>#7c7f93</code></td>
+
+<td><code>rgb(124, 127, 147)</code></td>
+
+<td><code>hsl(232, 10%, 53%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_overlay1.png" width="23"/></td>
+
+<td>Overlay1</td>
+
+<td><code>#8c8fa1</code></td>
+
+<td><code>rgb(140, 143, 161)</code></td>
+
+<td><code>hsl(231, 10%, 59%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_overlay0.png" width="23"/></td>
+
+<td>Overlay0</td>
+
+<td><code>#9ca0b0</code></td>
+
+<td><code>rgb(156, 160, 176)</code></td>
+
+<td><code>hsl(228, 11%, 65%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_surface2.png" width="23"/></td>
+
+<td>Surface2</td>
+
+<td><code>#acb0be</code></td>
+
+<td><code>rgb(172, 176, 190)</code></td>
+
+<td><code>hsl(227, 12%, 71%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_surface1.png" width="23"/></td>
+
+<td>Surface1</td>
+
+<td><code>#bcc0cc</code></td>
+
+<td><code>rgb(188, 192, 204)</code></td>
+
+<td><code>hsl(225, 14%, 77%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_surface0.png" width="23"/></td>
+
+<td>Surface0</td>
+
+<td><code>#ccd0da</code></td>
+
+<td><code>rgb(204, 208, 218)</code></td>
+
+<td><code>hsl(223, 16%, 83%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_base.png" width="23"/></td>
+
+<td>Base</td>
+
+<td><code>#eff1f5</code></td>
+
+<td><code>rgb(239, 241, 245)</code></td>
+
+<td><code>hsl(220, 23%, 95%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_mantle.png" width="23"/></td>
+
+<td>Mantle</td>
+
+<td><code>#e6e9ef</code></td>
+
+<td><code>rgb(230, 233, 239)</code></td>
+
+<td><code>hsl(220, 22%, 92%)</code></td>
+
+</tr>
+
+<tr>
+
+<td><img src="https://github.com/catppuccin/catppuccin/raw/main/assets/palette/circles/latte_crust.png" width="23"/></td>
+
+<td>Crust</td>
+
+<td><code>#dce0e8</code></td>
+
+<td><code>rgb(220, 224, 232)</code></td>
+
+<td><code>hsl(220, 21%, 89%)</code></td>
+
+</tr>
+
+</table>
+
+</details>
+
+### typography
+My name on the homepage in <span class="pinetree">Pine Tree</span> by UppercapType.
+
+Major headings are in <span class="novela">Novela</span> by [atipo foundry](https://www.atipofoundry.com/).
+
+
+Body text is in <span class="garamond">Garamond</span> ([google fonts](https://fonts.google.com/specimen/EB+Garamond)) or  <span class="montreal">Neue Montreal</span> ([Pangram Pangram](https://pangrampangram.com)) depending on whether I feel like writing in serif or sans-serif.
+
+I also use  <span class="fraktion">Fraktion</span> by Pangram Pangram for certain interactive elements, like the footer and in buttons.
+
+Garamond and Fraktion are variable weight fonts, which mean they can do cool transitions like this:
+
+<div class="hoverweight">hover me!</div>
+
+### links
+Mystery meat navigation may have died out, but it's still ridiculously easy to make mysterious links on a blog (like this!). 
+
+I do my best to put all external links in context ([click here if you like penguins](https://www.cabq.gov/artsculture/biopark/news/10-cool-facts-about-penguins)). There's also a hover tooltip just in case it's not clear where you're headed.
+
+Internal links are [[colophon|highlighted]].
+
+### footnotes
+I don't like the standard digital footnote format that makes you jump to the end of the page and back just to view it. This method<Footnote n='1' client:idle /> is much better! 
+
+<FootnoteRef n='1' client:idle>1. Look, it's a footnote!</FootnoteRef>
+
+## visitor interaction
+The only analytics I collect from my site are from explicit button presses, like the one on my homepage. There are no cookies, GDPR banners, or trackers-- I genuinely have no idea how many people come here and what they do, nor do I really care.
+
+I'm toying with some additional components to keep building on top of the limited button-clicks available to guests (like a Q&A section, or public bulletin board, etc). Rather than the standard imagery of browsing in isolation, I'd like to think of this space as a train station full of strangers coming and going on their own journeys scrolling through the internet, brought together briefly by coincidence or fate.
+
+## technical stuff
+
+This website is hosted on [Netlify](https://netlify.app) and is built with [Astro](https://astro.build) using a mixture of components (Astro, MDX, and React with typescript). Astro is the third build system I've used for this site (2018-2019 was static HTML, 2020-2021 used Eleventy, and 2022 used Gatsby) and my favorite so far. Look at those ✨build speeds ✨!
+
+``` json
+19:40:10 [build] Rearranging server assets...
+19:40:10 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+19:40:10 [@astrojs/netlify] Emitted _redirects
+19:40:10 [@astrojs/netlify] Generated SSR Function
+19:40:10 [build] Server built in 4.35s
+19:40:10 [build] Complete!
 ```
+
+Stylesheets are in SCSS. All font-family, font-size, and color are specified as variables in [_fonts.scss](https://github.com/64bitpandas/bencuan.me/blob/v6/src/sass/_fonts.scss)and [_colors.scss](https://github.com/64bitpandas/bencuan.me/blob/v6/src/sass/_colors.scss)
+
+The opt-in visitor counters send API requests to my homebrewed backend (api.bencuan.me) hosted on [turtlenet](https://tsh.sh). It's written in Go and derived from the [Clap Button](https://getclaps.app/) source code. 
+
+You can view the source on GitHub [here](https://github.com/64bitpandas/bencuan.me) (or by clicking the version tag in the footer!).
+
+This website has received a 100/100 on all categories of PageSpeed Insights:
+
+![pagespeed insights](/img/colophon/pagespeed.png)
+

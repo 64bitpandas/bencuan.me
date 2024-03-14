@@ -9,7 +9,6 @@ const Visitors = () => {
   async function getVisitors() {
     const res = await fetch('https://api.bencuan.me/get-claps');
     setVisitors(await res.text());
-    console.log(visitors);
   }
   useEffect(() => {
     getVisitors();
