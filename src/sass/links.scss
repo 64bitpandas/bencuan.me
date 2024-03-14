@@ -2,97 +2,94 @@
 @use 'colors';
 @use 'mixins';
 
-
 .link {
-    text-decoration: none;
-    color: colors.$text;
-    font-weight: normal;
-    transition: all 0.1s ease-in-out;
+  text-decoration: none;
+  color: colors.$text;
+  font-weight: normal;
+  transition: all 0.1s ease-in-out;
 
-    @include mixins.screen("not-mobile") {
-        position: relative;
+  @include mixins.screen('not-mobile') {
+    position: relative;
 
-        &:hover,
-        &.nav-current {
-            &::before {
-                visibility: visible;
-                transform: scaleX(1);
-            }
+    &:hover,
+    &.nav-current {
+      &::before {
+        visibility: visible;
+        transform: scaleX(1);
+      }
 
-            font-weight: bold;
-            color: colors.$blue;
+      color: colors.$blue;
 
-            +.custom-tooltip {
-                transform: translateY(0px) !important;
-            }
-        }
-
-        // Link animation inspired by https://tobiasahlin.com/blog/css-trick-animating-link-underlines/
-        &::before,
-        &.nav-current::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -1px;
-            left: 0;
-            background-color: colors.$lavender;
-            visibility: hidden;
-            transform: scaleX(0);
-            font-weight: bold;
-            transition: all 0.1s ease-in-out 0s;
-        }
+      + .custom-tooltip {
+        transform: translateY(0px) !important;
+      }
     }
+
+    // Link animation inspired by https://tobiasahlin.com/blog/css-trick-animating-link-underlines/
+    &::before,
+    &.nav-current::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -1px;
+      left: 0;
+      background-color: colors.$lavender;
+      visibility: hidden;
+      transform: scaleX(0);
+      font-weight: bold;
+      transition: all 0.1s ease-in-out 0s;
+    }
+  }
 }
 
 .blue-link {
-    color: colors.$lavender !important;
-    // font-family: fonts.$ui;
-    transition: all 0.25s ease-in-out;
+  color: colors.$lavender !important;
+  // font-family: fonts.$ui;
+  transition: all 0.25s ease-in-out;
 
-    &::before {
-        background-color: colors.$lavender !important;
-    }
+  &::before {
+    background-color: colors.$lavender !important;
+  }
 
-    &:hover {
-        color: colors.$blue !important;
-        font-weight: bold;
-    }
+  &:hover {
+    color: colors.$pink !important;
+  }
 }
 
 :root {
-    --rt-transition-show-delay: 0.05s;
-    --rt-transition-closing-delay: 0.05s;
+  --rt-transition-show-delay: 0.05s;
+  --rt-transition-closing-delay: 0.05s;
 }
 
 .custom-tooltip {
-    background-color: white !important;
-    transform: translateY(20px) !important;
-    transition: all ease-in-out 0.25s !important;
+  background-color: white !important;
+  transform: translateY(20px) !important;
+  transition: all ease-in-out 0.25s !important;
 
-    &:hover {
-        transform: translateY(0px) !important;
-    }
+  &:hover {
+    transform: translateY(0px) !important;
+  }
 }
 
 .internal-link {
-    display: inline-block;
-    position: relative;
-    text-decoration: none;
-    color: inherit;
-    padding: 0px 3px;
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
-    animation: ilink-tr 0.25s reverse;
-    background-color: colors.$gray;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  padding: 0px 3px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+  animation: ilink-tr 0.25s reverse;
+  background-color: colors.$gray;
 
-    &:hover {
-        color: colors.$text-highlight;
-        background-color: colors.$blue;
-        font-weight: 500;
-    }
+  &:hover {
+    color: colors.$text-highlight;
+    background-color: colors.$blue;
+    font-weight: 475;
+  }
 }
 
 .arrow {
-    font-family: fonts.$ui;
+  font-family: fonts.$ui;
 }

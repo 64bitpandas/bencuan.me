@@ -103,7 +103,6 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
                 } else {
                   newFilterState[name] = filterCategories[name];
                 }
-                console.log(newFilterState);
                 setFilterState(newFilterState);
               }}
             >

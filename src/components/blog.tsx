@@ -29,7 +29,7 @@ export const Footnote = ({ n, style, children }: footnoteProps) => (
       if (element) {
         if (style === 'reveal') {
         } else {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
           // https://css-tricks.com/restart-css-animation/
           element.classList.remove('highlight-ref-selected');
           void element.offsetWidth;
@@ -46,7 +46,7 @@ export const FootnoteRef = ({ n, style, children }: footnoteProps) => (
   <span>
     <span id={numToId(n, true)}>{children}</span>
     <a
-      className="footnote-ref-number"
+      className="footnote-ref-number footnote-ref"
       href={numToId(n)}
       onClick={() => {
         const element = document.getElementById(numToId(n));

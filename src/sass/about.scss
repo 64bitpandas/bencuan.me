@@ -1,1 +1,7 @@
 @use 'fonts';
+@use 'spacing';
+
+h2 {
+  margin-top: spacing.$sxl;
+  margin-bottom: spacing.$ss;
+}
