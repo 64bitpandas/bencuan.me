@@ -5,7 +5,7 @@ import Footer from './footer';
 import Header, { type HeaderLink } from './header';
 import Seo from './seo.astro';
 
-const { title, description, currPage, headContent, customPages } = Astro.props;
+const { title, description, currPage, headContent, customPages, image } = Astro.props;
 ---
 
 <!--
@@ -15,7 +15,7 @@ The Layout component serves as the base component in which all content should be
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-    <Seo title={title} description={description} />
+    <Seo title={title} description={description} image={image} />
     {headContent}
   </head>
   <div class="body">

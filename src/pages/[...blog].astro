@@ -16,9 +16,12 @@ export async function getStaticPaths() {
 }
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+const imgLink = entry.data.image
+  ? 'https://bencuan.me/img/opengraph/' + entry.data.image
+  : 'https://bencuan.me/img/opengraph/og-banner.png';
 ---
 
-<Layout currPage={'blog'} title={entry.data.title} description={entry.data.description}>
+<Layout currPage={'blog'} title={entry.data.title} description={entry.data.description} image={imgLink}>
   <h1 class="blog-title">{entry.data.title}</h1>
   <p class="blog-date">{ToDateString(entry.data.date, true)}</p>
   <Content components={{ a: MDLink }} />

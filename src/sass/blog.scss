@@ -23,9 +23,11 @@ h3 {
   margin-bottom: spacing.$ss;
 }
 
-img {
-  max-width: 100%;
-  margin: spacing.$sm 0;
+.container {
+  img {
+    max-width: 100%;
+    margin: spacing.$sm 0;
+  }
 }
 
 p,
