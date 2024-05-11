@@ -12,7 +12,16 @@ type xProps = {
   tooltipContent?: string;
 };
 
-const stripHttp = (href: string) => href.replace(/^https?:\/\//, '');
+const stripHttp = (href: string, extraPretty: boolean) => {
+  let result = href.replace(/^https?:\/\//, '');
+  if (extraPretty) {
+    let arr = /([^\?]+)/.exec(result);
+    if (arr !== null && arr.length > 0) {
+      result = arr[0];
+    }
+  }
+  return result;
+};
 
 /** Link to an external website. */
 export const XLink = ({ href, label, children, className, hasArrow = true, tooltipContent }: xProps) => {
@@ -45,6 +54,7 @@ type iProps = {
 type mdProps = {
   href: string;
   children?: ReactNode;
+  extraPretty?: boolean;
 };
 
 /** Link to an internal page. */
@@ -55,12 +65,12 @@ export const ILink = ({ href, children, className }: iProps) => (
 );
 
 /** Used as a component pass-in to MDX. */
-export const MDLink = ({ href, children }: mdProps) => {
+export const MDLink = ({ href, children, extraPretty }: mdProps) => {
   if (href.startsWith('https://bencuan.me')) {
     return <ILink href={href}>{children}</ILink>;
   }
   return (
-    <XLink href={href} label={href} tooltipContent={stripHttp(href)} className="blue-link">
+    <XLink href={href} label={href} tooltipContent={stripHttp(href, extraPretty ?? false)} className="blue-link">
       {children}
     </XLink>
   );

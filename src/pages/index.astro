@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../components/layout.astro';
 import Visitors from '../components/visitors.tsx';
 import Button from '../components/button.tsx';
-import { ILink } from '../components/links.tsx';
+import { ILink, MDLink, XLink } from '../components/links.tsx';
 import '../sass/home.scss';
 ---
 
@@ -18,7 +18,14 @@ import '../sass/home.scss';
 
   <div class="text">
     <p>> new? read the <ILink href="blog/foreword">foreword</ILink></p>
-    <p><Visitors client:idle /></p>
-    <!-- <p>> currently thinking about <ILink href="/blog">???</ILink></p> -->
+    <p>> visit the <ILink href="friends">friendnet!</ILink></p>
+    <p>
+      > latest essay: <MDLink
+        extraPretty
+        href="https://open.substack.com/pub/bencuan/p/making-things-that-last-forever-91c?r=3axqei&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true"
+        >making things that last forever</MDLink
+      >
+      <p><Visitors client:idle /></p>
+    </p>
   </div>
 </Layout>

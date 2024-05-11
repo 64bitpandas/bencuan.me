@@ -5,24 +5,29 @@
 $padding: 15vw;
 
 .home-links {
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
 
 .splash {
-    margin-bottom: 1rem;
-    font-size: fonts.$s0;
-    font-weight: 475;
+  margin-bottom: 1rem;
+  font-size: fonts.$s0;
+  font-weight: 475;
 }
 
 .name {
-    margin-top: 3rem;
-    font-size: fonts.$s5;
-    font-family: fonts.$special;
+  margin-top: 3rem;
 
-    color: colors.$text;
-    font-weight: normal;
+  @include mixins.screen('mobile') {
+    margin-top: 1rem;
+  }
+
+  font-size: fonts.$s5;
+  font-family: fonts.$special;
+
+  color: colors.$text;
+  font-weight: normal;
 }
 
 .home-buttons {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }

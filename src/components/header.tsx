@@ -25,6 +25,10 @@ const links: HeaderLink[] = [
     name: 'about',
     url: '/about',
   },
+  {
+    name: 'friends',
+    url: '/friends',
+  },
 ];
 
 const moreLinks = [

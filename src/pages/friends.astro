@@ -1,0 +1,15 @@
+---
+import Layout from '../components/layout.astro';
+import FriendNet from '../components/friends.mdx';
+import { MDLink } from '../components/links';
+---
+
+<Layout title="friendnet | bencuan" description="friends" currPage="friends">
+  <h1 class="title">friendnet</h1>
+
+  <div class="ui-text friends">
+    <FriendNet components={{ a: MDLink }} />
+  </div>
+</Layout>
+
+)
