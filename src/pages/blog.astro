@@ -16,7 +16,7 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug }));
   <SearchSortFilter
     sortCategories={['title', 'date']}
     items={items}
-    itemCategories={['meta']}
+    itemCategories={['meta', 'experiments']}
     type="blog"
     client:load
   />
