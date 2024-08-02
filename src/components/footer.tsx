@@ -13,6 +13,7 @@ const icons = [
     icon: faGithub,
     name: 'github',
     link: 'https://github.com/64bitpandas',
+    me: true,
   },
   {
     icon: faLinkedin,
@@ -23,6 +24,7 @@ const icons = [
     icon: faTwitter,
     name: 'twitter',
     link: 'https://twitter.com/bencuan_',
+    me: true,
   },
   {
     simpleIcon: SiSubstack,

@@ -4,29 +4,40 @@ import Seo from '../components/seo.astro';
 import { XLink } from '../components/links.tsx';
 import '../sass/blog.scss';
 import '../sass/projects.scss';
+import { range } from '../utils/helpers';
 
 const statuses = ['planning', 'development', 'production', 'LTS'];
 
 const activeProjects = [
   {
-    name: 'blog',
+    name: 'whimsical wednesdays',
     status: 'production',
-    link: 'https://bencuan.me/blog',
-    description: ['some thoughts, goals, and dreams.', 'article production in progress.'],
+    link: 'https://bencuan.substack.com',
+    description: ['a weekly-ish newsletter that sometimes updates on wednesdays.', 'subscribe to spectate '],
   },
   {
-    name: 'turtlenet',
+    name: 'san francisco streets',
     status: 'production',
+    link: 'https://bencuan.me/blog/sfstreets',
+    description: ['experimental snapshots into the magic of SF communities and urban exploration.'],
+  },
+  {
+    name: 'berry65',
+    status: 'development',
+    link: 'https://bencuan.substack.com/p/building-a-keyboard-that-can-run',
+    description: ['building and shipping a raspberry pi powered keyboard.'],
+  },
+  {
+    name: 'turtlenet s2',
+    status: 'planning',
     link: 'https://devlog.bencuan.me/series/turtlenet',
-    description: ['a beginner’s guide to homelabbing.', 'prepping for season 2...'],
+    description: ['a beginner’s guide to homelabbing, part 2...'],
   },
   {
-    name: 'notes',
+    name: 'bencuan.me v6',
     status: 'LTS',
-    link: 'https://notes.bencuan.me',
-    description: [
-      'deciphering Berkeley CS classes for general consumption on an Obsidian-friendly markdown rendering engine.',
-    ],
+    link: 'https://github.com/64bitpandas/bencuan.me',
+    description: ['curating wall art and building shelves for my digital home.'],
   },
   // {
   //   name: 'azulea',
@@ -38,44 +49,64 @@ const activeProjects = [
 
 const completedProjects = [
   {
-    name: 'catan',
-    link: 'https://catan.bencuan.me',
-    description: 'roll without replacement for extra spicy strategy',
+    name: 'notes',
+    link: 'https://notes.bencuan.me',
+    description: 'deciphering berkeley computer science classes for general consumption',
+    year: 2023,
+  },
+  {
+    name: 'turtlenet s1',
+    link: 'https://devlog.bencuan.me/welcome-to-turtlenet',
+    description: "a beginner's guide to homelabbing, part 1",
+    year: 2023,
   },
   {
     name: 'amethyst',
     link: 'https://amethyst.bencuan.me',
     description: 'hugo theme for obsidian notes',
+    year: 2023,
+  },
+  {
+    name: 'catan',
+    link: 'https://catan.bencuan.me',
+    description: 'roll without replacement for extra spicy strategy',
+    year: 2023,
   },
   {
     name: 'dotfiles',
     link: 'https://github.com/64bitpandas/dotfiles',
     description: 'pretty linux configs',
+    year: 2018,
   },
   {
     name: 'simultaneous-scrabble',
     link: 'https://scrabbleserver.bencuan.me',
     description: 'multiplayer online scrabble where everyone plays at the same time',
+    year: 2021,
   },
   {
     name: 'inboxier',
     link: 'https://github.com/64bitpandas/inboxier',
     description: 'a true Google Inbox extension for gmail, with built-in bundling',
+    year: 2020,
   },
   {
     name: 'room-of-sounds',
     link: 'https://github.com/64bitpandas/RoomOfSounds',
     description: 'Unity to Max/MSP interoperability demo',
+    year: 2021,
   },
   {
     name: 'piazza-archiver',
     link: 'https://github.com/64bitpandas/piazza-archiver',
     description: 'download all Piazza posts from a course in json format',
+    year: 2022,
   },
   {
     name: 'launchhacks',
     link: 'https://launchhacks.bananium.com',
     description: 'just another high school hackathon',
+    year: 2019,
   },
 ];
 ---
@@ -111,7 +142,6 @@ const completedProjects = [
       </div>
     ))
   }
-
   <h2>completed projects</h2>
   {
     completedProjects.map(proj => (
@@ -123,5 +153,6 @@ const completedProjects = [
       </div>
     ))
   }
-  <!-- </div> -->
 </Layout>
+)) }
+
