@@ -18,6 +18,7 @@ const items = collection.map(item => ({ ...item.data, slug: item.slug }));
     items={items}
     itemCategories={['meta', 'experiments']}
     type="blog"
+    defaultSort={{ category: 'date', state: 'desc' }}
     client:load
   />
 </Layout>
