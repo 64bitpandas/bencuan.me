@@ -25,7 +25,6 @@ export default defineConfig({
     sitemap(),
     mdx(),
   ],
-  output: 'server',
   markdown: {
     remarkPlugins: [
       [
