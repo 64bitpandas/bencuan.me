@@ -1,5 +1,4 @@
 import mdx from '@astrojs/mdx';
-import netlify from '@astrojs/netlify';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import AutoImport from 'astro-auto-import';
