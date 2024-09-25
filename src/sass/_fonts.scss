@@ -182,9 +182,12 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: NotoColorEmoji;
-  src: url('/fonts/NotoColorEmoji-Regular.ttf') format('truetype');
+// iOS doesn't support NotoColorEmoji
+@supports not (-webkit-touch-callout: none) {
+  @font-face {
+    font-family: NotoColorEmoji;
+    src: url('/fonts/NotoColorEmoji-Regular.ttf') format('truetype');
+  }
 }
 
 $header: Novela, Lora, sans-serif;
