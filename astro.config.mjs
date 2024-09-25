@@ -27,7 +27,6 @@ export default defineConfig({
     mdx(),
   ],
   output: 'server',
-  adapter: netlify(),
   markdown: {
     remarkPlugins: [
       [
