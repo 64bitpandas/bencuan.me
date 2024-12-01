@@ -1,3 +1,8 @@
+---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBluesky } from '@fortawesome/free-brands-svg-icons';
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,13 +23,26 @@
         margin: 0;
       }
       h1 {
-        font-size: 3em;
+        font-size: 3.5em;
+      }
+      h2 {
+        font-size: 2em;
+      }
+      svg {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+        display: inline-block;
+        color: #8caaee;
       }
     </style>
   </head>
   <body>
     <h2>bencuan.me is currently</h2>
     <h1>under construction</h1>
-    <h3>see you on the other side :)</h3>
+    <h2>see you on the other side :)</h2>
+    <h3>
+      follow me on <a href="https://bsky.app/profile/bencuan.me"><FontAwesomeIcon icon={faBluesky} /></a> for updates
+    </h3>
   </body>
 </html>
