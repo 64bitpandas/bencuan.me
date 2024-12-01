@@ -52,7 +52,7 @@
     "getfonts": "if [ -f .env ]; then . ./.env; fi; wget -O fonts.zip $FONT_URL && unzip -o fonts.zip -d public/fonts && unzip -o fonts.zip -d public/2022/static && rm fonts.zip",
     "fontcustom": "fontcustom compile src/fontcustom --output public/fonts",
     "prebuild": "yarn run getfonts",
-    "postbuild": "cp -r archives dist"
+    "postbuild": ""
   },
   "repository": {
     "type": "git",
