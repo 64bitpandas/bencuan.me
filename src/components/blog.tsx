@@ -70,6 +70,8 @@ export const FootnoteRef = ({ n, style, children }: footnoteProps) => (
 
 export const Caption = ({ children }: CustomMDProps) => <div className="blog-caption">{children}</div>;
 
+export const Endcard = () => <img src="/img/opengraph/endcard.png" width="200" />;
+
 // Custom components (like Footnotes and Captions) can be found in astro.config.mjs
 export const components = {
   a: MDLink,

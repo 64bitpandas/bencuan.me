@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const imgLink = entry.data.image
-  ? 'https://bencuan.me/img/opengraph/' + entry.data.image
+  ? 'https://bencuan.me/img/' + entry.data.image
   : 'https://bencuan.me/img/opengraph/og-banner.png';
 ---
 

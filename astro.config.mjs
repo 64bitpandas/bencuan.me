@@ -20,6 +20,7 @@ export default defineConfig({
             ['Footnote', 'Footnote'],
             ['FootnoteRef', 'FootnoteRef'],
             ['Caption', 'Caption'],
+            ['Endcard', 'Endcard'],
           ],
         },
       ],
