@@ -5,6 +5,7 @@ import '../sass/blog.scss';
 import '../sass/links.scss';
 import { MDLink } from '../components/links.tsx';
 import { ToDateString } from '../components/factories';
+import { components } from '../components/blog.tsx';
 
 export const prerender = true;
 export async function getStaticPaths() {
@@ -24,5 +25,8 @@ const imgLink = entry.data.image
 <Layout currPage={'blog'} title={entry.data.title} description={entry.data.description} image={imgLink}>
   <h1 class="blog-title">{entry.data.title}</h1>
   <p class="blog-date">{ToDateString(entry.data.date, true)}</p>
-  <Content components={{ a: MDLink }} />
+  <p class="blog-description">{entry.data.description}</p>
+  <div class="blog-content">
+    <Content components={{ ...components, a: MDLink }} />
+  </div>
 </Layout>

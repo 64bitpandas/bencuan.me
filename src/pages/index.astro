@@ -1,68 +1,29 @@
 ---
+import { faRss, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBluesky } from '@fortawesome/free-brands-svg-icons';
-import SocialFeed from '../components/feed';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import Layout from '../components/layout.astro';
+import Visitors from '../components/visitors.tsx';
+import Button from '../components/button.tsx';
+import { ILink, MDLink, XLink } from '../components/links.tsx';
+import '../sass/home.scss';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="me" href="mailto:admin@bencuan.me" />
-    <link rel="webmention" href="https://webmention.io/bencuan.me/webmention" />
-    <title>bencuan.me</title>
-    <style>
-      html {
-        background-color: #24273a; /* Dark background */
-        margin: 0;
-        font-family: 'Novela', Times, serif; /* Serif font */
-        color: #cdd6f4; /* White text */
-      }
-      .main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        height: 100vh;
-      }
-      h1 {
-        font-size: 3.5em;
-      }
-      h2 {
-        font-size: 2em;
-      }
-      svg {
-        width: 1em;
-        height: 1em;
-        vertical-align: -0.125em;
-        display: inline-block;
-        color: #8caaee;
-      }
-      .feed {
-        text-align: center;
-      }
-      .feed p {
-        text-align: center;
-        transform: translateY(-80px);
-      }
-    </style>
-  </head>
-  <div class="main">
-    <h2>bencuan.me is currently</h2>
-    <h1>under construction</h1>
-    <h2>see you on the other side :)</h2>
-    <h3>
-      follow me on <a href="https://bsky.app/profile/bencuan.me"><FontAwesomeIcon icon={faBluesky} /></a> for updates
-    </h3>
+<Layout title="bencuan's website" description="welcome to my website!" currPage="home">
+  <h1 class="name">ben cuan</h1>
+  <p class="splash">I build things and write about them sometimes.</p>
+  <div class="home-buttons">
+    <Button href="/rss.xml"><FontAwesomeIcon icon={faRss} /> rss</Button>
+    <Button href="https://bencuan.substack.com"><FontAwesomeIcon icon={faNewspaper} /> newsletter</Button>
   </div>
 
-  <div class="feed">
-    <p>~~~ keep scrolling for feed ~~~</p>
-    <span class="social-feed"><SocialFeed client:load /></span>
+  <div class="text">
+    <p>> new? read the <ILink href="blog/foreword">foreword</ILink></p>
+    <p>
+      > latest essay: <MDLink extraPretty href="https://bencuan.substack.com/p/the-future-of-bay-area-transit"
+        >the future of bay area transit</MDLink
+      >
+    </p>
+    <p>> see what i'm <ILink href="projects">currently up to...</ILink></p>
+    <p><Visitors client:idle /></p>
   </div>
-
-
-</html>
+</Layout>

@@ -13,11 +13,13 @@ export default defineConfig({
   integrations: [
     react(),
     AutoImport({
+      // Overriden markdown components can be found in the exports for blog.tsx
       imports: [
         {
           './src/components/blog.tsx': [
             ['Footnote', 'Footnote'],
             ['FootnoteRef', 'FootnoteRef'],
+            ['Caption', 'Caption'],
           ],
         },
       ],

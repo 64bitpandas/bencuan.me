@@ -10,61 +10,104 @@
   margin-top: spacing.$s2xl;
 }
 
-h2 {
-  margin-top: spacing.$s2xl;
-  margin-bottom: spacing.$sl;
-  padding: 0;
-  font-size: fonts.$s2;
-  font-weight: 450;
+.blog-date {
+  margin-bottom: 0;
 }
 
-h3 {
-  font-size: fonts.$s1;
-  font-weight: 450;
-  margin-top: spacing.$sxl;
-  margin-bottom: spacing.$ss;
-}
+.blog-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: fonts.$header;
+    font-weight: 500;
+  }
 
-.container {
+  h1 {
+    margin-top: spacing.$sxl;
+    margin-bottom: spacing.$sm;
+  }
+
+  h2 {
+    margin-top: spacing.$sxl;
+    margin-bottom: spacing.$sm;
+    padding: 0;
+    font-size: fonts.$s2;
+    font-weight: 450;
+  }
+
+  h3 {
+    font-size: fonts.$s1;
+    font-weight: 450;
+    margin-top: spacing.$sxl;
+    margin-bottom: spacing.$ss;
+  }
+
+  h4 {
+    font-size: fonts.$s1;
+    font-weight: 450;
+  }
+
   img {
     max-width: 100%;
     margin: spacing.$sm 0;
-  }
-}
-
-p,
-ul,
-ol {
-  font-family: fonts.$body;
-  color: colors.$text;
-  font-size: fonts.$s0;
-}
-
-blockquote {
-  position: relative;
-  margin: 0 0 1.5rem 0;
-  padding: 1rem;
-  background-color: colors.$background-alt;
-
-  p {
-    margin: 0;
+    display: block;
+    margin: 2rem auto;
   }
 
-  &::before {
-    content: '';
-    background-color: colors.$pink;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 3px;
+  p,
+  ul,
+  ol,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .footnote-ref {
+    color: colors.$text;
   }
-}
 
-.astro-code {
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0px 4px 15px -6px rgba(0, 0, 0, 0.75);
+  p,
+  ul,
+  ol,
+  .footnote-ref {
+    font-size: fonts.$s0;
+    font-family: fonts.$body;
+  }
+
+  blockquote {
+    position: relative;
+    margin: 0 0 1.5rem 0;
+    padding: 1rem;
+    background-color: colors.$background-alt;
+
+    p {
+      margin: 0;
+    }
+
+    &::before {
+      content: '';
+      background-color: colors.$pink;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 3px;
+    }
+  }
+
+  .astro-code {
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 4px 15px -6px rgba(0, 0, 0, 0.75);
+  }
+
+  hr {
+    margin: 3rem;
+    border: 1px solid colors.$lavender;
+  }
 }
 
 .footnote-icon,
@@ -169,8 +212,18 @@ blockquote {
   }
 }
 
-.footnote-ref {
-  color: colors.$text;
+.footnote-ref-number {
+  margin-bottom: 1rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.footnote-ref-wrapper {
+  font-family: fonts.$body;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .visitors {
@@ -178,4 +231,11 @@ blockquote {
   color: colors.$text;
   font-family: fonts.$ui;
   margin-left: 2rem;
+}
+
+.blog-caption {
+  font-size: fonts.$s-1;
+  font-family: fonts.$header;
+  text-align: center;
+  color: colors.$text-light;
 }

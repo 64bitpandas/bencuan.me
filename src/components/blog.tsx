@@ -1,7 +1,6 @@
 import { faArrowTurnUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { type ReactNode } from 'react';
-import '../sass/blog.scss';
 import { MDLink } from './links';
 
 type footnoteProps = {
@@ -11,9 +10,13 @@ type footnoteProps = {
   children?: ReactNode;
 };
 
-export const Blockquote = () => (
+type CustomMDProps = {
+  children?: ReactNode;
+};
+
+export const Blockquote = ({ children }: CustomMDProps) => (
   <blockquote className="quote">
-    test quote <slot />
+    {children} <slot />
   </blockquote>
 );
 
@@ -43,8 +46,10 @@ export const Footnote = ({ n, style, children }: footnoteProps) => (
 );
 
 export const FootnoteRef = ({ n, style, children }: footnoteProps) => (
-  <span>
-    <span id={numToId(n, true)}>{children}</span>
+  <div className="footnote-ref-wrapper">
+    <span id={numToId(n, true)} className="footnote-ref">
+      {n}. {children}
+    </span>
     <a
       className="footnote-ref-number footnote-ref"
       href={numToId(n)}
@@ -60,9 +65,12 @@ export const FootnoteRef = ({ n, style, children }: footnoteProps) => (
     >
       <FontAwesomeIcon icon={faArrowTurnUp} className="footnote-icon" />
     </a>
-  </span>
+  </div>
 );
 
+export const Caption = ({ children }: CustomMDProps) => <div className="blog-caption">{children}</div>;
+
+// Custom components (like Footnotes and Captions) can be found in astro.config.mjs
 export const components = {
   a: MDLink,
   blockquote: Blockquote,

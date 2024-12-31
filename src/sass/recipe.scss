@@ -12,102 +12,110 @@ p,
 ul,
 ol,
 li {
-    font-family: fonts.$sans;
-    color: colors.$text;
+  font-family: fonts.$sans;
+  color: colors.$text;
 }
 
 h1,
 h2 {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 h2 {
-    padding-top: 1rem !important;
-    margin-bottom: 0.75rem;
-    font-size: fonts.$s2;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: fonts.$s2;
 }
 
 h3 {
-    margin-top: 2rem;
-    margin-bottom: 0.25rem;
-    font-weight: 400;
-    font-size: fonts.$s1;
+  margin-top: 2rem;
+  margin-bottom: 0.25rem;
+  font-weight: 400;
+  font-size: fonts.$s1;
 }
 
 h4 {
-    font-size: fonts.$s0;
-    font-weight: normal;
+  font-size: fonts.$s0;
+  font-weight: normal;
 }
 
 h5 {
-    font-size: fonts.$s-1;
-    font-weight: normal;
+  font-size: fonts.$s-1;
+  font-weight: normal;
 }
 
 p,
 ul,
 li {
-    font-size: fonts.$s-1;
+  font-size: fonts.$s-1;
 }
 
 ul,
 li {
-    margin: 6px 0.2rem;
+  margin: 6px 0.2rem;
 }
 
-ol, ul {
-    margin-top: 0;
-    padding-left: 20px;
+ol,
+ul {
+  margin-top: 0;
+  padding-left: 20px;
 }
-
 
 .recipe-title {
-    font-family: fonts.$sans;
-    letter-spacing: 1px;
-    font-size: fonts.$s4;
-    font-weight: 500;
-    text-transform: lowercase;
-    margin-top: 1rem;
+  font-family: fonts.$sans;
+  letter-spacing: 1px;
+  font-size: fonts.$s4;
+  font-weight: 500;
+  text-transform: lowercase;
+  margin-top: 1rem;
 }
 
 .recipe-container {
-    margin: 1rem 0;
-    font-size: fonts.$s-1;
-    font-family: fonts.$ui;
+  margin: 1rem 0;
+  font-size: fonts.$s-1;
+  font-family: fonts.$ui;
 }
 
 .ssf-recipe-description {
-    font-family: fonts.$sans;
-    font-size: fonts.$s-2;
+  font-family: fonts.$sans;
+  font-size: fonts.$s-2;
 }
 
 .recipe-description {
-    margin-top: 0;
-    margin-bottom: 0.25rem;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
 }
 
 .recipe-modifiers {
-    margin-top: 0.25rem;
-    margin-bottom: 2rem;
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
 }
 
 .recipe-icon {
-    font-size: fonts.$s-2;
-    padding: 1px;
+  font-size: fonts.$s-2;
+  padding: 1px;
 }
 
 .star {
-    color: colors.$yellow;
+  color: colors.$yellow;
 }
 
 .sprout {
-    color: colors.$green;
+  color: colors.$green;
 }
 
 .pepper {
-    color: colors.$red;
+  color: colors.$red;
 }
 
 .clock {
-    color: colors.$blue;
+  color: colors.$blue;
+}
+
+.footnote-ref,
+.footnote-ref-number {
+  color: colors.$blue;
+  font-family: fonts.$header;
+  text-decoration: none;
 }
