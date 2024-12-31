@@ -1,37 +1,146 @@
 @use 'fonts';
 @use 'colors';
 @use 'mixins';
+@use 'spacing';
 
 $padding: 10vw;
 
+// Root variables
 :root {
   --rt-transition-closing-delay: 0.15s;
   --rt-opacity: 1;
 }
 
+// Base elements
 html {
   scroll-behavior: smooth;
 
   @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
+    scroll-behavior: auto;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+
+    &-thumb {
+      background: #a8b0df;
+      border-radius: 3px;
+    }
+
+    &-track {
+      background-color: colors.$background-alt;
     }
   }
 }
 
-h1,
-h2,
-h3 {
-  color: colors.$text;
-  font-family: fonts.$header;
+body {
+  margin: 0;
+  background-color: colors.$background;
+  overflow-x: hidden;
 }
 
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: fonts.$header;
+  font-weight: 450;
+}
+
+p,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+.footnote-ref {
+  color: colors.$text;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  font-size: fonts.$s2;
+}
+
+h3,
+h4 {
+  font-size: fonts.$s1;
+}
+
+p {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+}
+
+code {
+  font-family: fonts.$code;
+}
+
+p,
+ul,
+ol,
+.footnote-ref {
+  font-size: fonts.$s0;
+  font-family: fonts.$body;
+}
+
+// Layout components
+.body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+
+  @include mixins.screen('not-desktop') {
+    z-index: 1;
+  }
+}
+
+.container {
+  padding: 0 $padding;
+  width: min(80vw, 1024px);
+  margin: auto;
+
+  @include mixins.screen('mobile') {
+    width: min(90vw, 1024px);
+    padding: 0 calc($padding / 2);
+    padding-top: 6rem;
+  }
+}
+
+footer {
+  bottom: 0;
+  padding: 3rem $padding;
+  color: colors.$text;
+  font-family: fonts.$ui;
+  font-weight: 200;
+
+  @include mixins.screen('not-desktop') {
+    text-align: center;
+  }
+}
+
+// UI Elements
 summary,
 details {
   font-family: fonts.$ui;
+
   table {
     width: 100%;
   }
+
   tr,
   td {
     height: 20px;
@@ -50,66 +159,34 @@ details {
   font-size: fonts.$s-1;
 }
 
-h1 {
-  margin: 0;
-}
+blockquote {
+  position: relative;
+  margin: 0 0 1.5rem 0;
+  padding: 1rem;
+  background-color: colors.$background-alt;
 
-body {
-  margin: 0;
-  background-color: colors.$background;
-  overflow-x: hidden;
-}
+  p {
+    margin: 0;
+  }
 
-.body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
-
-  @include mixins.screen('not-desktop') {
-    z-index: 1;
+  &::before {
+    content: '';
+    background-color: colors.$pink;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
   }
 }
 
-code {
-  font-family: fonts.$code;
+.astro-code {
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0px 4px 15px -6px rgba(0, 0, 0, 0.75);
 }
 
-::selection {
-  background-color: #babbf1;
-}
-
-footer {
-  bottom: 0;
-  padding: 3rem $padding;
-  color: colors.$text;
-  font-family: fonts.$ui;
-  font-weight: 200;
-
-  @include mixins.screen('not-desktop') {
-    text-align: center;
-  }
-}
-
-.showarchive {
-  cursor: pointer;
-}
-
-.container {
-  padding: 0 $padding;
-  width: min(80vw, 1024px);
-  margin: auto;
-
-  @include mixins.screen('mobile') {
-    width: min(90vw, 1024px);
-    padding: 0 calc($padding / 2);
-    padding-top: 6rem;
-  }
-}
-
+// Utility classes
 .title {
   color: colors.$text;
   font-family: fonts.$special;
@@ -122,44 +199,36 @@ footer {
   font-family: fonts.$body;
 }
 
-p {
-  color: colors.$text;
-  font-family: fonts.$body;
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  margin-top: 0;
-}
-
 .ui-text,
 .ui-text p {
   font-family: fonts.$ui;
   color: colors.$text;
 }
 
-// SCROLLBAR
-html::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-html::-webkit-scrollbar-thumb {
-  background: #a8b0df;
-  border-radius: 3px;
-}
-
-html::-webkit-scrollbar-track {
-  background-color: colors.$background-alt;
-}
-
 .small-text {
   font-size: fonts.$s-1;
 }
 
+.showarchive {
+  cursor: pointer;
+}
+
+.friends {
+  padding-top: 2rem;
+  img {
+    margin: 0 !important;
+  }
+}
+
+// Selection styles
+::selection {
+  background-color: #babbf1;
+}
+
+// Tooltip styles
 .react-tooltip {
-  /* From https://css.glass */
   background: rgba(30, 102, 245) !important;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
-  // backdrop-filter: blur(12px) !important;
   color: white !important;
   font-family: fonts.$ui;
   padding: 2px 5px !important;
@@ -179,12 +248,5 @@ html::-webkit-scrollbar-track {
   to {
     opacity: 0;
     transform: translateY(15px);
-  }
-}
-
-.friends {
-  padding-top: 2rem;
-  img {
-    margin: 0 !important;
   }
 }
