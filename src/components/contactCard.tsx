@@ -1,4 +1,4 @@
-import { faLinkedin, faMastodon, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faBluesky, faLinkedin, faMastodon, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRef } from 'react';
@@ -25,13 +25,13 @@ const ContactCard = () => {
       </p>
 
       <p>
-        <FontAwesomeIcon icon={faTwitter} className="contact-icon" />
-        <b>twitter:</b> <MDLink href="https://twitter.com/bencuan_">@bencuan_</MDLink>
+        <FontAwesomeIcon icon={faBluesky} className="contact-icon" />
+        <b>bluesky:</b> <MDLink href="https://bsky.app/profile/bencuan.me">@bencuan.me</MDLink>
       </p>
 
       <p>
-        <FontAwesomeIcon icon={faMastodon} className="contact-icon" />
-        <b>mastodon:</b> <MDLink href="https://hachyderm.io/@bencuan">@bencuan@hachyderm.io</MDLink>
+        <FontAwesomeIcon icon={faTwitter} className="contact-icon" />
+        <b>twitter:</b> <MDLink href="https://twitter.com/bencuan_">@bencuan_</MDLink>
       </p>
 
       <p>
