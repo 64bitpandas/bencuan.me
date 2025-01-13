@@ -6,7 +6,7 @@ import '../sass/blog.scss';
 import { getCollection } from 'astro:content';
 
 const collection = await getCollection('blog');
-const items = collection.map(item => ({ ...item.data, slug: 'blog/' + item.slug }));
+const items = collection.map(item => ({ ...item.data, slug: '/blog/' + item.slug }));
 ---
 
 <Layout title="bencuan's blog" description="long-form writing projects" currPage="blog">
