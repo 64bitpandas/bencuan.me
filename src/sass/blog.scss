@@ -36,6 +36,14 @@
     margin: 3rem;
     border: 1px solid colors.$lavender;
   }
+
+  img {
+    max-width: 100%;
+    display: block;
+    margin-top: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 .footnote-icon,
@@ -166,12 +174,4 @@
   font-family: fonts.$header;
   text-align: center;
   color: colors.$text-light;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-  margin-top: 2rem;
-  margin-right: auto;
-  margin-left: auto;
 }

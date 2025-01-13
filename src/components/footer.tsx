@@ -1,4 +1,4 @@
-import { faGithub, faLinkedin, faMastodon, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faBluesky, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // https://github.com/icons-pack/react-simple-icons/issues/208
 // get rid of this one fontawesome adds substack...
@@ -9,6 +9,11 @@ import '../sass/footer.scss';
 import { ILink, XLink } from './links';
 
 const icons = [
+  {
+    simpleIcon: SiSubstack,
+    name: 'substack',
+    link: 'https://substack.com/@bencuan',
+  },
   {
     icon: faGithub,
     name: 'github',
@@ -21,20 +26,15 @@ const icons = [
     link: 'https://linkedin.com/in/bencuan',
   },
   {
-    icon: faTwitter,
-    name: 'twitter',
-    link: 'https://twitter.com/bencuan_',
+    icon: faBluesky,
+    name: 'bluesky',
+    link: 'https://bsky.app/profile/bencuan.me',
     me: true,
   },
   {
-    simpleIcon: SiSubstack,
-    name: 'substack',
-    link: 'https://substack.com/@bencuan',
-  },
-  {
-    icon: faMastodon,
-    name: 'mastodon',
-    link: 'https://hachyderm.io/@bencuan',
+    icon: faTwitter,
+    name: 'twitter',
+    link: 'https://twitter.com/bencuan_',
     me: true,
   },
 ];
