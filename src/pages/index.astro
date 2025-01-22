@@ -28,7 +28,13 @@ import recommendations from '../recommendations.json';
     <p>> see what i'm <ILink href="projects">currently up to...</ILink></p>
     <p><Visitors client:idle /></p>
     <p><b>keep scrolling for recs~</b></p>
-    <p>the doomscroller is currently under construction. please pardon the dust 🏗️</p>
+    <p>
+      the <MDLink
+        extraPretty
+        href="https://open.substack.com/pub/bencuan/p/s2w4-my-website-now-has-doomscroll?r=3axqei&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true"
+        >doomscroller</MDLink
+      > is currently under construction. please pardon the dust 🏗️
+    </p>
   </div>
 
   <Doomscroll client:idle recommendations={recommendations} />
