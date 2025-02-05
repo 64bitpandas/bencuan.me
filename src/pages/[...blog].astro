@@ -6,6 +6,7 @@ import '../sass/links.scss';
 import { MDLink } from '../components/links.tsx';
 import { ToDateString } from '../components/factories';
 import { components } from '../components/blog.tsx';
+import Comments from '../components/bluesky.tsx';
 
 export const prerender = true;
 export async function getStaticPaths() {
@@ -29,4 +30,5 @@ const imgLink = entry.data.image
   <div class="blog-content">
     <Content components={{ ...components, a: MDLink }} />
   </div>
+  <Comments client:idle />
 </Layout>

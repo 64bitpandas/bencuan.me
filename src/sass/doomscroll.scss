@@ -168,13 +168,3 @@
     gap: 1rem;
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --card-bg: #1a1a1a;
-    --card-border: #333333;
-    --card-shadow: rgba(0, 0, 0, 0.3);
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-  }
-}
