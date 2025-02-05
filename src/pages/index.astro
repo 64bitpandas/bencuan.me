@@ -14,18 +14,20 @@ import recommendations from '../recommendations.json';
 
 <Layout title="bencuan's website" description="welcome to my website!" currPage="home">
   <h1 class="name">ben cuan</h1>
-  <p class="splash">I build things and write about them sometimes.</p>
+  <p class="splash">welcome to my internet home!</p>
   <div class="home-buttons">
     <Button href="/rss.xml"><FontAwesomeIcon icon={faRss} /> rss</Button>
     <Button href="https://bencuan.substack.com"><FontAwesomeIcon icon={faNewspaper} /> newsletter</Button>
   </div>
 
   <div class="text">
-    <p>> new? read the <ILink href="blog/foreword">foreword</ILink></p>
     <p>
-      > latest essay: <MDLink extraPretty href="https://bencuan.me/blog/transit">the future of bay area transit</MDLink>
+      > latest essay: <ILink href="blog/transit">the future of bay area transit</ILink>
     </p>
-    <p>> see what i'm <ILink href="projects">currently up to...</ILink></p>
+    <p>
+      > weekly musings every wednesday @ 9am on <MDLink extraPretty href="https://bencuan.substack.com">substack</MDLink
+      >
+    </p>
     <p><Visitors client:idle /></p>
     <p><b>keep scrolling for recs~</b></p>
     <p>
