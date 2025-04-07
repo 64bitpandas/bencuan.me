@@ -6,10 +6,7 @@ import Visitors from '../components/visitors.tsx';
 import Button from '../components/button.tsx';
 import { ILink, MDLink, XLink } from '../components/links.tsx';
 import '../sass/home.scss';
-import Doomscroll from '../components/doomscroll';
 import '../sass/doomscroll.scss';
-
-import recommendations from '../recommendations.json';
 ---
 
 <Layout title="bencuan's website" description="welcome to my website!" currPage="home">
@@ -29,15 +26,15 @@ import recommendations from '../recommendations.json';
       >
     </p>
     <p><Visitors client:idle /></p>
-    <p><b>keep scrolling for recs~</b></p>
+    <!-- <p><b>keep scrolling for recs~</b></p>
     <p>
       the <MDLink
         extraPretty
         href="https://open.substack.com/pub/bencuan/p/s2w4-my-website-now-has-doomscroll?r=3axqei&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true"
         >doomscroller</MDLink
       > is currently under construction. please pardon the dust 🏗️
-    </p>
+    </p> -->
   </div>
 
-  <Doomscroll client:idle recommendations={recommendations} />
+  <!-- <Doomscroll client:idle recommendations={recommendations} /> -->
 </Layout>

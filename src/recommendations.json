@@ -288,6 +288,13 @@
   },
   {
     "category": "blog",
+    "title": "You should have a website",
+    "author": "Nora Reed",
+    "description": "",
+    "url": "https://nora.zone/manifesto.html"
+  },
+  {
+    "category": "blog",
     "title": "Reflections on Palantir",
     "author": "Nabeel S. Qureshi",
     "description": "",
