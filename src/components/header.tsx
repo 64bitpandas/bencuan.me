@@ -22,10 +22,6 @@ const links: HeaderLink[] = [
     url: '/blog',
   },
   {
-    name: 'about',
-    url: '/about',
-  },
-  {
     name: 'friends',
     url: '/friends',
   },

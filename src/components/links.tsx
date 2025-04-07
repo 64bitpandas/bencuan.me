@@ -25,7 +25,10 @@ const stripHttp = (href: string, extraPretty: boolean) => {
 
 /** Link to an external website. */
 export const XLink = ({ href, label, children, className, hasArrow = true, tooltipContent }: xProps) => {
-  const id = uuid().toString().substring(0, 6);
+  // Remove uuid generation since it causes hydration mismatches
+  // Instead, create a stable ID based on the href
+  const id = href.replace(/[^a-zA-Z0-9]/g, '').substring(0, 6);
+
   return (
     <>
       <a
