@@ -32,6 +32,11 @@
     margin-bottom: spacing.$ss;
   }
 
+  h4 {
+    margin-top: spacing.$sl;
+    margin-bottom: spacing.$ss;
+  }
+
   hr {
     margin: 3rem;
     border: 1px solid colors.$lavender;
@@ -43,6 +48,23 @@
     margin-top: 2rem;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  p {
+    font-family: fonts.$sans;
+  }
+
+  li {
+    p {
+      margin-bottom: 0.7rem;
+    }
+    ::marker {
+      font-family: fonts.$sans;
+    }
+  }
+
+  ul {
+    margin-top: 0;
   }
 }
 

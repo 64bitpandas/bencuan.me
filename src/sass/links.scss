@@ -20,8 +20,9 @@
 
       color: colors.$blue;
 
-      + .custom-tooltip {
+      .custom-tooltip {
         transform: translateY(0px) !important;
+        opacity: 1;
       }
     }
 
@@ -45,15 +46,16 @@
 
 .blue-link {
   color: colors.$lavender !important;
-  // font-family: fonts.$ui;
   transition: all 0.25s ease-in-out;
 
-  &::before {
-    background-color: colors.$lavender !important;
-  }
+  @include mixins.screen('not-mobile') {
+    &::before {
+      background-color: colors.$lavender !important;
+    }
 
-  &:hover {
-    color: colors.$pink !important;
+    &:hover {
+      color: colors.$pink !important;
+    }
   }
 }
 

@@ -228,6 +228,9 @@ blockquote {
 
 // Tooltip styles
 .react-tooltip {
+  @include mixins.screen('mobile') {
+    display: none !important;
+  }
   background: rgba(30, 102, 245) !important;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
   color: white !important;
