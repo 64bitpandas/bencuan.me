@@ -62,6 +62,11 @@ const Footer = () => {
 
   return (
     <footer>
+      <script
+        data-goatcounter="https://goatcounter.bencuan.me/count"
+        async
+        src="//goatcounter.bencuan.me/count.js"
+      ></script>
       <hr />
 
       <div className="footer-icons">
