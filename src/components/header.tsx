@@ -22,6 +22,10 @@ const links: HeaderLink[] = [
     url: '/blog',
   },
   {
+    name: 'garden',
+    url: 'https://garden.bencuan.me',
+  },
+  {
     name: 'friends',
     url: '/friends',
   },
