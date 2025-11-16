@@ -1,201 +1,139 @@
 @use '../../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
 
 @font-face {
-  font-family: Rubik;
+  font-family: Pangaia;
   font-style: normal;
-  src: url('/fonts/Rubik-VariableFont_wght.ttf');
+  font-weight: 200;
   font-display: swap;
+  src: url('/fonts/Pangaia/PPPangaia-Ultralight.otf') format('opentype');
 }
 
 @font-face {
-  font-family: Rubik;
+  font-family: Pangaia;
   font-style: italic;
-  src: url('/fonts/Rubik-Italic-VariableFont_wght.ttf');
+  font-weight: 200;
   font-display: swap;
+  src: url('/fonts/Pangaia/PPPangaia-UltralightItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Pangaia;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Pangaia/PPPangaia-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Pangaia;
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Pangaia/PPPangaia-MediumItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Pangaia;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Pangaia/PPPangaia-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Pangaia;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Pangaia/PPPangaia-BoldItalic.otf') format('opentype');
 }
 
 @font-face {
   font-family: Fraktion;
-  src: url('/fonts/PPFraktionSans-Variable.ttf');
-  font-weight: 1 999;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: NeueMontreal;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100 900;
   font-display: swap;
-  src: url('/fonts/PPNeueMontreal-Regular.woff2');
+  src: url('/fonts/Fraktion Sans/PPFraktionSans-Variable.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: NeueMontreal;
+  font-family: Novela;
   font-style: normal;
-  font-weight: lighter;
+  font-weight: 400;
   font-display: swap;
-  src: url('/fonts/PPNeueMontreal-Book.woff2');
+  src: url('/fonts/Novela/novela-regular-webfont.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: NeueMontreal;
+  font-family: Novela;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Novela/novela-regularitalic-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Novela;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   font-display: swap;
-  src: url('/fonts/PPNeueMontreal-Bold.woff2');
+  src: url('/fonts/Novela/novela-semibold-webfont.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: NeueMontreal;
+  font-family: Novela;
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/Novela/novela-semibolditalic-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Novela;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   font-display: swap;
-  src: url('/fonts/PPNeueMontreal-Medium.woff2') format('woff2');
+  src: url('/fonts/Novela/novela-bold-webfont.woff2') format('woff2');
 }
 
 @font-face {
   font-family: Novela;
-  src: url('/fonts/novela-black-webfont.woff2') format('woff2');
-  font-weight: bolder;
+  font-style: italic;
+  font-weight: 700;
   font-display: swap;
+  src: url('/fonts/Novela/novela-bolditalic-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Novela;
   font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/Novela/novela-black-webfont.woff2') format('woff2');
 }
 
 @font-face {
   font-family: Novela;
-  src: url('/fonts/novela-blackitalic-webfont.woff2') format('woff2');
-  font-weight: bolder;
-  font-display: swap;
   font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/Novela/novela-blackitalic-webfont.woff2') format('woff2');
 }
 
 @font-face {
   font-family: Novela;
-  src: url('/fonts/novela-bold-webfont.woff2') format('woff2');
-  font-weight: bold;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Novela;
-  src: url('/fonts/novela-bolditalic-webfont.woff2') format('woff2');
-  font-weight: bold;
-  font-display: swap;
   font-style: italic;
-}
-
-@font-face {
-  font-family: Novela;
-  src: url('/fonts/novela-regular-webfont.woff2') format('woff2');
-  font-weight: normal;
+  font-weight: 100;
   font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Novela;
-  src: url('/fonts/novela-regularitalic-webfont.woff2') format('woff2');
-  font-weight: normal;
-  font-display: swap;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: Novela;
-  src: url('/fonts/novela-semibold-webfont.woff2') format('woff2');
-  font-weight: 500;
-  font-display: swap;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: Novela;
-  src: url('/fonts/novela/novela-semibolditalic-webfont.woff2') format('woff2');
-  font-weight: 500;
-  font-display: swap;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: Lora;
-  src: url('/fonts/Lora-VariableFont_wght.ttf') format('ttf');
-  font-weight: 1 999;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Lora;
-  src: url('/fonts/Lora-Italic-VariableFont_wght.ttf') format('truetype');
-  font-weight: 1 999;
-  font-display: swap;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: Eiko;
-  src: url('/fonts/PPEiko-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Eiko;
-  src: url('/fonts/PPEiko-Heavy.ttf') format('truetype');
-  font-weight: bold;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Eiko;
-  src: url('/fonts/PPEiko-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Pine;
-  src: url('/fonts/PineTree.otf') format('opentype');
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Garamond;
-  src: url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
-  font-weight: 1 999;
-  font-display: swap;
-}
-
-@font-face {
-  font-style: italic;
-  font-family: Garamond;
-  src: url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
-  font-display: swap;
-  font-weight: 1 999;
-}
-
-@font-face {
-  font-family: FiraCode;
-  src: url('/fonts/FiraCode-VF.ttf') format('truetype');
-  font-weight: 1 999;
-  font-display: swap;
-}
-
-// iOS doesn't support NotoColorEmoji
-@supports not (-webkit-touch-callout: none) {
-  @font-face {
-    font-family: NotoColorEmoji;
-    src: url('/fonts/NotoColorEmoji-Regular.ttf') format('truetype');
-  }
+  src: url('/fonts/Novela/novela-displayitalic-webfont.woff2') format('woff2');
 }
 
 $header: Novela, Lora, sans-serif;
-$body: Garamond, Lora, NotoColorEmoji, serif;
-$ui: Fraktion, Rubik, NotoColorEmoji, sans-serif;
-$special: Pine, Novela, NotoColorEmoji, sans-serif;
-$code: FiraCode, NotoColorEmoji, monospace;
-$sans: NeueMontreal, NotoColorEmoji, sans-serif;
+$body: Garamond, Lora, serif;
+$ui: Fraktion, Rubik, sans-serif;
+$special: Pangaia, Novela, sans-serif;
+$code: FiraCode, monospace;
+$sans: NeueMontreal, sans-serif;
 
 $s-2: clamp(0.774rem, 0.81rem + -0.048vi, 0.8rem);
 $s-1: clamp(1rem, 0.989rem + 0.057vi, 1.032rem);
