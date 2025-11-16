@@ -6,6 +6,7 @@ Disallow: /2020/
 Disallow: /2021/
 Disallow: /2022/
 Disallow: /2023/
+Disallow: /2024/
 Allow: /
 
 Sitemap: https://bencuan.me/sitemap-index.xml
