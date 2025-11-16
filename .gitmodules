@@ -1,0 +1,3 @@
+[submodule "public/fonts"]
+	path = public/fonts
+	url = https://github.com/64bitpandas/fonts
