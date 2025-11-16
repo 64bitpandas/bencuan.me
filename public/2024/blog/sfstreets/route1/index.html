@@ -1,0 +1,229 @@
+<!DOCTYPE html><!--
+The Layout component serves as the base component in which all content should be wrapped around.
+--><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"><title>sfstreets route v1</title><link rel="canonical" href="https://bencuan.me/2024/blog/sfstreets/route1/"><meta name="description" content="walking through every sf neighborhood in one day"><meta name="robots" content="index, follow"><meta property="og:title" content="sfstreets route v1"><meta property="og:type" content="website"><meta property="og:image" content="https://bencuan.me/img/sfstreets-route/sfstreets.png"><meta property="og:url" content="https://bencuan.me/2024/blog/sfstreets/route1/"><meta property="og:site_name" content="bencuan's site"><meta name="twitter:creator" content="@bencuan_"><link rel="icon" href="/favicon.ico"><meta content="https://bencuan.me/img/sfstreets-route/sfstreets.png" name="twitter:image"><meta content="sfstreets route v1" name="twitter:title"><meta content="walking through every sf neighborhood in one day" name="twitter:description"><link rel="icon" type="image/png" href="/favicon.png"><link rel="sitemap" href="/sitemap-index.xml"><link rel="stylesheet" href="/2024/_astro/_blog_.Cfbci-kB.css">
+<link rel="stylesheet" href="/2024/_astro/blog.MAj_olhn.css">
+<link rel="stylesheet" href="/2024/_astro/_blog_.C0sWQMJD.css">
+<style>._container_1pvtk_1{max-width:740px;margin:0 auto}._statsBar_1pvtk_6{display:flex;align-items:center;gap:.5rem}._statsBar_1pvtk_6:hover{text-decoration:underline}._statItem_1pvtk_16{display:flex;align-items:center;gap:.25rem;white-space:nowrap}._container_1pvtk_1 a._link_1pvtk_23,._container_1pvtk_1 a._link_1pvtk_23:hover{text-decoration:underline}._icon_1pvtk_31{width:1.25rem;height:1.25rem}._errorText_1pvtk_36,._loadingText_1pvtk_36{text-align:center}._commentsTitle_1pvtk_40{margin-top:1.5rem;font-size:1.25rem;font-weight:700}._replyText_1pvtk_46{margin-top:.5rem;font-size:.875rem}._divider_1pvtk_51{margin-top:.5rem}._commentsList_1pvtk_55{margin-top:.5rem;display:flex;flex-direction:column;gap:.5rem}._container_1pvtk_1 ._showMoreButton_1pvtk_62{margin-top:.5rem;font-size:.875rem;text-decoration:underline}._container_1pvtk_1 ._showMoreButton_1pvtk_62:hover{text-decoration:underline}._commentContainer_1pvtk_72{margin:1rem 0;font-size:.875rem}._commentContent_1pvtk_77{display:flex;max-width:36rem;flex-direction:column;gap:.5rem}._authorLink_1pvtk_84{display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:.5rem}._authorLink_1pvtk_84:hover{text-decoration:underline}._avatar_1pvtk_96{height:1rem;width:1rem;flex-shrink:0;border-radius:9999px;background-color:#d1d5db}._authorName_1pvtk_104{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}._container_1pvtk_1 a{text-decoration:none;color:inherit}._container_1pvtk_1 a:hover{text-decoration:none}._commentContent_1pvtk_77 ._handle_1pvtk_122{color:#6b7280}._repliesContainer_1pvtk_125{border-left:2px solid #525252;padding-left:.5rem}._actionsContainer_1pvtk_130{margin-top:.5rem;display:flex;width:100%;max-width:150px;flex-direction:row;align-items:center;justify-content:space-between;opacity:.6}._actionsRow_1pvtk_142{display:flex;align-items:center;gap:.25rem}
+</style>
+<link rel="stylesheet" href="/2024/_astro/bluesky.BxeAOzOr.css">
+<link rel="stylesheet" href="/2024/_astro/links.Cb2-Czyh.css"></head> <div class="body"> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var l=(n,t)=>{let i=async()=>{await(await n())()},e=typeof t.value=="object"?t.value:void 0,s={timeout:e==null?void 0:e.timeout};"requestIdleCallback"in window?window.requestIdleCallback(i,s):setTimeout(i,s.timeout||200)};(self.Astro||(self.Astro={})).idle=l;window.dispatchEvent(new Event("astro:idle"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z2lMVpA" prefix="r3" component-url="/2024/_astro/_astro-entry_react-tooltip.DSx8ICfl.js" component-export="Tooltip" renderer-url="/2024/_astro/client.CTB0G95p.js" props="{&quot;disableStyleInjection&quot;:[0,true],&quot;id&quot;:[0,&quot;tooltip&quot;],&quot;className&quot;:[0,&quot;link-tooltip&quot;],&quot;noArrow&quot;:[0,true],&quot;delayShow&quot;:[0,150],&quot;delayHide&quot;:[0,150]}" ssr client="idle" opts="{&quot;name&quot;:&quot;Tooltip&quot;,&quot;value&quot;:true}"></astro-island> <astro-island uid="2heNEF" prefix="r19" component-url="/2024/_astro/header.B0PCz96h.js" component-export="default" renderer-url="/2024/_astro/client.CTB0G95p.js" props="{&quot;currPage&quot;:[0,&quot;blog&quot;],&quot;customPages&quot;:[0]}" ssr client="idle" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children><header><div class="nav-container mobile-hidden"><div class="nav-links"><span class="nav-link"><a class="link nav-link" href="/">home</a><span> / </span></span><span class="nav-link"><a class="link nav-link nav-current" href="/blog">blog</a><span> / </span></span><span class="nav-link"><a class="link nav-link" href="https://garden.bencuan.me">garden</a><span> / </span></span><span class="nav-link"><a class="link nav-link" href="/friends">friends</a></span></div><a class="link nav-link nav-more" href="#"><span>more</span></a></div><div class="nav-more-menu-container"><div class="nav-more-menu nav-invisible nav-more-menu-initial"><div class="more-link-container"><a class="nav-link more-link" href="/projects">projects<!-- --> <img src="/2024/_astro/chalkboard.Dp_RCeUj.svg" alt="image of projects" class="more-link-icon"/></a></div><div class="more-link-container"><a class="nav-link more-link" href="/bookshelf">bookshelf<!-- --> <img src="/2024/_astro/book.DLzbZGyV.svg" alt="image of bookshelf" class="more-link-icon"/></a></div><div class="more-link-container"><a class="nav-link more-link" href="/recipes">recipes<!-- --> <img src="/2024/_astro/kitchen.B525iRmu.svg" alt="image of recipes" class="more-link-icon"/></a></div><div class="more-link-container"><a class="nav-link more-link" href="https://status.tsh.sh">services<!-- --> <img src="/2024/_astro/turtlenet.B7y72-VN.svg" alt="image of services" class="more-link-icon"/></a></div><div class="more-link-container"><a class="nav-link more-link" href="https://hexcaliber.dev">games<!-- --> <img src="/2024/_astro/hexcaliber.t3Nriz8H.svg" alt="image of games" class="more-link-icon"/></a></div></div></div><div class="nav-container-mobile"><button class="hamburger hamburger--vortex " type="button" aria-label="Menu" aria-controls="navigation" aria-expanded="false"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button></div></header><!--astro:end--></astro-island> <main class="container">  <h1 class="blog-title">sfstreets route v1</h1> <p class="blog-date">May 16, 2024</p> <p class="blog-description">walking through every sf neighborhood in one day</p> <div class="blog-content"> <p>v1.0, 2024</p>
+<p><img src="/img/sfstreets-route/sfstreets.png" alt="sfstreets-map"/></p>
+<blockquote class="quote">
+<p>🚧 This document is archived as of August 25, 2024. Some information may be outdated!</p>
+ <slot></slot></blockquote>
+<h2 id="introduction">Introduction</h2>
+<p>The San Francisco Streets Project aims to answer one question: <strong>Is it possible to walk through every major neighborhood in San Francisco in one day?</strong></p>
+<p>SF is a very unique city, given its shape as a 7-mile-by-7-mile square surrounded on three sides by water. It may well be the only large city in the United States in which this is possible.</p>
+<p>This draft is a first attempt at a solution. The route starts off at the Bayshore Caltrain Station at 9am and ends it off walking along Ocean Beach at sunset, before we loop back to the BART line.</p>
+<blockquote class="quote">
+<p><strong>Anyone is welcome to join for any segment of the journey!</strong></p>
+<p>The inaugural SFS tour will take place in early July. <br/><br/></p>
+<p>If you’re interested in being involved, <a href="https://bencuan.me/contact" class="internal-link">contact me</a> and include your phone number so I can add you to a WhatsApp group with live location sharing. You can meet us at any point in the day :)</p>
+ <slot></slot></blockquote>
+<h3 id="a-birds-eye-view">A birds-eye view</h3>
+<p><strong>11-12 hours total</strong>: Target arrival at Bayshore ~9am, arrival to Ocean Beach ~8:30pm (sunset time in early june)</p>
+<ul>
+<li>The northbound Caltrain gets into Bayshore at 8:44am.</li>
+</ul>
+<p><strong>6 main walking segments</strong></p>
+<ul>
+<li>6.5 hours to walk 16 miles (25 minute pace, casual walking)</li>
+<li>3-4 hours of breaks for food and sightseeing</li>
+</ul>
+<p><strong>5 transit segments</strong></p>
+<ul>
+<li>20 mins on BART</li>
+<li>20 mins on the T Line</li>
+<li>20 mins on the K Line</li>
+<li>50 mins on the 38R (in 2 parts)</li>
+</ul>
+<p><strong>1 rideshare segment</strong></p>
+<ul>
+<li>15 minutes</li>
+</ul>
+<h3 id="neighborhood-list">Neighborhood list</h3>
+<p><strong>This route traverses the following neighborhoods in order:</strong></p>
+<p><strong>Part 1</strong></p>
+<ol>
+<li>Bayshore</li>
+<li>Sunnydale</li>
+<li>Visitacion Valley</li>
+<li>Excelsior</li>
+<li>Portola</li>
+<li>Bayview</li>
+<li>Hunters Point</li>
+</ol>
+<p><strong>Part 2</strong></p>
+<ol start="8">
+<li>Dogpatch</li>
+<li>Mission Bay</li>
+<li>Potrero Hill</li>
+<li>Mission District</li>
+</ol>
+<p><strong>Part 3</strong></p>
+<ol start="12">
+<li>Glen Park</li>
+<li>Twin Peaks</li>
+<li>Noe Valley</li>
+<li>Eureka Valley</li>
+<li>The Castro</li>
+<li>Duboce Triangle</li>
+<li>The Haight</li>
+<li>Hayes Valley</li>
+<li>Fillmore District</li>
+<li>Civic Center</li>
+<li>Nob Hill</li>
+<li>Tenderloin</li>
+<li>Union Square</li>
+</ol>
+<p><strong>Part 4</strong></p>
+<ol start="25">
+<li>SoMa</li>
+<li>Financial District</li>
+<li>The Embarcadero</li>
+<li>Chinatown</li>
+<li>North Beach</li>
+<li>Russian Hill</li>
+</ol>
+<p><strong>Part 5</strong></p>
+<ol start="31">
+<li>Fort Mason</li>
+<li>Marina District</li>
+<li>Pacific Heights</li>
+<li>Japantown</li>
+<li>Richmond District</li>
+</ol>
+<p><strong>Part 6</strong></p>
+<ol start="36">
+<li>Outer Richmond</li>
+<li>Sutro Heights</li>
+<li>Golden Gate Park</li>
+<li>Outer Sunset</li>
+<li>West Portal</li>
+<li>Balboa Park</li>
+</ol>
+<h2 id="route-details">Route Details</h2>
+<h3 id="part-1-sunnydalevisitacion-valleyexcelsiorportola">Part 1: Sunnydale/Visitacion Valley/Excelsior/Portola</h3>
+<p>1.25 hour walk, 3 miles.</p>
+<ul>
+<li><strong>Start:</strong> Bayshore Caltrain Station @ 9:00am</li>
+<li><strong>End:</strong> Gilman/Paul Station (T Line) @ 10:30am</li>
+<li>includes a coffee stop at <a class="blue-link" href="https://missionbluesf.com/" target="_blank" rel="noreferrer" aria-label="https://missionbluesf.com/" id="link-httpsm" data-tooltip-content="missionbluesf.com/" data-tooltip-id="tooltip">Mission Blue<span class="arrow"> ↗</span></a>.</li>
+</ul>
+<p><a class="blue-link" href="https://maps.app.goo.gl/zsjPertXnsh2P2ZW7" target="_blank" rel="noreferrer" aria-label="https://maps.app.goo.gl/zsjPertXnsh2P2ZW7" id="link-httpsm" data-tooltip-content="maps.app.goo.gl/zsjPertXnsh2P2ZW7" data-tooltip-id="tooltip">map<span class="arrow"> ↗</span></a>
+<img src="/img/sfstreets-route/map-1.png" alt="sfstreets-map"/></p>
+<h3 id="part-15-bayviewhunters-point">Part 1.5: Bayview/Hunters Point</h3>
+<p>15-minute T ride from Gilman/Paul to 20th Street.</p>
+<p><a class="blue-link" href="https://maps.app.goo.gl/rkUoyZKocGsaLJeWA" target="_blank" rel="noreferrer" aria-label="https://maps.app.goo.gl/rkUoyZKocGsaLJeWA" id="link-httpsm" data-tooltip-content="maps.app.goo.gl/rkUoyZKocGsaLJeWA" data-tooltip-id="tooltip">map<span class="arrow"> ↗</span></a>
+<img src="/img/sfstreets-route/map-1-5.png" alt="sfstreets-map"/></p>
+<h3 id="part-2-dogpatchmission-baypotrero-hillmission">Part 2: Dogpatch/Mission Bay/Potrero Hill/Mission</h3>
+<p>1 hour walk, 1 hour break, 2.25 miles.</p>
+<ul>
+<li><strong>Start:</strong> 20th St x 3rd St @ 10:45am</li>
+<li><strong>End:</strong> 16th St/Mission BART Station @ 12:45pm</li>
+<li>Lunch stop in Potrero Hill; there are several good options here.</li>
+<li>Includes a pass by <a class="blue-link" href="https://tartinebakery.com/" target="_blank" rel="noreferrer" aria-label="https://tartinebakery.com/" id="link-httpst" data-tooltip-content="tartinebakery.com/" data-tooltip-id="tooltip">Tartine<span class="arrow"> ↗</span></a> to grab some of the best baked goods in the city.</li>
+</ul>
+<p><a class="blue-link" href="https://maps.app.goo.gl/mecK7wMBqhE4RzTm9" target="_blank" rel="noreferrer" aria-label="https://maps.app.goo.gl/mecK7wMBqhE4RzTm9" id="link-httpsm" data-tooltip-content="maps.app.goo.gl/mecK7wMBqhE4RzTm9" data-tooltip-id="tooltip">map<span class="arrow"> ↗</span></a>
+<img src="/img/sfstreets-route/map-2.png" alt="sfstreets-map"/></p>
+<h3 id="part-25-bart-from-16thmission-to-glen-park">Part 2.5: BART from 16th/Mission to Glen Park</h3>
+<p>A brief 5-minute southbound hop on BART.</p>
+<p><a class="blue-link" href="https://maps.app.goo.gl/6uRLU3webfZgM6uL6" target="_blank" rel="noreferrer" aria-label="https://maps.app.goo.gl/6uRLU3webfZgM6uL6" id="link-httpsm" data-tooltip-content="maps.app.goo.gl/6uRLU3webfZgM6uL6" data-tooltip-id="tooltip">map<span class="arrow"> ↗</span></a>
+<img src="/img/sfstreets-route/map-2-5.png" alt="sfstreets-map"/></p>
+<h3 id="part-3-glen-park--noe-valley--twin-peaks--castro--the-haight--fillmore---hayes-valley--civic-center--tenderloin--nob-hill">Part 3: Glen Park / Noe Valley / Twin Peaks / Castro / The Haight / Fillmore /  Hayes Valley / Civic Center / Tenderloin / Nob Hill</h3>
+<p>2 hours, 5 miles of walking. This is the longest stretch!</p>
+<ul>
+<li><strong>Start:</strong> Glen Park BART Station @ 1:00pm</li>
+<li><strong>End:</strong> Van Ness x Geary @ 3:00pm</li>
+<li>Some stops at the Painted Ladies and City Hall for some sightseeing.</li>
+</ul>
+<p><a class="blue-link" href="https://maps.app.goo.gl/RKVcyjwEwtQfEK3r8" target="_blank" rel="noreferrer" aria-label="https://maps.app.goo.gl/RKVcyjwEwtQfEK3r8" id="link-httpsm" data-tooltip-content="maps.app.goo.gl/RKVcyjwEwtQfEK3r8" data-tooltip-id="tooltip">map<span class="arrow"> ↗</span></a>
+<img src="/img/sfstreets-route/map-3.png" alt="sfstreets-map"/></p>
+<h3 id="part-35-van-ness-to-embarcardero-via-38r">Part 3.5: Van Ness to Embarcardero via 38R</h3>
+<p>20 minute bus ride through the Tenderloin, Nob Hill, and Union Square along Geary and Market Streets.</p>
+<p><a class="blue-link" href="https://maps.app.goo.gl/pyWyFac3JAFK9GMF7" target="_blank" rel="noreferrer" aria-label="https://maps.app.goo.gl/pyWyFac3JAFK9GMF7" id="link-httpsm" data-tooltip-content="maps.app.goo.gl/pyWyFac3JAFK9GMF7" data-tooltip-id="tooltip">map<span class="arrow"> ↗</span></a>
+<img src="/img/sfstreets-route/map-3-5.png" alt="sfstreets-map"/></p>
+<h3 id="part-4-somafidiembarcaderochinatownnorth-beachfort-mason">Part 4: SoMa/FiDi/Embarcadero/Chinatown/North Beach/Fort Mason</h3>
+<p>1 hour, 2.3 miles of walking.</p>
+<ul>
+<li><strong>Start:</strong> Embarcadero BART Station @ 3:30pm</li>
+<li><strong>End:</strong> Fort Mason @ 4:30pm</li>
+<li>Passes by the Ferry Building.</li>
+<li>Optional stops for snacks and drinks. There are some fantastic bakeries/delis all over North Beach.</li>
+<li>Ice cream at Ghirardelli Square 🥺🍨</li>
+</ul>
+<p><a class="blue-link" href="https://maps.app.goo.gl/pEk6EsVodBp4UjZo9" target="_blank" rel="noreferrer" aria-label="https://maps.app.goo.gl/pEk6EsVodBp4UjZo9" id="link-httpsm" data-tooltip-content="maps.app.goo.gl/pEk6EsVodBp4UjZo9" data-tooltip-id="tooltip">map<span class="arrow"> ↗</span></a>
+<img src="/img/sfstreets-route/map-4.png" alt="sfstreets-map"/></p>
+<h3 id="part-5-fort-mason-to-japantown-via-fillmore--pacific-heights">Part 5: Fort Mason to Japantown via Fillmore / Pacific Heights</h3>
+<p>1 hour leisurely walk over 2 miles, with a 1 hour dinner break at the end.</p>
+<ul>
+<li><strong>Start:</strong> Fort Mason @ 4:30pm</li>
+<li><strong>End:</strong> Japantown @ 6:30pm</li>
+<li>Ogle at fancy mansions while gasping for breath going up the hill :)</li>
+<li>Stop at Japantown for dinner.</li>
+</ul>
+<p><a class="blue-link" href="https://maps.app.goo.gl/cn5T8wFg7a4HB1rG9" target="_blank" rel="noreferrer" aria-label="https://maps.app.goo.gl/cn5T8wFg7a4HB1rG9" id="link-httpsm" data-tooltip-content="maps.app.goo.gl/cn5T8wFg7a4HB1rG9" data-tooltip-id="tooltip">map<span class="arrow"> ↗</span></a>
+<img src="/img/sfstreets-route/map-5.png" alt="sfstreets-map"/></p>
+<h3 id="part-55-japantownrichmond-to-lands-end-via-geary38r">Part 5.5: Japantown/Richmond to Lands End via Geary/38R</h3>
+<p>30 minute bus ride (the 38R makes a reappearance!)</p>
+<ul>
+<li>Off-topic, but I <em>really</em> want to see a subway finally get built under Geary Street within my lifetime. One can dream 🥲</li>
+</ul>
+<p><a class="blue-link" href="https://maps.app.goo.gl/7F5zBoDxphaLYVcP7" target="_blank" rel="noreferrer" aria-label="https://maps.app.goo.gl/7F5zBoDxphaLYVcP7" id="link-httpsm" data-tooltip-content="maps.app.goo.gl/7F5zBoDxphaLYVcP7" data-tooltip-id="tooltip">map<span class="arrow"> ↗</span></a>
+<img src="/img/sfstreets-route/map-5-5.png" alt="sfstreets-map"/></p>
+<h3 id="part-6-richmond-to-sunset-via-ggpgreat-hwy">Part 6: Richmond to Sunset via GGP/Great Hwy</h3>
+<p>45 minutes, 1.5 miles. A super chill final stroll down the beach.</p>
+<ul>
+<li><strong>Start:</strong> Lands’ End @ 7pm</li>
+<li><strong>End:</strong> Judah x Ocean Beach @ 7:30pm</li>
+<li>Hopefully the sun will start to set as we walk along this stretch! It will be super pretty.</li>
+</ul>
+<p><a class="blue-link" href="https://maps.app.goo.gl/tpyurAyJXFVoU4Zm6" target="_blank" rel="noreferrer" aria-label="https://maps.app.goo.gl/tpyurAyJXFVoU4Zm6" id="link-httpsm" data-tooltip-content="maps.app.goo.gl/tpyurAyJXFVoU4Zm6" data-tooltip-id="tooltip">map<span class="arrow"> ↗</span></a>
+<img src="/img/sfstreets-route/map-6.png" alt="sfstreets-map"/></p>
+<h3 id="part-65-catch-a-waymo-to-west-portal">Part 6.5: catch a waymo to west portal</h3>
+<p>A nice 20 minute drive through the Sunset during sunset.
+<img src="/img/sfstreets-route/map-6-5.png" alt="sfstreets-map"/></p>
+<h3 id="part-675-west-portal-to-balboa-park-bart-via-k-line">Part 6.75: West Portal to Balboa Park BART via K Line</h3>
+<p>25 minutes. Easy access to BART/Muni to get home.
+<img src="/img/sfstreets-route/map-6-7.png" alt="sfstreets-map"/></p>
+<h2 id="alternative-routes">Alternative Routes</h2>
+<p>SF has a <em>lot</em> of neighborhoods, and everyone has their own opinion on what counts, what they’re called, and where the boundaries are. I think this route does a good job of touching all of the most well-known subdivisions- but if there is something major I missed, let me know and I’ll tweak it for future iterations!</p>
+<p>An improved or alternate route could include the following smaller neighborhoods and prominent landmarks:</p>
+<ul>
+<li>Ingleside/Outer Mission
+<ul>
+<li>Add a small loop around Balboa Park at the end. Very doable if running ahead of schedule.</li>
+</ul>
+</li>
+<li>Lakeshore (Lake Merced)/Parkmerced/SFSU/Stonestown
+<ul>
+<li>Could detour the rideshare down here first before going to West Portal to add ~20 mins.</li>
+</ul>
+</li>
+<li>Actual Twin Peaks
+<ul>
+<li>You’d need some legs of steel to do the Twin Peaks hike in the middle of a 15-mile walk, but it’s on the route if you wish to attempt!</li>
+</ul>
+</li>
+<li>Coit Tower
+<ul>
+<li>Add a 20-minute extension to the middle of Part 4.</li>
+</ul>
+</li>
+<li>Fisherman’s Wharf / Pier 39 / Ghirardelli Square
+<ul>
+<li>Add a 30-minute extension to the end of Part 4.</li>
+</ul>
+</li>
+<li>Palace of Fine Arts / Presidio / Golden Gate Bridge
+<ul>
+<li>They’re deceptively far away. If you’re up to rent a bike and do a loop up between Phases 4 and 5, that would probably work the best.</li>
+</ul>
+</li>
+<li>Actually going into SoMa (Oracle Park, Salesforce Park, etc)
+<ul>
+<li>Before getting off at Dogpatch in Part 1.5, keep going all the way to 4th and King. Walk to Moscone Center along 4th Street, then take the T back to Dogpatch.</li>
+<li>Salesforce Park is a short walk from Embarcadero BART, and can be added as a loop before departing to Part 4.</li>
+</ul>
+</li>
+</ul> </div> <astro-island uid="1TGP5X" prefix="r18" component-url="/2024/_astro/bluesky.BsPMAR9-.js" component-export="default" renderer-url="/2024/_astro/client.CTB0G95p.js" props="{}" ssr client="idle" opts="{&quot;name&quot;:&quot;Comments&quot;,&quot;value&quot;:true}"></astro-island>  </main> <astro-island uid="G7HUB" prefix="r20" component-url="/2024/_astro/footer.oOKEXvNb.js" component-export="default" renderer-url="/2024/_astro/client.CTB0G95p.js" props="{}" ssr client="idle" opts="{&quot;name&quot;:&quot;Footer&quot;,&quot;value&quot;:true}" await-children><footer><script data-goatcounter="https://goatcounter.bencuan.me/count" async="" src="//goatcounter.bencuan.me/count.js"></script><hr/><div class="footer-icons"><a href="https://substack.com/@bencuan" class="footer-icon" target="_blank" rel="noreferrer" aria-label="substack"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" class="simple-icon"><title>Substack</title><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"></path></svg></a><a href="https://github.com/64bitpandas" class="footer-icon" target="_blank" rel="me noreferrer" aria-label="github"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><a href="https://linkedin.com/in/bencuan" class="footer-icon" target="_blank" rel="noreferrer" aria-label="linkedin"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin" class="svg-inline--fa fa-linkedin " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></a><a href="https://bsky.app/profile/bencuan.me" class="footer-icon" target="_blank" rel="me noreferrer" aria-label="bluesky"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="bluesky" class="svg-inline--fa fa-bluesky " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.5-8.9 130.5-14.1 149.2C478.2 298 412 314.6 353.1 304.5c102.9 17.5 129.1 75.5 72.5 133.5c-107.4 110.2-154.3-27.6-166.3-62.9l0 0c-1.7-4.9-2.6-7.8-3.3-7.8s-1.6 3-3.3 7.8l0 0c-12 35.3-59 173.1-166.3 62.9c-56.5-58-30.4-116 72.5-133.5C100 314.6 33.8 298 15.7 233.1C10.4 214.4 1.5 99.4 1.5 83.9c0-77.8 68.2-53.4 110.3-21.8z"></path></svg></a><a href="https://twitter.com/bencuan_" class="footer-icon" target="_blank" rel="me noreferrer" aria-label="twitter"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg></a></div><span tabindex="0" role="button" class="link show-archive">archives</span> // <a href="/colophon" class="internal-link">colophon</a></footer><!--astro:end--></astro-island> </div> </html>
