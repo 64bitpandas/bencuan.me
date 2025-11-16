@@ -49,5 +49,9 @@ export default defineConfig({
   },
   redirects: {
     '/foreword': '/blog/foreword',
+    '/friends': 'https://garden.bencuan.me/personal/friendnet',
+    '/bookshelf': 'https://garden.bencuan.me/personal/bookshelf',
+    '/about': '/',
+    '/contact': 'https://garden.bencuan.me/Contact-Me',
   },
 });

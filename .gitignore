@@ -79,6 +79,3 @@ archives/2022/static/PP*
 
 # netlify
 .netlify
-
-# fonts
-public/fonts
