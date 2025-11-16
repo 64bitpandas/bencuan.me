@@ -1,0 +1,725 @@
+<!doctype html>
+<!--
+The Layout component serves as the base component in which all content should be wrapped around.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <title>friendnet | bencuan</title>
+    <link rel="canonical" href="https://bencuan.me/friends/" />
+    <meta name="description" content="friends" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="friendnet | bencuan" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/64bitpandas/bencuan.me/main/src/images/og-banner.png"
+    />
+    <meta property="og:url" content="https://bencuan.me/friends/" />
+    <meta property="og:site_name" content="bencuan's site" />
+    <meta name="twitter:creator" content="@bencuan_" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta
+      content="https://raw.githubusercontent.com/64bitpandas/bencuan.me/main/src/images/og-banner.png"
+      name="twitter:image"
+    />
+    <meta content="friendnet | bencuan" name="twitter:title" />
+    <meta content="friends" name="twitter:description" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="stylesheet" href="/_astro/_blog_.Re0ULgMm.css" />
+    <link rel="stylesheet" href="/_astro/blog.MC9qJbnU.css" />
+    <link rel="stylesheet" href="/_astro/links.UUKYZDxZ.css" />
+  </head>
+  <div class="body">
+    <style>
+      astro-island,
+      astro-slot,
+      astro-static-slot {
+        display: contents;
+      }
+    </style>
+    <script>
+      (() => {
+        var i = t => {
+          let e = async () => {
+            await (
+              await t()
+            )();
+          };
+          'requestIdleCallback' in window ? window.requestIdleCallback(e) : setTimeout(e, 200);
+        };
+        (self.Astro || (self.Astro = {})).idle = i;
+        window.dispatchEvent(new Event('astro:idle'));
+      })();
+      (() => {
+        var b = Object.defineProperty;
+        var f = (c, o, i) =>
+          o in c ? b(c, o, { enumerable: !0, configurable: !0, writable: !0, value: i }) : (c[o] = i);
+        var l = (c, o, i) => (f(c, typeof o != 'symbol' ? o + '' : o, i), i);
+        var p;
+        {
+          let c = {
+              0: t => m(t),
+              1: t => i(t),
+              2: t => new RegExp(t),
+              3: t => new Date(t),
+              4: t => new Map(i(t)),
+              5: t => new Set(i(t)),
+              6: t => BigInt(t),
+              7: t => new URL(t),
+              8: t => new Uint8Array(t),
+              9: t => new Uint16Array(t),
+              10: t => new Uint32Array(t),
+            },
+            o = t => {
+              let [e, r] = t;
+              return e in c ? c[e](r) : void 0;
+            },
+            i = t => t.map(o),
+            m = t =>
+              typeof t != 'object' || t === null ? t : Object.fromEntries(Object.entries(t).map(([e, r]) => [e, o(r)]));
+          customElements.get('astro-island') ||
+            customElements.define(
+              'astro-island',
+              ((p = class extends HTMLElement {
+                constructor() {
+                  super(...arguments);
+                  l(this, 'Component');
+                  l(this, 'hydrator');
+                  l(this, 'hydrate', async () => {
+                    var d;
+                    if (!this.hydrator || !this.isConnected) return;
+                    let e = (d = this.parentElement) == null ? void 0 : d.closest('astro-island[ssr]');
+                    if (e) {
+                      e.addEventListener('astro:hydrate', this.hydrate, { once: !0 });
+                      return;
+                    }
+                    let r = this.querySelectorAll('astro-slot'),
+                      a = {},
+                      h = this.querySelectorAll('template[data-astro-template]');
+                    for (let n of h) {
+                      let s = n.closest(this.tagName);
+                      s != null &&
+                        s.isSameNode(this) &&
+                        ((a[n.getAttribute('data-astro-template') || 'default'] = n.innerHTML), n.remove());
+                    }
+                    for (let n of r) {
+                      let s = n.closest(this.tagName);
+                      s != null && s.isSameNode(this) && (a[n.getAttribute('name') || 'default'] = n.innerHTML);
+                    }
+                    let u;
+                    try {
+                      u = this.hasAttribute('props') ? m(JSON.parse(this.getAttribute('props'))) : {};
+                    } catch (n) {
+                      let s = this.getAttribute('component-url') || '<unknown>',
+                        y = this.getAttribute('component-export');
+                      throw (
+                        (y && (s += ` (export ${y})`),
+                        console.error(
+                          `[hydrate] Error parsing props for component ${s}`,
+                          this.getAttribute('props'),
+                          n,
+                        ),
+                        n)
+                      );
+                    }
+                    await this.hydrator(this)(this.Component, u, a, { client: this.getAttribute('client') }),
+                      this.removeAttribute('ssr'),
+                      this.dispatchEvent(new CustomEvent('astro:hydrate'));
+                  });
+                  l(this, 'unmount', () => {
+                    this.isConnected || this.dispatchEvent(new CustomEvent('astro:unmount'));
+                  });
+                }
+                disconnectedCallback() {
+                  document.removeEventListener('astro:after-swap', this.unmount),
+                    document.addEventListener('astro:after-swap', this.unmount, { once: !0 });
+                }
+                connectedCallback() {
+                  if (
+                    !this.hasAttribute('await-children') ||
+                    document.readyState === 'interactive' ||
+                    document.readyState === 'complete'
+                  )
+                    this.childrenConnectedCallback();
+                  else {
+                    let e = () => {
+                        document.removeEventListener('DOMContentLoaded', e),
+                          r.disconnect(),
+                          this.childrenConnectedCallback();
+                      },
+                      r = new MutationObserver(() => {
+                        var a;
+                        ((a = this.lastChild) == null ? void 0 : a.nodeType) === Node.COMMENT_NODE &&
+                          this.lastChild.nodeValue === 'astro:end' &&
+                          (this.lastChild.remove(), e());
+                      });
+                    r.observe(this, { childList: !0 }), document.addEventListener('DOMContentLoaded', e);
+                  }
+                }
+                async childrenConnectedCallback() {
+                  let e = this.getAttribute('before-hydration-url');
+                  e && (await import(e)), this.start();
+                }
+                start() {
+                  let e = JSON.parse(this.getAttribute('opts')),
+                    r = this.getAttribute('client');
+                  if (Astro[r] === void 0) {
+                    window.addEventListener(`astro:${r}`, () => this.start(), { once: !0 });
+                    return;
+                  }
+                  Astro[r](
+                    async () => {
+                      let a = this.getAttribute('renderer-url'),
+                        [h, { default: u }] = await Promise.all([
+                          import(this.getAttribute('component-url')),
+                          a ? import(a) : () => () => {},
+                        ]),
+                        d = this.getAttribute('component-export') || 'default';
+                      if (!d.includes('.')) this.Component = h[d];
+                      else {
+                        this.Component = h;
+                        for (let n of d.split('.')) this.Component = this.Component[n];
+                      }
+                      return (this.hydrator = u), this.hydrate;
+                    },
+                    e,
+                    this,
+                  );
+                }
+                attributeChangedCallback() {
+                  this.hydrate();
+                }
+              }),
+              l(p, 'observedAttributes', ['props']),
+              p),
+            );
+        }
+      })();
+    </script>
+    <astro-island
+      uid="Z2lMVpA"
+      prefix="r0"
+      component-url="/_astro/_astro-entry_react-tooltip.HiLi5d6c.js"
+      component-export="Tooltip"
+      renderer-url="/_astro/client.irnNCqkp.js"
+      props='{"disableStyleInjection":[0,true],"id":[0,"tooltip"],"className":[0,"link-tooltip"],"noArrow":[0,true],"delayShow":[0,150],"delayHide":[0,150]}'
+      ssr=""
+      client="idle"
+      opts='{"name":"Tooltip","value":true}'
+    ></astro-island>
+    <astro-island
+      uid="XV9Jd"
+      prefix="r1"
+      component-url="/_astro/header.EpwG1pdi.js"
+      component-export="default"
+      renderer-url="/_astro/client.irnNCqkp.js"
+      props='{"currPage":[0,"friends"],"customPages":[0]}'
+      ssr=""
+      client="idle"
+      opts='{"name":"Header","value":true}'
+      await-children=""
+      ><header>
+        <div class="nav-container mobile-hidden">
+          <div class="nav-links">
+            <span class="nav-link"><a class="link nav-link" href="/">home</a><span> / </span></span
+            ><span class="nav-link"><a class="link nav-link" href="/blog">blog</a><span> / </span></span
+            ><span class="nav-link"><a class="link nav-link" href="/about">about</a><span> / </span></span
+            ><span class="nav-link"><a class="link nav-link nav-current" href="/friends">friends</a></span>
+          </div>
+          <a class="link nav-link nav-more" href="#"><span>more</span></a>
+        </div>
+        <div class="nav-more-menu-container">
+          <div class="nav-more-menu nav-invisible nav-more-menu-initial">
+            <div class="more-link-container">
+              <a class="nav-link more-link" href="/projects"
+                >projects<!-- -->
+                <img src="/_astro/chalkboard.6f0QnlI0.svg" alt="image of projects" class="more-link-icon"
+              /></a>
+            </div>
+            <div class="more-link-container">
+              <a class="nav-link more-link" href="/bookshelf"
+                >bookshelf<!-- -->
+                <img src="/_astro/book.y822Rslc.svg" alt="image of bookshelf" class="more-link-icon"
+              /></a>
+            </div>
+            <div class="more-link-container">
+              <a class="nav-link more-link" href="/recipes"
+                >recipes<!-- -->
+                <img src="/_astro/kitchen.eduYkZrp.svg" alt="image of recipes" class="more-link-icon"
+              /></a>
+            </div>
+            <div class="more-link-container">
+              <a class="nav-link more-link" href="https://status.tsh.sh"
+                >services<!-- -->
+                <img src="/_astro/turtlenet.e8u9vlTd.svg" alt="image of services" class="more-link-icon"
+              /></a>
+            </div>
+            <div class="more-link-container">
+              <a class="nav-link more-link" href="https://hexcaliber.dev"
+                >games<!-- -->
+                <img src="/_astro/hexcaliber.Ldza4s_B.svg" alt="image of games" class="more-link-icon"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-container-mobile">
+          <button
+            class="hamburger hamburger--vortex"
+            type="button"
+            aria-label="Menu"
+            aria-controls="navigation"
+            aria-expanded="false"
+          >
+            <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+          </button>
+        </div>
+      </header>
+      <!--astro:end--></astro-island
+    >
+    <main class="container">
+      <h1 class="title">friendnet</h1>
+      <div class="ui-text friends">
+        <a href="https://bencuan.me"><img src="/img/friends/bencuan.gif" /></a>
+        <a href="https://brookemao.ca"><img src="/img/friends/brooke.jpg" /></a>
+        <a href="https://trinityjchung.com/yolkgirl"><img src="/img/friends/yolkgirl.gif" /></a>
+        <a href="https://michaellisano.com"><img src="/img/friends/michael.gif" /></a>
+        <a href="https://anna.dymchenko.com"><img src="/img/friends/adym.png" /></a>
+        <a href="https://jaysa.net"><img src="/img/friends/jaysa.jpg" /></a>
+        <a href="https://vimeo.com/943936691"><img src="/img/friends/tiffsun.png" /></a>
+        <a href="https://rjz.lol"><img src="/img/friends/rjz.png" /></a>
+        <a href="https://oliver.ni"><img src="/img/friends/oliver.png" /></a>
+        <a href="https://nikhiljha.com"><img src="/img/friends/njha.png" /></a>
+        <a href="https://www.ocf.berkeley.edu"><img src="/img/friends/ocf.png" /></a>
+        <a href="https://tsh.sh"><img src="/img/friends/turtlenet.gif" /></a>
+        <br />
+        <br />
+        <p>
+          <a
+            class="blue-link"
+            href="https://brookemao.ca"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://brookemao.ca"
+            id="link-5b5751"
+            data-tooltip-content="brookemao.ca"
+            data-tooltip-id="tooltip"
+            >Brooke Mao<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://joshnet.pages.dev"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://joshnet.pages.dev"
+            id="link-9f00da"
+            data-tooltip-content="joshnet.pages.dev"
+            data-tooltip-id="tooltip"
+            >Joshua Bromley<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://trinityjchung.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://trinityjchung.com"
+            id="link-964178"
+            data-tooltip-content="trinityjchung.com"
+            data-tooltip-id="tooltip"
+            >Trinity Chung<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://michaellisano.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://michaellisano.com"
+            id="link-9eb935"
+            data-tooltip-content="michaellisano.com"
+            data-tooltip-id="tooltip"
+            >Michael Lisano<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://anna.dymchenko.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://anna.dymchenko.com"
+            id="link-6dcc6f"
+            data-tooltip-content="anna.dymchenko.com"
+            data-tooltip-id="tooltip"
+            >Anna Dymchenko<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://ben9583.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://ben9583.com"
+            id="link-4018e4"
+            data-tooltip-content="ben9583.com"
+            data-tooltip-id="tooltip"
+            >Ben Plate<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://jaysa.net"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://jaysa.net"
+            id="link-62c511"
+            data-tooltip-content="jaysa.net"
+            data-tooltip-id="tooltip"
+            >Jaysa Garcia<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://nikhiljha.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://nikhiljha.com"
+            id="link-816f24"
+            data-tooltip-content="nikhiljha.com"
+            data-tooltip-id="tooltip"
+            >Nikhil Jha<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://ethanwu.dev"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://ethanwu.dev"
+            id="link-e23871"
+            data-tooltip-content="ethanwu.dev"
+            data-tooltip-id="tooltip"
+            >Ethan Wu<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://ronitnath.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://ronitnath.com"
+            id="link-c2191b"
+            data-tooltip-content="ronitnath.com"
+            data-tooltip-id="tooltip"
+            >Ronit Nath<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://oliver.ni"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://oliver.ni"
+            id="link-1c53ee"
+            data-tooltip-content="oliver.ni"
+            data-tooltip-id="tooltip"
+            >Oliver Ni<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://aly.sh"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://aly.sh"
+            id="link-84e1a9"
+            data-tooltip-content="aly.sh"
+            data-tooltip-id="tooltip"
+            >Albert Ye<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://rjz.lol"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://rjz.lol"
+            id="link-315f0f"
+            data-tooltip-content="rjz.lol"
+            data-tooltip-id="tooltip"
+            >Jonathan Zhang<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://www.ocf.berkeley.edu/~andytsai"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://www.ocf.berkeley.edu/~andytsai"
+            id="link-992041"
+            data-tooltip-content="www.ocf.berkeley.edu/~andytsai"
+            data-tooltip-id="tooltip"
+            >Andy Tsai<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://enumc.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://enumc.com"
+            id="link-0ced6f"
+            data-tooltip-content="enumc.com"
+            data-tooltip-id="tooltip"
+            >Eric Qian<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://epicrider.github.io"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://epicrider.github.io"
+            id="link-e915ab"
+            data-tooltip-content="epicrider.github.io"
+            data-tooltip-id="tooltip"
+            >Omar Hossain<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://darkflamex1.github.io"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://darkflamex1.github.io"
+            id="link-3cb0a0"
+            data-tooltip-content="darkflamex1.github.io"
+            data-tooltip-id="tooltip"
+            >Vikram Peddinti<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://adarshiyer.net"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://adarshiyer.net"
+            id="link-6148b9"
+            data-tooltip-content="adarshiyer.net"
+            data-tooltip-id="tooltip"
+            >Adarsh Iyer<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://www.eltonpinto.me"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://www.eltonpinto.me"
+            id="link-00e98a"
+            data-tooltip-content="www.eltonpinto.me"
+            data-tooltip-id="tooltip"
+            >Elton Pinto<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://jamesweng.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://jamesweng.com"
+            id="link-9ac469"
+            data-tooltip-content="jamesweng.com"
+            data-tooltip-id="tooltip"
+            >James Weng<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://oagoebel.github.io"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://oagoebel.github.io"
+            id="link-10e296"
+            data-tooltip-content="oagoebel.github.io"
+            data-tooltip-id="tooltip"
+            >Owen Goebel<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://tinocaer.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://tinocaer.com"
+            id="link-eb2ed0"
+            data-tooltip-content="tinocaer.com"
+            data-tooltip-id="tooltip"
+            >Tino Caer<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://ishaandham.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://ishaandham.com/"
+            id="link-3e7a59"
+            data-tooltip-content="ishaandham.com/"
+            data-tooltip-id="tooltip"
+            >Ishaan Dham<span class="arrow"> ↗</span></a
+          >
+          -
+          <a
+            class="blue-link"
+            href="https://camcuster.me"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://camcuster.me"
+            id="link-d092b9"
+            data-tooltip-content="camcuster.me"
+            data-tooltip-id="tooltip"
+            >Cameron Custer<span class="arrow"> ↗</span></a
+          >
+        </p>
+        <br />
+        <p>
+          ~ Want to add the friendnet to your own site?
+          <a
+            class="blue-link"
+            href="https://github.com/64bitpandas/bencuan.me/blob/main/src/components/friends.mdx?plain=1"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="https://github.com/64bitpandas/bencuan.me/blob/main/src/components/friends.mdx?plain=1"
+            id="link-f575d5"
+            data-tooltip-content="github.com/64bitpandas/bencuan.me/blob/main/src/components/friends.mdx?plain=1"
+            data-tooltip-id="tooltip"
+            >Here’s a portable Markdown file you can include.<span class="arrow"> ↗</span></a
+          >
+        </p>
+      </div>
+    </main>
+    <astro-island
+      uid="4ARu7"
+      prefix="r2"
+      component-url="/_astro/footer.BLO-f-or.js"
+      component-export="default"
+      renderer-url="/_astro/client.irnNCqkp.js"
+      props="{}"
+      ssr=""
+      client="idle"
+      opts='{"name":"Footer","value":true}'
+      await-children=""
+      ><footer>
+        <hr />
+        <div class="footer-icons">
+          <a
+            href="https://github.com/64bitpandas"
+            class="footer-icon"
+            target="_blank"
+            rel="me noreferrer"
+            aria-label="github"
+            ><svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fab"
+              data-icon="github"
+              class="svg-inline--fa fa-github"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 496 512"
+            >
+              <path
+                fill="currentColor"
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+              ></path></svg></a
+          ><a
+            href="https://linkedin.com/in/bencuan"
+            class="footer-icon"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="linkedin"
+            ><svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fab"
+              data-icon="linkedin"
+              class="svg-inline--fa fa-linkedin"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path
+                fill="currentColor"
+                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+              ></path></svg></a
+          ><a
+            href="https://twitter.com/bencuan_"
+            class="footer-icon"
+            target="_blank"
+            rel="me noreferrer"
+            aria-label="twitter"
+            ><svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fab"
+              data-icon="twitter"
+              class="svg-inline--fa fa-twitter"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+              ></path></svg></a
+          ><a
+            href="https://substack.com/@bencuan"
+            class="footer-icon"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="substack"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              class="simple-icon"
+            >
+              <title>Substack</title>
+              <path
+                d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"
+              ></path></svg></a
+          ><a
+            href="https://hachyderm.io/@bencuan"
+            class="footer-icon"
+            target="_blank"
+            rel="me noreferrer"
+            aria-label="mastodon"
+            ><svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fab"
+              data-icon="mastodon"
+              class="svg-inline--fa fa-mastodon"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path
+                fill="currentColor"
+                d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"
+              ></path></svg
+          ></a>
+        </div>
+        <span tabindex="0" role="button" class="link show-archive">archives</span> //
+        <a href="/colophon" class="internal-link">colophon</a>
+      </footer>
+      <!--astro:end--></astro-island
+    >
+  </div>
+</html>

@@ -1,3 +1,8 @@
 [submodule "public/fonts"]
 	path = public/fonts
 	url = https://github.com/64bitpandas/fonts
+
+[submodule "public/2024/fonts"]
+	path = public/2024/fonts
+	url = https://github.com/64bitpandas/fonts
+	branch = v6

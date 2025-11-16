@@ -93,7 +93,7 @@ const Footer = () => {
         </>
       )}
       {showArchives ? (
-        [2018, 2019, 2020, 2021, 2022].map(val => (
+        [2018, 2019, 2020, 2021, 2022, 2024].map(val => (
           <React.Fragment key={val}>
             {' '}
             <a className="link" href={`/${val}`}>
