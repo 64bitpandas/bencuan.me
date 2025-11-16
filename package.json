@@ -2,7 +2,7 @@
   "name": "bencuan.me",
   "private": true,
   "description": "bencuan's personal website",
-  "version": "2024.0.0",
+  "version": "2025.0.0",
   "author": "Ben Cuan <contact@bencuan.me>",
   "dependencies": {
     "@astrojs/check": "^0.9.5",
@@ -50,10 +50,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
-    "getfonts": "if [ -f .env ]; then . ./.env; fi; wget -O fonts.zip $FONT_URL && unzip -o fonts.zip -d public/fonts && unzip -o fonts.zip -d public/2022/static && rm fonts.zip",
-    "fontcustom": "fontcustom compile src/fontcustom --output public/fonts",
-    "prebuild": "yarn run getfonts"
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\""
   },
   "repository": {
     "type": "git",

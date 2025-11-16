@@ -1,0 +1,44 @@
+name: Deploy PR Preview
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+concurrency: preview-${{ github.ref }}
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for git info
+          submodules: 'true'
+          token: ${{ secrets.PAT_FOR_PRIVATE_REPOS }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Yarn
+        run: corepack enable
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build Astro Site
+        run: yarn build
+
+      - name: Deploy PR Preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: dist
+          preview-branch: github-pages
+          umbrella-dir: preview
