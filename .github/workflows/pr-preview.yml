@@ -14,14 +14,15 @@ jobs:
   deploy-preview:
     runs-on: ubuntu-22.04
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
+      pages: write
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Fetch all history for git info
           submodules: 'true'
-          token: ${{ secrets.PAT_FOR_PRIVATE_REPOS }}
+          token: ${{ secrets.PAT_FOR_PRIVATE_REPOS }} # needed to fetch fonts
 
       - uses: actions/setup-node@v4
         with:
@@ -40,5 +41,5 @@ jobs:
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: dist
-          preview-branch: github-pages
+          preview-branch: dist
           umbrella-dir: preview
