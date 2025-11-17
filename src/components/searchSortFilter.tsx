@@ -1,13 +1,12 @@
-import { Fragment, useState } from 'react';
+import { Fragment, type ReactNode, useState } from 'react';
 import '../sass/searchSortFilter.scss';
-import {
-  BlogFactory,
-  BookFactory,
-  type FactoryFn,
-  type FactoryType,
-  RecipeFactory,
-  RecipeFilterCategories,
-} from './factories';
+import { BlogFactory } from './blog';
+
+// Contains some common conversion functions.
+export type FactoryType = 'blog';
+
+// MUST return a ReactNode with the key prop, or bad things will happen
+export type FactoryFn = (item: any) => ReactNode;
 
 type props = {
   items: any[];
@@ -34,13 +33,6 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
   switch (type) {
     case 'blog':
       factory = BlogFactory;
-      break;
-    case 'recipe':
-      factory = RecipeFactory;
-      filterCategories = RecipeFilterCategories;
-      break;
-    case 'book':
-      factory = BookFactory;
       break;
     default:
       console.error('unsupported factory type', type);
