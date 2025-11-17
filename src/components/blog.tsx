@@ -1,7 +1,14 @@
-import { faArrowTurnUp } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ArrowBendUpRight } from '@phosphor-icons/react';
 import { type ReactNode } from 'react';
+import '../sass/searchSortFilter.scss';
 import { MDLink } from './links';
+import { ILink } from './links';
+
+type Blog = {
+  title: string;
+  date: Date;
+  slug: string;
+};
 
 type footnoteProps = {
   n: number; // footnote number
@@ -18,6 +25,17 @@ export const Blockquote = ({ children }: CustomMDProps) => (
   <blockquote className="quote">
     {children} <slot />
   </blockquote>
+);
+
+export const ToDateString = (date: Date, pretty?: boolean): string => {
+  const options: Intl.DateTimeFormatOptions = { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' };
+  return pretty ? date.toLocaleDateString('en-us', options) : date.toISOString().split('T')[0].replaceAll('-', '.');
+};
+
+export const BlogFactory = (blog: Blog): ReactNode => (
+  <div key={blog.slug} className="blog-ssf-entry">
+    <ILink href={blog.slug}>{blog.title}</ILink> <span className="blog-ssf-date">{ToDateString(blog.date)}</span>
+  </div>
 );
 
 const numToId = (n: number, ref?: boolean) => `#footnote-${n.toString()}${ref ? '-ref' : ''}`;
@@ -63,7 +81,7 @@ export const FootnoteRef = ({ n, style, children }: footnoteProps) => (
         }
       }}
     >
-      <FontAwesomeIcon icon={faArrowTurnUp} className="footnote-icon" />
+      <ArrowBendUpRight className="footnote-icon" />
     </a>
   </div>
 );

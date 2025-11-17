@@ -4,6 +4,8 @@ import SearchSortFilter from '../components/searchSortFilter.tsx';
 import '../sass/home.scss';
 import '../sass/blog.scss';
 import { getCollection } from 'astro:content';
+import Button from '../components/button';
+import { Newspaper, Rss } from '@phosphor-icons/react';
 
 const collection = await getCollection('blog');
 const items = collection.map(item => ({ ...item.data, slug: '/blog/' + item.slug }));
@@ -12,6 +14,10 @@ const items = collection.map(item => ({ ...item.data, slug: '/blog/' + item.slug
 <Layout title="bencuan's blog" description="long-form writing projects" currPage="blog">
   <h1 class="blog-title">blog</h1>
   <p class="splash"></p>
+  <div class="home-buttons">
+    <Button href="/rss.xml"><Rss /> rss</Button>
+    <Button href="https://bencuan.substack.com"><Newspaper /> newsletter</Button>
+  </div>
 
   <SearchSortFilter
     sortCategories={['title', 'date']}

@@ -1,43 +1,9 @@
-import { faBluesky, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // https://github.com/icons-pack/react-simple-icons/issues/208
 // get rid of this one fontawesome adds substack...
 // @ts-ignore
-import { default as SiSubstack } from '@icons-pack/react-simple-icons/icons/SiSubstack.mjs';
 import React from 'react';
 import '../sass/footer.scss';
 import { ILink, XLink } from './links';
-
-const icons = [
-  {
-    simpleIcon: SiSubstack,
-    name: 'substack',
-    link: 'https://substack.com/@bencuan',
-  },
-  {
-    icon: faGithub,
-    name: 'github',
-    link: 'https://github.com/64bitpandas',
-    me: true,
-  },
-  {
-    icon: faLinkedin,
-    name: 'linkedin',
-    link: 'https://linkedin.com/in/bencuan',
-  },
-  {
-    icon: faBluesky,
-    name: 'bluesky',
-    link: 'https://bsky.app/profile/bencuan.me',
-    me: true,
-  },
-  {
-    icon: faTwitter,
-    name: 'twitter',
-    link: 'https://twitter.com/bencuan_',
-    me: true,
-  },
-];
 
 const Footer = () => {
   const [showArchives, setShowArchives] = React.useState(false);
@@ -54,7 +20,7 @@ const Footer = () => {
           if (sha && date) {
             const parsedDate = new Date(date);
             const sDate = `${parsedDate.getFullYear()}.${('0' + (parsedDate.getMonth() + 1)).slice(-2)}.${('0' + parsedDate.getDate()).slice(-2)}`;
-            setLatestCommit(`v6@${sha.substring(0, 6)}_${sDate}`);
+            setLatestCommit(`v6@${sha.substring(0, 6)} (${sDate})`);
           }
         });
     } catch {} //don't display anything if api is down
@@ -67,22 +33,6 @@ const Footer = () => {
         async
         src="//goatcounter.bencuan.me/count.js"
       ></script>
-      <hr />
-
-      <div className="footer-icons">
-        {icons.map(val => (
-          <a
-            href={val.link}
-            key={val.name}
-            className="footer-icon"
-            target="_blank"
-            rel={val.me ? 'me noreferrer' : 'noreferrer'}
-            aria-label={val.name}
-          >
-            {val.icon ? <FontAwesomeIcon icon={val.icon} /> : <val.simpleIcon className="simple-icon" />}
-          </a>
-        ))}
-      </div>
 
       {showArchives && (
         <>
@@ -114,7 +64,7 @@ const Footer = () => {
           >
             archives
           </span>
-          {' // '}
+          {' / '}
         </>
       )}
 
