@@ -17,6 +17,22 @@
 @font-face {
   font-family: Pangaia;
   font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Pangaia/PPPangaia-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Pangaia;
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Pangaia/PPPangaia-LightItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Pangaia;
+  font-style: normal;
   font-weight: 500;
   font-display: swap;
   src: url('/fonts/Pangaia/PPPangaia-Medium.otf') format('opentype');
@@ -47,11 +63,51 @@
 }
 
 @font-face {
+  font-family: Pangaia;
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/Pangaia/PPPangaia-Ultrabold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Pangaia;
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/Pangaia/PPPangaia-UltraboldItalic.otf') format('opentype');
+}
+
+@font-face {
   font-family: Fraktion;
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
   src: url('/fonts/Fraktion Sans/PPFraktionSans-Variable.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Eiko;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Eiko/PPEiko-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Eiko;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Eiko/PPEiko-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Eiko;
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/Eiko/PPEiko-Heavy.ttf') format('truetype');
 }
 
 @font-face {
@@ -126,12 +182,11 @@
   src: url('/fonts/Novela/novela-displayitalic-webfont.woff2') format('woff2');
 }
 
-$header: Novela, Lora, sans-serif;
-$body: Garamond, Lora, serif;
+$header: Pangaia, sans-serif;
+$body: Eiko, serif;
 $ui: Fraktion, Rubik, sans-serif;
 $special: Pangaia, Novela, sans-serif;
 $code: FiraCode, monospace;
-$sans: NeueMontreal, sans-serif;
 
 $s-2: clamp(0.774rem, 0.81rem + -0.048vi, 0.8rem);
 $s-1: clamp(1rem, 0.989rem + 0.057vi, 1.032rem);

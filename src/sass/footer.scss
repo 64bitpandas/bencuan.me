@@ -2,40 +2,49 @@
 @use 'colors';
 @use 'mixins';
 
+footer {
+  bottom: 0;
+  color: colors.$text-light;
+  font-family: fonts.$ui;
+  font-weight: 200;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
 .footer-icons {
-    padding: 0.15rem;
-    box-sizing: border-box;
-    color: colors.$text;
-    font-size: 1.35rem;
-    pointer-events: none;
-    transition: all 0.15s ease-in-out;
+  padding: 0.15rem;
+  box-sizing: border-box;
+  color: colors.$text;
+  font-size: 1.35rem;
+  pointer-events: none;
+  transition: all 0.15s ease-in-out;
 }
 
 .footer-icon {
-    color: colors.$text !important;
-    margin-right: 1rem;
-    transition: all 0.15s ease-in-out;
-    pointer-events: auto;
+  color: colors.$text !important;
+  margin-right: 1rem;
+  transition: all 0.15s ease-in-out;
+  pointer-events: auto;
 }
 
 .footer-icon:hover {
-    color: colors.$blue !important;
+  color: colors.$light-green !important;
 }
 
 .close-archives {
-    cursor: pointer;
-    user-select: none;
+  cursor: pointer;
+  user-select: none;
 
-    &:hover {
-        color: colors.$blue;
-    }
+  &:hover {
+    color: colors.$light-green;
+  }
 }
 
 .show-archive {
-    user-select: none;
+  user-select: none;
 }
 
 .simple-icon {
-    font-size: 1.25rem;
-    transform: translateY(3px) scale(.8);
+  font-size: 1.25rem;
+  transform: translateY(3px) scale(0.8);
 }

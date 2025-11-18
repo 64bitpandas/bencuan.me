@@ -17,12 +17,12 @@
 
   @include mixins.screen('desktop') {
     &:hover {
-      color: colors.$blue;
+      color: colors.$dark-green;
     }
   }
 
   &.category-selected {
     font-weight: bold;
-    color: colors.$blue;
+    color: colors.$dark-green;
   }
 }

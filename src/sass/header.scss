@@ -4,42 +4,40 @@
 
 header {
   font-family: fonts.$special;
-  font-weight: 400;
-  padding: 1rem;
+  font-weight: 200;
   height: 4rem;
   background-color: colors.$background;
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 99;
-}
-
-.nav-links {
-  margin-left: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
 .nav-current {
-  color: colors.$lavender !important;
-  text-decoration: underline !important;
-
+  font-weight: 500 !important;
   &:hover {
-    color: colors.$blue !important;
+    color: colors.$text !important;
   }
 }
 
 .nav-link {
   font-size: fonts.$s1;
   color: colors.$text;
+  font-weight: 300;
+  &:hover {
+    color: colors.$dark-green;
+  }
 }
 
 .nav-container {
-  left: 0;
-  right: 0;
+  // left: 0;
+  // right: 0;
   max-width: 100vw;
   position: absolute;
-  top: 0;
   display: flex;
   align-items: center;
   z-index: 999;
-  margin: 1.25rem;
+  margin-top: 1.5rem;
 }

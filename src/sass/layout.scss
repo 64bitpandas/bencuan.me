@@ -24,12 +24,12 @@ html {
     height: 8px;
 
     &-thumb {
-      background: #a8b0df;
+      background: colors.$light-green;
       border-radius: 3px;
     }
 
     &-track {
-      background-color: colors.$background-alt;
+      background-color: colors.$background-light;
     }
   }
 }
@@ -78,8 +78,8 @@ h4 {
 }
 
 p {
-  font-size: 1.25rem;
-  margin: 0 0 1.5rem 0;
+  font-size: fonts.$s-1;
+  margin: 0 0 2rem 0;
 }
 
 code {
@@ -96,7 +96,6 @@ ol,
 
 // Layout components
 .body {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -117,19 +116,7 @@ main {
   @include mixins.screen('mobile') {
     width: min(90vw, 1024px);
     padding: 0 calc($padding / 2);
-    padding-top: 6rem;
-  }
-}
-
-footer {
-  bottom: 0;
-  padding: 3rem $padding;
-  color: colors.$text;
-  font-family: fonts.$ui;
-  font-weight: 200;
-
-  @include mixins.screen('not-desktop') {
-    text-align: center;
+    padding-top: 0rem;
   }
 }
 
@@ -164,7 +151,7 @@ blockquote {
   position: relative;
   margin: 0 0 1.5rem 0;
   padding: 1rem;
-  background-color: colors.$background-alt;
+  background-color: colors.$background-light;
 
   p {
     margin: 0;
@@ -172,7 +159,7 @@ blockquote {
 
   &::before {
     content: '';
-    background-color: colors.$pink;
+    background-color: colors.$light-green;
     position: absolute;
     top: 0;
     left: 0;

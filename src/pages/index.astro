@@ -1,17 +1,14 @@
 ---
-import { faRss, faNewspaper } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../components/layout.astro';
-import Visitors from '../components/visitors.tsx';
-import Button from '../components/button.tsx';
-import { ILink, MDLink, XLink } from '../components/links.tsx';
 import '../sass/home.scss';
-// import '../sass/doomscroll.scss';
 import IndexContent from './_index-content.mdx';
 ---
 
 <Layout title="bencuan's website" description="welcome to my website!" currPage="home">
-  <h1 class="name">ben cuan</h1>
+  <div class="name-container">
+    <img src="/img/kevin2.png" />
+    <h1>hi! i'm ben!</h1>
+  </div>
   <div class="text">
     <!-- <p><Visitors client:idle /></p> -->
     <IndexContent />

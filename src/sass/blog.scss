@@ -39,7 +39,7 @@
 
   hr {
     margin: 3rem;
-    border: 1px solid colors.$lavender;
+    border: 1px solid colors.$light-green;
   }
 
   img {
@@ -51,7 +51,9 @@
   }
 
   p {
-    font-family: fonts.$sans;
+    font-family: fonts.$body;
+    color: colors.$text-light;
+    font-weight: 200;
   }
 
   li {
@@ -59,18 +61,23 @@
       margin-bottom: 0.7rem;
     }
     ::marker {
-      font-family: fonts.$sans;
+      font-family: fonts.$body;
     }
   }
 
   ul {
     margin-top: 0;
   }
+
+  strong {
+    font-weight: 500;
+    color: colors.$text;
+  }
 }
 
 .footnote-icon,
 .footnote {
-  color: colors.$lavender;
+  color: colors.$dark-green;
   text-decoration: none !important;
   transition: all 0.2s;
 
@@ -105,12 +112,12 @@
   }
 
   15% {
-    background-color: colors.$pink;
+    background-color: colors.$light-green;
     color: white;
   }
 
   50% {
-    background-color: colors.$pink;
+    background-color: colors.$light-green;
     color: white;
   }
 
@@ -133,7 +140,7 @@
 .hoverweight {
   font-size: fonts.$s1;
   font-family: fonts.$ui;
-  color: colors.$blue;
+  color: colors.$light-green;
 
   &:hover {
     animation: hover 1s linear infinite alternate;
