@@ -20,7 +20,7 @@ The Layout component serves as the base component in which all content should be
     <link rel="sitemap" href="/sitemap-index.xml" />
     {headContent}
   </head>
-  <div class="body">
+  <div class="body container">
     <Tooltip
       client:idle
       disableStyleInjection
@@ -31,7 +31,7 @@ The Layout component serves as the base component in which all content should be
       delayHide={150}
     />
     <Header currPage={currPage} customPages={customPages} client:idle />
-    <main class="container">
+    <main>
       <slot />
     </main>
 

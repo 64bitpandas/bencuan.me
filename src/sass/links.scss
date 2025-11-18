@@ -4,7 +4,7 @@
 
 .link {
   text-decoration: none;
-  color: colors.$text;
+  color: colors.$text-light;
   font-weight: normal;
   transition: all 0.1s ease-in-out;
 
@@ -18,7 +18,7 @@
         transform: scaleX(1);
       }
 
-      color: colors.$blue;
+      color: colors.$dark-green;
 
       .custom-tooltip {
         transform: translateY(0px) !important;
@@ -35,7 +35,7 @@
       height: 2px;
       bottom: -1px;
       left: 0;
-      background-color: colors.$lavender;
+      background-color: colors.$dark-green;
       visibility: hidden;
       transform: scaleX(0);
       font-weight: bold;
@@ -45,16 +45,16 @@
 }
 
 .blue-link {
-  color: colors.$lavender !important;
+  color: colors.$dark-green !important;
   transition: all 0.25s ease-in-out;
 
   @include mixins.screen('not-mobile') {
     &::before {
-      background-color: colors.$lavender !important;
+      background-color: colors.$dark-green !important;
     }
 
     &:hover {
-      color: colors.$pink !important;
+      color: colors.$light-green !important;
     }
   }
 }
@@ -83,11 +83,11 @@
   border-radius: 3px;
   transition: all 0.3s ease-in-out;
   animation: ilink-tr 0.25s reverse;
-  background-color: colors.$gray;
+  background-color: colors.$extra-light-green;
 
   &:hover {
-    color: colors.$text-highlight;
-    background-color: colors.$blue;
+    color: colors.$background-light;
+    background-color: colors.$light-green;
     font-weight: 475;
   }
 }

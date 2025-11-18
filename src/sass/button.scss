@@ -3,152 +3,157 @@
 @use 'mixins';
 
 :root {
-    --angle: 45deg;
-    --opacity: 1;
-    --g: 255;
+  --angle: 45deg;
+  --opacity: 1;
+  --g: 255;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 // inspired by https://web.dev/articles/css-border-animations
 // houdini not supported in firefox, sorry firefox users you get
 // a less pretty button
 .button {
-    border: solid colors.$purple 2px;
-    border-radius: 10px;
-    padding: 2px 4px;
-    cursor: pointer;
-    font-family: fonts.$ui;
-    font-size: fonts.$s-1;
+  border: solid colors.$dark-green 2px;
+  border-radius: 10px;
+  padding: 2px 4px;
+  cursor: pointer;
+  font-family: fonts.$ui;
+  font-size: fonts.$s-1;
+  color: colors.$text !important;
+  text-decoration: none;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 0.25s linear;
+
+  a {
     color: colors.$text !important;
     text-decoration: none;
-    position: relative;
-    box-sizing: border-box;
-    transition: all 0.25s linear;
+  }
 
-    a {
-        color: colors.$text !important;
-        text-decoration: none;
-    }
+  z-index: 0;
+  overflow: hidden;
 
-    z-index: 0;
-    overflow: hidden;
+  background-clip: padding-box, border-box;
 
-    background-clip: padding-box,
-    border-box;
+  &:hover {
+    animation:
+      rotate 0.5s ease-out infinite,
+      grow 0.75s alternate ease-out infinite,
+      pinker 0.75s alternate ease-out infinite;
+    border: solid transparent 2px;
+  }
 
-    &:hover {
-        animation:
-            rotate 0.5s ease-out infinite,
-            grow 0.75s alternate ease-out infinite,
-            pinker 0.75s alternate ease-out infinite;
-        border: solid transparent 2px;
-    }
+  background-image: linear-gradient(
+      to right,
+      rgb(255 var(--g) 255 / var(--opacity)),
+      rgb(255 var(--g) 255 / var(--opacity))
+    ),
+    conic-gradient(
+      from var(--angle),
+      colors.$light-green 0deg 90deg,
+      colors.$dark-green 90deg 180deg,
+      colors.$extra-light-green 180deg 270deg,
+      colors.$dark-green 270deg 360deg
+    );
 
-    background-image: linear-gradient(to right,
-        rgb(255 var(--g) 255 / var(--opacity)),
-        rgb(255 var(--g) 255 / var(--opacity))),
-    conic-gradient(from var(--angle),
-        colors.$lavender 0deg 90deg,
-        colors.$purple 90deg 180deg,
-        colors.$blue 180deg 270deg,
-        colors.$teal 270deg 360deg);
-
-    background-origin: border-box;
+  background-origin: border-box;
 }
 
 // hue rotation only
 .button-simple {
-    border: solid colors.$purple 3px;
-    border-radius: 10px;
-    padding: 2px 4px;
-    text-decoration: none;
-    position: relative;
-    box-sizing: border-box;
-    transition: all 0.25s linear;
+  border: solid colors.$dark-green 3px;
+  border-radius: 10px;
+  padding: 2px 4px;
+  text-decoration: none;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 0.25s linear;
 
-    z-index: 0;
-    overflow: hidden;
+  z-index: 0;
+  overflow: hidden;
 
-    background-clip: padding-box,
-        border-box;
+  background-clip: padding-box, border-box;
 
-    &:hover {
-        animation:
-            rotate 2s linear infinite;
-        border: solid transparent 5px;
-    }
+  &:hover {
+    animation: rotate 2s linear infinite;
+    border: solid transparent 5px;
+  }
 
-    background-image: linear-gradient(to right,
-        rgb(255 var(--g) 255 / var(--opacity)),
-        rgb(255 var(--g) 255 / var(--opacity))),
-    conic-gradient(from var(--angle),
-        colors.$lavender 0deg 90deg,
-        colors.$purple 90deg 180deg,
-        colors.$blue 180deg 270deg,
-        colors.$teal 270deg 360deg);
+  background-image: linear-gradient(
+      to right,
+      rgb(255 var(--g) 255 / var(--opacity)),
+      rgb(255 var(--g) 255 / var(--opacity))
+    ),
+    conic-gradient(
+      from var(--angle),
+      colors.$extra-light-green 0deg 90deg,
+      colors.$dark-green 90deg 180deg,
+      colors.$extra-light-green 180deg 270deg,
+      colors.$light-green 270deg 360deg
+    );
 
-    background-origin: border-box;
+  background-origin: border-box;
 }
 
 @keyframes huerotate {
-    0% {
-        filter: hue-rotate(0);
-    }
+  0% {
+    filter: hue-rotate(0);
+  }
 
-    50% {
-        filter: hue-rotate(40deg);
-    }
+  50% {
+    filter: hue-rotate(40deg);
+  }
 }
 
 @keyframes grow {
-    from {
-        font-weight: normal;
-        transform: scale(1);
-    }
+  from {
+    font-weight: normal;
+    transform: scale(1);
+  }
 
-    to {
-        font-weight: bold;
-        transform: scale(1.02);
-    }
+  to {
+    font-weight: bold;
+    transform: scale(1.02);
+  }
 }
 
 @supports (background: paint(houdini)) {
-    @property --angle {
-        syntax: "<angle>";
-        initial-value: 0deg;
-        inherits: false;
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @property --g {
+    syntax: '<number>';
+    initial-value: 255;
+    inherits: false;
+  }
+
+  @keyframes rotate {
+    0% {
+      --angle: 0deg;
     }
 
-    @property --g {
-        syntax: "<number>";
-        initial-value: 255;
-        inherits: false;
+    50% {
+      --angle: 180deg;
     }
 
-    @keyframes rotate {
-        0% {
-            --angle: 0deg;
-        }
+    100% {
+      --angle: 360deg;
+    }
+  }
 
-        50% {
-            --angle: 180deg;
-        }
-
-        100% {
-            --angle: 360deg;
-        }
+  @keyframes pinker {
+    from {
+      --g: 255;
     }
 
-    @keyframes pinker {
-        from {
-            --g: 255;
-        }
-
-        to {
-            --g: 190;
-        }
+    to {
+      --g: 190;
     }
+  }
 }

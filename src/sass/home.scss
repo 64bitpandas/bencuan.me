@@ -2,32 +2,20 @@
 @use 'colors';
 @use 'mixins';
 
-$padding: 15vw;
+.name-container {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
 
-.home-links {
-  margin-top: 3rem;
-}
-
-.splash {
-  margin-bottom: 1rem;
-  font-size: fonts.$s0;
-  font-weight: 475;
-}
-
-.name {
-  margin-top: 3rem;
-
-  @include mixins.screen('mobile') {
-    margin-top: 1rem;
+  img {
+    height: 64px;
   }
 
-  font-size: fonts.$s5;
-  font-family: fonts.$special;
+  h1 {
+    font-weight: 200;
+    font-size: fonts.$s2;
+    color: colors.$text;
+  }
 
-  color: colors.$text;
-  font-weight: normal;
-}
-
-.home-buttons {
   margin-bottom: 2rem;
 }
