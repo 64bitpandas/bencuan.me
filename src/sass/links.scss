@@ -95,3 +95,32 @@
 .arrow {
   font-family: fonts.$ui;
 }
+
+// Tooltip styles
+.react-tooltip {
+  @include mixins.screen('mobile') {
+    display: none !important;
+  }
+  background: colors.$light-green !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
+  color: colors.$background-light !important;
+  font-family: fonts.$ui;
+  padding: 2px 5px !important;
+  transform: translateY(10px);
+  z-index: 9999 !important;
+}
+
+.react-tooltip__closing {
+  animation: disappear 0.15s forwards 0.05s;
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}

@@ -47,7 +47,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: fonts.$header;
+  font-family: fonts.$body;
   font-weight: 450;
 }
 
@@ -78,7 +78,7 @@ h4 {
 }
 
 p {
-  font-size: fonts.$s-1;
+  font-size: fonts.$s-2;
   margin: 0 0 2rem 0;
 }
 
@@ -210,34 +210,5 @@ blockquote {
 
 // Selection styles
 ::selection {
-  background-color: #babbf1;
-}
-
-// Tooltip styles
-.react-tooltip {
-  @include mixins.screen('mobile') {
-    display: none !important;
-  }
-  background: rgba(30, 102, 245) !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
-  color: white !important;
-  font-family: fonts.$ui;
-  padding: 2px 5px !important;
-  transform: translateY(10px);
-  z-index: 9999 !important;
-}
-
-.react-tooltip__closing {
-  animation: disappear 0.15s forwards 0.05s;
-}
-
-@keyframes disappear {
-  from {
-    opacity: 1;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(15px);
-  }
+  background-color: colors.$extra-light-green;
 }
