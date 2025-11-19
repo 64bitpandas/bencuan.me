@@ -210,5 +210,17 @@ blockquote {
 
 // Selection styles
 ::selection {
-  background-color: colors.$extra-light-green;
+  background-color: rgba(colors.$extra-light-green, 0.5);
+}
+
+.container404 {
+  margin-top: 10rem;
+  h1 {
+    font-size: fonts.$s4;
+    font-family: fonts.$ui;
+  }
+  a {
+    color: colors.$text;
+    font-family: fonts.$body;
+  }
 }
