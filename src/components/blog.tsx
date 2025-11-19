@@ -1,4 +1,4 @@
-import { ArrowBendUpRight } from '@phosphor-icons/react';
+import { ArrowBendUpLeft } from '@phosphor-icons/react';
 import { type ReactNode } from 'react';
 import '../sass/searchSortFilter.scss';
 import { MDLink } from './links';
@@ -81,7 +81,7 @@ export const FootnoteRef = ({ n, style, children }: footnoteProps) => (
         }
       }}
     >
-      <ArrowBendUpRight className="footnote-icon" />
+      <ArrowBendUpLeft className="footnote-icon" />
     </a>
   </div>
 );
