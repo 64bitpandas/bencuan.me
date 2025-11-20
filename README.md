@@ -1,4 +1,4 @@
-![bencuan.me](src/images/og-banner.png)
+![bencuan.me](public/img/opengraph/og-banner.png)
 
 ---
 
@@ -23,17 +23,10 @@ Then, run `yarn` to install all dependencies, and `yarn dev` to start the develo
 I license the following fonts for personal web use:
 
 - [Fraktion Sans](https://pangrampangram.com/products/fraktion)
-- [Neue Montreal](https://pangrampangram.com/products/neue-montreal)
 - [Eiko](https://pangrampangram.com/products/eiko)
-- [Novela](https://www.atipofoundry.com/fonts/novela)
-- [Pine Tree](https://creativemarket.com/UppercapType/6881392-Pine-Tree-Hand-Drawn-Sans)
+- [Pangaia](https://pangrampangram.com/products/pangaia)
 
 These fonts are not included in this repo. Feel free to acquire the appropriate licenses and place them in the `public/fonts` directory if you are interested in recreating the appearance of my site. A full list of expected files can be found in `src/sass/_fonts.scss`.
-
-The following open source fonts are included by default:
-
-- Rubik (sans-serif)
-- Garamond (serif)
 
 ### DevEx
 
@@ -49,10 +42,9 @@ If you use VSCode, things should be fairly plug-and-play.
 - [Astro](https://astro.build)
 - [React](https://react.dev)
 - [MDX](https://mdxjs.com)
-- [Fontawesome](https://fontawesome.com/)
 - [remark-wiki-link](https://github.com/landakram/remark-wiki-link)
 - [astro-seo](https://github.com/jonasmerlin/astro-seo)
-- [Hamburgers](https://github.com/jonsuh/hamburgers)
+- [phosphor-icons](https://github.com/phosphor-icons/phosphor-icons)
 
 ## Contact
 

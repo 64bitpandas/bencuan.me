@@ -10,7 +10,7 @@ const { title, description, image } = Astro.props;
     basic: {
       title: title,
       type: 'website',
-      image: image ?? 'https://raw.githubusercontent.com/64bitpandas/bencuan.me/main/src/images/og-banner.png',
+      image: image ?? 'https://raw.githubusercontent.com/64bitpandas/bencuan.me/v7/public/img/opengraph/og-banner.png',
     },
     optional: {
       siteName: "bencuan's site",
@@ -26,7 +26,8 @@ const { title, description, image } = Astro.props;
     meta: [
       {
         name: 'twitter:image',
-        content: image ?? 'https://raw.githubusercontent.com/64bitpandas/bencuan.me/main/src/images/og-banner.png',
+        content:
+          image ?? 'https://raw.githubusercontent.com/64bitpandas/bencuan.me/v7/public/img/opengraph/og-banner.png',
       },
       { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: description },
