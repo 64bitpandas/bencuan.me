@@ -188,9 +188,9 @@ $ui: Fraktion, Rubik, sans-serif;
 $special: Pangaia, Novela, sans-serif;
 $code: FiraCode, monospace;
 
-$s-2: clamp(0.774rem, 0.81rem + -0.048vi, 0.8rem);
-$s-1: clamp(1rem, 0.989rem + 0.057vi, 1.032rem);
-$s0: clamp(1.25rem, 1.205rem + 0.227vi, 1.375rem);
+$s-2: clamp(0.438rem, 0.577vw + 0.288rem, 0.75rem); // 7-12px
+$s-1: clamp(0.625rem, 0.577vw + 0.476rem, 0.938rem); // 10-15px
+$s0: clamp(0.938rem, 0.577vw + 0.788rem, 1.25rem); // 15-20px
 $s1: clamp(1.563rem, 1.464rem + 0.492vi, 1.833rem);
 $s2: clamp(1.953rem, 1.775rem + 0.891vi, 2.443rem);
 $s3: clamp(2.441rem, 2.145rem + 1.483vi, 3.257rem);

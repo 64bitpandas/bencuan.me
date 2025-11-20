@@ -24,10 +24,14 @@ header {
 
 .nav-link {
   font-size: fonts.$s1;
-  color: colors.$text;
-  font-weight: 300;
-  &:hover {
-    color: colors.$dark-green;
+
+  .link {
+    font-weight: 300;
+    color: colors.$text;
+
+    &:hover {
+      color: colors.$dark-green;
+    }
   }
 }
 
