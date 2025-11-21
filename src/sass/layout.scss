@@ -38,6 +38,7 @@ body {
   margin: 0;
   background-color: colors.$background;
   overflow-x: hidden;
+  line-height: 1.5;
 }
 
 // Typography
@@ -65,16 +66,16 @@ h5,
 
 h1 {
   margin: 0;
-  font-size: fonts.$s3;
+  font-size: fonts.$s5;
 }
 
 h2 {
-  font-size: fonts.$s2;
+  font-size: fonts.$s4;
 }
 
 h3,
 h4 {
-  font-size: fonts.$s1;
+  font-size: fonts.$s3;
 }
 
 p {

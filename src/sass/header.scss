@@ -15,15 +15,8 @@ header {
   margin-bottom: 4rem;
 }
 
-.nav-current {
-  font-weight: 500 !important;
-  &:hover {
-    color: colors.$text !important;
-  }
-}
-
 .nav-link {
-  font-size: fonts.$s1;
+  font-size: fonts.$s4;
 
   .link {
     font-weight: 300;
@@ -32,6 +25,11 @@ header {
     &:hover {
       color: colors.$dark-green;
     }
+  }
+
+  .nav-current {
+    font-weight: 500 !important;
+    color: colors.$dark-green;
   }
 }
 

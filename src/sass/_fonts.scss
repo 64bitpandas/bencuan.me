@@ -188,12 +188,15 @@ $ui: Fraktion, Rubik, sans-serif;
 $special: Pangaia, Novela, sans-serif;
 $code: FiraCode, monospace;
 
+// calculated with https://fluidtypography.com/, 414-1280px viewport width
 $s-2: clamp(0.438rem, 0.577vw + 0.288rem, 0.75rem); // 7-12px
 $s-1: clamp(0.625rem, 0.577vw + 0.476rem, 0.938rem); // 10-15px
-$s0: clamp(0.938rem, 0.577vw + 0.788rem, 1.25rem); // 15-20px
-$s1: clamp(1.563rem, 1.464rem + 0.492vi, 1.833rem);
-$s2: clamp(1.953rem, 1.775rem + 0.891vi, 2.443rem);
-$s3: clamp(2.441rem, 2.145rem + 1.483vi, 3.257rem);
-$s4: clamp(3.052rem, 2.583rem + 2.345vi, 4.341rem);
-$s5: clamp(3.815rem, 3.097rem + 3.586vi, 5.787rem);
-$s6: clamp(4.768rem, 3.697rem + 5.356vi, 7.714rem);
+$s0: clamp(0.813rem, 0.577vw + 0.663rem, 1.125rem); // 13-18px
+$s1: clamp(1rem, 0.577vw + 0.851rem, 1.313rem); // 16-21px
+$s2: clamp(1.188rem, 0.577vw + 1.038rem, 1.5rem); // 19-24px
+$s3: clamp(1.375rem, 0.577vw + 1.226rem, 1.688rem); // 22-27px
+$s4: clamp(1.563rem, 0.577vw + 1.414rem, 1.875rem); // 25-30px
+$s5: clamp(1.938rem, 0.577vw + 1.789rem, 2.25rem); // 31-36px
+$s6: clamp(2.125rem, 0.577vw + 2.063rem, 2.5rem); // 37-42px
+$s7: clamp(2.313rem, 0.577vw + 2.338rem, 2.75rem); // 48-56px
+$s8: clamp(2rem, 1.848vw + 2.522rem, 4rem); // 32-64px
