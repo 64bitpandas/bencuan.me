@@ -36,8 +36,16 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Set build info
+        run: |
+          echo "PUBLIC_COMMIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          echo "PUBLIC_COMMIT_DATE=$(git log -1 --format=%cd --date=format:%Y.%m.%d)" >> $GITHUB_ENV
+
       - name: Build Astro Site
         run: yarn build
+        env:
+          PUBLIC_COMMIT_SHA: ${{ env.PUBLIC_COMMIT_SHA }}
+          PUBLIC_COMMIT_DATE: ${{ env.PUBLIC_COMMIT_DATE }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
