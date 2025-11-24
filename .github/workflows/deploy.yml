@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request: # TODO: Remove this after v7 is done
-    branches:
-      - main
 
 permissions:
   contents: read
