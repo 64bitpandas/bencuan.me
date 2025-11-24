@@ -15,6 +15,13 @@ header {
   margin-bottom: 4rem;
 }
 
+@include mixins.screen('mobile') {
+  header {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
 .nav-link {
   font-size: fonts.$s4;
 
