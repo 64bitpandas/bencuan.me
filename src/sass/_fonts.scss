@@ -230,10 +230,10 @@
   src: url('/fonts/Novela/novela-displayitalic-webfont.woff2') format('woff2');
 }
 
-$header: Pangaia, sans-serif;
+$header: Pangaia, serif;
 $body: Eiko, serif;
-$ui: Fraktion, Rubik, sans-serif;
-$special: Pangaia, Novela, sans-serif;
+$ui: Fraktion, sans-serif;
+$special: Pangaia, sans-serif;
 $code: FiraCode, monospace;
 
 // calculated with https://fluidtypography.com/, 414-1280px viewport width
