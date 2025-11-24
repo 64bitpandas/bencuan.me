@@ -5,7 +5,11 @@ import React from 'react';
 import '../sass/footer.scss';
 import { ILink, XLink } from './links';
 
-const Footer = () => {
+type FooterProps = {
+  currPage?: string;
+};
+
+const Footer = ({ currPage }: FooterProps) => {
   const [showArchives, setShowArchives] = React.useState(false);
   const [latestCommit, setLatestCommit] = React.useState('');
 
@@ -68,7 +72,9 @@ const Footer = () => {
         </>
       )}
 
-      <ILink href="/colophon">colophon</ILink>
+      <ILink href="/colophon" className={currPage === 'colophon' ? 'footer-current' : ''}>
+        colophon
+      </ILink>
 
       {latestCommit ? (
         <div>
