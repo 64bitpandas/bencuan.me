@@ -80,7 +80,6 @@ h4 {
 
 p {
   font-size: fonts.$s-2;
-  margin: 0 0 2rem 0;
 }
 
 code {
@@ -223,5 +222,49 @@ blockquote {
   a {
     color: colors.$text;
     font-family: fonts.$body;
+  }
+}
+
+// Tables
+
+table {
+  font-family: fonts.$body;
+  color: colors.$text;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0;
+
+  th {
+    font-family: fonts.$body;
+    font-weight: 500;
+    color: colors.$text;
+    text-align: left;
+    padding: 0.75rem;
+    border-bottom: 2px solid colors.$light-green;
+  }
+
+  td {
+    font-family: fonts.$body;
+    font-weight: 300;
+    color: colors.$text;
+    padding: 0.75rem;
+    border-bottom: 1px solid colors.$extra-light-green;
+
+    code {
+      font-family: fonts.$code;
+      font-size: fonts.$s-1;
+      color: colors.$text-light;
+      background-color: colors.$background-light;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover {
+    background-color: colors.$background-light;
   }
 }
