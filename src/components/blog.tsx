@@ -34,7 +34,10 @@ export const ToDateString = (date: Date, pretty?: boolean): string => {
 
 export const BlogFactory = (blog: Blog): ReactNode => (
   <div key={blog.slug} className="blog-ssf-entry">
-    <ILink href={blog.slug}>{blog.title}</ILink> <span className="blog-ssf-date">{ToDateString(blog.date)}</span>
+    <span className="blog-ssf-date">{ToDateString(blog.date)}</span>{' '}
+    <ILink href={blog.slug} className="blog-link">
+      {blog.title}
+    </ILink>
   </div>
 );
 

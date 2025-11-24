@@ -21,7 +21,6 @@ const items = collection.map(item => ({ ...item.data, slug: '/blog/' + item.slug
   <SearchSortFilter
     sortCategories={['title', 'date']}
     items={items}
-    itemCategories={['history', 'travel', 'philosophy', 'tech', 'experiments']}
     type="blog"
     defaultSort={{ category: 'date', state: 'desc' }}
     client:load
