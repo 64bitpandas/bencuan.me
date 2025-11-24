@@ -41,13 +41,26 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
 
   const doSort = (category: string) => {
     if (sortState.category === category) {
-      if (sortState.state === 'desc') {
-        setSortState({ category, state: 'asc' });
+      // Cycle through: initial state → opposite state → back to default
+      if (category === 'title') {
+        // Title: asc → desc → default
+        if (sortState.state === 'asc') {
+          setSortState({ category, state: 'desc' });
+        } else {
+          setSortState(defaultSort ?? { category: '', state: 'none' });
+        }
       } else {
-        setSortState(defaultSort ?? { category: '', state: 'none' });
+        // Other categories (like date): desc → asc → default
+        if (sortState.state === 'desc') {
+          setSortState({ category, state: 'asc' });
+        } else {
+          setSortState(defaultSort ?? { category: '', state: 'none' });
+        }
       }
     } else {
-      setSortState({ category, state: 'desc' });
+      // Title starts ascending, other categories start descending
+      const initialState = category === 'title' ? 'asc' : 'desc';
+      setSortState({ category, state: initialState });
     }
   };
 
@@ -55,10 +68,21 @@ const SearchSortFilter = ({ sortCategories, items, type, useSearch, itemCategori
     if (sortState.state === 'none') {
       return 0;
     }
+
+    // Get values to compare
+    let aVal = a[sortState.category];
+    let bVal = b[sortState.category];
+
+    // For title sorting, make it case-insensitive
+    if (sortState.category === 'title' && typeof aVal === 'string' && typeof bVal === 'string') {
+      aVal = aVal.toLowerCase();
+      bVal = bVal.toLowerCase();
+    }
+
     if (sortState.state === 'asc') {
-      return a[sortState.category] > b[sortState.category] ? 1 : -1;
+      return aVal > bVal ? 1 : -1;
     } else {
-      return a[sortState.category] < b[sortState.category] ? 1 : -1;
+      return aVal < bVal ? 1 : -1;
     }
   };
 
