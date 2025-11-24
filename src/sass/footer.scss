@@ -1,35 +1,16 @@
 @use 'fonts';
 @use 'colors';
 @use 'mixins';
+@use 'spacing';
 
 footer {
   bottom: 0;
   color: colors.$text-light;
   font-family: fonts.$ui;
   font-weight: 200;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  margin-top: spacing.$sl;
+  margin-bottom: spacing.$sl;
   font-size: fonts.$s0;
-}
-
-.footer-icons {
-  padding: 0.15rem;
-  box-sizing: border-box;
-  color: colors.$text;
-  font-size: 1.35rem;
-  pointer-events: none;
-  transition: all 0.15s ease-in-out;
-}
-
-.footer-icon {
-  color: colors.$text !important;
-  margin-right: 1rem;
-  transition: all 0.15s ease-in-out;
-  pointer-events: auto;
-}
-
-.footer-icon:hover {
-  color: colors.$light-green !important;
 }
 
 .close-archives {
@@ -48,4 +29,9 @@ footer {
 .simple-icon {
   font-size: 1.25rem;
   transform: translateY(3px) scale(0.8);
+}
+
+.footer-current {
+  font-weight: 500 !important;
+  color: colors.$dark-green !important;
 }

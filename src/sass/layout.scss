@@ -249,10 +249,10 @@ table {
     color: colors.$text;
     padding: 0.75rem;
     border-bottom: 1px solid colors.$extra-light-green;
+    font-size: fonts.$s0;
 
     code {
       font-family: fonts.$code;
-      font-size: fonts.$s-1;
       color: colors.$text-light;
       background-color: colors.$background-light;
       padding: 0.2rem 0.4rem;
