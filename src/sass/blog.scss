@@ -12,10 +12,11 @@
   font-weight: 500;
   font-size: fonts.$s8;
   line-height: 1;
+  margin-bottom: 0.5rem;
 }
 
 .blog-date {
-  margin-top: 0.5rem;
+  margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 200;
 }
@@ -32,19 +33,19 @@
 
   h2 {
     margin-top: spacing.$sxl;
-    margin-bottom: spacing.$sm;
+    margin-bottom: spacing.$sxs;
     padding: 0;
     font-weight: 450;
   }
 
   h3 {
     margin-top: spacing.$sxl;
-    margin-bottom: spacing.$ss;
+    margin-bottom: spacing.$sxs;
   }
 
   h4 {
     margin-top: spacing.$sl;
-    margin-bottom: spacing.$ss;
+    margin-bottom: spacing.$sxs;
   }
 
   hr {
