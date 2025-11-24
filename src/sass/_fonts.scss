@@ -89,9 +89,41 @@
 @font-face {
   font-family: Eiko;
   font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('/fonts/Eiko/PPEiko-Thin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Eiko;
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url('/fonts/Eiko/PPEiko-ThinItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Eiko;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Eiko/PPEiko-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Eiko;
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Eiko/PPEiko-LightItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Eiko;
+  font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/Eiko/PPEiko-Regular.ttf') format('truetype');
+  src: url('/fonts/Eiko/PPEiko-Regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -99,7 +131,15 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/Eiko/PPEiko-Medium.ttf') format('truetype');
+  src: url('/fonts/Eiko/PPEiko-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Eiko;
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Eiko/PPEiko-MediumItalic.woff2') format('woff2');
 }
 
 @font-face {
@@ -107,7 +147,15 @@
   font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: url('/fonts/Eiko/PPEiko-Heavy.ttf') format('truetype');
+  src: url('/fonts/Eiko/PPEiko-Black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Eiko;
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/Eiko/PPEiko-BlackItalic.woff2') format('woff2');
 }
 
 @font-face {

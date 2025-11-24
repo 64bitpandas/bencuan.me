@@ -64,7 +64,7 @@
   p {
     font-family: fonts.$body;
     color: colors.$text-light;
-    font-weight: 200;
+    font-weight: 400;
   }
 
   li {
@@ -145,7 +145,29 @@
 }
 
 .blog-ssf-date {
-  font-size: fonts.$s-1;
+  font-size: fonts.$s0;
+  color: colors.$text-light;
+  font-weight: 300;
+  font-family: fonts.$body;
+}
+
+.blog-link {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  padding: 2px 6px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  background-color: colors.$background-light;
+  font-size: fonts.$s1;
+  margin-top: spacing.$s2xs;
+
+  &:hover {
+    background-color: colors.$light-green;
+    color: colors.$background-light;
+    font-weight: 475;
+  }
 }
 
 .hoverweight {
