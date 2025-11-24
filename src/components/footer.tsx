@@ -11,24 +11,15 @@ type FooterProps = {
 
 const Footer = ({ currPage }: FooterProps) => {
   const [showArchives, setShowArchives] = React.useState(false);
-  const [latestCommit, setLatestCommit] = React.useState('');
 
-  // fetch latest commit
-  React.useEffect(() => {
-    try {
-      fetch('https://api.bencuan.me/latest-commit')
-        .then(response => response.json())
-        .then(data => {
-          const sha: string = data.sha;
-          const date: string = data.commit?.author?.date;
-          if (sha && date) {
-            const parsedDate = new Date(date);
-            const sDate = `${parsedDate.getFullYear()}.${('0' + (parsedDate.getMonth() + 1)).slice(-2)}.${('0' + parsedDate.getDate()).slice(-2)}`;
-            setLatestCommit(`v7@${sha.substring(0, 6)} (${sDate})`);
-          }
-        });
-    } catch {} //don't display anything if api is down
-  });
+  // Get commit info from environment variables set during build
+  const commitSha = import.meta.env.PUBLIC_COMMIT_SHA;
+  const commitDate = import.meta.env.PUBLIC_COMMIT_DATE;
+
+  // In development, show a development version with today's date
+  const isDev = import.meta.env.DEV;
+  const todayDate = new Date().toISOString().split('T')[0].replaceAll('-', '.');
+  const versionTag = isDev ? `v7@DEV (${todayDate})` : commitSha && commitDate ? `v7@${commitSha} (${commitDate})` : '';
 
   return (
     <footer>
@@ -76,10 +67,10 @@ const Footer = ({ currPage }: FooterProps) => {
         colophon
       </ILink>
 
-      {latestCommit ? (
+      {versionTag ? (
         <div>
           <XLink href="https://github.com/64bitpandas/bencuan.me" label="source">
-            {latestCommit}
+            {versionTag}
           </XLink>
         </div>
       ) : (
