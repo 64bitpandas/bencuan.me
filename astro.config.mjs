@@ -53,5 +53,6 @@ export default defineConfig({
     '/bookshelf': 'https://garden.bencuan.me/personal/bookshelf',
     '/about': '/',
     '/contact': 'https://garden.bencuan.me/Contact-Me',
+    '/blog/sfstreets/route1': 'https://garden.bencuan.me/community/sfstreets-route-v1',
   },
 });
