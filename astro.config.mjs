@@ -54,5 +54,6 @@ export default defineConfig({
     '/about': '/',
     '/contact': 'https://garden.bencuan.me/Contact-Me',
     '/blog/sfstreets/route1': 'https://garden.bencuan.me/community/sfstreets-route-v1',
+    '/blog/flights': 'https://garden.bencuan.me/guides/long-haul-flights',
   },
 });
