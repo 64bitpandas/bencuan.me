@@ -25,7 +25,13 @@ export default defineConfig({
         },
       ],
     }),
-    sitemap(),
+    sitemap({
+      lastmod: new Date(),
+      serialize(item) {
+        item.lastmod = undefined;
+        return item;
+      },
+    }),
     mdx(),
   ],
   markdown: {
@@ -55,5 +61,6 @@ export default defineConfig({
     '/contact': 'https://garden.bencuan.me/Contact-Me',
     '/blog/sfstreets/route1': 'https://garden.bencuan.me/community/sfstreets-route-v1',
     '/blog/flights': 'https://garden.bencuan.me/guides/long-haul-flights',
+    '/caltrain-trmnl': 'https://github.com/64bitpandas/trmnl-caltrain',
   },
 });
