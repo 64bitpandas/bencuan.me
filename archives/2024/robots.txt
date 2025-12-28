@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bencuan.me/sitemap-index.xml
+Sitemap: https://bencuan.me/sitemap-0.xml

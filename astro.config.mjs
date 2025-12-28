@@ -3,6 +3,8 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import AutoImport from 'astro-auto-import';
 import { defineConfig } from 'astro/config';
+import fs from 'fs';
+import path from 'path';
 import emoji from 'remark-emoji';
 import wikiLinkPlugin from 'remark-wiki-link';
 
@@ -26,9 +28,26 @@ export default defineConfig({
       ],
     }),
     sitemap({
-      lastmod: new Date(),
+      lastmod: new Date().toISOString(),
       serialize(item) {
-        item.lastmod = undefined;
+        // Extract the path from the URL and find the corresponding built HTML file
+        const filePathSequence = item.url.replace(SITE, '').split('/').filter(Boolean);
+        const filePath = path.join(import.meta.dirname, 'dist', ...filePathSequence, 'index.html');
+
+        try {
+          const fileContent = fs.readFileSync(filePath).toString();
+          const lastmodMatch = fileContent.match(/data-lastmod="(.+?)"/);
+
+          if (lastmodMatch && lastmodMatch[1]) {
+            item.lastmod = new Date(lastmodMatch[1]).toISOString();
+          } else {
+            // Default to current build date if no data-lastmod found
+            item.lastmod = new Date().toISOString();
+          }
+        } catch {
+          // If file can't be read, default to current build date
+          item.lastmod = new Date().toISOString();
+        }
         return item;
       },
     }),

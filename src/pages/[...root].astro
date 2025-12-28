@@ -20,7 +20,7 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title} description={entry.data.description} currPage={entry.data.title}>
-  <h1 class="blog-title">{entry.data.title}</h1>
+  <h1 class="blog-title" data-lastmod={entry.data.date.toISOString()}>{entry.data.title}</h1>
   <div class="blog-content">
     <Content components={{ a: MDLink, ColorDot }} />
   </div>
