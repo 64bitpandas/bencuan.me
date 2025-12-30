@@ -1,0 +1,53 @@
+---
+import '../../sass/color_app.scss';
+import Seo from '../seo.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  currentPage: 'palettes' | 'explorer' | 'about';
+}
+
+const { title, description, currentPage } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <Seo title={title} description={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="color-app">
+    <header class="color-header" id="color-header">
+      <a href="/colors" class="header-title">
+        <span class="light">ben's</span>
+        <span class="bold">colors</span>
+      </a>
+      <nav class="header-nav">
+        <a href="/colors" class:list={['nav-link', { active: currentPage === 'palettes' }]}>palettes</a>
+        <span class="separator">//</span>
+        <a href="/colors/explorer" class:list={['nav-link', { active: currentPage === 'explorer' }]}>explorer</a>
+        <span class="separator">//</span>
+        <a href="/colors/about" class:list={['nav-link', { active: currentPage === 'about' }]}>about</a>
+      </nav>
+    </header>
+
+    <main class="color-main">
+      <slot />
+    </main>
+
+    <footer class="color-footer">
+      <a href="https://bencuan.me" class="footer-link">
+        <img src="/favicon.png" alt="Kevin the Dinosaur" class="footer-icon" />
+        <span>back to bencuan.me</span>
+      </a>
+    </footer>
+  </body>
+</html>

@@ -1,10 +1,61 @@
 {
-  "Catppuccin Latte": [
-    {
-      "name": "Base",
-      "hex": "eff1f5",
-      "tags": ["background"],
-      "source": "https://catppuccin.com/palettes"
-    }
-  ]
+  "Catppuccin Latte": {
+    "source": "https://catppuccin.com/palette",
+    "colors": [
+      { "name": "Rosewater", "hex": "#dc8a78" },
+      { "name": "Flamingo", "hex": "#dd7878" },
+      { "name": "Pink", "hex": "#ea76cb" },
+      { "name": "Mauve", "hex": "#8839ef" },
+      { "name": "Red", "hex": "#d20f39" },
+      { "name": "Maroon", "hex": "#e64553" },
+      { "name": "Peach", "hex": "#fe640b" },
+      { "name": "Yellow", "hex": "#df8e1d" },
+      { "name": "Green", "hex": "#40a02b" },
+      { "name": "Teal", "hex": "#179299" },
+      { "name": "Sky", "hex": "#04a5e5" },
+      { "name": "Sapphire", "hex": "#209fb5" },
+      { "name": "Blue", "hex": "#1e66f5", "tags": ["highlight"] },
+      { "name": "Lavender", "hex": "#7287fd" },
+      { "name": "Text", "hex": "#4c4f69", "tags": ["text"] },
+      { "name": "Subtext 1", "hex": "#5c5f77" },
+      { "name": "Subtext 0", "hex": "#6c6f85" },
+      { "name": "Overlay 2", "hex": "#7c7f93" },
+      { "name": "Overlay 1", "hex": "#8c8fa1" },
+      { "name": "Overlay 0", "hex": "#9ca0b0" },
+      { "name": "Surface 2", "hex": "#acb0be", "tags": ["secondary"] },
+      { "name": "Surface 1", "hex": "#bcc0cc" },
+      { "name": "Surface 0", "hex": "#ccd0da" },
+      { "name": "Base", "hex": "#eff1f5", "tags": ["background"] },
+      { "name": "Mantle", "hex": "#e6e9ef" },
+      { "name": "Crust", "hex": "#dce0e8" }
+    ]
+  },
+  "bencuan.me v7": {
+    "source": "https://bencuan.me/colophon",
+    "colors": [
+      { "name": "Palm Tree Island", "hex": "#297638", "tags": ["highlight"] },
+      { "name": "Aspen Green", "hex": "#7e9b76" },
+      { "name": "Frosted Mint", "hex": "#cdd4cb", "tags": ["secondary"] },
+      { "name": "Stalactite", "hex": "#f7f6f2", "tags": ["background"] },
+      { "name": "Snowfall", "hex": "#f4eee8" },
+      { "name": "Metallic Fir", "hex": "#505457" },
+      { "name": "Anthracite", "hex": "#29282d", "tags": ["text"] }
+    ]
+  },
+  "Dracula": {
+    "source": "https://draculatheme.com",
+    "colors": [
+      { "name": "Background", "hex": "#282a36", "tags": ["background"] },
+      { "name": "Current Line", "hex": "#44475a", "tags": ["secondary"] },
+      { "name": "Foreground", "hex": "#f8f8f2", "tags": ["text"] },
+      { "name": "Comment", "hex": "#6272a4" },
+      { "name": "Cyan", "hex": "#8be9fd" },
+      { "name": "Green", "hex": "#50fa7b" },
+      { "name": "Orange", "hex": "#ffb86c" },
+      { "name": "Pink", "hex": "#ff79c6", "tags": ["highlight"] },
+      { "name": "Purple", "hex": "#bd93f9" },
+      { "name": "Red", "hex": "#ff5555" },
+      { "name": "Yellow", "hex": "#f1fa8c" }
+    ]
+  }
 }

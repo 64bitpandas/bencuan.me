@@ -1,0 +1,225 @@
+---
+import ColorLayout from '../../components/color-app/ColorLayout.astro';
+import palettes from '../../color-books/_palettes.json';
+import { hexToRgb, formatRgb } from '../../components/color-app/colorUtils';
+
+const paletteEntries = Object.entries(palettes);
+---
+
+<ColorLayout
+  title="Palettes | Ben's Colors"
+  description="A curated collection of color palettes"
+  currentPage="palettes"
+>
+  <div class="palettes-container">
+    {
+      paletteEntries.map(([name, data]) => (
+        <section class="palette-section">
+          <div class="palette-header">
+            <h2 class="palette-name">{name}</h2>
+            {data.source && (
+              <a href={data.source} target="_blank" rel="noopener noreferrer" class="palette-source">
+                source ↗
+              </a>
+            )}
+          </div>
+          <div class="color-table">
+            {data.colors.map(color => {
+              const [r, g, b] = hexToRgb(color.hex);
+              const rgbStr = formatRgb(r, g, b);
+              return (
+                <div class="color-row">
+                  <div class="color-circle" style={`background-color: ${color.hex};`} />
+                  <span class="color-name">{color.name}</span>
+                  {color.tags && color.tags.length > 0 && <span class="color-tag">{color.tags[0]}</span>}
+                  <button class="copy-btn hex-btn" data-value={color.hex} title="Copy hex">
+                    <span class="mono">{color.hex}</span>
+                    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </svg>
+                  </button>
+                  <button class="copy-btn rgb-btn" data-value={rgbStr} title="Copy RGB">
+                    <span class="mono">{rgbStr}</span>
+                    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </svg>
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+
+  <div class="toast" id="copy-toast">Copied!</div>
+</ColorLayout>
+
+<style lang="scss">
+  .palettes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .palette-section {
+    background: white;
+    border: 3px solid #29282d;
+    padding: 2rem;
+
+    &:not(:last-child) {
+      border-bottom: none;
+    }
+  }
+
+  .palette-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .palette-name {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin: 0;
+    color: #29282d;
+  }
+
+  .palette-source {
+    font-size: 1rem;
+    color: #1e66f5;
+    text-decoration: underline;
+    font-weight: 600;
+
+    &:hover {
+      color: #297638;
+    }
+  }
+
+  .color-table {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .color-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid #cdd4cb;
+
+    &:last-child {
+      border-bottom: 1px solid #cdd4cb;
+    }
+  }
+
+  .color-circle {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .color-name {
+    font-size: 1.1rem;
+    font-weight: 400;
+    min-width: 120px;
+  }
+
+  .color-tag {
+    background: #eff1f5;
+    color: #505457;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #eff1f5;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 0.9rem;
+
+    &:hover {
+      background: #dce0e8;
+    }
+
+    .mono {
+      font-family: 'Fira Code', monospace;
+    }
+
+    .copy-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+    }
+  }
+
+  .hex-btn {
+    margin-left: auto;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #29282d;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+    z-index: 1000;
+
+    &.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .palette-name {
+      font-size: 1.5rem;
+    }
+
+    .color-row {
+      flex-wrap: wrap;
+    }
+
+    .hex-btn {
+      margin-left: 0;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const value = btn.getAttribute('data-value');
+      if (value) {
+        navigator.clipboard.writeText(value);
+        const toast = document.getElementById('copy-toast');
+        if (toast) {
+          toast.textContent = `Copied ${value}`;
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+      }
+    });
+  });
+</script>

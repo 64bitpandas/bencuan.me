@@ -1,0 +1,173 @@
+// Color App Styles
+@use 'sass:color';
+
+// Variables
+$font-sans:
+  'Manrope',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  sans-serif;
+$font-mono: 'Fira Code', 'JetBrains Mono', monospace;
+
+$bg-primary: #f7f6f2;
+$bg-secondary: #eff1f5;
+$text-primary: #29282d;
+$text-secondary: #505457;
+$accent-blue: #1e66f5;
+$accent-green: #297638;
+$accent-light: #7e9b76;
+$border-color: #cdd4cb;
+
+// Base styles
+.color-app {
+  font-family: $font-sans;
+  background-color: $bg-primary;
+  color: $text-primary;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+// Header
+.color-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid $border-color;
+  background: $bg-primary;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .header-title {
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: $text-primary;
+
+    .light {
+      font-weight: 300;
+    }
+
+    .bold {
+      font-weight: 700;
+    }
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .nav-link {
+      color: $text-secondary;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+
+      &:hover,
+      &.active {
+        color: $accent-green;
+      }
+    }
+
+    .separator {
+      color: $border-color;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+// Main content
+.color-main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// Footer
+.color-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid $border-color;
+  text-align: center;
+
+  .footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $text-secondary;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $accent-green;
+    }
+  }
+
+  .footer-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Page title
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: $text-primary;
+}
+
+.page-subtitle {
+  font-size: 1rem;
+  color: $text-secondary;
+  margin-bottom: 2rem;
+}
+
+// Color swatch base
+.color-swatch {
+  border-radius: 8px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Utility classes
+.mono {
+  font-family: $font-mono;
+}
+
+.text-light {
+  color: white;
+}
+
+.text-dark {
+  color: $text-primary;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .color-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .color-main {
+    padding: 1rem;
+  }
+}

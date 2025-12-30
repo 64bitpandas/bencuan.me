@@ -1,0 +1,491 @@
+---
+import ColorLayout from '../../components/color-app/ColorLayout.astro';
+import { labToHex, isLightColor } from '../../components/color-app/colorUtils';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Get list of color books
+const colorBooksDir = path.join(process.cwd(), 'src/color-books');
+const files = fs.readdirSync(colorBooksDir);
+const colorBooks = files
+  .filter(f => f.endsWith('.json') && !f.startsWith('_'))
+  .map(f => f.replace('.json', ''))
+  .sort();
+
+// Default to PANTONE+ Solid Coated
+const selectedBook = Astro.url.searchParams.get('book') || 'PANTONE+ Solid Coated';
+const searchQuery = Astro.url.searchParams.get('q') || '';
+
+// Load the selected color book
+let colors: Array<{ name: string; hex: string; lab: number[] }> = [];
+try {
+  const bookPath = path.join(colorBooksDir, `${selectedBook}.json`);
+  const bookData = JSON.parse(fs.readFileSync(bookPath, 'utf-8'));
+
+  colors = Object.values(bookData.records).map((record: any) => {
+    const [l, a, b] = record.components;
+    return {
+      name: record.name,
+      hex: labToHex(l, a, b),
+      lab: record.components,
+    };
+  });
+
+  // Filter by search query
+  if (searchQuery) {
+    const query = searchQuery.toLowerCase();
+    colors = colors.filter(c => c.name.toLowerCase().includes(query));
+  }
+} catch (e) {
+  console.error('Error loading color book:', e);
+}
+---
+
+<ColorLayout title="Explorer | Ben's Colors" description="Explore Pantone and other color books" currentPage="explorer">
+  <div class="explorer-layout">
+    <div class="explorer-main">
+      <div class="explorer-controls">
+        <form class="controls-form" method="get">
+          <select name="book" class="book-select" id="book-select">
+            {
+              colorBooks.map(book => (
+                <option value={book} selected={book === selectedBook}>
+                  {book}
+                </option>
+              ))
+            }
+          </select>
+          <input type="text" name="q" placeholder="Search colors..." value={searchQuery} class="search-input" />
+          <button type="submit" class="search-btn">Search</button>
+        </form>
+        <p class="color-count">{colors.length} colors</p>
+      </div>
+
+      <div class="colors-grid">
+        {
+          colors.map(color => (
+            <div class="color-card" data-hex={color.hex} data-name={color.name}>
+              <div class="card-swatch" style={`background-color: ${color.hex};`}>
+                <button class="favorite-btn" data-hex={color.hex} data-name={color.name} title="Add to favorites">
+                  <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                </button>
+              </div>
+              <div class="card-info">
+                <span class="color-name">{color.name.replace('PANTONE ', '').replace('TOYO ', '')}</span>
+                <span class="color-hex mono">{color.hex}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <aside class="favorites-panel">
+      <div class="favorites-header">
+        <svg class="star-icon filled" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+          <polygon
+            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+          ></polygon>
+        </svg>
+        <span>favorites</span>
+      </div>
+      <div class="favorites-list" id="favorites-list">
+        <p class="favorites-empty">Click the star on any color to add it here!</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="toast" id="copy-toast">Copied!</div>
+</ColorLayout>
+
+<style lang="scss">
+  .explorer-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+  }
+
+  .explorer-main {
+    min-width: 0;
+  }
+
+  .explorer-controls {
+    margin-bottom: 1.5rem;
+  }
+
+  .controls-form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .book-select {
+    padding: 0.75rem 1rem;
+    border: 1px solid #cdd4cb;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: white;
+    min-width: 250px;
+  }
+
+  .search-input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #cdd4cb;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .search-btn {
+    padding: 0.75rem 1.5rem;
+    background: #1e66f5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: darken(#1e66f5, 10%);
+    }
+  }
+
+  .color-count {
+    font-size: 0.9rem;
+    color: #505457;
+  }
+
+  .colors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .color-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .card-swatch {
+    aspect-ratio: 1;
+    position: relative;
+  }
+
+  .favorite-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition:
+      opacity 0.2s,
+      background 0.2s;
+
+    .star-icon {
+      width: 18px;
+      height: 18px;
+      color: #505457;
+    }
+
+    &:hover {
+      background: white;
+    }
+
+    &.active .star-icon {
+      fill: #f5a623;
+      color: #f5a623;
+    }
+  }
+
+  .color-card:hover .favorite-btn {
+    opacity: 1;
+  }
+
+  .card-info {
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  .color-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #29282d;
+  }
+
+  .color-hex {
+    font-size: 0.75rem;
+    color: #505457;
+  }
+
+  .favorites-panel {
+    background: white;
+    border: 2px solid #29282d;
+    border-radius: 8px;
+    padding: 1rem;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+  }
+
+  .favorites-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #cdd4cb;
+
+    .star-icon.filled {
+      width: 20px;
+      height: 20px;
+      color: #f5a623;
+    }
+  }
+
+  .favorites-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .favorites-empty {
+    font-size: 0.85rem;
+    color: #505457;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .favorite-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #eff1f5;
+    }
+  }
+
+  .favorite-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .favorite-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .favorite-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .favorite-hex {
+    font-size: 0.7rem;
+    color: #505457;
+  }
+
+  .remove-favorite {
+    background: none;
+    border: none;
+    color: #505457;
+    cursor: pointer;
+    padding: 4px;
+    opacity: 0;
+    transition: opacity 0.2s;
+
+    &:hover {
+      color: #d20f39;
+    }
+  }
+
+  .favorite-item:hover .remove-favorite {
+    opacity: 1;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #29282d;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+    z-index: 1000;
+
+    &.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .explorer-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .favorites-panel {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 16px 16px 0 0;
+      max-height: 40vh;
+      overflow-y: auto;
+    }
+  }
+</style>
+
+<script>
+  // Favorites functionality
+  const favorites: Array<{ hex: string; name: string }> = JSON.parse(localStorage.getItem('colorFavorites') || '[]');
+
+  function renderFavorites() {
+    const list = document.getElementById('favorites-list');
+    if (!list) return;
+
+    if (favorites.length === 0) {
+      list.innerHTML = '<p class="favorites-empty">Click the star on any color to add it here!</p>';
+      return;
+    }
+
+    list.innerHTML = favorites
+      .map(
+        fav => `
+      <div class="favorite-item" data-hex="${fav.hex}">
+        <div class="favorite-swatch" style="background-color: ${fav.hex};"></div>
+        <div class="favorite-info">
+          <span class="favorite-name">${fav.name}</span>
+          <span class="favorite-hex mono">${fav.hex}</span>
+        </div>
+        <button class="remove-favorite" data-hex="${fav.hex}" title="Remove">×</button>
+      </div>
+    `,
+      )
+      .join('');
+
+    // Add click handlers for copying
+    list.querySelectorAll('.favorite-item').forEach(item => {
+      item.addEventListener('click', e => {
+        if ((e.target as HTMLElement).classList.contains('remove-favorite')) return;
+        const hex = item.getAttribute('data-hex');
+        if (hex) {
+          navigator.clipboard.writeText(hex);
+          showToast(`Copied ${hex}`);
+        }
+      });
+    });
+
+    // Add remove handlers
+    list.querySelectorAll('.remove-favorite').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const hex = btn.getAttribute('data-hex');
+        const idx = favorites.findIndex(f => f.hex === hex);
+        if (idx > -1) {
+          favorites.splice(idx, 1);
+          localStorage.setItem('colorFavorites', JSON.stringify(favorites));
+          renderFavorites();
+          updateFavoriteButtons();
+        }
+      });
+    });
+  }
+
+  function updateFavoriteButtons() {
+    document.querySelectorAll('.favorite-btn').forEach(btn => {
+      const hex = btn.getAttribute('data-hex');
+      const isFav = favorites.some(f => f.hex === hex);
+      btn.classList.toggle('active', isFav);
+    });
+  }
+
+  function showToast(message: string) {
+    const toast = document.getElementById('copy-toast');
+    if (toast) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+  }
+
+  // Initialize
+  renderFavorites();
+  updateFavoriteButtons();
+
+  // Favorite button handlers
+  document.querySelectorAll('.favorite-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const hex = btn.getAttribute('data-hex');
+      const name = btn.getAttribute('data-name');
+      if (!hex || !name) return;
+
+      const idx = favorites.findIndex(f => f.hex === hex);
+      if (idx > -1) {
+        favorites.splice(idx, 1);
+      } else {
+        favorites.push({ hex, name });
+      }
+
+      localStorage.setItem('colorFavorites', JSON.stringify(favorites));
+      renderFavorites();
+      updateFavoriteButtons();
+    });
+  });
+
+  // Card click to copy
+  document.querySelectorAll('.color-card').forEach(card => {
+    card.addEventListener('click', e => {
+      if ((e.target as HTMLElement).closest('.favorite-btn')) return;
+      const hex = card.getAttribute('data-hex');
+      if (hex) {
+        navigator.clipboard.writeText(hex);
+        showToast(`Copied ${hex}`);
+      }
+    });
+  });
+</script>
