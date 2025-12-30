@@ -1,0 +1,10 @@
+---
+import ColorLayout from '../../components/color-app/ColorLayout.astro';
+import PalettesView from '../../components/color-app/PalettesView';
+import palettesData from '../../color-books/_palettes.json';
+---
+
+<ColorLayout title="Palettes | Ben's Colors" currentPage="palettes">
+  <PalettesView data={palettesData} client:load />
+</ColorLayout>
+

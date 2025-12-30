@@ -1,0 +1,561 @@
+@use 'fonts';
+@use 'mixins';
+@use 'spacing';
+
+$color-blue: #1E66F5;
+$color-footer-bg: #F7F6F2;
+$color-footer-accent: #297638;
+
+:root {
+  --color-header-bg: #{$color-blue};
+  --color-header-text: white;
+  --color-palette-bg: #eff1f5;
+  --color-palette-text: #4c4f69;
+  --color-palette-secondary: #ccd0da;
+  --color-palette-highlight: #8839ef;
+}
+
+.color-app {
+  font-family: fonts.$ui;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-footer-bg;
+}
+
+.color-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-header-bg);
+  color: var(--color-header-text);
+  padding: 1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.4s ease, color 0.4s ease;
+
+  @include mixins.screen('mobile') {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    font-family: fonts.$header;
+    font-size: 2rem;
+    font-weight: 200;
+    letter-spacing: 0.04em;
+
+    @include mixins.screen('mobile') {
+      font-size: 1.5rem;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  nav {
+    display: flex;
+    gap: 0.5rem;
+    font-family: fonts.$header;
+    font-size: 1.25rem;
+    font-weight: 200;
+
+    @include mixins.screen('mobile') {
+      font-size: 1rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      font-weight: 200;
+      transition: font-weight 0.15s ease;
+
+      &:hover {
+        font-weight: 700;
+      }
+
+      &.current {
+        font-weight: 700;
+      }
+    }
+
+    .separator {
+      opacity: 0.6;
+    }
+  }
+}
+
+.color-footer {
+  background-color: $color-footer-bg;
+  border-top: 1px solid $color-footer-accent;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  a {
+    color: $color-footer-accent;
+    font-weight: 700;
+    text-decoration: underline;
+    font-family: fonts.$header;
+    font-size: 1rem;
+  }
+}
+
+.color-main {
+  flex: 1;
+  padding: 2rem 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include mixins.screen('mobile') {
+    padding: 1rem;
+  }
+}
+
+// Palettes Page
+.palettes-page {
+  .palette-section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    border-radius: 8px;
+    background-color: var(--color-palette-bg);
+    color: var(--color-palette-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    @include mixins.screen('mobile') {
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .palette-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    h2 {
+      font-family: fonts.$header;
+      font-size: 2.5rem;
+      font-weight: 200;
+      margin: 0;
+      color: inherit;
+
+      @include mixins.screen('mobile') {
+        font-size: 1.75rem;
+      }
+
+      strong {
+        font-weight: 700;
+      }
+    }
+
+    .source-link {
+      font-family: fonts.$ui;
+      font-size: 0.9rem;
+      color: $color-blue;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+  }
+
+  .palette-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      color: inherit;
+      font-family: fonts.$ui;
+      border: none;
+
+      @include mixins.screen('mobile') {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    th {
+      font-weight: 500;
+      border-bottom: 2px solid var(--color-palette-secondary);
+    }
+
+    tr {
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background-color: var(--color-palette-secondary);
+      }
+    }
+
+    td {
+      border-bottom: 1px solid var(--color-palette-secondary);
+    }
+
+    .color-preview {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .color-name {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background-color: var(--color-palette-highlight);
+      color: white;
+      font-weight: 500;
+    }
+
+    .code-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      code {
+        font-family: fonts.$code;
+        background-color: var(--color-palette-secondary);
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+
+      .copy-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: inherit;
+        opacity: 0.6;
+        transition: opacity 0.15s ease;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+
+  .palette-spacer {
+    min-height: 60vh;
+  }
+}
+
+// Explorer Page
+.explorer-page {
+  h1 {
+    font-family: fonts.$header;
+    font-size: 2.5rem;
+    font-weight: 200;
+    margin: 0 0 2rem 0;
+    color: #29282d;
+
+    @include mixins.screen('mobile') {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  .explorer-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @include mixins.screen('mobile') {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  .size-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: fonts.$ui;
+
+    @include mixins.screen('mobile') {
+      display: none;
+    }
+
+    label {
+      font-size: 0.9rem;
+    }
+
+    input[type="range"] {
+      width: 120px;
+      accent-color: $color-blue;
+    }
+  }
+
+  .standard-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: fonts.$ui;
+
+    label {
+      font-size: 0.9rem;
+    }
+
+    select {
+      padding: 0.25rem 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: fonts.$ui;
+      font-size: 0.9rem;
+      background: white;
+    }
+  }
+
+  .favorites-panel {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+    @include mixins.screen('mobile') {
+      display: none;
+    }
+
+    .fav-label {
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    button {
+      padding: 0.25rem 0.75rem;
+      border: 1px solid $color-blue;
+      background: white;
+      color: $color-blue;
+      font-family: fonts.$ui;
+      font-size: 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+
+      &:hover {
+        background: $color-blue;
+        color: white;
+      }
+
+      strong {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols, 5), 1fr);
+    gap: 1rem;
+
+    @include mixins.screen('mobile') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+  }
+
+  .color-swatch {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-radius 0.3s ease;
+    overflow: hidden;
+
+    &:hover {
+      transform: scale(1.05);
+      z-index: 10;
+
+      .star-btn {
+        opacity: 1;
+      }
+    }
+
+    &.copied {
+      animation: copyPulse 0.5s ease;
+    }
+
+    .swatch-color {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: filter 0.15s ease;
+    }
+
+    &.copying .swatch-color {
+      filter: brightness(0.7);
+    }
+
+    .copied-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+
+    &.copying .copied-text {
+      opacity: 1;
+    }
+
+    .star-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+
+      &.favorited {
+        opacity: 1;
+        background: gold;
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .swatch-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 0.5rem;
+      font-size: 0.75rem;
+
+      .swatch-name {
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        strong {
+          font-weight: 700;
+        }
+      }
+
+      .swatch-friendly {
+        color: #666;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .swatch-hex {
+        color: #999;
+        font-family: fonts.$code;
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+@keyframes copyPulse {
+  0% { border-radius: 4px; }
+  50% { border-radius: 50%; }
+  100% { border-radius: 4px; }
+}
+
+// About Page
+.about-page {
+  max-width: 800px;
+
+  h1 {
+    font-family: fonts.$header;
+    font-size: 2.5rem;
+    font-weight: 200;
+    margin: 0 0 2rem 0;
+    color: #29282d;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  p {
+    font-family: fonts.$body;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #29282d;
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    color: $color-blue;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+

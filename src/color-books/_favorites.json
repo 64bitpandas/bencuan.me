@@ -1,8 +1,15 @@
 {
   "PANTONE": [
-    {
-      "name": "PANTONE 11-4201 TCX",
-      "notes": "Cloud Dancer"
-    }
-  ]
+    "PANTONE 11-4201 TCX",
+    "PANTONE 17-0215 TCX",
+    "PANTONE 19-4007 TCX",
+    "PANTONE 12-5703 TPG",
+    "PANTONE 2465 C"
+  ],
+  "HKS": [
+    "HKS 1 E",
+    "HKS 13 K",
+    "HKS 25 N"
+  ],
+  "notes": "These are example preset favorites that match the bencuan.me v7 color scheme"
 }
