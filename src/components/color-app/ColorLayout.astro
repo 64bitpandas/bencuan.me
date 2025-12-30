@@ -1,0 +1,60 @@
+---
+import '../../sass/color_app.scss';
+import Seo from '../seo.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  currPage: 'palettes' | 'explorer' | 'about';
+}
+
+const { title, description, currPage } = Astro.props;
+
+const navLinks = [
+  { name: 'palettes', url: '/colors' },
+  { name: 'explorer', url: '/colors/explorer' },
+  { name: 'about', url: '/colors/about' },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <Seo title={title} description={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body class="color-app">
+    <header class="color-header" id="color-header">
+      <div class="header-content">
+        <a href="/colors" class="logo">ben's <span class="bold">colors</span></a>
+        <nav class="header-nav">
+          {navLinks.map((link, i) => (
+            <>
+              <a
+                href={link.url}
+                class:list={['nav-link', { 'current': currPage === link.name }]}
+              >
+                {link.name}
+              </a>
+              {i < navLinks.length - 1 && <span class="nav-separator">//</span>}
+            </>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main class="color-main">
+      <slot />
+    </main>
+
+    <footer class="color-footer">
+      <div class="footer-content">
+        <a href="https://bencuan.me" class="back-link">
+          <img src="/favicon.png" alt="Kevin the Dinosaur" class="kevin" />
+          back to bencuan.me
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+---
+import ColorLayout from '../../components/color-app/ColorLayout.astro';
+import ColorExplorer from '../../components/color-app/ColorExplorer';
+
+// Import all color book JSON files
+import anpaColor from '../../color-books/ANPA Color.json';
+import dicColorGuide from '../../color-books/DIC Color Guide.json';
+import focoltone from '../../color-books/FOCOLTONE.json';
+import hksEProcess from '../../color-books/HKS E Process.json';
+import hksE from '../../color-books/HKS E.json';
+import hksKProcess from '../../color-books/HKS K Process.json';
+import hksK from '../../color-books/HKS K.json';
+import hksNProcess from '../../color-books/HKS N Process.json';
+import hksN from '../../color-books/HKS N.json';
+import hksZProcess from '../../color-books/HKS Z Process.json';
+import hksZ from '../../color-books/HKS Z.json';
+import pantoneFHCotton from '../../color-books/PANTONE F+H cotton TCX.json';
+import pantoneFHNylon from '../../color-books/PANTONE F+H nylon brights TN.json';
+import pantoneFHI from '../../color-books/PANTONE FHI Color Guide.json';
+import pantoneGoeCoated from '../../color-books/PANTONE Goe coated.json';
+import pantoneGoeUncoated from '../../color-books/PANTONE Goe uncoated.json';
+import pantoneGoeBridge from '../../color-books/PANTONE GoeBridge coated.json';
+import pantoneSkinTone from '../../color-books/PANTONE SkinTone Guide.json';
+import pantonePlusCMYKCoated from '../../color-books/PANTONE+ CMYK Coated.json';
+import pantonePlusCMYKUncoated from '../../color-books/PANTONE+ CMYK Uncoated.json';
+import pantonePlusBridgeCoated from '../../color-books/PANTONE+ Color Bridge Coated.json';
+import pantonePlusBridgeUncoated from '../../color-books/PANTONE+ Color Bridge Uncoated.json';
+import pantonePlusExtended from '../../color-books/PANTONE+ Extended Gamut Coated.json';
+import pantonePlusMetallics from '../../color-books/PANTONE+ Metallics Coated.json';
+import pantonePlusPastelsCoated from '../../color-books/PANTONE+ Pastels & Neons Coated.json';
+import pantonePlusPastelsUncoated from '../../color-books/PANTONE+ Pastels & Neons Uncoated.json';
+import pantonePlusPremium from '../../color-books/PANTONE+ Premium Metallics Coated.json';
+import pantonePlusSolidCoated from '../../color-books/PANTONE+ Solid Coated.json';
+import pantonePlusSolidUncoated from '../../color-books/PANTONE+ Solid Uncoated.json';
+import toyo94 from '../../color-books/TOYO 94 COLOR FINDER.json';
+import toyoColorFinder from '../../color-books/TOYO COLOR FINDER.json';
+import trumatch from '../../color-books/TRUMATCH.json';
+
+import pantoneNames from '../../color-books/_pantone-color-names.json';
+import favoritesPreset from '../../color-books/_favorites.json';
+
+const colorBooks = [
+  anpaColor,
+  dicColorGuide,
+  focoltone,
+  hksEProcess,
+  hksE,
+  hksKProcess,
+  hksK,
+  hksNProcess,
+  hksN,
+  hksZProcess,
+  hksZ,
+  pantoneFHCotton,
+  pantoneFHNylon,
+  pantoneFHI,
+  pantoneGoeCoated,
+  pantoneGoeUncoated,
+  pantoneGoeBridge,
+  pantoneSkinTone,
+  pantonePlusCMYKCoated,
+  pantonePlusCMYKUncoated,
+  pantonePlusBridgeCoated,
+  pantonePlusBridgeUncoated,
+  pantonePlusExtended,
+  pantonePlusMetallics,
+  pantonePlusPastelsCoated,
+  pantonePlusPastelsUncoated,
+  pantonePlusPremium,
+  pantonePlusSolidCoated,
+  pantonePlusSolidUncoated,
+  toyo94,
+  toyoColorFinder,
+  trumatch,
+];
+---
+
+<ColorLayout title="ben's colors - explorer" description="Explore color books" currPage="explorer">
+  <ColorExplorer
+    client:load
+    colorBooks={colorBooks}
+    pantoneNames={pantoneNames}
+    favoritesPreset={favoritesPreset}
+  />
+</ColorLayout>

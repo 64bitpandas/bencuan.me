@@ -1,0 +1,52 @@
+---
+import ColorLayout from '../../components/color-app/ColorLayout.astro';
+---
+
+<ColorLayout title="ben's colors - about" description="About this color explorer" currPage="about">
+  <div class="about-page">
+    <h1><span class="bold">about</span> this project</h1>
+
+    <p>
+      This color explorer is a tool for browsing and discovering colors from various
+      professional color standards including PANTONE, HKS, TOYO, and more.
+    </p>
+
+    <h2>data sources</h2>
+
+    <p>
+      The color data is sourced from Adobe Color Book (.acb) files, parsed using
+      <a href="https://github.com/jacobbubu/acb" target="_blank" rel="noopener noreferrer">this repository</a>.
+      The parsed JSON files are available
+      <a href="https://github.com/64bitpandas/bencuan.me/tree/main/src/color-books" target="_blank" rel="noopener noreferrer">here</a>.
+    </p>
+
+    <p>
+      PANTONE color names are matched using a separate reference file that maps
+      color codes to their friendly names (e.g., "Pale Aqua" instead of "PANTONE 13-5305 TCX").
+    </p>
+
+    <h2>design</h2>
+
+    <p>
+      The header color is <a href="https://catppuccin.com/" target="_blank" rel="noopener noreferrer">Catppuccin blue</a>,
+      which updates dynamically as you scroll through palettes or select colors in the explorer.
+    </p>
+
+    <ul>
+      <li>On the palettes page, the header reflects the highlight color of the currently visible palette</li>
+      <li>On the explorer page, clicking a swatch copies its hex code and updates the header to that color</li>
+    </ul>
+
+    <h2>acknowledgements</h2>
+
+    <p>
+      This project was built as part of the
+      <a href="https://bencuan.me/blog/vibe25" target="_blank" rel="noopener noreferrer">State of Vibe Coding evaluation</a>.
+    </p>
+
+    <p class="signature">
+      Built with care by Claude (Opus 4.5).
+      <a href="https://bencuan.me">Click here</a> to return to the main site.
+    </p>
+  </div>
+</ColorLayout>

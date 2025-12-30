@@ -1,0 +1,167 @@
+---
+import ColorLayout from '../../components/color-app/ColorLayout.astro';
+import palettesData from '../../color-books/_palettes.json';
+
+interface PaletteColor {
+  name: string;
+  hex: string;
+  tag?: 'background' | 'secondary' | 'text' | 'highlight';
+}
+
+interface Palette {
+  name: string;
+  source: string;
+  colors: PaletteColor[];
+}
+
+const palettes = palettesData.palettes as Palette[];
+
+function getThemeColors(palette: Palette) {
+  const colors: Record<string, string> = {
+    background: '#ffffff',
+    secondary: '#eeeeee',
+    text: '#000000',
+    highlight: '#1E66F5'
+  };
+
+  for (const color of palette.colors) {
+    if (color.tag) {
+      colors[color.tag] = color.hex;
+    }
+  }
+
+  return colors;
+}
+
+function boldFirstWord(name: string): string {
+  const words = name.split(' ');
+  if (words.length === 1) return name;
+  return `<span class="bold">${words[0]}</span> ${words.slice(1).join(' ')}`;
+}
+
+function hexToRgbString(hex: string): string {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  if (!result) return 'rgb(0, 0, 0)';
+  return `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})`;
+}
+---
+
+<ColorLayout title="ben's colors - palettes" description="Curated color palettes" currPage="palettes">
+  <div class="palettes-page">
+    {palettes.map((palette, index) => {
+      const themeColors = getThemeColors(palette);
+      return (
+        <section
+          class="palette-section"
+          data-palette-index={index}
+          data-highlight={themeColors.highlight}
+          data-background={themeColors.background}
+          data-secondary={themeColors.secondary}
+          data-text={themeColors.text}
+          style={`
+            background-color: ${themeColors.background};
+            color: ${themeColors.text};
+            --palette-background: ${themeColors.background};
+            --palette-secondary: ${themeColors.secondary};
+            --palette-text: ${themeColors.text};
+            --palette-highlight: ${themeColors.highlight};
+          `}
+        >
+          <div class="palette-header">
+            <h2 class="palette-title" set:html={boldFirstWord(palette.name)} />
+            <a href={palette.source} class="palette-source" target="_blank" rel="noopener noreferrer" style={`color: ${themeColors.text}`}>source</a>
+          </div>
+
+          <div class="palette-table">
+            {palette.colors.map((color) => (
+              <div class="palette-row">
+                <div class="color-name-cell">
+                  <div class="color-dot" style={`background-color: ${color.hex}`}></div>
+                  <span class="color-name">{color.name}</span>
+                  {color.tag && <span class="color-tag">{color.tag}</span>}
+                </div>
+
+                <div class="color-code">
+                  <span class="code-bg">{color.hex.toUpperCase()}</span>
+                  <button class="copy-btn" data-copy={color.hex.toUpperCase()} aria-label="Copy hex code">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="copy-icon">
+                      <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="check-icon" style="display: none;">
+                      <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="color-code">
+                  <span class="code-bg">{hexToRgbString(color.hex)}</span>
+                  <button class="copy-btn" data-copy={hexToRgbString(color.hex)} aria-label="Copy RGB code">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="copy-icon">
+                      <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="check-icon" style="display: none;">
+                      <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</ColorLayout>
+
+<script>
+  const header = document.getElementById('color-header');
+  const sections = document.querySelectorAll('.palette-section');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+        const section = entry.target as HTMLElement;
+        const highlight = section.dataset.highlight || '#1E66F5';
+        const background = section.dataset.background || '#ffffff';
+
+        if (header) {
+          header.style.setProperty('--header-bg', highlight);
+          header.style.setProperty('--header-text', background);
+        }
+      }
+    });
+  }, {
+    threshold: [0.3, 0.5, 0.7],
+    rootMargin: '-100px 0px -50% 0px'
+  });
+
+  sections.forEach(section => observer.observe(section));
+
+  // Copy functionality
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const button = e.currentTarget as HTMLButtonElement;
+      const text = button.dataset.copy;
+
+      if (text) {
+        await navigator.clipboard.writeText(text);
+
+        const copyIcon = button.querySelector('.copy-icon') as HTMLElement;
+        const checkIcon = button.querySelector('.check-icon') as HTMLElement;
+
+        if (copyIcon && checkIcon) {
+          copyIcon.style.display = 'none';
+          checkIcon.style.display = 'block';
+          button.classList.add('copy-success');
+
+          setTimeout(() => {
+            copyIcon.style.display = 'block';
+            checkIcon.style.display = 'none';
+            button.classList.remove('copy-success');
+          }, 1500);
+        }
+      }
+    });
+  });
+</script>
