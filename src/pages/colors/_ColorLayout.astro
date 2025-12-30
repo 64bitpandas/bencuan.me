@@ -1,0 +1,45 @@
+---
+import '../../sass/color_app.scss';
+import { SEO } from 'astro-seo';
+
+interface Props {
+  title: string;
+  currPage?: 'palettes' | 'explorer' | 'about';
+}
+
+const { title, currPage = 'palettes' } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <SEO title={`Colors | ${title}`} description="A color exploration tool." />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body>
+    <div class="color-app-container">
+      <header class="color-header" id="main-header">
+        <h1>ben&#39;s colors</h1>
+        <nav>
+          <a href="/colors" class={currPage === 'palettes' ? 'active' : ''}>palettes</a>
+          <span>//</span>
+          <a href="/colors/explorer" class={currPage === 'explorer' ? 'active' : ''}>explorer</a>
+          <span>//</span>
+          <a href="/colors/about" class={currPage === 'about' ? 'active' : ''}>about</a>
+        </nav>
+      </header>
+      
+      <main>
+        <slot />
+      </main>
+
+      <footer class="color-footer">
+        <a href="https://bencuan.me" class="back-link">
+          <img src="/favicon.png" alt="Kevin the Dinosaur" />
+          back to bencuan.me
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>

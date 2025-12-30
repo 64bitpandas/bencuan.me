@@ -1,10 +1,55 @@
-{
-  "Catppuccin Latte": [
-    {
-      "name": "Base",
-      "hex": "eff1f5",
-      "tags": ["background"],
-      "source": "https://catppuccin.com/palettes"
-    }
-  ]
-}
+[
+  {
+    "name": "catppuccin latte",
+    "source": "https://catppuccin.com/palette/",
+    "colors": [
+      { "name": "base", "hex": "#EFF1F5", "tag": "background" },
+      { "name": "mantle", "hex": "#E6E9EF" },
+      { "name": "crust", "hex": "#DCE0E8" },
+      { "name": "text", "hex": "#4C4F69", "tag": "text" },
+      { "name": "subtext0", "hex": "#6C6F85" },
+      { "name": "overlay0", "hex": "#9CA0B0", "tag": "secondary" },
+      { "name": "blue", "hex": "#1E66F5", "tag": "highlight" },
+      { "name": "lavender", "hex": "#7287FD" },
+      { "name": "sapphire", "hex": "#209FB5" },
+      { "name": "sky", "hex": "#04A5E5" },
+      { "name": "teal", "hex": "#179299" },
+      { "name": "green", "hex": "#40A02B" },
+      { "name": "yellow", "hex": "#DF8E1D" },
+      { "name": "peach", "hex": "#FE640B" },
+      { "name": "maroon", "hex": "#E64553" },
+      { "name": "red", "hex": "#D20F39" },
+      { "name": "mauve", "hex": "#8839EF" },
+      { "name": "pink", "hex": "#EA76CB" },
+      { "name": "flamingo", "hex": "#DD7878" },
+      { "name": "rosewater", "hex": "#DC8A78" }
+    ]
+  },
+  {
+    "name": "bencuan.me v7",
+    "source": "https://bencuan.me/colophon/",
+    "colors": [
+      { "name": "Canvas", "hex": "#F2F0E9", "tag": "background" },
+      { "name": "Ink", "hex": "#1A1A1A", "tag": "text" },
+      { "name": "Accent", "hex": "#FF4500", "tag": "highlight" },
+      { "name": "Muted", "hex": "#888888", "tag": "secondary" }
+    ]
+  },
+  {
+    "name": "Dracula",
+    "source": "https://draculatheme.com/",
+    "colors": [
+      { "name": "Background", "hex": "#282a36", "tag": "background" },
+      { "name": "Current Line", "hex": "#44475a" },
+      { "name": "Foreground", "hex": "#f8f8f2", "tag": "text" },
+      { "name": "Comment", "hex": "#6272a4", "tag": "secondary" },
+      { "name": "Cyan", "hex": "#8be9fd" },
+      { "name": "Green", "hex": "#50fa7b" },
+      { "name": "Orange", "hex": "#ffb86c" },
+      { "name": "Pink", "hex": "#ff79c6" },
+      { "name": "Purple", "hex": "#bd93f9", "tag": "highlight" },
+      { "name": "Red", "hex": "#ff5555" },
+      { "name": "Yellow", "hex": "#f1fa8c" }
+    ]
+  }
+]

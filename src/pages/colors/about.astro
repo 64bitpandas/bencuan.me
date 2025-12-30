@@ -1,0 +1,88 @@
+---
+import ColorLayout from './_ColorLayout.astro';
+
+const title = "About";
+---
+
+<ColorLayout title={title} currPage="about">
+  <div class="about-container">
+    <section class="about-content">
+      <h2>About this project</h2>
+      <p>
+        This is a color exploration tool built by <strong>Antigravity</strong> for bencuan.me.
+      </p>
+      
+      <div class="links-list">
+        <a href="https://github.com/jacobbubu/acb" target="_blank" rel="noopener noreferrer">This repository</a>
+        <span>provides the color book data used in the Explorer.</span>
+      </div>
+
+      <div class="links-list">
+        <a href="https://github.com/64bitpandas/bencuan.me/tree/main/src/color-books" target="_blank" rel="noopener noreferrer">here</a>
+        <span>is where the JSON files are stored in this project.</span>
+      </div>
+
+      <div class="links-list">
+        <a href="https://catppuccin.com/" target="_blank" rel="noopener noreferrer">Catppuccin blue</a>
+        <span>is the primary accent color used throughout this app (Latte variant).</span>
+      </div>
+
+      <div class="links-list">
+        <a href="/">Click here</a>
+        <span>to go back to the bencuan.me root.</span>
+      </div>
+
+      <div class="links-list">
+        <a href="https://bencuan.me/blog/vibe25" target="_blank" rel="noopener noreferrer">State of Vibe Coding evaluation</a>
+        <span>- read more about the context of this project.</span>
+      </div>
+      
+    </section>
+  </div>
+</ColorLayout>
+
+<style>
+  .about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+
+  .about-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+  }
+
+  h2 {
+    font-family: var(--font-header);
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .links-list {
+    margin-bottom: 1rem;
+    font-family: var(--font-ui);
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    
+    a {
+      color: var(--color-highlight);
+      font-weight: 700;
+      text-decoration: underline;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+</style>

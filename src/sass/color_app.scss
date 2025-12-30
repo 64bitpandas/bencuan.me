@@ -1,0 +1,431 @@
+@use 'fonts';
+@use 'spacing';
+@use 'mixins';
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-base: #EFF1F5;
+  --color-text: #4C4F69;
+  --color-subtext: #6C6F85;
+  --color-highlight: #1E66F5;
+  --color-secondary: #E6E9EF;
+  --color-border: #BCC0CC;
+  
+  --font-header: Pangaia, serif;
+  --font-body: Eiko, serif;
+  --font-ui: Fraktion, sans-serif;
+  --font-code: FiraCode, monospace;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-base);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Layout */
+.color-app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header */
+.color-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-highlight);
+  color: var(--color-base);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  h1 {
+    font-family: var(--font-header);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  nav {
+    display: flex;
+    gap: 1rem;
+    font-family: var(--font-ui);
+
+    a {
+      opacity: 0.7;
+      transition: opacity 0.2s ease, font-weight 0.2s ease;
+      
+      &:hover, &.active {
+        opacity: 1;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+/* Footer */
+.color-footer {
+  background-color: #F7F6F2;
+  border-top: 1px solid #297638;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #297638;
+    font-weight: 600;
+    
+    img {
+      width: 24px;
+      height: 24px;
+    }
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Utilities */
+.u-bold { font-weight: 700; }
+.u-underline { text-decoration: underline; }
+
+/* Palette Page Styles */
+.palettes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-bottom: 50vh; // Ensure last item is tall enough
+}
+
+.palette-section {
+  // Variables are set inline in the HTML
+  background-color: var(--p-bg);
+  color: var(--p-text);
+  padding: 2rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.palette-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid var(--p-text); // Or secondary? Using text for contrast
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+
+  h2 {
+    font-family: var(--font-header);
+    font-size: 2.5rem; // Large title
+    margin: 0;
+    font-weight: 400;
+  }
+  
+  .source-link {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    &:hover {
+        opacity: 1;
+        text-decoration: underline;
+    }
+  }
+}
+
+.palette-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+
+  tr {
+    transition: background-color 0.2s ease;
+    border-radius: 4px; // Radius needs display block or similar on tr usually, but we'll try simple first
+    
+    &:hover {
+      background-color: var(--p-secondary);
+    }
+  }
+
+  td {
+    padding: 0.75rem 0.5rem;
+    vertical-align: middle;
+  }
+  
+  .color-name {
+    font-family: var(--font-ui);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 40%;
+  }
+  
+  .color-hex, .color-rgb {
+    width: 30%;
+    text-align: right;
+  }
+}
+
+.color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  display: inline-block;
+}
+
+.tag-pill {
+  background-color: var(--p-highlight);
+  color: var(--p-bg); // Text on highlight should probably be the BG color for contrast
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 12px;
+  margin-left: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.5;
+  margin-left: 0.5rem;
+  padding: 0.2rem;
+  transition: opacity 0.2s;
+  
+  &:hover {
+    opacity: 1;
+  }
+  
+  i {
+    font-size: 1.1rem;
+    vertical-align: middle;
+  }
+}
+
+/* Explorer Page Styles */
+.explorer-container {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.explorer-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 80px; // Offset for header
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+}
+
+.explorer-main {
+  flex: 1;
+}
+
+.controls-section {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  
+  h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.standard-select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-family: var(--font-ui);
+}
+
+.favorites-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  
+  button {
+    flex: 1;
+    padding: 0.25rem;
+    font-size: 0.8rem;
+    background: var(--color-highlight);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+    &.secondary {
+      background: var(--color-secondary);
+      color: var(--color-text);
+    }
+  }
+}
+
+.size-slider-container {
+  margin-top: 1rem;
+  input[type=range] {
+    width: 100%;
+  }
+}
+
+/* Swatch Grid */
+.swatch-grid {
+  display: grid;
+  gap: 1rem; 
+  grid-template-columns: repeat(auto-fill, minmax(var(--swatch-size, 150px), 1fr));
+}
+
+.swatch-card {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 4px; // Initial radius
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-radius 0.4s;
+  cursor: pointer;
+  position: relative;
+  
+  &:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    
+    .fav-btn {
+      opacity: 1;
+    }
+  }
+  
+  &.selected {
+      border-radius: 50%; /* Just referencing the "round and unround" animation idea, detailed animation in keyframes */
+      animation: selectPulse 0.6s ease;
+  }
+}
+
+@keyframes selectPulse {
+  0% { border-radius: 4px; transform: scale(1); }
+  50% { border-radius: 50%; transform: scale(0.9); }
+  100% { border-radius: 4px; transform: scale(1); }
+}
+
+.swatch-color {
+  flex: 1;
+  position: relative;
+  /* Background color set inline */
+}
+
+.swatch-info {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  background: white;
+  
+  div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .swatch-code {
+    font-family: var(--font-code);
+    color: var(--color-subtext);
+    font-size: 0.7rem;
+  }
+  
+  .swatch-friendly {
+    font-weight: 700;
+  }
+}
+
+.fav-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0; // Hidden until hover
+  transition: opacity 0.2s;
+  color: inherit; // Will need to contrast with BG, handled via JS/Classes usually
+  
+  &.active {
+    opacity: 1;
+    color: gold !important; 
+    
+    i {
+        font-weight: bold; // Phosphor fill variant usually
+    }
+  }
+}
+
+.copied-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  
+  &.visible {
+    opacity: 1;
+  }
+}

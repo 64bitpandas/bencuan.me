@@ -1,0 +1,129 @@
+---
+import ColorLayout from './_ColorLayout.astro';
+import palettes from '../../color-books/_palettes.json';
+import { Styles } from '@phosphor-icons/react';
+
+const title = "Palettes";
+---
+
+<ColorLayout title={title} currPage="palettes">
+  <div class="palettes-container">
+    {palettes.map((palette, index) => (
+      <section 
+        class="palette-section" 
+        data-highlight={palette.colors.find(c => c.tag === 'highlight')?.hex || '#1E66F5'}
+        data-background={palette.colors.find(c => c.tag === 'background')?.hex || '#EFF1F5'}
+        data-text={palette.colors.find(c => c.tag === 'text')?.hex || '#4C4F69'}
+        style={`
+          --p-bg: ${palette.colors.find(c => c.tag === 'background')?.hex};
+          --p-text: ${palette.colors.find(c => c.tag === 'text')?.hex};
+          --p-highlight: ${palette.colors.find(c => c.tag === 'highlight')?.hex};
+          --p-secondary: ${palette.colors.find(c => c.tag === 'secondary')?.hex};
+        `}
+      >
+        <div class="palette-header">
+          <h2>
+            <span class="u-bold">{palette.name.split(' ')[0]}</span>{' '}
+            {palette.name.split(' ').slice(1).join(' ')}
+          </h2>
+          <a href={palette.source} target="_blank" rel="noopener noreferrer" class="source-link">source</a>
+        </div>
+        
+        <div class="palette-table-container">
+          <table class="palette-table">
+            <tbody>
+              {palette.colors.map(color => (
+                <tr class="color-row">
+                  <td class="color-name">
+                    <span class="color-dot" style={`background-color: ${color.hex}`}></span>
+                    {color.name}
+                    {color.tag && <span class="tag-pill">{color.tag}</span>}
+                  </td>
+                  <td class="color-hex">
+                    <code>{color.hex}</code>
+                    <button class="copy-btn" data-clipboard={color.hex} aria-label="Copy Hex">
+                       <i class="ph ph-copy"></i>
+                    </button>
+                  </td>
+                  <td class="color-rgb">
+                    <code class="rgb-code" data-hex={color.hex}></code>
+                    <button class="copy-btn copy-rgb-btn" aria-label="Copy RGB">
+                       <i class="ph ph-copy"></i>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <script>
+    import { colord } from 'colord';
+
+    // RGB Conversion for display
+    document.querySelectorAll('.rgb-code').forEach(el => {
+      const hex = el.getAttribute('data-hex');
+      if (hex) {
+        const rgb = colord(hex).toRgb();
+        el.textContent = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+        // Find the sibling button and set data-clipboard
+        const btn = el.nextElementSibling;
+        if (btn) {
+           btn.setAttribute('data-clipboard', `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`);
+        }
+      }
+    });
+
+    // Copy Functionality
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const text = btn.getAttribute('data-clipboard');
+        if (text) {
+          await navigator.clipboard.writeText(text);
+          const icon = btn.querySelector('i');
+          if (icon) {
+            const originalClass = icon.className;
+            icon.className = 'ph ph-check';
+            setTimeout(() => {
+              icon.className = originalClass;
+            }, 1500);
+          }
+        }
+      });
+    });
+
+    // Scroll Observer for Header Header
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50px 0px -50% 0px', // Trigger when section is near top
+      threshold: 0
+    };
+
+    const header = document.getElementById('main-header');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const section = entry.target as HTMLElement;
+            const highlight = section.getAttribute('data-highlight');
+            const background = section.getAttribute('data-background');
+            
+            if (header && highlight && background) {
+                // Invert colors as requested: 
+                // Header BG = Palette Highlight
+                // Header Text = Palette Background
+                header.style.backgroundColor = highlight;
+                header.style.color = background;
+            }
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.palette-section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</ColorLayout>
