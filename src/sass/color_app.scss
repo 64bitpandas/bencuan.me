@@ -1,0 +1,312 @@
+@import '_fonts';
+@import '_mixins';
+@import '_spacing';
+
+$primary: #1E66F5;
+$footer-bg: #F7F6F2;
+$footer-border: #297638;
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/Manrope/Manrope-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/FiraCode/FiraCode-VF.ttf') format('truetype');
+}
+
+.color-app {
+  font-family: 'Manrope', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+
+  * { box-sizing: border-box; }
+
+  code, .mono {
+    font-family: 'Fira Code', monospace;
+  }
+
+  a {
+    color: $primary;
+    font-weight: 700;
+    text-decoration: underline;
+    transition: font-weight 0.15s ease;
+    
+    &:hover { font-weight: 800; }
+  }
+
+  .color-header {
+    background: $primary;
+    color: white;
+    padding: $ss $sm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+
+      span { font-weight: 400; }
+    }
+
+    nav {
+      display: flex;
+      gap: $ss;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        font-weight: 400;
+        transition: font-weight 0.15s ease;
+
+        &:hover, &.current { font-weight: 700; }
+        &.current { text-decoration: underline; }
+      }
+    }
+  }
+
+  main {
+    flex: 1;
+    padding: $sm;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .color-footer {
+    background: $footer-bg;
+    border-top: 1px solid $footer-border;
+    padding: $ss;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    img { width: 24px; height: 24px; }
+
+    a {
+      color: $footer-border;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+  }
+
+  .palette-section {
+    margin-bottom: $sl;
+    padding: $sm;
+    transition: background-color 0.3s ease;
+
+    .palette-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: $ss;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: $sxs;
+
+      h2 {
+        margin: 0;
+        font-size: 1.75rem;
+
+        span:first-child { font-weight: 700; }
+        span:not(:first-child) { font-weight: 400; }
+      }
+
+      .source-link { font-size: 0.875rem; }
+    }
+
+    .color-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      .color-row {
+        display: grid;
+        grid-template-columns: auto 1fr 150px 200px 50px 50px;
+        gap: $sxs;
+        padding: $sxs 0;
+        align-items: center;
+        transition: background-color 0.15s ease;
+
+        &:hover { background: var(--hover-bg); }
+
+        .color-dot {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .color-name { font-weight: 500; }
+        .color-hex, .color-rgb { font-family: 'Fira Code', monospace; font-size: 0.875rem; }
+        .color-tag {
+          padding: 2px 8px;
+          border-radius: 4px;
+          font-size: 0.75rem;
+          font-weight: 600;
+        }
+
+        .copy-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          opacity: 0.6;
+          transition: opacity 0.15s;
+          &:hover { opacity: 1; }
+        }
+      }
+    }
+  }
+
+  .explorer-page {
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: $ss;
+      border-bottom: 1px solid #000;
+      padding-bottom: $sxs;
+
+      strong { font-weight: 700; }
+    }
+
+    .explorer-controls {
+      display: flex;
+      gap: $sm;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: $sm;
+      padding-bottom: $ss;
+
+      .control-group {
+        display: flex;
+        align-items: center;
+        gap: $sxs;
+
+        label { font-weight: 500; font-size: 0.875rem; }
+
+        select {
+          padding: 0.25rem 0.5rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-family: inherit;
+        }
+
+        input[type="range"] { width: 120px; }
+      }
+
+      .favorites-controls {
+        display: flex;
+        gap: $sxs;
+        margin-left: auto;
+
+        button {
+          padding: 0.25rem 0.75rem;
+          border: 1px solid $primary;
+          background: white;
+          color: $primary;
+          border-radius: 4px;
+          cursor: pointer;
+          font-family: inherit;
+          font-weight: 500;
+          transition: all 0.15s;
+
+          &:hover {
+            background: $primary;
+            color: white;
+          }
+
+          strong { font-weight: 700; }
+        }
+      }
+
+      @include screen(mobile) {
+        .favorites-controls { display: none; }
+        .control-group:first-child { display: none; }
+      }
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(var(--swatch-size), 1fr));
+      gap: $sxs;
+    }
+
+    .swatch {
+      aspect-ratio: 1;
+      border-radius: 4px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.15s, border-radius 0.2s;
+      overflow: hidden;
+
+      &:hover {
+        transform: scale(1.05);
+        z-index: 10;
+
+        .star-btn { opacity: 1; }
+      }
+
+      &.copied {
+        border-radius: 12px;
+        filter: brightness(0.9);
+      }
+
+      &.favorited .star-btn { opacity: 1; color: gold; }
+
+      .star-btn {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        background: none;
+        border: none;
+        font-size: 1.25rem;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.15s;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      }
+
+      .copied-label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.7);
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .swatch-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0.5rem;
+        font-size: 0.65rem;
+        background: linear-gradient(transparent, rgba(0,0,0,0.1));
+
+        .swatch-code { font-weight: 600; font-size: 0.7rem; }
+        .swatch-name { text-transform: capitalize; opacity: 0.9; }
+        .swatch-hex { opacity: 0.8; }
+      }
+    }
+  }
+}
+

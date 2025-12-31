@@ -1,0 +1,58 @@
+---
+import ColorLayout from '../../color-app/ColorLayout.astro';
+---
+
+<ColorLayout title="About" currentPage="about">
+  <div class="about-content">
+    <p>
+      I made this page to keep track of all the color palettes I've created or have enjoyed using. 
+      I've found myself flipping through hundreds of tabs for color matching inspiration; 
+      I hope that this site can help me (and maybe you) reduce the clutter a bit!
+    </p>
+    
+    <p>
+      This page was generated with Claude for my 
+      <a href="https://bencuan.me/blog/vibe25">State of Vibe Coding evaluation</a> in December 2025. 
+      If you're reading this, you're looking at the winning submission! Congrats to Claude :)
+    </p>
+    
+    <p>
+      The Explorer was seeded with color books from 
+      <a href="https://github.com/jacobbubu/acb">this repository</a>. 
+      View the source code 
+      <a href="https://github.com/64bitpandas/bencuan.me/tree/main/src/color-books">here</a> 
+      if you'd like to access these colors in JSON format.
+    </p>
+    
+    <p>
+      This page is typeset in <strong>Manrope</strong> and <code>fira code</code>. 
+      Its default accent color is <a href="https://catppuccin.com/">Catppuccin blue</a>.
+    </p>
+  </div>
+</ColorLayout>
+
+<style>
+  .about-content {
+    max-width: 700px;
+    margin: 2rem auto;
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+  
+  .about-content p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-content strong {
+    font-weight: 700;
+  }
+  
+  .about-content code {
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    background: rgba(0,0,0,0.05);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+  }
+</style>
+

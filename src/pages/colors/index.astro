@@ -1,0 +1,10 @@
+---
+import ColorLayout from '../../color-app/ColorLayout.astro';
+import PalettesPage from '../../color-app/PalettesPage';
+import palettes from '../../color-books/_palettes.json';
+---
+
+<ColorLayout title="Palettes" currentPage="palettes">
+  <PalettesPage client:load palettes={palettes} />
+</ColorLayout>
+

@@ -1,0 +1,44 @@
+---
+import '../sass/color_app.scss';
+
+interface Props {
+  title: string;
+  currentPage: 'palettes' | 'explorer' | 'about';
+}
+
+const { title, currentPage } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | ben's colors</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body class="color-app">
+    <header class="color-header" id="color-header">
+      <div class="site-title">
+        <span>ben's</span> colors
+      </div>
+      <nav>
+        <a href="/colors" class:list={[{ current: currentPage === 'palettes' }]}>palettes</a>
+        <span>//</span>
+        <a href="/colors/explorer" class:list={[{ current: currentPage === 'explorer' }]}>explorer</a>
+        <span>//</span>
+        <a href="/colors/about" class:list={[{ current: currentPage === 'about' }]}>about</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="color-footer">
+      <img src="/favicon.png" alt="Kevin the dinosaur" />
+      <a href="https://bencuan.me">back to bencuan.me</a>
+    </footer>
+  </body>
+</html>
+

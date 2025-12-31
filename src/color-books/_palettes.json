@@ -1,10 +1,60 @@
 {
-  "Catppuccin Latte": [
-    {
-      "name": "Base",
-      "hex": "eff1f5",
-      "tags": ["background"],
-      "source": "https://catppuccin.com/palettes"
-    }
-  ]
+  "catppuccin latte": {
+    "source": "https://catppuccin.com/palette/",
+    "colors": [
+      {"name": "base", "hex": "#EFF1F5", "tag": "background"},
+      {"name": "mantle", "hex": "#E6E9EF", "tag": "secondary"},
+      {"name": "crust", "hex": "#DCE0E8", "tag": null},
+      {"name": "surface0", "hex": "#CCD0DA", "tag": null},
+      {"name": "surface1", "hex": "#BCC0CC", "tag": null},
+      {"name": "surface2", "hex": "#ACB0BE", "tag": null},
+      {"name": "overlay0", "hex": "#9CA0B0", "tag": null},
+      {"name": "overlay1", "hex": "#8C8FA1", "tag": null},
+      {"name": "overlay2", "hex": "#7C7F93", "tag": null},
+      {"name": "subtext0", "hex": "#6C6F85", "tag": null},
+      {"name": "subtext1", "hex": "#5C5F77", "tag": null},
+      {"name": "text", "hex": "#4C4F69", "tag": "text"},
+      {"name": "lavender", "hex": "#7287FD", "tag": null},
+      {"name": "blue", "hex": "#1E66F5", "tag": "highlight"},
+      {"name": "sapphire", "hex": "#209FB5", "tag": null},
+      {"name": "sky", "hex": "#04A5E5", "tag": null},
+      {"name": "teal", "hex": "#179299", "tag": null},
+      {"name": "green", "hex": "#40A02B", "tag": null},
+      {"name": "yellow", "hex": "#DF8E1D", "tag": null},
+      {"name": "peach", "hex": "#FE640B", "tag": null},
+      {"name": "maroon", "hex": "#E64553", "tag": null},
+      {"name": "red", "hex": "#D20F39", "tag": null},
+      {"name": "mauve", "hex": "#8839EF", "tag": null},
+      {"name": "pink", "hex": "#EA76CB", "tag": null},
+      {"name": "flamingo", "hex": "#DD7878", "tag": null},
+      {"name": "rosewater", "hex": "#DC8A78", "tag": null}
+    ]
+  },
+  "bencuan.me v7": {
+    "source": "https://bencuan.me/colophon/",
+    "colors": [
+      {"name": "background", "hex": "#F7F6F2", "tag": "background"},
+      {"name": "surface", "hex": "#EEEDEA", "tag": "secondary"},
+      {"name": "text", "hex": "#29282D", "tag": "text"},
+      {"name": "muted", "hex": "#6B6A6F", "tag": null},
+      {"name": "accent", "hex": "#297638", "tag": "highlight"},
+      {"name": "link", "hex": "#1E66F5", "tag": null}
+    ]
+  },
+  "Dracula": {
+    "source": "https://draculatheme.com/",
+    "colors": [
+      {"name": "background", "hex": "#282A36", "tag": "background"},
+      {"name": "current line", "hex": "#44475A", "tag": "secondary"},
+      {"name": "foreground", "hex": "#F8F8F2", "tag": "text"},
+      {"name": "comment", "hex": "#6272A4", "tag": null},
+      {"name": "cyan", "hex": "#8BE9FD", "tag": null},
+      {"name": "green", "hex": "#50FA7B", "tag": null},
+      {"name": "orange", "hex": "#FFB86C", "tag": null},
+      {"name": "pink", "hex": "#FF79C6", "tag": "highlight"},
+      {"name": "purple", "hex": "#BD93F9", "tag": null},
+      {"name": "red", "hex": "#FF5555", "tag": null},
+      {"name": "yellow", "hex": "#F1FA8C", "tag": null}
+    ]
+  }
 }

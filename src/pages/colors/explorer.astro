@@ -1,0 +1,27 @@
+---
+import ColorLayout from '../../color-app/ColorLayout.astro';
+import ExplorerPage from '../../color-app/ExplorerPage';
+import pantoneNames from '../../color-books/_pantone-color-names.json';
+import favoritePresets from '../../color-books/_favorites.json';
+
+// Dynamically import all color books
+const colorBookFiles = import.meta.glob('../../color-books/*.json', { eager: true });
+const colorBooks: Record<string, any> = {};
+
+for (const [path, module] of Object.entries(colorBookFiles)) {
+  const fileName = path.split('/').pop()?.replace('.json', '') || '';
+  // Skip meta files
+  if (fileName.startsWith('_')) continue;
+  colorBooks[fileName] = (module as any).default || module;
+}
+---
+
+<ColorLayout title="Explorer" currentPage="explorer">
+  <ExplorerPage 
+    client:load 
+    colorBooks={colorBooks} 
+    pantoneNames={pantoneNames}
+    favoritePresets={favoritePresets}
+  />
+</ColorLayout>
+
