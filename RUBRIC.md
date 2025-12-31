@@ -53,10 +53,10 @@
 
 ## About Page (3 points)
 
-- [x] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?
-- [x] fill in the correct links?
+- [/] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name? _(close but need to verify exact text)_
+- [/] fill in the correct links? _(need to verify exact links)_
 - [x] format the text and links as requested?
 
 ---
 
-## Final Score: 42 / 42 points (100%)
+## Final Score: 40.5 / 42 points (96.4%)
