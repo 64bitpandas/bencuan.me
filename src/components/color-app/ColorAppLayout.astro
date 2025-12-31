@@ -1,0 +1,45 @@
+---
+import '../../sass/color_app.scss';
+
+const { title = "Colors | bencuan.me" } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const isExplorer = currentPath.includes('/explorer');
+const isAbout = currentPath.includes('/about');
+// Palettes is active if it's explicitly palettes, or if we are at root /colors (and not about/explorer)
+const isPalettes = currentPath.includes('/palettes') || (!isExplorer && !isAbout);
+
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+<body>
+    <div class="color-app-layout">
+        <header class="color-header" id="color-header">
+            <!-- Header title logic: Just the nav for now as per design implication, 
+                 but if there's a site title it usually goes on left. 
+                 The prompt says: "The current page (palettes/explorer/about) should be bolded in the header."
+                 It implies these ARE the links. -->
+            <nav>
+                <a href="/colors/palettes" class={isPalettes ? 'active' : ''}>palettes</a>
+                <a href="/colors/explorer" class={isExplorer ? 'active' : ''}>explorer</a>
+                <a href="/colors/about" class={isAbout ? 'active' : ''}>about</a>
+            </nav>
+        </header>
+        <main>
+            <slot />
+        </main>
+        <footer class="color-footer">
+            <a href="https://bencuan.me" class="footer-link">
+                 <img src="/favicon.png" alt="Kevin the Dinosaur" class="dinosaur-icon" />
+                 back to bencuan.me
+            </a>
+        </footer>
+    </div>
+</body>
+</html>

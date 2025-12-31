@@ -1,0 +1,264 @@
+---
+import Layout from '../../components/color-app/ColorAppLayout.astro';
+import presetFavoritesData from '../../color-books/_favorites.json';
+---
+
+<Layout title="Explorer | Colors">
+  <div class="explorer-container">
+     <aside class="sidebar" id="explorer-sidebar">
+        <!-- Sidebar content will be hydrated by JS -->
+        <div class="sidebar-section">
+            <h3>Book</h3>
+            <div class="select-wrapper">
+                <select id="book-selector" class="color-select"></select>
+            </div>
+        </div>
+        
+        <div class="sidebar-section mobile-hide">
+            <h3>Favorites</h3>
+            <div class="favorites-actions">
+                <button id="btn-preset" data-presets={JSON.stringify(presetFavoritesData)}>Preset</button>
+                <button id="btn-filter">Filter</button>
+                <button id="btn-clear">Clear</button>
+            </div>
+        </div>
+
+        <div class="sidebar-section mobile-hide">
+             <h3>Size</h3>
+             <input type="range" id="size-slider" min="3" max="10" value="5" step="1" />
+        </div>
+     </aside>
+
+     <main class="explorer-content">
+        <div class="explorer-header">
+            <h1 id="book-title"><span class="bold-prefix">PANTONE</span> F+H cotton TCX</h1>
+             <div class="search-bar"></div>
+        </div>
+        
+        <div id="swatch-grid" class="swatch-grid" style="--cols: 5">
+             <div class="loading-state">Loading colors...</div>
+        </div>
+     </main>
+  </div>
+</Layout>
+
+<script>
+    let currentBook = 'PANTONE F+H cotton TCX';
+    let allBooks = [];
+    let currentColors = [];
+    let favorites = JSON.parse(localStorage.getItem('color_favorites') || '[]');
+    let isFiltered = false;
+
+    const dom = {
+        bookSelector: document.getElementById('book-selector') as HTMLSelectElement,
+        grid: document.getElementById('swatch-grid'),
+        title: document.getElementById('book-title'),
+        btnPreset: document.getElementById('btn-preset'),
+        btnFilter: document.getElementById('btn-filter'),
+        btnClear: document.getElementById('btn-clear'),
+        slider: document.getElementById('size-slider') as HTMLInputElement,
+        header: document.getElementById('color-header'),
+    };
+
+    // --- Data Fetching ---
+
+    async function kvetchBooks() {
+        try {
+            const res = await fetch('/colors/api/books.json');
+            allBooks = await res.json();
+            
+            if (dom.bookSelector) {
+                // Sort books so Pantone F+H cotton TCX is default or top if possible, 
+                // but default selector value handles selection.
+                dom.bookSelector.innerHTML = allBooks.map(b => `<option value="${b}">${b}</option>`).join('');
+                dom.bookSelector.value = currentBook;
+                dom.bookSelector.addEventListener('change', (e) => {
+                    loadBook((e.target as HTMLSelectElement).value);
+                });
+            }
+        } catch(e) { console.error("Failed to load books", e); }
+    }
+
+    async function loadBook(name) {
+        currentBook = name;
+        if(dom.grid) dom.grid.innerHTML = '<div class="loading-state">Loading colors...</div>';
+        
+        // Update Title
+        if (dom.title) {
+             const parts = name.split(' ');
+             const prefix = parts[0]; 
+             const rest = parts.slice(1).join(' ');
+             dom.title.innerHTML = `<span class="bold-prefix">${prefix}</span> ${rest}`;
+        }
+        
+        try {
+            const res = await fetch(`/colors/api/book/${encodeURIComponent(name)}.json`);
+            const data = await res.json();
+            currentColors = data.colors; 
+            renderGrid();
+        } catch(e) { 
+            console.error(e);
+            if(dom.grid) dom.grid.innerHTML = '<div class="error-state">Failed to load book.</div>';
+        }
+    }
+
+    // --- Rendering ---
+
+    function renderGrid() {
+        if (!dom.grid) return;
+        
+        const colorsToRender = isFiltered 
+            ? currentColors.filter(c => favorites.includes(c.name))
+            : currentColors;
+
+        if (colorsToRender.length === 0) {
+            dom.grid.innerHTML = '<div class="empty-state">No colors found.</div>';
+            return;
+        }
+
+        dom.grid.innerHTML = '';
+        
+        let renderedCount = 0;
+        const chunkSize = 100;
+        
+        function renderChunk() {
+            const chunk = colorsToRender.slice(renderedCount, renderedCount + chunkSize);
+            if (chunk.length === 0) return;
+            
+            const fragment = document.createDocumentFragment();
+            chunk.forEach(c => {
+                 const el = document.createElement('div');
+                 el.className = 'swatch';
+                 const isFav = favorites.includes(c.name);
+                 el.innerHTML = `
+                    <div class="swatch-color" style="background-color: ${c.hex}">
+                         <button class="fav-icon ${isFav ? 'active' : ''}" data-name="${c.name}">★</button>
+                         <div class="copied-msg">Copied!</div>
+                    </div>
+                    <div class="swatch-info">
+                        <div class="swatch-name"><strong>${c.name.split(' ').slice(0,2).join(' ')}</strong><br/>${c.name.split(' ').slice(2).join(' ')}</div>
+                        <div class="swatch-friendly">${c.friendly || ''}</div>
+                    </div>
+                 `;
+                 
+                 const colorBox = el.querySelector('.swatch-color') as HTMLElement;
+                 colorBox.addEventListener('click', (e) => {
+                     if ((e.target as HTMLElement).classList.contains('fav-icon')) return; 
+                     handleSelect(c, colorBox);
+                 });
+                 
+                 el.querySelector('.fav-icon')?.addEventListener('click', (e) => {
+                     toggleFavorite(c.name, e.target as HTMLElement);
+                 });
+
+                 fragment.appendChild(el);
+            });
+            
+            dom.grid.appendChild(fragment);
+            renderedCount += chunkSize;
+        }
+        
+        renderChunk(); 
+        
+        // Infinite scroll sentinel
+        const sentinel = document.createElement('div');
+        sentinel.className = 'sentinel';
+        dom.grid.appendChild(sentinel);
+        
+        const footerObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                renderChunk();
+                // move sentinel to end
+                dom.grid.appendChild(sentinel);
+            }
+        });
+        footerObserver.observe(sentinel);
+    }
+
+    // --- Interactions ---
+
+    function handleSelect(color, element) {
+        navigator.clipboard.writeText(color.hex);
+        
+        element.style.borderRadius = '50%';
+        setTimeout(() => element.style.borderRadius = '', 300); // Simple round/unround
+        
+        const msg = element.querySelector('.copied-msg');
+        if(msg) {
+            msg.style.opacity = '1';
+            setTimeout(() => msg.style.opacity = '0', 1000);
+        }
+        
+        if (dom.header) {
+             dom.header.style.backgroundColor = color.hex;
+             const hex = color.hex.replace('#', '');
+             const r = parseInt(hex.substr(0, 2), 16);
+             const g = parseInt(hex.substr(2, 2), 16);
+             const b = parseInt(hex.substr(4, 2), 16);
+             const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+             dom.header.style.color = (yiq >= 128) ? '#000000' : '#ffffff';
+        }
+    }
+
+    function toggleFavorite(name, iconEl) {
+        if (favorites.includes(name)) {
+            favorites = favorites.filter(f => f !== name);
+            iconEl.classList.remove('active');
+        } else {
+            favorites.push(name);
+            iconEl.classList.add('active');
+        }
+        saveFavorites();
+        if(isFiltered) renderGrid(); 
+    }
+
+    function saveFavorites() {
+        localStorage.setItem('color_favorites', JSON.stringify(favorites));
+    }
+    
+    // --- Helper Buttons ---
+    
+    dom.btnPreset?.addEventListener('click', () => {
+         const presets = JSON.parse(dom.btnPreset.getAttribute('data-presets') || '{}');
+         // "The "preset" button... should automatically override the currently selected favorites"
+         // Logic: Flatten all arrays in presets object to a list of names?
+         // Sample json: { "PANTONE": [ {name: "..."} ] }
+         // We need to extract all 'name' fields.
+         
+         const newFavs = [];
+         Object.values(presets).forEach((list: any[]) => {
+             list.forEach(item => {
+                 if(item.name) newFavs.push(item.name);
+             });
+         });
+         
+         favorites = newFavs;
+         saveFavorites();
+         renderGrid();
+    });
+
+    dom.btnFilter?.addEventListener('click', () => {
+        isFiltered = !isFiltered;
+        dom.btnFilter.innerHTML = isFiltered ? '<strong>un</strong>filter' : 'Filter';
+        renderGrid();
+    });
+    
+    dom.btnClear?.addEventListener('click', () => {
+        favorites = [];
+        saveFavorites();
+        renderGrid();
+        if(dom.header) {
+            dom.header.style.backgroundColor = '';
+            dom.header.style.color = '';
+        }
+    });
+    
+    dom.slider?.addEventListener('input', (e) => {
+        const val = (e.target as HTMLInputElement).value;
+        dom.grid.style.setProperty('--cols', val);
+    });
+
+    kvetchBooks().then(() => loadBook(currentBook));
+
+</script>
+

@@ -1,0 +1,128 @@
+---
+import Layout from '../../components/color-app/ColorAppLayout.astro';
+import palettes from '../../color-books/_palettes.json';
+import CopyButton from '../../components/color-app/CopyButton';
+
+const formatName = (name: string) => {
+  const parts = name.split(' ');
+  return { bold: parts[0], rest: parts.slice(1).join(' ') };
+};
+
+const hexToRgb = (hex: string) => {
+  const cleanBox = hex.replace('#', '');
+  const r = parseInt(cleanBox.substring(0, 2), 16);
+  const g = parseInt(cleanBox.substring(2, 4), 16);
+  const b = parseInt(cleanBox.substring(4, 6), 16);
+  return `${r}, ${g}, ${b}`;
+};
+---
+
+<Layout title="Palettes | Colors">
+  <div class="palettes-container">
+    {
+      palettes.map((palette, index) => {
+        const bg = palette.colors.find((c) => c.tags.includes('background'))?.hex || 'ffffff';
+        const text = palette.colors.find((c) => c.tags.includes('text'))?.hex || '000000';
+        const highlight = palette.colors.find((c) => c.tags.includes('highlight'))?.hex || '0000ff';
+        const secondary = palette.colors.find((c) => c.tags.includes('secondary'))?.hex || 'eeeeee';
+
+        const { bold, rest } = formatName(palette.name);
+
+        return (
+          <section
+            class="palette-section"
+            id={`palette-${index}`}
+            style={`--p-bg: #${bg}; --p-text: #${text}; --p-highlight: #${highlight}; --p-secondary: #${secondary};`}
+            data-highlight={`#${highlight}`}
+            data-bg={`#${bg}`}
+          >
+            <div class="container">
+              <div class="palette-header-row">
+                <h2>
+                  <strong>{bold}</strong> {rest}
+                </h2>
+                <a href={palette.source} target="_blank" rel="noopener noreferrer" class="source-link">
+                  Source
+                </a>
+              </div>
+
+              <div class="palette-table-container">
+                <table class="palette-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Hex</th>
+                      <th>RGB</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {palette.colors.map((color) => (
+                      <tr class="color-row">
+                        <td class="color-name">
+                          {color.name}
+                          {color.tags.includes('background') && <span class="tag-pill background">background</span>}
+                          {color.tags.includes('highlight') && <span class="tag-pill highlight">highlight</span>}
+                          {color.tags.includes('text') && <span class="tag-pill text">text</span>}
+                          {color.tags.includes('secondary') && <span class="tag-pill secondary">secondary</span>}
+                        </td>
+                        <td class="color-hex">
+                          <div class="code-wrapper">
+                            <span>#{color.hex}</span>
+                            <CopyButton code={`#${color.hex}`} client:visible />
+                          </div>
+                        </td>
+                        <td class="color-rgb">
+                          <div class="code-wrapper">
+                            <span>{hexToRgb(color.hex)}</span>
+                            <CopyButton code={`rgb(${hexToRgb(color.hex)})`} client:visible />
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        );
+      })
+    }
+    <div style="height: 50vh;"></div>
+  </div>
+</Layout>
+
+<script>
+  const header = document.getElementById('color-header');
+  const sections = document.querySelectorAll('.palette-section');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+             // "update the header to have the highlight color as the background, and the background color as the text color."
+          const highlight = entry.target.getAttribute('data-highlight');
+          const bg = entry.target.getAttribute('data-bg');
+          
+          if (header && highlight && bg) {
+            header.style.backgroundColor = highlight;
+            header.style.color = bg; // Text color is the background color of the palette, creating contrast
+            
+            // Also need to update links inside if they don't inherit well? 
+            // They inherit 'inherit', so it should be fine.
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.5, // Trigger when 50% of the section is visible
+    }
+  );
+
+  sections.forEach((s) => observer.observe(s));
+
+  // Reset logic for top of page is implicitly handled by the first section being observed?
+  // "Ensure the first theme color appears again if the user scrolls all the way to the top of the page." 
+  // If the first section (Catppuccin) is at top, it will trigger the observer and set the colors.
+  // Note: The prompt says default header is 1E66F5. Catppuccin Highlight is 1E66F5 (Blue). 
+  // So the colors match.
+</script>
