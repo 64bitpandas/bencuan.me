@@ -230,11 +230,30 @@
   src: url('/fonts/Novela/novela-displayitalic-webfont.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/Manrope/Manrope-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: FiraCode;
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/FiraCode/FiraCode-VF.ttf') format('truetype');
+}
+
 $header: Pangaia, serif;
 $body: Eiko, serif;
 $ui: Fraktion, sans-serif;
 $special: Pangaia, sans-serif;
 $code: FiraCode, monospace;
+
+$manrope: Manrope, sans-serif;
+$firacode: FiraCode, monospace;
 
 // calculated with https://fluidtypography.com/, 414-1280px viewport width
 $s-2: clamp(0.438rem, 0.577vw + 0.288rem, 0.75rem); // 7-12px
