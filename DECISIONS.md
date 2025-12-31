@@ -15,6 +15,7 @@
 2. **Full-width palette sections**: Palette sections use `width: 100vw; margin-left: calc(-50vw + 50%);` to break out of the container and fill the viewport width while keeping content centered.
 
 3. **Tag assignments for palettes**:
+
    - Catppuccin Latte: Blue (highlight), Text (text), Surface 0 (secondary), Base (background)
    - bencuan.me v7: Palm Tree Island (highlight), Aspen Green (secondary), Stalactite (background), Anthracite (text)
    - Dracula: Pink (highlight), Current Line (secondary), Background (background), Foreground (text)
@@ -52,4 +53,3 @@
 1. **Palettes JSON structure**: Created a nested structure with palette metadata (name, source) and colors array with optional tags.
 
 2. **Favorites preset**: Created `_favorites.json` with Pantone Colors of the Year (2018-2025) as the preset favorites collection.
-
