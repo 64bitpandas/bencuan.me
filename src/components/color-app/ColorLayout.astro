@@ -1,0 +1,33 @@
+---
+import '../../../src/sass/color_app.scss';
+import ColorHeader from './ColorHeader';
+import ColorFooter from './ColorFooter.astro';
+
+interface Props {
+  title: string;
+  currentPage: 'palettes' | 'explorer' | 'about';
+  headerBg?: string;
+  headerText?: string;
+}
+
+const { title, currentPage, headerBg, headerText } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Colors | bencuan.me</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body class="color-app">
+    <ColorHeader
+      currentPage={currentPage}
+      initialBg={headerBg}
+      initialText={headerText}
+      client:load
+    />
+    <slot />
+    <ColorFooter />
+  </body>
+</html>
