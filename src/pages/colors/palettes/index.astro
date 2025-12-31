@@ -1,0 +1,168 @@
+---
+import ColorLayout from '../../../color-app/ColorLayout.astro';
+import palettes from '../../../color-books/_palettes.json';
+import { hexToRgb, rgbToCss, rgbToHex } from '../../../color-app/utils/color';
+import { CopyButton } from '../../../color-app/components/CopyButton';
+
+export const prerender = true;
+
+type PaletteColor = {
+  name: string;
+  hex: string;
+  tag?: 'background' | 'secondary' | 'text' | 'highlight';
+};
+
+type Palette = {
+  name: string;
+  source: string;
+  colors: PaletteColor[];
+};
+
+const all = palettes as Palette[];
+
+function splitFirstWord(text: string): { first: string; rest: string } {
+  const trimmed = text.trim();
+  const idx = trimmed.indexOf(' ');
+  if (idx === -1) return { first: trimmed, rest: '' };
+  return { first: trimmed.slice(0, idx), rest: trimmed.slice(idx) };
+}
+
+function findTag(p: Palette, tag: PaletteColor['tag']): PaletteColor {
+  const match = p.colors.find(c => c.tag === tag);
+  if (!match) throw new Error(`Missing tag ${tag} in ${p.name}`);
+  return match;
+}
+
+function normalizeHex(hex: string) {
+  return rgbToHex(hexToRgb(hex));
+}
+---
+
+<ColorLayout title="colors • palettes" description="Color palettes" page="palettes">
+  <div class="palettes-fullbleed">
+    {all.map((palette, idx) => {
+      const bg = normalizeHex(findTag(palette, 'background').hex);
+      const secondary = normalizeHex(findTag(palette, 'secondary').hex);
+      const text = normalizeHex(findTag(palette, 'text').hex);
+      const highlight = normalizeHex(findTag(palette, 'highlight').hex);
+      const title = splitFirstWord(palette.name);
+      const isLast = idx === all.length - 1;
+
+      return (
+        <section
+          class="palette-section"
+          data-palette
+          data-header-bg={highlight}
+          data-header-fg={bg}
+          style={{
+            '--palette-bg': bg,
+            '--palette-secondary': secondary,
+            '--palette-text': text,
+            '--palette-highlight': highlight,
+            minHeight: isLast ? '120vh' : undefined,
+          }}
+        >
+          <div class="palette-inner">
+            <h2 class="palette-title">
+              <strong>{title.first}</strong>
+              {title.rest}
+            </h2>
+
+            <table class="palette-table">
+              <thead>
+                <tr>
+                  <th>Color</th>
+                  <th>Hex</th>
+                  <th>RGB</th>
+                </tr>
+              </thead>
+              <tbody>
+                {palette.colors.map(color => {
+                  const hex = normalizeHex(color.hex);
+                  const rgb = hexToRgb(hex);
+                  const rgbText = rgbToCss(rgb);
+
+                  return (
+                    <tr
+                      class="palette-row"
+                    >
+                      <td>
+                        <span class="color-name">
+                          <span>{color.name}</span>
+                          {color.tag ? (
+                            <span class="tag-pill">
+                              {color.tag}
+                            </span>
+                          ) : null}
+                        </span>
+                      </td>
+                      <td>
+                        <span class="code-cell">
+                          <span class="code-chip">
+                            <code>{hex}</code>
+                            <CopyButton value={hex} ariaLabel={`Copy hex for ${color.name}`} client:load />
+                          </span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class="code-cell">
+                          <span class="code-chip">
+                            <code>{rgbText}</code>
+                            <CopyButton value={rgbText} ariaLabel={`Copy rgb for ${color.name}`} client:load />
+                          </span>
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+
+            <div class="palette-source">
+              <a href={palette.source} target="_blank" rel="noopener noreferrer">
+                source
+              </a>
+            </div>
+          </div>
+        </section>
+      );
+    })}
+  </div>
+
+  <script is:inline>
+    (() => {
+      const sections = Array.from(document.querySelectorAll('[data-palette]'));
+      if (sections.length === 0) return;
+
+      const setFrom = el => {
+        const bg = el.getAttribute('data-header-bg');
+        const fg = el.getAttribute('data-header-fg');
+        window.dispatchEvent(new CustomEvent('colorapp:header', { detail: { bg, fg } }));
+      };
+
+      // Ensure first theme is active at top.
+      setFrom(sections[0]);
+
+      const observer = new IntersectionObserver(
+        entries => {
+          const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0));
+          if (visible[0]?.target) setFrom(visible[0].target);
+          if (window.scrollY === 0) setFrom(sections[0]);
+        },
+        { threshold: [0.2, 0.35, 0.5, 0.65] }
+      );
+
+      sections.forEach(s => observer.observe(s));
+
+      window.addEventListener(
+        'scroll',
+        () => {
+          if (window.scrollY === 0) setFrom(sections[0]);
+        },
+        { passive: true }
+      );
+    })();
+  </script>
+</ColorLayout>

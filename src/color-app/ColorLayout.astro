@@ -1,0 +1,86 @@
+---
+import Seo from '../components/seo.astro';
+import './color_app.scss';
+
+type ColorPage = 'palettes' | 'explorer' | 'about';
+
+type Props = {
+  title: string;
+  description?: string;
+  page: ColorPage;
+  headContent?: any;
+};
+
+const { title, description, page, headContent } = Astro.props;
+
+const nav = [
+  { name: 'palettes', href: '/colors/palettes' },
+  { name: 'explorer', href: '/colors/explorer' },
+  { name: 'about', href: '/colors/about' },
+] as const;
+
+const current = page;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <Seo title={title} description={description ?? ''} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    {headContent}
+  </head>
+  <body class="color-app">
+    <div class="colorapp-shell">
+      <header class="colorapp-header" data-colorapp-header>
+        <div class="colorapp-container">
+          <div class="colorapp-nav">
+            <div class="colorapp-nav-links">
+              {nav.map(link => (
+                <a href={link.href} data-current={(link.name === current).toString()}>
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="colorapp-main">
+        <slot />
+      </main>
+
+      <footer class="colorapp-footer">
+        <div class="colorapp-container">
+          <div class="colorapp-footer-link">
+            <img src="/favicon.png" alt="Kevin the Dinosaur" />
+            <a href="https://bencuan.me">back to bencuan.me</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script is:inline>
+      (() => {
+        const DEFAULT_BG = '#1E66F5';
+        const DEFAULT_FG = '#FFFFFF';
+
+        function setHeader(bg, fg) {
+          if (bg) document.documentElement.style.setProperty('--colorapp-header-bg', bg);
+          if (fg) document.documentElement.style.setProperty('--colorapp-header-fg', fg);
+        }
+
+        setHeader(DEFAULT_BG, DEFAULT_FG);
+
+        window.addEventListener('colorapp:header', e => {
+          const detail = e.detail || {};
+          setHeader(detail.bg, detail.fg);
+        });
+
+        window.addEventListener('colorapp:header-reset', () => {
+          setHeader(DEFAULT_BG, DEFAULT_FG);
+        });
+      })();
+    </script>
+  </body>
+</html>

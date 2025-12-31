@@ -1,0 +1,51 @@
+---
+import ColorLayout from '../../../color-app/ColorLayout.astro';
+
+export const prerender = true;
+---
+
+<ColorLayout title="colors • about" description="About this color site" page="about">
+  <div class="colorapp-container">
+    <div class="about">
+      <p>
+        I made this page to keep track of all the color palettes I’ve created or have enjoyed using. I’ve found
+        myself flipping through hundreds of tabs for color matching inspiration; I hope that this site can help me
+        (and maybe you) reduce the clutter a bit!
+      </p>
+
+      <p>
+        This page was generated with GitHub Copilot for my
+        <a href="https://bencuan.me/blog/vibe25" target="_blank" rel="noopener noreferrer">
+          State of Vibe Coding evaluation
+        </a>
+        in December 2025. If you’re reading this, you’re looking at the winning submission! Congrats to GitHub
+        Copilot :)
+      </p>
+
+      <p>
+        The Explorer was seeded with color books from
+        <a href="https://github.com/jacobbubu/acb" target="_blank" rel="noopener noreferrer">
+          this repository
+        </a>
+        . View the source code
+        <a
+          href="https://github.com/64bitpandas/bencuan.me/tree/main/src/color-books"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          here
+        </a>
+        if you’d like to access these colors in JSON format.
+      </p>
+
+      <p>
+        This page is typeset in <span class="font-manrope">Manrope</span> and <span class="font-fira">fira code</span>.
+        Its default accent color is
+        <a href="https://catppuccin.com/" target="_blank" rel="noopener noreferrer">
+          Catppuccin blue
+        </a>
+        .
+      </p>
+    </div>
+  </div>
+</ColorLayout>

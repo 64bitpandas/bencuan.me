@@ -1,0 +1,118 @@
+---
+import ColorLayout from '../../../color-app/ColorLayout.astro';
+import ExplorerApp from '../../../color-app/components/ExplorerApp';
+
+export const prerender = true;
+
+type Book = {
+  version: number;
+  title: string;
+  description?: string;
+  prefix: string;
+  suffix: string;
+  colorCount: number;
+  colorSpace: 'LAB';
+  records: Record<
+    string,
+    {
+      name: string;
+      code: string;
+      components: [number, number, number];
+    }
+  >;
+};
+
+type BookMeta = {
+  slug: string;
+  label: string;
+  prefix: string;
+};
+
+function toSlug(fileBase: string): string {
+  return fileBase
+    .toLowerCase()
+    .replace(/\.json$/i, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+function displayLabel(fileBase: string): string {
+  return fileBase.replace(/\.json$/i, '');
+}
+
+export function getStaticPaths() {
+  const bookFiles = import.meta.glob('../../../color-books/*.json', { eager: true });
+  const slugs = Object.keys(bookFiles)
+    .filter(p => !p.includes('/_'))
+    .map(p => {
+      const fileBase = p.split('/').pop() ?? p;
+      return fileBase
+        .toLowerCase()
+        .replace(/\.json$/i, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+    });
+  return slugs.map(book => ({ params: { book } }));
+}
+
+const bookFiles = import.meta.glob('../../../color-books/*.json', { eager: true });
+
+const books: { meta: BookMeta; data: Book }[] = Object.entries(bookFiles)
+  .filter(([p]) => !p.includes('/_'))
+  .map(([path, mod]) => {
+    const fileBase = path.split('/').pop() ?? path;
+    const data = (mod as any).default as Book;
+    return {
+      meta: {
+        slug: toSlug(fileBase),
+        label: displayLabel(fileBase),
+        prefix: (data.prefix ?? '').trim(),
+      },
+      data,
+    };
+  })
+  .sort((a, b) => a.meta.label.localeCompare(b.meta.label));
+
+const { book: slug } = Astro.params;
+const selected = books.find(b => b.meta.slug === slug);
+if (!selected) throw new Error(`Unknown color book slug: ${slug}`);
+
+const selectorItems = books.map(b => b.meta);
+
+const prefixWord = (selected.data.prefix.trim().split(' ')[0] || selected.data.prefix.trim()).trim();
+const titleRest = selected.meta.label.replace(new RegExp(`^${prefixWord}\\s*`), '').trim();
+---
+
+<ColorLayout title="colors • explorer" description="Color explorer" page="explorer">
+  <div class="colorapp-container">
+    <div class="explorer-top">
+      <div class="explorer-controls">
+        <h1 class="explorer-title">
+          <strong>{prefixWord}</strong> {titleRest}
+        </h1>
+
+        <label>
+          <span class="sr-only">Standard</span>
+          <select
+            class="explorer-select"
+            onchange="window.location.href = '/colors/explorer/' + this.value"
+          >
+            {selectorItems.map(item => (
+              <option value={item.slug} selected={item.slug === selected.meta.slug}>
+                {item.label}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      <ExplorerApp
+        client:load
+        bookSlug={selected.meta.slug}
+        bookLabel={selected.meta.label}
+        bookPrefix={selected.data.prefix.trim()}
+        records={selected.data.records}
+      />
+    </div>
+  </div>
+</ColorLayout>

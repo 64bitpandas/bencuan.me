@@ -1,10 +1,55 @@
-{
-  "Catppuccin Latte": [
-    {
-      "name": "Base",
-      "hex": "eff1f5",
-      "tags": ["background"],
-      "source": "https://catppuccin.com/palettes"
-    }
-  ]
-}
+[
+  {
+    "name": "Catppuccin Latte",
+    "source": "https://catppuccin.com/palette/",
+    "colors": [
+      { "name": "Base", "hex": "#EFF1F5", "tag": "background" },
+      { "name": "Text", "hex": "#4C4F69", "tag": "text" },
+      { "name": "Surface0", "hex": "#CCD0DA", "tag": "secondary" },
+      { "name": "Blue", "hex": "#1E66F5", "tag": "highlight" },
+
+      { "name": "Lavender", "hex": "#7287FD" },
+      { "name": "Sapphire", "hex": "#209FB5" },
+      { "name": "Sky", "hex": "#04A5E5" },
+      { "name": "Teal", "hex": "#179299" },
+      { "name": "Green", "hex": "#40A02B" },
+      { "name": "Yellow", "hex": "#DF8E1D" },
+      { "name": "Peach", "hex": "#FE640B" },
+      { "name": "Maroon", "hex": "#E64553" },
+      { "name": "Red", "hex": "#D20F39" },
+      { "name": "Mauve", "hex": "#8839EF" }
+    ]
+  },
+  {
+    "name": "bencuan.me v7",
+    "source": "https://bencuan.me/colophon/",
+    "colors": [
+      { "name": "Background", "hex": "#F7F6F2", "tag": "background" },
+      { "name": "Text", "hex": "#1B1C1D", "tag": "text" },
+      { "name": "Green", "hex": "#297638", "tag": "highlight" },
+      { "name": "Light Green", "hex": "#6AB580", "tag": "secondary" },
+
+      { "name": "Link Blue", "hex": "#1E66F5" },
+      { "name": "Muted", "hex": "#5F666A" },
+      { "name": "Border", "hex": "#C9CEC8" },
+      { "name": "Code", "hex": "#2B2D31" }
+    ]
+  },
+  {
+    "name": "Dracula",
+    "source": "https://draculatheme.com/",
+    "colors": [
+      { "name": "Background", "hex": "#282A36", "tag": "background" },
+      { "name": "Foreground", "hex": "#F8F8F2", "tag": "text" },
+      { "name": "Current Line", "hex": "#44475A", "tag": "secondary" },
+      { "name": "Pink", "hex": "#FF79C6", "tag": "highlight" },
+
+      { "name": "Purple", "hex": "#BD93F9" },
+      { "name": "Cyan", "hex": "#8BE9FD" },
+      { "name": "Green", "hex": "#50FA7B" },
+      { "name": "Orange", "hex": "#FFB86C" },
+      { "name": "Red", "hex": "#FF5555" },
+      { "name": "Yellow", "hex": "#F1FA8C" }
+    ]
+  }
+]
