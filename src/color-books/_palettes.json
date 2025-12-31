@@ -1,10 +1,42 @@
-{
-  "Catppuccin Latte": [
-    {
-      "name": "Base",
-      "hex": "eff1f5",
-      "tags": ["background"],
-      "source": "https://catppuccin.com/palettes"
-    }
-  ]
-}
+[
+  {
+    "name": "Catppuccin Latte",
+    "source": "https://catppuccin.com/palette/",
+    "colors": [
+      { "name": "Base", "hex": "eff1f5", "tag": "background" },
+      { "name": "Surface0", "hex": "ccd0da", "tag": "secondary" },
+      { "name": "Text", "hex": "4c4f69", "tag": "text" },
+      { "name": "Blue", "hex": "1e66f5", "tag": "highlight" },
+      { "name": "Mantle", "hex": "e6e9ef" },
+      { "name": "Crust", "hex": "dce0e8" }
+    ]
+  },
+  {
+    "name": "bencuan.me v7",
+    "source": "https://bencuan.me/colophon/",
+    "colors": [
+      { "name": "Stalactite", "hex": "f7f6f2", "tag": "background" },
+      { "name": "Frosted Mint", "hex": "cdd4cb", "tag": "secondary" },
+      { "name": "Anthracite", "hex": "29282d", "tag": "text" },
+      { "name": "Palm Tree Island", "hex": "297638", "tag": "highlight" },
+      { "name": "Aspen Green", "hex": "7e9b76" },
+      { "name": "Snowfall", "hex": "f4eee8" },
+      { "name": "Metallic Fir", "hex": "505457" }
+    ]
+  },
+  {
+    "name": "Dracula",
+    "source": "https://draculatheme.com/",
+    "colors": [
+      { "name": "Background", "hex": "282a36", "tag": "background" },
+      { "name": "Current Line", "hex": "44475a", "tag": "secondary" },
+      { "name": "Foreground", "hex": "f8f8f2", "tag": "text" },
+      { "name": "Purple", "hex": "bd93f9", "tag": "highlight" },
+      { "name": "Pink", "hex": "ff79c6" },
+      { "name": "Cyan", "hex": "8be9fd" },
+      { "name": "Green", "hex": "50fa7b" },
+      { "name": "Red", "hex": "ff5555" },
+      { "name": "Yellow", "hex": "f1fa8c" }
+    ]
+  }
+]

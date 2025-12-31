@@ -1,0 +1,21 @@
+---
+import { slugify } from '../../../color-app/utils/color';
+
+const glob = import.meta.glob('../../../color-books/*.json', { eager: true }) as Record<
+  string,
+  { default: any }
+>;
+
+const books = Object.entries(glob)
+  .filter(([path]) => !path.endsWith('/_favorites.json') && !path.endsWith('/_palettes.json') && !path.endsWith('/_pantone-color-names.json'))
+  .map(([path, mod]) => ({ path, data: mod.default }));
+
+const groups = new Map<string, string>();
+for (const b of books) {
+  const key = String(b.data?.prefix ?? '').trim() || 'UNKNOWN';
+  groups.set(slugify(key), key);
+}
+
+const first = [...groups.entries()].sort((a, b) => a[1].localeCompare(b[1]))[0];
+return Astro.redirect(first ? `/colors/explorer/${first[0]}` : '/colors/palettes');
+---

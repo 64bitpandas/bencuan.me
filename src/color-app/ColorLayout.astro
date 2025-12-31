@@ -1,0 +1,51 @@
+---
+import '../sass/color_app.scss';
+
+type Page = 'palettes' | 'explorer' | 'about';
+
+const { title = "ben's colors", currPage } = Astro.props as { title?: string; currPage: Page };
+
+const nav = [
+  { href: '/colors/palettes', label: 'palettes', key: 'palettes' },
+  { href: '/colors/explorer', label: 'explorer', key: 'explorer' },
+  { href: '/colors/about', label: 'about', key: 'about' },
+] as const;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="colors-app" data-filter="off">
+      <header class="colors-header" id="colors-header">
+        <div class="colors-header__inner">
+          <div class="colors-brand">
+            <span>ben's </span><span>colors</span>
+          </div>
+          <nav class="colors-nav" aria-label="colors navigation">
+            {nav.map(item => (
+              <>
+                <a href={item.href} aria-current={currPage === item.key ? 'page' : undefined}>{item.label}</a>
+                {item.key !== 'about' ? <span aria-hidden="true">//</span> : null}
+              </>
+            ))}
+          </nav>
+        </div>
+      </header>
+
+      <main class="colors-main">
+        <slot />
+      </main>
+
+      <footer class="colors-footer">
+        <a class="colors-footer__link" href="https://bencuan.me" target="_blank" rel="noreferrer">
+          <img src="/favicon.png" alt="Kevin the Dinosaur" />
+          <span>back to bencuan.me</span>
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>

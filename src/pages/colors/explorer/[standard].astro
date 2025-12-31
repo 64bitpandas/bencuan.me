@@ -1,0 +1,173 @@
+---
+import ColorLayout from '../../../color-app/ColorLayout.astro';
+import pantoneNames from '../../../color-books/_pantone-color-names.json';
+import presets from '../../../color-books/_favorites.json';
+import { slugify, titleCaseKebab } from '../../../color-app/utils/color';
+import { labToHex } from '../../../color-app/utils/lab';
+import explorerScript from '../../../color-app/explorer.ts?url';
+
+export function getStaticPaths() {
+  const glob = import.meta.glob('../../../color-books/*.json', { eager: true }) as Record<string, { default: any }>;
+  const allBooks = Object.entries(glob)
+    .filter(([path]) => !path.includes('/_'))
+    .map(([, mod]) => mod.default);
+
+  const slugs = Array.from(
+    new Set(allBooks.map(b => slugify(String(b?.prefix ?? '').trim() || 'UNKNOWN'))),
+  ).filter(Boolean);
+
+  return slugs.map(s => ({ params: { standard: s } }));
+}
+
+const standard = Astro.params.standard ?? '';
+
+const glob = import.meta.glob('../../../color-books/*.json', { eager: true }) as Record<
+  string,
+  { default: any }
+>;
+
+const allBooks = Object.entries(glob)
+  .filter(([path]) => !path.includes('/_'))
+  .map(([path, mod]) => ({
+    path,
+    file: path.split('/').pop()!.replace(/\.json$/i, ''),
+    data: mod.default,
+  }));
+
+type Group = { slug: string; key: string };
+
+const groups: Group[] = Array.from(
+  new Map(
+    allBooks.map(b => {
+      const key = String(b.data?.prefix ?? '').trim() || 'UNKNOWN';
+      return [slugify(key), key] as const;
+    }),
+  ).entries(),
+)
+  .map(([slug, key]) => ({ slug, key }))
+  .sort((a, b) => a.key.localeCompare(b.key));
+
+const group = groups.find(g => g.slug === standard) ?? groups[0];
+if (!group) throw new Error('No color books found');
+
+const groupBooks = allBooks
+  .filter(b => String(b.data?.prefix ?? '').trim() === group.key)
+  .sort((a, b) => a.file.localeCompare(b.file));
+
+function formatTitle(file: string): { prefix: string; rest: string } {
+  const clean = file.replace(/\+/g, '').trim();
+  const upper = clean.toUpperCase();
+  const prefix = group.key.toUpperCase();
+  const rest = upper.replace(new RegExp(`^${prefix}\\s*`, 'i'), '').trim();
+  return { prefix, rest };
+}
+
+function friendlyPantoneName(name: string): string {
+  const m = name.match(/(\d{2}-\d{4})/);
+  if (!m) return '';
+  const key = m[1];
+  const hit = (pantoneNames as any)[key]?.name as string | undefined;
+  return hit ? titleCaseKebab(hit) : '';
+}
+
+const pageTitle = formatTitle(groupBooks[0]?.file ?? group.key);
+
+type SwatchView = {
+  name: string;
+  rest: string;
+  hex: string;
+  friendly: string;
+};
+
+type BookView = {
+  title: { prefix: string; rest: string };
+  swatches: SwatchView[];
+};
+
+const bookViews: BookView[] = groupBooks.map(book => {
+  const title = formatTitle(book.file);
+  const records = Object.values(book.data.records ?? {}) as Array<any>;
+  const swatches: SwatchView[] = records.map(rec => {
+    const hex = labToHex(rec.components as [number, number, number]).toUpperCase();
+    const full = String(rec.name ?? '');
+    const prefix = group.key.trim();
+    const rest = full.toUpperCase().startsWith(prefix.toUpperCase()) ? full.slice(prefix.length).trim() : full;
+    const friendly = group.key.toUpperCase() === 'PANTONE' ? friendlyPantoneName(full) : '';
+    return { name: full, rest, hex, friendly };
+  });
+  return { title, swatches };
+});
+---
+
+<ColorLayout title={`ben's colors // explorer`} currPage="explorer">
+  <div class="explorer-page" data-explorer data-group={group.key}>
+    <h1 class="explorer-title">
+      <span class="prefix">{pageTitle.prefix}</span>{pageTitle.rest ? ` ${pageTitle.rest}` : ''}
+    </h1>
+    <div class="explorer-divider" />
+
+    {bookViews.map(book => (
+      <section class="explorer-book" data-book>
+        <h2 class="explorer-book__title">
+          <span class="prefix">{book.title.prefix}</span>{book.title.rest ? ` ${book.title.rest}` : ''}
+        </h2>
+        <div class="swatch-grid" data-grid>
+          {book.swatches.map(sw => (
+            <div class="swatch" style={`--swatch:#${sw.hex};`} data-swatch data-name={sw.name} data-hex={`#${sw.hex}`}>
+              <button class="swatch__star" type="button" data-star aria-label="Toggle favorite">
+                <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M128 20l30 62 68 10-49 48 12 68-61-32-61 32 12-68-49-48 68-10z" />
+                </svg>
+              </button>
+              <div class="swatch__square">
+                <div class="swatch__copied">Copied!</div>
+              </div>
+              <div class="swatch__meta">
+                <div class="swatch__name1">
+                  <span class="prefix">{group.key.toUpperCase()}</span> {sw.rest}
+                </div>
+                <div class="swatch__name2">{sw.friendly}</div>
+                <div class="swatch__hex">{`#${sw.hex}`}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <div class="explorer-controls">
+      <div class="ctrl size">
+        <label for="colors-size">size</label>
+        <input id="colors-size" type="range" min="0" max="4" step="1" value="2" />
+      </div>
+
+      <div class="ctrl">
+        <label for="colors-standard">standard</label>
+        <select id="colors-standard">
+          {groups.map(g => (
+            <option value={g.slug} selected={g.slug === group.slug}>
+              {g.key}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div class="ctrl favs">
+        <div class="favs__title">
+          <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;">
+            <path d="M128 20l30 62 68 10-49 48 12 68-61-32-61 32 12-68-49-48 68-10z" />
+          </svg>
+          <span>favorites</span>
+        </div>
+        <div class="favs__buttons">
+          <button type="button" class="secondary" data-filter-btn>filter</button>
+          <button type="button" data-preset-btn>preset</button>
+          <button type="button" data-clear-btn>clear</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="application/json" id="colors-presets">{JSON.stringify(presets)}</script>
+    <script type="module" src={explorerScript}></script>
+  </div>
+</ColorLayout>

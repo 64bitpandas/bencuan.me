@@ -1,0 +1,123 @@
+---
+import ColorLayout from '../../color-app/ColorLayout.astro';
+import palettes from '../../color-books/_palettes.json';
+import { normalizeHex, rgbString } from '../../color-app/utils/color';
+import palettesScript from '../../color-app/palettes.ts?url';
+
+type Tag = 'background' | 'secondary' | 'text' | 'highlight';
+
+type Palette = {
+  name: string;
+  source: string;
+  colors: Array<{ name: string; hex: string; tag?: Tag }>;
+};
+
+const list = palettes as unknown as Palette[];
+
+function tagged(p: Palette): Record<Tag, string> {
+  const out: Record<Tag, string> = {
+    background: 'ffffff',
+    secondary: 'f0f0f0',
+    text: '111111',
+    highlight: '1e66f5',
+  };
+  for (const c of p.colors) {
+    if (c.tag) out[c.tag] = normalizeHex(c.hex);
+  }
+  return out;
+}
+
+function splitFirstWord(name: string): { first: string; rest: string } {
+  const parts = name.split(' ');
+  const first = parts[0] ?? name;
+  const rest = parts.slice(1).join(' ');
+  return { first, rest };
+}
+---
+
+<ColorLayout title="ben's colors // palettes" currPage="palettes">
+  <div class="palettes-page">
+    {list.map((p, idx) => {
+      const tags = tagged(p);
+      const title = splitFirstWord(p.name);
+      return (
+        <section
+          class="palette"
+          data-palette
+          data-highlight={`#${tags.highlight}`}
+          data-header-fg={`#${tags.background}`}
+          style={
+            `--palette-bg:#${tags.background};--palette-secondary:#${tags.secondary};--palette-text:#${tags.text};--palette-highlight:#${tags.highlight};`
+          }
+        >
+          <div class="palette__top">
+            <h2 class="palette__title">
+              <strong>{title.first}</strong>
+              {title.rest ? <span> {title.rest}</span> : null}
+            </h2>
+            <a class="colors-link" href={p.source} target="_blank" rel="noreferrer">source</a>
+          </div>
+          <div class="palette__rule" />
+
+          <table class="palette__table">
+            <thead>
+              <tr>
+                <th>color</th>
+                <th>hex</th>
+                <th>rgb</th>
+              </tr>
+            </thead>
+            <tbody>
+              {p.colors.map(c => {
+                const hex = normalizeHex(c.hex);
+                const hexDisplay = `#${hex.toUpperCase()}`;
+                const rgb = rgbString(hex);
+                return (
+                  <tr class="palette__row">
+                    <td>
+                      <div class="palette__color" style={`--dot:#${hex};`}>
+                        <span class="palette__dot" aria-hidden="true" />
+                        <span>{c.name.toLowerCase()}</span>
+                        {c.tag ? <span class="palette__tag">{c.tag}</span> : null}
+                      </div>
+                    </td>
+                    <td>
+                      <span class="palette__code">
+                        <span>{hexDisplay}</span>
+                        <button class="copy-btn" type="button" data-copy={hexDisplay} aria-label={`Copy ${hexDisplay}`}>
+                          <svg class="icon-copy" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="88" y="88" width="128" height="128" rx="8"></rect>
+                            <path d="M168 88V48a8 8 0 0 0-8-8H48a8 8 0 0 0-8 8v112a8 8 0 0 0 8 8h40"></path>
+                          </svg>
+                          <svg class="icon-check" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M216 72L104 184l-56-56" />
+                          </svg>
+                        </button>
+                      </span>
+                    </td>
+                    <td>
+                      <span class="palette__code">
+                        <span>{rgb}</span>
+                        <button class="copy-btn" type="button" data-copy={rgb} aria-label={`Copy ${rgb}`}>
+                          <svg class="icon-copy" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="88" y="88" width="128" height="128" rx="8"></rect>
+                            <path d="M168 88V48a8 8 0 0 0-8-8H48a8 8 0 0 0-8 8v112a8 8 0 0 0 8 8h40"></path>
+                          </svg>
+                          <svg class="icon-check" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M216 72L104 184l-56-56" />
+                          </svg>
+                        </button>
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </section>
+      );
+    })}
+  </div>
+
+  <script type="module" src={palettesScript}></script>
+</ColorLayout>
