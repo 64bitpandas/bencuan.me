@@ -15,6 +15,15 @@
   margin-bottom: 0.5rem;
 }
 
+.blog-section-title {
+  font-family: fonts.$header;
+  font-weight: 300;
+  font-size: fonts.$s5;
+  margin-top: spacing.$sl;
+  margin-bottom: spacing.$sxs;
+  color: colors.$text;
+}
+
 .blog-date {
   margin-top: 0;
   margin-bottom: 0.5rem;

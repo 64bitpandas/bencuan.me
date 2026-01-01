@@ -69,11 +69,15 @@ export const ILink = ({ href, children, className }: iProps) => (
 
 /** Used as a component pass-in to MDX. */
 export const MDLink = ({ href, children, extraPretty }: mdProps) => {
+  const isGarden = href.startsWith('https://garden.bencuan.me');
+  const sproutIcon = isGarden ? <img src="/img/sprout.png" alt="" className="garden-sprout" /> : null;
+
   if (href.startsWith('https://bencuan.me')) {
     return <ILink href={href}>{children}</ILink>;
   }
   return (
     <XLink href={href} label={href} tooltipContent={stripHttp(href, extraPretty ?? false)} className="blue-link">
+      {sproutIcon}
       {children}
     </XLink>
   );

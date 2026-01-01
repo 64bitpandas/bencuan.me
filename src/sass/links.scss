@@ -96,6 +96,16 @@
   font-family: fonts.$ui;
 }
 
+img.garden-sprout {
+  display: inline !important;
+  height: 1em !important;
+  max-width: none !important;
+  vertical-align: middle !important;
+  margin: 0 2px 0 0 !important;
+  position: relative;
+  top: -2px;
+}
+
 // Tooltip styles
 .react-tooltip {
   @include mixins.screen('mobile') {

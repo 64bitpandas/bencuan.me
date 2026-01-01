@@ -8,7 +8,23 @@ import Button from '../components/button';
 import { Newspaper, Rss } from '@phosphor-icons/react';
 
 const collection = await getCollection('blog');
-const items = collection.map(item => ({ ...item.data, slug: '/blog/' + item.slug }));
+const allItems = collection.map(item => ({ ...item.data, slug: '/blog/' + item.slug }));
+
+// Define which slugs belong to the Publications section
+const publicationSlugs = ['keyboards', 'turtlenet', 'transit', 'humans'];
+
+// Categorize posts into Publications and Play
+const publicationItems = allItems.filter(item => publicationSlugs.some(slug => item.slug === `/blog/${slug}`));
+const playItems = allItems.filter(item => !publicationSlugs.some(slug => item.slug === `/blog/${slug}`));
+
+// Add special "colors" entry to Play section
+const colorsEntry = {
+  title: "ben's colors",
+  date: new Date('2025-12-30'),
+  slug: '/colors/about',
+  description: 'interactive color exploration app',
+};
+const playItemsWithColors = [...playItems, colorsEntry];
 ---
 
 <Layout title="bencuan's blog" description="long-form writing projects" currPage="blog">
@@ -18,9 +34,19 @@ const items = collection.map(item => ({ ...item.data, slug: '/blog/' + item.slug
     <Button href="https://bencuan.substack.com"><Newspaper /> newsletter</Button>
   </div>
 
+  <h2 class="blog-section-title">publications</h2>
   <SearchSortFilter
     sortCategories={['title', 'date']}
-    items={items}
+    items={publicationItems}
+    type="blog"
+    defaultSort={{ category: 'date', state: 'desc' }}
+    client:load
+  />
+
+  <h2 class="blog-section-title">play</h2>
+  <SearchSortFilter
+    sortCategories={['title', 'date']}
+    items={playItemsWithColors}
     type="blog"
     defaultSort={{ category: 'date', state: 'desc' }}
     client:load
