@@ -10,12 +10,9 @@ import { Newspaper, Rss } from '@phosphor-icons/react';
 const collection = await getCollection('blog');
 const allItems = collection.map(item => ({ ...item.data, slug: '/blog/' + item.slug }));
 
-// Define which slugs belong to the Publications section
-const publicationSlugs = ['keyboards', 'turtlenet', 'transit', 'humans'];
-
-// Categorize posts into Publications and Play
-const publicationItems = allItems.filter(item => publicationSlugs.some(slug => item.slug === `/blog/${slug}`));
-const playItems = allItems.filter(item => !publicationSlugs.some(slug => item.slug === `/blog/${slug}`));
+// Categorize posts into Publications and Play based on frontmatter category
+const publicationItems = allItems.filter(item => item.category === 'publications');
+const playItems = allItems.filter(item => item.category === 'play');
 
 // Add special "colors" entry to Play section
 const colorsEntry = {

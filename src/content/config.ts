@@ -9,7 +9,8 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.date(),
-    category: z.string(),
+    tags: z.string(),
+    category: z.enum(['publications', 'play']),
     image: z.optional(z.string()),
   }),
 });
