@@ -24,9 +24,9 @@
       { "name": "Overlay 0", "hex": "9ca0b0" },
       { "name": "Surface 2", "hex": "acb0be" },
       { "name": "Surface 1", "hex": "bcc0cc" },
-      { "name": "Surface 0", "hex": "ccd0da", "tag": "secondary" },
+      { "name": "Surface 0", "hex": "ccd0da" },
       { "name": "Base", "hex": "eff1f5", "tag": "background" },
-      { "name": "Mantle", "hex": "e6e9ef" },
+      { "name": "Mantle", "hex": "e6e9ef", "tag": "secondary" },
       { "name": "Crust", "hex": "dce0e8" }
     ]
   },
@@ -34,10 +34,10 @@
     "source": "https://bencuan.me/colophon",
     "colors": [
       { "name": "Palm Tree Island", "hex": "297638", "tag": "highlight" },
-      { "name": "Aspen Green", "hex": "7E9B76", "tag": "secondary" },
+      { "name": "Aspen Green", "hex": "7E9B76" },
       { "name": "Frosted Mint", "hex": "CDD4CB" },
       { "name": "Stalactite", "hex": "F7F6F2", "tag": "background" },
-      { "name": "Snowfall", "hex": "F4EEE8" },
+      { "name": "Snowfall", "hex": "F4EEE8", "tag": "secondary" },
       { "name": "Metallic Fir", "hex": "505457" },
       { "name": "Anthracite", "hex": "29282D", "tag": "text" }
     ]

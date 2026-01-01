@@ -1,8 +1,8 @@
 import { Star } from '@phosphor-icons/react';
-import { useCallback, useEffect, useMemo, useState, useRef } from 'react';
-import { labToHex, getContrastColor, hexToRgbString } from './colorUtils';
-import pantoneNames from '../../color-books/_pantone-color-names.json';
-import presetFavorites from '../../color-books/_favorites.json';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import presetFavorites from '../../../public/color-books/_favorites.json';
+import pantoneNames from '../../../public/color-books/_pantone-color-names.json';
+import { getContrastColor, hexToRgbString, labToHex } from './colorUtils';
 
 interface ColorRecord {
   name: string;
@@ -31,20 +31,10 @@ interface ProcessedColor {
   prefix: string;
 }
 
-const COLOR_BOOKS: Record<string, string> = {
-  'PANTONE F+H cotton TCX': 'PANTONE F+H cotton TCX.json',
-  'PANTONE+ Solid Coated': 'PANTONE+ Solid Coated.json',
-  'PANTONE+ Solid Uncoated': 'PANTONE+ Solid Uncoated.json',
-  'HKS K': 'HKS K.json',
-  'HKS N': 'HKS N.json',
-  'DIC Color Guide': 'DIC Color Guide.json',
-  'FOCOLTONE': 'FOCOLTONE.json',
-  'TOYO COLOR FINDER': 'TOYO COLOR FINDER.json',
-  'TRUMATCH': 'TRUMATCH.json',
-};
-
-const SIZE_STEPS = [4, 6, 8, 10, 12];
+const SIZE_STEPS = [2, 4, 6, 8, 10];
 const STORAGE_KEY = 'color-explorer-favorites';
+const BOOK_STORAGE_KEY = 'color-explorer-selected-book';
+const DEFAULT_BOOK = 'PANTONE F+H cotton TCX.json';
 
 function extractColorCode(name: string): string | null {
   const match = name.match(/(\d{2}-\d{4})/);
@@ -56,7 +46,10 @@ function getFriendlyName(colorName: string): string {
   if (!code) return '';
   const info = (pantoneNames as Record<string, { name: string; hex: string }>)[code];
   if (!info) return '';
-  return info.name.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  return info.name
+    .split('-')
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
 }
 
 function boldPrefix(name: string, prefix: string): JSX.Element {
@@ -103,28 +96,22 @@ function Swatch({ color, isFavorite, onToggleFavorite, onSelect }: SwatchProps) 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div
-        className="color-swatch__color"
-        style={{ backgroundColor: `#${color.hex}` }}
-      >
-        <div className={`color-swatch__copied ${showCopied ? 'color-swatch__copied--show' : ''}`}>
-          Copied!
-        </div>
+      <div className="color-swatch__color" style={{ backgroundColor: `#${color.hex}` }}>
+        <div className={`color-swatch__copied ${showCopied ? 'color-swatch__copied--show' : ''}`}>Copied!</div>
         <button
           className={`color-swatch__star ${isFavorite || isHovered ? '' : ''} ${isFavorite ? 'color-swatch__star--active' : ''}`}
           onClick={handleStarClick}
           style={{
             opacity: isFavorite || isHovered ? 1 : 0,
-            color: isFavorite ? '#fbbf24' : `#${textColor}`,
+            color: `#${textColor}`,
           }}
         >
           {isFavorite ? <Star size={16} weight="fill" /> : <Star size={16} />}
         </button>
       </div>
       <div className="color-swatch__info">
-        <div className="color-swatch__name">
-          {boldPrefix(color.name, color.prefix)}
-        </div>
+        <div className="color-swatch__name">{boldPrefix(color.name, color.prefix)}</div>
+        <div className="color-swatch__hex code">#{color.hex.toUpperCase()}</div>
         <div className="color-swatch__friendly">{color.friendlyName}</div>
       </div>
     </div>
@@ -132,15 +119,38 @@ function Swatch({ color, isFavorite, onToggleFavorite, onSelect }: SwatchProps) 
 }
 
 export default function ExplorerView() {
-  const [selectedBook, setSelectedBook] = useState('PANTONE F+H cotton TCX');
+  const [colorBooks, setColorBooks] = useState<string[]>([]);
+  const [selectedBook, setSelectedBook] = useState<string>('');
   const [colors, setColors] = useState<ProcessedColor[]>([]);
   const [loading, setLoading] = useState(true);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [filterActive, setFilterActive] = useState(false);
-  const [gridSize, setGridSize] = useState(8);
+  const [gridSize, setGridSize] = useState(6);
   const [visibleCount, setVisibleCount] = useState(100);
-  const containerRef = useRef<HTMLDivElement>(null);
   const [prefix, setPrefix] = useState('');
+
+  // Load available color books from index
+  useEffect(() => {
+    const loadColorBookIndex = async () => {
+      try {
+        const response = await fetch('/color-books/_index.json');
+        const books: string[] = await response.json();
+        setColorBooks(books);
+
+        // Restore previously selected book or use default
+        const storedBook = localStorage.getItem(BOOK_STORAGE_KEY);
+        if (storedBook && books.includes(storedBook)) {
+          setSelectedBook(storedBook);
+        } else {
+          setSelectedBook(books.includes(DEFAULT_BOOK) ? DEFAULT_BOOK : books[0]);
+        }
+      } catch (e) {
+        console.error('Failed to load color book index', e);
+      }
+    };
+
+    loadColorBookIndex();
+  }, []);
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -157,16 +167,25 @@ export default function ExplorerView() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify([...favorites]));
   }, [favorites]);
 
+  // Save selected book to localStorage
   useEffect(() => {
+    if (selectedBook) {
+      localStorage.setItem(BOOK_STORAGE_KEY, selectedBook);
+    }
+  }, [selectedBook]);
+
+  useEffect(() => {
+    if (!selectedBook) return;
+
     const loadColorBook = async () => {
       setLoading(true);
       setVisibleCount(100);
       try {
-        const response = await fetch(`/color-books/${COLOR_BOOKS[selectedBook]}`);
+        const response = await fetch(`/color-books/${selectedBook}`);
         const data: ColorBook = await response.json();
         setPrefix(data.prefix);
 
-        const processed: ProcessedColor[] = Object.values(data.records).map((record) => {
+        const processed: ProcessedColor[] = Object.values(data.records).map(record => {
           const [l, a, b] = record.components;
           const hex = labToHex(l, a, b);
           const friendlyName = getFriendlyName(record.name);
@@ -191,28 +210,28 @@ export default function ExplorerView() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!containerRef.current) return;
-      const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = window.innerHeight;
       if (scrollTop + clientHeight >= scrollHeight - 500) {
-        setVisibleCount((prev) => Math.min(prev + 50, colors.length));
+        setVisibleCount(prev => Math.min(prev + 50, colors.length));
       }
     };
 
-    const container = containerRef.current;
-    container?.addEventListener('scroll', handleScroll);
-    return () => container?.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [colors.length]);
 
   const displayedColors = useMemo(() => {
     let filtered = colors;
     if (filterActive) {
-      filtered = colors.filter((c) => favorites.has(c.name));
+      filtered = colors.filter(c => favorites.has(c.name));
     }
     return filtered.slice(0, visibleCount);
   }, [colors, filterActive, favorites, visibleCount]);
 
   const handleToggleFavorite = useCallback((name: string) => {
-    setFavorites((prev) => {
+    setFavorites(prev => {
       const next = new Set(prev);
       if (next.has(name)) {
         next.delete(name);
@@ -231,7 +250,7 @@ export default function ExplorerView() {
           bg: `#${color.hex}`,
           text: `#${textColor}`,
         },
-      })
+      }),
     );
   }, []);
 
@@ -247,71 +266,46 @@ export default function ExplorerView() {
     window.dispatchEvent(
       new CustomEvent('color-header-update', {
         detail: { bg: '#1e66f5', text: '#ffffff' },
-      })
+      }),
     );
+  };
+
+  const [exportCopied, setExportCopied] = useState(false);
+
+  const handleExport = async () => {
+    const favoritesArray = Array.from(favorites).map(name => ({
+      name,
+      notes: '',
+    }));
+    const exportData = {
+      PANTONE: favoritesArray,
+    };
+    const jsonString = JSON.stringify(exportData, null, 2);
+    await navigator.clipboard.writeText(jsonString);
+    setExportCopied(true);
+    setTimeout(() => setExportCopied(false), 1500);
   };
 
   const handleSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value);
-    const closest = SIZE_STEPS.reduce((prev, curr) =>
-      Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev
-    );
+    const closest = SIZE_STEPS.reduce((prev, curr) => (Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev));
     setGridSize(closest);
   };
 
   return (
-    <main className="explorer-page" ref={containerRef} style={{ overflowY: 'auto' }}>
-      <div className="explorer-controls">
-        <select
-          className="explorer-controls__select"
-          value={selectedBook}
-          onChange={(e) => setSelectedBook(e.target.value)}
-        >
-          {Object.keys(COLOR_BOOKS).map((book) => (
-            <option key={book} value={book}>
-              {book}
-            </option>
-          ))}
-        </select>
-
-        <div className="explorer-controls__favorites">
-          <button className="explorer-controls__btn" onClick={handlePreset}>
-            preset
-          </button>
-          <button
-            className={`explorer-controls__btn ${filterActive ? 'explorer-controls__btn--active' : ''}`}
-            onClick={() => setFilterActive(!filterActive)}
-          >
-            {filterActive ? <><strong>un</strong>filter</> : 'filter'}
-          </button>
-          <button className="explorer-controls__btn" onClick={handleClear}>
-            clear
-          </button>
-        </div>
-
-        <div className="explorer-controls__size">
-          <span>size</span>
-          <input
-            type="range"
-            min={SIZE_STEPS[0]}
-            max={SIZE_STEPS[SIZE_STEPS.length - 1]}
-            value={gridSize}
-            onChange={handleSizeChange}
-            step={1}
-          />
-        </div>
-      </div>
-
+    <main className="explorer-page">
       {loading ? (
         <div style={{ padding: '2rem', textAlign: 'center' }}>Loading colors...</div>
       ) : (
         <div
           className="explorer-grid"
-          style={{
-            gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
-          }}
+          style={
+            {
+              '--grid-columns': gridSize,
+            } as React.CSSProperties
+          }
         >
-          {displayedColors.map((color) => (
+          {displayedColors.map(color => (
             <Swatch
               key={color.name}
               color={color}
@@ -324,10 +318,61 @@ export default function ExplorerView() {
       )}
 
       {!loading && displayedColors.length < colors.length && !filterActive && (
-        <div style={{ padding: '1rem', textAlign: 'center', color: '#666' }}>
+        <div className="explorer-load-more">
           Showing {displayedColors.length} of {colors.length} colors. Scroll to load more.
         </div>
       )}
+
+      {/* Floating bottom toolbar */}
+      <div className="explorer-toolbar">
+        <div className="explorer-toolbar__size">
+          <span>size</span>
+          <input
+            type="range"
+            min={SIZE_STEPS[0]}
+            max={SIZE_STEPS[SIZE_STEPS.length - 1]}
+            value={gridSize}
+            onChange={handleSizeChange}
+            step={1}
+          />
+        </div>
+
+        <select
+          className="explorer-toolbar__select"
+          value={selectedBook}
+          onChange={e => setSelectedBook(e.target.value)}
+        >
+          {colorBooks.map(book => (
+            <option key={book} value={book}>
+              {book.replace('.json', '')}
+            </option>
+          ))}
+        </select>
+
+        <div className="explorer-toolbar__actions">
+          <button className="explorer-toolbar__btn" onClick={handlePreset}>
+            preset
+          </button>
+          <button
+            className={`explorer-toolbar__btn ${filterActive ? 'explorer-toolbar__btn--active' : ''}`}
+            onClick={() => setFilterActive(!filterActive)}
+          >
+            {filterActive ? (
+              <>
+                <strong>un</strong>filter
+              </>
+            ) : (
+              'filter'
+            )}
+          </button>
+          <button className="explorer-toolbar__btn" onClick={handleExport}>
+            {exportCopied ? 'copied!' : 'export'}
+          </button>
+          <button className="explorer-toolbar__btn" onClick={handleClear}>
+            clear
+          </button>
+        </div>
+      </div>
     </main>
   );
 }

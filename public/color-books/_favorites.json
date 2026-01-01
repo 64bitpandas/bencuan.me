@@ -1,10 +1,9 @@
 {
   "PANTONE": [
-    { "name": "PANTONE 11-4201 TCX", "notes": "Cloud Dancer - soft white" },
-    { "name": "PANTONE 18-3838 TCX", "notes": "Ultra Violet - 2018 Color of the Year" },
-    { "name": "PANTONE 15-1247 TCX", "notes": "Tangerine" },
-    { "name": "PANTONE 17-1463 TCX", "notes": "Tangerine Tango" },
-    { "name": "PANTONE 19-4052 TCX", "notes": "Classic Blue - 2020 Color of the Year" }
+    { "name": "PANTONE 11-4201 TCX", "notes": "Cloud Dancer" },
+    { "name": "PANTONE 2465 C", "notes": "Palm Tree Island" },
+    { "name": "PANTONE 17-0215 TCX", "notes": "Aspen Green" },
+    { "name": "PANTONE 19-4007 TCX", "notes": "Anthracite" }
   ],
   "HKS": [
     { "name": "HKS 43 K", "notes": "Classic blue" },

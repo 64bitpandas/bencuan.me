@@ -1,6 +1,6 @@
-import { Copy, Check } from '@phosphor-icons/react';
+import { Check, Copy } from '@phosphor-icons/react';
 import { useEffect, useRef, useState } from 'react';
-import palettesData from '../../color-books/_palettes.json';
+import palettesData from '../../../public/color-books/_palettes.json';
 
 interface PaletteColor {
   name: string;
@@ -24,7 +24,7 @@ function hexToRgb(hex: string): string {
 
 function getTaggedColors(colors: PaletteColor[]) {
   const tagged: Record<string, string> = {};
-  colors.forEach((c) => {
+  colors.forEach(c => {
     if (c.tag) tagged[c.tag] = c.hex;
   });
   return tagged;
@@ -50,12 +50,7 @@ function CopyButton({ text, color }: { text: string; color: string }) {
   };
 
   return (
-    <button
-      className="color-table__copy-btn"
-      onClick={handleCopy}
-      title="Copy to clipboard"
-      style={{ color }}
-    >
+    <button className="color-table__copy-btn" onClick={handleCopy} title="Copy to clipboard" style={{ color }}>
       {copied ? <Check size={16} weight="bold" /> : <Copy size={16} />}
     </button>
   );
@@ -82,7 +77,7 @@ function PaletteSection({ name, palette, onVisible }: PaletteSectionProps) {
           onVisible({ background: bg, secondary, text, highlight });
         }
       },
-      { threshold: [0.3] }
+      { threshold: [0.3] },
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -112,16 +107,8 @@ function PaletteSection({ name, palette, onVisible }: PaletteSectionProps) {
       </div>
 
       <table className="color-table">
-        <thead>
-          <tr>
-            <th>Color</th>
-            <th>Name</th>
-            <th>Hex</th>
-            <th>RGB</th>
-          </tr>
-        </thead>
         <tbody>
-          {palette.colors.map((color) => (
+          {palette.colors.map(color => (
             <tr
               key={color.name}
               className="color-table__row"
@@ -130,50 +117,49 @@ function PaletteSection({ name, palette, onVisible }: PaletteSectionProps) {
                   '--hover-bg': `#${secondary}`,
                 } as React.CSSProperties
               }
-              onMouseEnter={(e) => {
+              onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.backgroundColor = `#${secondary}`;
               }}
-              onMouseLeave={(e) => {
+              onMouseLeave={e => {
                 (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent';
               }}
             >
               <td>
-                <span
-                  className="color-table__swatch"
-                  style={{ backgroundColor: `#${color.hex}` }}
-                />
-              </td>
-              <td>
-                <div className="color-table__name">
-                  {color.name}
-                  {color.tag && (
-                    <span
-                      className="color-table__tag"
-                      style={{
-                        backgroundColor: `#${highlight}`,
-                        color: `#${bg}`,
-                      }}
-                    >
-                      {color.tag}
-                    </span>
-                  )}
+                <div className="color-table__name-cell">
+                  <span
+                    className="color-table__swatch"
+                    style={
+                      {
+                        backgroundColor: `#${color.hex}`,
+                        '--swatch-border-color': `#${secondary}`,
+                      } as React.CSSProperties
+                    }
+                  />
+                  <div className="color-table__name">
+                    {color.name}
+                    {color.tag && (
+                      <span
+                        className="color-table__tag"
+                        style={{
+                          backgroundColor: `#${highlight}`,
+                          color: `#${bg}`,
+                        }}
+                      >
+                        {color.tag}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </td>
               <td>
-                <span
-                  className="color-table__code"
-                  style={{ backgroundColor: `#${secondary}` }}
-                >
+                <span className="color-table__code" style={{ backgroundColor: `#${secondary}` }}>
                   #{color.hex.toUpperCase()}
                   <CopyButton text={`#${color.hex.toUpperCase()}`} color={`#${text}`} />
                 </span>
               </td>
               <td>
-                <span
-                  className="color-table__code"
-                  style={{ backgroundColor: `#${secondary}` }}
-                >
-                  {hexToRgb(color.hex)}
+                <span className="color-table__code" style={{ backgroundColor: `#${secondary}` }}>
+                  rgb({hexToRgb(color.hex)})
                   <CopyButton text={hexToRgb(color.hex)} color={`#${text}`} />
                 </span>
               </td>
@@ -196,7 +182,7 @@ export default function PalettesView() {
           bg: `#${colors.highlight}`,
           text: `#${colors.background}`,
         },
-      })
+      }),
     );
   };
 
@@ -211,13 +197,8 @@ export default function PalettesView() {
 
   return (
     <main className="palettes-page">
-      {paletteNames.map((name) => (
-        <PaletteSection
-          key={name}
-          name={name}
-          palette={palettes[name]}
-          onVisible={handlePaletteVisible}
-        />
+      {paletteNames.map(name => (
+        <PaletteSection key={name} name={name} palette={palettes[name]} onVisible={handlePaletteVisible} />
       ))}
     </main>
   );
