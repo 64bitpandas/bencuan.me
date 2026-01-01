@@ -1,0 +1,335 @@
+@use '../../sass/fonts';
+@use '../../sass/colors';
+@use '../../sass/mixins';
+@use '../../sass/spacing';
+
+// CRT Colors
+$crt-bg: #0a0a0f;
+$crt-green: #00ff41;
+$crt-green-dim: #00cc33;
+$crt-amber: #ffb000;
+$crt-blue: #00d4ff;
+$crt-glow: rgba(0, 255, 65, 0.15);
+
+.vibecode-banner {
+  position: relative;
+  height: 450px;
+  background: $crt-bg;
+  overflow: hidden;
+  margin-top: spacing.$sxs;
+  margin-bottom: spacing.$ss;
+  box-shadow:
+    0 0 60px rgba(0, 255, 65, 0.1),
+    inset 0 0 120px rgba(0, 0, 0, 0.8);
+
+  // Break out of container to full viewport width
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  border-radius: 0;
+
+  @include mixins.screen(mobile) {
+    height: 380px;
+    margin-top: spacing.$s3xs;
+  }
+}
+
+// CRT scanlines effect - more pronounced
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.3) 0px,
+    rgba(0, 0, 0, 0.3) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scanline-flicker 0.1s infinite;
+}
+
+@keyframes scanline-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.97;
+  }
+}
+
+// CRT curve/vignette overlay - stronger effect
+.crt-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 11;
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
+  box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.7);
+}
+
+// Blur overlay for depth effect
+.blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 8;
+  backdrop-filter: blur(0.5px);
+  -webkit-backdrop-filter: blur(0.5px);
+}
+
+// Terminal window
+.terminal-container {
+  position: relative;
+  z-index: 5;
+  margin: spacing.$ss;
+  height: calc(100% - 100px);
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.screen(mobile) {
+    margin: spacing.$sxs;
+    height: calc(100% - 90px);
+  }
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+
+  &.close {
+    background: #ff5f56;
+  }
+  &.minimize {
+    background: #ffbd2e;
+  }
+  &.maximize {
+    background: #27ca40;
+  }
+}
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-family: fonts.$code;
+  font-size: fonts.$s-1;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.terminal-content {
+  flex: 1;
+  padding: spacing.$sxs spacing.$ss;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 8px 8px;
+
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 65, 0.3);
+    border-radius: 3px;
+  }
+}
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message {
+  display: flex;
+  gap: 8px;
+  font-family: fonts.$code;
+  font-size: fonts.$s-1;
+  line-height: 1.5;
+
+  @include mixins.screen(mobile) {
+    font-size: 0.75rem;
+  }
+
+  &.user {
+    .message-prefix {
+      color: $crt-amber;
+      text-shadow: 0 0 8px rgba(255, 176, 0, 0.5);
+    }
+    .message-content {
+      color: $crt-amber;
+      text-shadow: 0 0 4px rgba(255, 176, 0, 0.3);
+    }
+  }
+
+  &.agent {
+    .message-prefix {
+      color: $crt-green;
+      text-shadow: 0 0 8px $crt-glow;
+    }
+    .message-content {
+      color: $crt-green-dim;
+      text-shadow: 0 0 4px $crt-glow;
+    }
+  }
+}
+
+.message-prefix {
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.message-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+// Blinking cursor
+.cursor {
+  animation: blink 0.8s infinite;
+  color: inherit;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+// Banner title overlay - positioned on right side
+.banner-title {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  text-align: right;
+  z-index: 15;
+
+  @include mixins.screen(mobile) {
+    right: 5%;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 300;
+    color: white;
+    margin: 0;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    line-height: 1;
+    letter-spacing: 0.15em;
+  }
+}
+
+.banner-pretitle {
+  font-family: fonts.$ui;
+  font-size: fonts.$s3;
+  font-weight: 300;
+}
+
+.banner-pretitle-2 {
+  font-family: fonts.$ui;
+  font-size: fonts.$s4;
+  font-weight: 500;
+  color: white;
+}
+
+.banner-subtitle {
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+}
+
+.banner-author,
+.banner-date {
+  font-family: fonts.$header;
+  font-size: clamp(0.875rem, 1.5vw, 1.25rem);
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  display: block;
+
+  @include mixins.screen(mobile) {
+    font-size: clamp(0.7rem, 3vw, 1rem);
+  }
+}
+
+// Subtle CRT flicker animation
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.9;
+  }
+  94% {
+    opacity: 1;
+  }
+  97% {
+    opacity: 0.95;
+  }
+  98% {
+    opacity: 1;
+  }
+}
+
+.terminal-content {
+  animation: flicker 8s infinite;
+}
+
+// Subtle glow pulse
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 60px rgba(0, 255, 65, 0.1),
+      inset 0 0 120px rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    box-shadow:
+      0 0 80px rgba(0, 255, 65, 0.15),
+      inset 0 0 120px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.vibecode-banner {
+  animation: glow-pulse 4s ease-in-out infinite;
+}

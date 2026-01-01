@@ -1,0 +1,129 @@
+@use '../../sass/fonts';
+@use '../../sass/colors';
+@use '../../sass/spacing';
+@use '../../sass/mixins';
+
+.toc-sidebar {
+  // Hide on smaller screens
+  display: none;
+
+  @include mixins.screen(desktop) {
+    display: block;
+    position: fixed;
+    top: 120px;
+    right: calc((100vw - min(80vw, 1024px)) / 2 - 220px);
+    width: 200px;
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    padding: spacing.$ss;
+    background: rgba(colors.$background-light, 0.8);
+    backdrop-filter: blur(8px);
+    border-left: 2px solid colors.$extra-light-green;
+    border-radius: 4px;
+    z-index: 50;
+
+    // Custom scrollbar
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: colors.$extra-light-green;
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
+
+  // Wider screens get more space
+  @media (min-width: 1400px) {
+    right: calc((100vw - min(80vw, 1024px)) / 2 - 280px);
+    width: 240px;
+  }
+}
+
+.toc-title {
+  font-family: fonts.$ui;
+  font-size: fonts.$s-1;
+  font-weight: 500;
+  color: colors.$text-light;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: spacing.$sxs;
+  padding-bottom: spacing.$s3xs;
+  border-bottom: 1px solid colors.$extra-light-green;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-item {
+  margin: 0;
+  padding: 0;
+
+  a {
+    display: block;
+    padding: 0.35rem 0;
+    font-family: fonts.$ui;
+    font-size: fonts.$s-1;
+    font-weight: 400;
+    color: colors.$text-light;
+    text-decoration: none;
+    line-height: 1.4;
+    transition:
+      color 0.2s ease,
+      padding-left 0.2s ease;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    margin-left: -0.5rem;
+
+    &:hover {
+      color: colors.$dark-green;
+    }
+  }
+
+  &.active a {
+    color: colors.$dark-green;
+    font-weight: 500;
+    border-left-color: colors.$dark-green;
+  }
+
+  // Indentation levels
+  &.toc-level-0 a {
+    font-weight: 500;
+    color: colors.$text;
+  }
+
+  &.toc-level-1 a {
+    padding-left: calc(0.5rem + 1rem);
+  }
+
+  &.toc-level-2 a {
+    padding-left: calc(0.5rem + 2rem);
+    font-size: calc(#{fonts.$s-1} * 0.95);
+  }
+
+  &.toc-level-3 a {
+    padding-left: calc(0.5rem + 3rem);
+    font-size: calc(#{fonts.$s-1} * 0.9);
+    color: lighten(colors.$text-light, 10%);
+  }
+
+  &.toc-level-4 a {
+    padding-left: calc(0.5rem + 4rem);
+    font-size: calc(#{fonts.$s-1} * 0.85);
+    color: lighten(colors.$text-light, 15%);
+  }
+
+  &.toc-level-5 a {
+    padding-left: calc(0.5rem + 5rem);
+    font-size: calc(#{fonts.$s-1} * 0.8);
+    color: lighten(colors.$text-light, 20%);
+  }
+}
+
