@@ -1,0 +1,122 @@
+@use '../../sass/fonts';
+@use '../../sass/colors';
+@use '../../sass/spacing';
+
+// Beige/tan background color matching the screenshot
+$box-bg: #f4eee0;
+$box-border: colors.$light-green;
+
+.collapsible-box {
+  background: $box-bg;
+  border: 3px solid $box-border;
+  padding: spacing.$sm spacing.$sl;
+  margin: spacing.$sm 0;
+
+  &.rounded {
+    border-radius: 5px;
+  }
+
+  &.collapsed {
+    .collapsible-content {
+      display: none;
+    }
+
+    .collapsible-caret {
+      transform: rotate(-90deg);
+    }
+
+    .collapsible-flavor {
+      display: none;
+    }
+  }
+}
+
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  gap: spacing.$sxs;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+
+  &:hover {
+    .collapsible-title {
+      color: colors.$dark-green;
+    }
+
+    .collapsible-caret {
+      color: colors.$dark-green;
+    }
+  }
+}
+
+.collapsible-title {
+  font-family: fonts.$code;
+  font-size: fonts.$s4;
+  font-weight: 400;
+  color: colors.$text;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.collapsible-caret {
+  font-size: fonts.$s3;
+  color: colors.$text;
+  transition:
+    transform 0.3s ease,
+    color 0.2s ease;
+}
+
+.collapsible-icon {
+  height: 40px;
+  width: 40px;
+  margin: 0 !important;
+}
+
+.collapsible-flavor {
+  font-family: fonts.$body;
+  font-size: fonts.$s0;
+  font-style: italic;
+  color: colors.$text;
+  margin: spacing.$sxs 0 spacing.$ss 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.collapsible-content {
+  font-family: fonts.$body;
+  font-size: fonts.$s0;
+  color: colors.$text;
+  line-height: 1.7;
+  overflow: scroll;
+
+  p {
+    margin: spacing.$ss 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: colors.$dark-green;
+    text-decoration: underline;
+    text-decoration-color: colors.$extra-light-green;
+    text-underline-offset: 2px;
+
+    &:hover {
+      text-decoration-color: colors.$dark-green;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}

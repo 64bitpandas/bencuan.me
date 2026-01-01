@@ -12,6 +12,7 @@ const blog = defineCollection({
     tags: z.string(),
     category: z.enum(['publications', 'play']),
     image: z.optional(z.string()),
+    hideTitle: z.optional(z.boolean()),
   }),
 });
 
