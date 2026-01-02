@@ -68,11 +68,11 @@ export function EvalBox({ title, iconSrc, children }: CollapsibleBoxProps) {
   );
 }
 
-export function PromptBox({ title, children }: CollapsibleBoxProps) {
+export function PromptBox({ title, iconSrc, children }: CollapsibleBoxProps) {
   return (
     <CollapsibleBox
       title={title}
-      iconSrc="/img/kevin2.png"
+      iconSrc={iconSrc ?? '/img/kevin2.png'}
       borderColor="#29282d"
       backgroundColor="#91B77620"
       maxHeight="500px"

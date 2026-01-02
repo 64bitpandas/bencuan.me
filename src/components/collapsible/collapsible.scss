@@ -8,8 +8,8 @@ $box-border: colors.$light-green;
 
 .collapsible-box {
   background: $box-bg;
-  border: 3px solid $box-border;
-  padding: spacing.$ss spacing.$sm;
+  border: 2px solid $box-border;
+  padding: spacing.$sxs spacing.$ss;
   margin: spacing.$sm 0;
 
   &.rounded {
@@ -55,7 +55,7 @@ $box-border: colors.$light-green;
 
 .collapsible-title {
   font-family: fonts.$code;
-  font-size: fonts.$s3;
+  font-size: fonts.$s2;
   font-weight: 400;
   color: colors.$text;
   letter-spacing: 0.05em;
@@ -71,8 +71,8 @@ $box-border: colors.$light-green;
 }
 
 .collapsible-icon {
-  height: 40px;
-  width: 40px;
+  height: 32px;
+  width: 32px;
   margin: 0 !important;
 }
 
@@ -95,6 +95,7 @@ $box-border: colors.$light-green;
   overflow-y: auto;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  margin-top: spacing.$ss;
 
   // Custom scrollbar matching root page
   &::-webkit-scrollbar {
