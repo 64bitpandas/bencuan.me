@@ -9,7 +9,7 @@ $box-border: colors.$light-green;
 .collapsible-box {
   background: $box-bg;
   border: 3px solid $box-border;
-  padding: spacing.$sm spacing.$sl;
+  padding: spacing.$ss spacing.$sm;
   margin: spacing.$sm 0;
 
   &.rounded {
@@ -55,7 +55,7 @@ $box-border: colors.$light-green;
 
 .collapsible-title {
   font-family: fonts.$code;
-  font-size: fonts.$s4;
+  font-size: fonts.$s3;
   font-weight: 400;
   color: colors.$text;
   letter-spacing: 0.05em;
@@ -63,7 +63,7 @@ $box-border: colors.$light-green;
 }
 
 .collapsible-caret {
-  font-size: fonts.$s3;
+  font-size: fonts.$s2;
   color: colors.$text;
   transition:
     transform 0.3s ease,
@@ -91,7 +91,25 @@ $box-border: colors.$light-green;
   font-size: fonts.$s0;
   color: colors.$text;
   line-height: 1.7;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  // Custom scrollbar matching root page
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: colors.$light-green;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: colors.$background-light;
+  }
 
   p {
     margin: spacing.$ss 0;
@@ -103,6 +121,12 @@ $box-border: colors.$light-green;
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  ul,
+  ol {
+    padding-left: spacing.$sm;
+    margin: spacing.$ss 0;
   }
 
   a {
@@ -117,6 +141,6 @@ $box-border: colors.$light-green;
   }
 
   strong {
-    font-weight: 600;
+    font-weight: 500;
   }
 }

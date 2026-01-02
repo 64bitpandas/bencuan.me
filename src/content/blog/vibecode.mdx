@@ -457,61 +457,47 @@ Unfortunately, the Explorer page was unusable and crashed the browser shortly af
 - The Palettes page was nearly perfect, other than there being a white border around the content and the header color change not working properly when scrolling back up to the first theme.
 - Claude ignored the Manrope font entirely, using a mixture of Eiko and Fraktion.
 
-### Rubric
-
-Total: 42 possible points.
+<RubricBox client:load title="rubric">
 
 #### Really Basic Stuff
-
-3 possible points.
 _Did the agent:_
-
-- [x] make sure the website could be built/served without errors? [completion:: 2025-12-30]
-- [x] not do anything really stupid (like try to run `rm rf /`)? [completion:: 2025-12-30]
-- [x] finish the turn on its own (didn't need to be manually stopped for any reason)? [completion:: 2025-12-30]
+- [x] make sure the website could be built/served without errors?
+- [x] not do anything really stupid (like try to run `rm rf /`)?
+- [x] finish the turn on its own (didn't need to be manually stopped for any reason)?
 
 #### General Criteria
-
-13 possible points.
 _Did the agent:_
-
-- [x] make only critical changes to existing files? [completion:: 2025-12-30]
-- [x] avoid making unnecessary imports/references to external packages? [completion:: 2025-12-30]
-- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)? [completion:: 2025-12-30]
+- [x] make only critical changes to existing files?
+- [x] avoid making unnecessary imports/references to external packages?
+- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?
 - [ ] find and use the correct fonts (Manrope and Fira Code)?
 - [ ] define the Manrope font-face in `_fonts.scss` as specified?
-- [x] create a DECISIONS.md file as specified? [completion:: 2025-12-30]
-- [x] create a reusable header component? [completion:: 2025-12-30]
-- [x] create a reusable footer component? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the header component and links? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the footer component and links? [completion:: 2025-12-30]
-- [x] keep comments/documentation minimal as specified? [completion:: 2025-12-30]
-- [x] use Astro patterns and best practices? [completion:: 2025-12-30]
+- [x] create a DECISIONS.md file as specified?
+- [x] create a reusable header component?
+- [x] create a reusable footer component?
+- [x] use the correct styles and text for the header component and links?
+- [x] use the correct styles and text for the footer component and links?
+- [x] keep comments/documentation minimal as specified?
+- [x] use Astro patterns and best practices?
 - [ ] make specific mobile-only styles to allow the app to function on mobile devices? - 0pts, somewhat broken on smaller displays.
 
 #### Palettes Page
-
-9 possible points.
 _Did the agent:_
-
-- [x] create a table for each theme? [completion:: 2025-12-30]
-- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt? [completion:: 2025-12-30]
-- [x] select the correct theme names and bold the first word? [completion:: 2025-12-30]
-- [x] assign the correct source links to each of the themes? [completion:: 2025-12-30]
-- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme? [completion:: 2025-12-30]
-- [x] make the table rows change color when hovered? [completion:: 2025-12-30]
-- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked? [completion:: 2025-12-30]
+- [x] create a table for each theme?
+- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt?
+- [x] select the correct theme names and bold the first word?
+- [x] assign the correct source links to each of the themes?
+- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?
+- [x] make the table rows change color when hovered?
+- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked?
 - [/] make the header change colors as the user scrolls between sections? 0.5 pts, doesn't work on the first theme.
-- [x] make the last section tall enough to allow triggering the header change? [completion:: 2025-12-30]
+- [x] make the last section tall enough to allow triggering the header change?
 
 #### Explorer Page
-
-14 possible points.
 _Did the agent:_
-
-- [x] load all of the correct data from the provided color books? [completion:: 2025-12-30]
-- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes? [completion:: 2025-12-30]
-- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ? [completion:: 2025-12-30]
+- [x] load all of the correct data from the provided color books?
+- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?
+- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?
 - [ ] create a functioning click-to-copy that has the desired styling?
 - [ ] create a functioning size slider?
 - [ ] create a functioning 'standard' selector that switches between color standards?
@@ -525,13 +511,12 @@ _Did the agent:_
 - [ ] make the header change color when a color is clicked?
 
 #### About Page
-
-3 possible points.
 _Did the agent:_
-
 - [ ] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?
-- [x] fill in the correct links? [completion:: 2025-12-30]
-- [x] format the text and links as requested? [completion:: 2025-12-30]
+- [x] fill in the correct links?
+- [x] format the text and links as requested?
+
+</RubricBox>
 
 ## Copilot
 
@@ -553,79 +538,66 @@ Copilot followed the design most accurately out of all the contenders.
 ![[Pasted image 20251230130938.png]]
 
 
-### Rubric
+<RubricBox client:load title="rubric">
 
 #### Really Basic Stuff
-
-3 possible points.
 _Did the agent:_
-
-- [x] make sure the website could be built/served without errors? [completion:: 2025-12-30]
-- [x] not do anything really stupid (like try to run `rm rf /`)? [completion:: 2025-12-30]
+- [x] make sure the website could be built/served without errors?
+- [x] not do anything really stupid (like try to run `rm rf /`)?
 - [/] finish the turn on its own (didn't need to be manually stopped for any reason)? - took long enough that it prompted me to continue. 0.5 points.
 
 #### General Criteria
-
-13 possible points.
 _Did the agent:_
-
-- [x] make only critical changes to existing files? [completion:: 2025-12-30]
-- [x] avoid making unnecessary imports/references to external packages? [completion:: 2025-12-30]
-- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)? [completion:: 2025-12-30]
+- [x] make only critical changes to existing files?
+- [x] avoid making unnecessary imports/references to external packages?
+- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?
 - [ ] find and use the correct fonts (Manrope and Fira Code)?
 - [ ] define the Manrope font-face in `_fonts.scss` as specified?
-- [x] create a DECISIONS.md file as specified? [completion:: 2025-12-30]
-- [x] create a reusable header component? [completion:: 2025-12-30]
-- [x] create a reusable footer component? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the header component and links? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the footer component and links? [completion:: 2025-12-30]
-- [x] keep comments/documentation minimal as specified? [completion:: 2025-12-30]
-- [x] use Astro patterns and best practices? [completion:: 2025-12-30]
-- [x] make specific mobile-only styles to allow the app to function on mobile devices? [completion:: 2025-12-30]
+- [x] create a DECISIONS.md file as specified?
+- [x] create a reusable header component?
+- [x] create a reusable footer component?
+- [x] use the correct styles and text for the header component and links?
+- [x] use the correct styles and text for the footer component and links?
+- [x] keep comments/documentation minimal as specified?
+- [x] use Astro patterns and best practices?
+- [x] make specific mobile-only styles to allow the app to function on mobile devices?
 
 #### Palettes Page
-
-9 possible points.
 _Did the agent:_
-
-- [x] create a table for each theme? [completion:: 2025-12-30]
-- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt? [completion:: 2025-12-30]
-- [x] select the correct theme names and bold the first word? [completion:: 2025-12-30]
-- [x] assign the correct source links to each of the themes? [completion:: 2025-12-30]
-- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme? [completion:: 2025-12-30]
-- [x] make the table rows change color when hovered? [completion:: 2025-12-30]
-- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked? [completion:: 2025-12-30]
+- [x] create a table for each theme?
+- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt?
+- [x] select the correct theme names and bold the first word?
+- [x] assign the correct source links to each of the themes?
+- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?
+- [x] make the table rows change color when hovered?
+- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked?
 - [/] make the header change colors as the user scrolls between sections? - 0.5 points. Technically works but extremely finnicky.
-- [x] make the last section tall enough to allow triggering the header change? [completion:: 2025-12-30]
+- [x] make the last section tall enough to allow triggering the header change?
 
 #### Explorer Page
-
-14 possible points.
 _Did the agent:_
-
-- [x] load all of the correct data from the provided color books? [completion:: 2025-12-30]
+- [x] load all of the correct data from the provided color books?
 - [ ] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes? - 0 pts. incorrect
-- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ? [completion:: 2025-12-30]
-- [x] create a functioning click-to-copy that has the desired styling? [completion:: 2025-12-30]
-- [x] create a functioning size slider? [completion:: 2025-12-30]
-- [x] create a functioning 'standard' selector that switches between color standards? [completion:: 2025-12-30]
+- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?
+- [x] create a functioning click-to-copy that has the desired styling?
+- [x] create a functioning size slider?
+- [x] create a functioning 'standard' selector that switches between color standards?
 - [ ] load colors with reasonable performance (i.e., not render every single color in preload)? - 0 pts. crashes on larger sets like PANTONE.
 - [ ] create a functioning favorite button that can be selected/deselected on each swatch?
 - [ ] create a functioning favorites filter that only shows the selected favorites?
 - [ ] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked?
 - [ ] create a functioning preset loader that reads and applies the configuration in `_favorites.json`?
-- [x] create a functioning 'clear' button that removes all favorites? [completion:: 2025-12-30]
+- [x] create a functioning 'clear' button that removes all favorites?
 - [ ] save favorites to localStorage?
-- [x] make the header change color when a color is clicked? [completion:: 2025-12-30]
+- [x] make the header change color when a color is clicked?
 
 #### About Page
-
-3 possible points.
 _Did the agent:_
-
 - [ ] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?
-- [x] fill in the correct links? [completion:: 2025-12-30]
-- [x] format the text and links as requested? [completion:: 2025-12-30]
+- [x] fill in the correct links?
+- [x] format the text and links as requested?
+
+</RubricBox>
 
 ## Antigravity
 
@@ -639,61 +611,47 @@ Antigravity was by far the fastest agent, and completed the task in under five m
 - Uses query parameters (`/expolorer?std=HKS`) instead of putting each standard on its own page.
 - None of the Explorer functionality seemed to work for me, but it did adhere extremely well to the original theme.
 
-### Rubric
-
-Total: 42 possible points.
+<RubricBox client:load title="rubric">
 
 #### Really Basic Stuff
-
-3 possible points.
 _Did the agent:_
-
-- [x] make sure the website could be built/served without errors? [completion:: 2025-12-30]
-- [x] not do anything really stupid (like try to run `rm rf /`)? [completion:: 2025-12-30]
-- [x] finish the turn on its own (didn't need to be manually stopped for any reason)? [completion:: 2025-12-30]
+- [x] make sure the website could be built/served without errors?
+- [x] not do anything really stupid (like try to run `rm rf /`)?
+- [x] finish the turn on its own (didn't need to be manually stopped for any reason)?
 
 #### General Criteria
-
-13 possible points.
 _Did the agent:_
-
-- [x] make only critical changes to existing files? [completion:: 2025-12-30]
-- [x] avoid making unnecessary imports/references to external packages? [completion:: 2025-12-30]
-- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)? [completion:: 2025-12-30]
+- [x] make only critical changes to existing files?
+- [x] avoid making unnecessary imports/references to external packages?
+- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?
 - [ ] find and use the correct fonts (Manrope and Fira Code)?
 - [ ] define the Manrope font-face in `_fonts.scss` as specified?
 - [ ] create a DECISIONS.md file as specified?
-- [x] create a reusable header component? [completion:: 2025-12-30]
-- [x] create a reusable footer component? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the header component and links? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the footer component and links? [completion:: 2025-12-30]
-- [x] keep comments/documentation minimal as specified? [completion:: 2025-12-30]
-- [x] use Astro patterns and best practices? [completion:: 2025-12-30]
+- [x] create a reusable header component?
+- [x] create a reusable footer component?
+- [x] use the correct styles and text for the header component and links?
+- [x] use the correct styles and text for the footer component and links?
+- [x] keep comments/documentation minimal as specified?
+- [x] use Astro patterns and best practices?
 - [ ] make specific mobile-only styles to allow the app to function on mobile devices? - 0pts, super broken on mobile
 
 #### Palettes Page
-
-9 possible points.
 _Did the agent:_
-
-- [x] create a table for each theme? [completion:: 2025-12-30]
-- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt? [completion:: 2025-12-30]
-- [x] select the correct theme names and bold the first word? [completion:: 2025-12-30]
-- [x] assign the correct source links to each of the themes? [completion:: 2025-12-30]
-- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme? [completion:: 2025-12-30]
-- [x] make the table rows change color when hovered? [completion:: 2025-12-30]
+- [x] create a table for each theme?
+- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt?
+- [x] select the correct theme names and bold the first word?
+- [x] assign the correct source links to each of the themes?
+- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?
+- [x] make the table rows change color when hovered?
 - [ ] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked? - 0pts, no copy button found.
-- [x] make the header change colors as the user scrolls between sections? [completion:: 2025-12-30]
-- [x] make the last section tall enough to allow triggering the header change? [completion:: 2025-12-30]
+- [x] make the header change colors as the user scrolls between sections?
+- [x] make the last section tall enough to allow triggering the header change?
 
 #### Explorer Page
-
-14 possible points.
 _Did the agent:_
-
-- [x] load all of the correct data from the provided color books? [completion:: 2025-12-30]
-- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes? [completion:: 2025-12-30]
-- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ? [completion:: 2025-12-30]
+- [x] load all of the correct data from the provided color books?
+- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?
+- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?
 - [ ] create a functioning click-to-copy that has the desired styling?
 - [ ] create a functioning size slider?
 - [ ] create a functioning 'standard' selector that switches between color standards?
@@ -707,13 +665,12 @@ _Did the agent:_
 - [ ] make the header change color when a color is clicked?
 
 #### About Page
-
-3 possible points.
 _Did the agent:_
-
 - [ ] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?
-- [x] fill in the correct links? [completion:: 2025-12-30]
-- [x] format the text and links as requested? [completion:: 2025-12-30]
+- [x] fill in the correct links?
+- [x] format the text and links as requested?
+
+</RubricBox>
 
 ## Cursor
 
@@ -727,81 +684,66 @@ Surprisingly, this was the best submission of Round One! I'm starting to see why
 - Best Explorer page by far. Most things work, and colors load performantly. Cursor put each color book in its own section.
 - Jumbled up the color book names, unsure what happened there but the colors themselves look fine.
 
-### Rubric
-
-Total: 42 possible points.
+<RubricBox client:load title="rubric">
 
 #### Really Basic Stuff
-
-3 possible points.
 _Did the agent:_
-
-- [x] make sure the website could be built/served without errors? [completion:: 2025-12-30]
-- [x] not do anything really stupid (like try to run `rm rf /`)? [completion:: 2025-12-30]
-- [x] finish the turn on its own (didn't need to be manually stopped for any reason)? [completion:: 2025-12-30]
+- [x] make sure the website could be built/served without errors?
+- [x] not do anything really stupid (like try to run `rm rf /`)?
+- [x] finish the turn on its own (didn't need to be manually stopped for any reason)?
 
 #### General Criteria
-
-13 possible points.
 _Did the agent:_
-
-- [x] make only critical changes to existing files? [completion:: 2025-12-30]
-- [x] avoid making unnecessary imports/references to external packages? [completion:: 2025-12-30]
-- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)? [completion:: 2025-12-30]
+- [x] make only critical changes to existing files?
+- [x] avoid making unnecessary imports/references to external packages?
+- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?
 - [ ] find and use the correct fonts (Manrope and Fira Code)?
 - [ ] define the Manrope font-face in `_fonts.scss` as specified?
-- [x] create a DECISIONS.md file as specified? [completion:: 2025-12-30]
-- [x] create a reusable header component? [completion:: 2025-12-30]
-- [x] create a reusable footer component? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the header component and links? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the footer component and links? [completion:: 2025-12-30]
-- [x] keep comments/documentation minimal as specified? [completion:: 2025-12-30]
-- [x] use Astro patterns and best practices? [completion:: 2025-12-30]
+- [x] create a DECISIONS.md file as specified?
+- [x] create a reusable header component?
+- [x] create a reusable footer component?
+- [x] use the correct styles and text for the header component and links?
+- [x] use the correct styles and text for the footer component and links?
+- [x] keep comments/documentation minimal as specified?
+- [x] use Astro patterns and best practices?
 - [/] make specific mobile-only styles to allow the app to function on mobile devices? - 0.5pts, technically works but looks a bit broken on mobile.
 
 #### Palettes Page
-
-9 possible points.
 _Did the agent:_
-
-- [x] create a table for each theme? [completion:: 2025-12-30]
-- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt? [completion:: 2025-12-30]
-- [x] select the correct theme names and bold the first word? [completion:: 2025-12-30]
-- [x] assign the correct source links to each of the themes? [completion:: 2025-12-30]
-- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme? [completion:: 2025-12-30]
-- [x] make the table rows change color when hovered? [completion:: 2025-12-30]
-- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked? [completion:: 2025-12-30]
-- [x] make the header change colors as the user scrolls between sections? [completion:: 2025-12-30]
-- [x] make the last section tall enough to allow triggering the header change? [completion:: 2025-12-30]
+- [x] create a table for each theme?
+- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt?
+- [x] select the correct theme names and bold the first word?
+- [x] assign the correct source links to each of the themes?
+- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?
+- [x] make the table rows change color when hovered?
+- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked?
+- [x] make the header change colors as the user scrolls between sections?
+- [x] make the last section tall enough to allow triggering the header change?
 
 #### Explorer Page
-
-14 possible points.
 _Did the agent:_
-
-- [x] load all of the correct data from the provided color books? [completion:: 2025-12-30]
-- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes? [completion:: 2025-12-30]
-- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ? [completion:: 2025-12-30]
+- [x] load all of the correct data from the provided color books?
+- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?
+- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?
 - [/] create a functioning click-to-copy that has the desired styling? - 0.5pts, it works but the animation is super janky.
-- [x] create a functioning size slider? [completion:: 2025-12-30]
-- [x] create a functioning 'standard' selector that switches between color standards? [completion:: 2025-12-30]
-- [x] load colors with reasonable performance (i.e., not render every single color in preload)? [completion:: 2025-12-30]
-- [x] create a functioning favorite button that can be selected/deselected on each swatch? [completion:: 2025-12-30]
-- [x] create a functioning favorites filter that only shows the selected favorites? [completion:: 2025-12-30]
-- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked? [completion:: 2025-12-30]
+- [x] create a functioning size slider?
+- [x] create a functioning 'standard' selector that switches between color standards?
+- [x] load colors with reasonable performance (i.e., not render every single color in preload)?
+- [x] create a functioning favorite button that can be selected/deselected on each swatch?
+- [x] create a functioning favorites filter that only shows the selected favorites?
+- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked?
 - [ ] create a functioning preset loader that reads and applies the configuration in `_favorites.json`? - 0pts, presets did not work.
-- [x] create a functioning 'clear' button that removes all favorites? [completion:: 2025-12-30]
-- [x] save favorites to localStorage? [completion:: 2025-12-30]
-- [x] make the header change color when a color is clicked? [completion:: 2025-12-30]
+- [x] create a functioning 'clear' button that removes all favorites?
+- [x] save favorites to localStorage?
+- [x] make the header change color when a color is clicked?
 
 #### About Page
-
-3 possible points.
 _Did the agent:_
-
 - [ ] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?
-- [x] fill in the correct links? [completion:: 2025-12-30]
-- [x] format the text and links as requested? [completion:: 2025-12-30]
+- [x] fill in the correct links?
+- [x] format the text and links as requested?
+
+</RubricBox>
 
 > Chase: What's with all the completion: December 30, 2025s?
 
@@ -816,81 +758,66 @@ Augment really freestyled here and completely disregarded my design in a lot of 
 > Chase: Honestly had a feeling it wouldn't complete on its own. Not thrilled to be right about that.
 - Strictly code-wise, Augment produced the cleanest and most performant output, but this was largely overshadowed by the fact that not much of what I asked for was actually present.
 
-### Rubric
-
-Total: 42 possible points.
+<RubricBox client:load title="rubric">
 
 #### Really Basic Stuff
-
-3 possible points.
 _Did the agent:_
-
-- [x] make sure the website could be built/served without errors? [completion:: 2025-12-30]
-- [x] not do anything really stupid (like try to run `rm rf /`)? [completion:: 2025-12-30]
+- [x] make sure the website could be built/served without errors?
+- [x] not do anything really stupid (like try to run `rm rf /`)?
 - [ ] finish the turn on its own (didn't need to be manually stopped for any reason)? - 0pts, had to be stopped manually.
 
 #### General Criteria
-
-13 possible points.
 _Did the agent:_
-
-- [x] make only critical changes to existing files? [completion:: 2025-12-30]
-- [x] avoid making unnecessary imports/references to external packages? [completion:: 2025-12-30]
-- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)? [completion:: 2025-12-30]
-- [x] find and use the correct fonts (Manrope and Fira Code)? [completion:: 2025-12-30]
-- [x] define the Manrope font-face in `_fonts.scss` as specified? [completion:: 2025-12-30]
+- [x] make only critical changes to existing files?
+- [x] avoid making unnecessary imports/references to external packages?
+- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?
+- [x] find and use the correct fonts (Manrope and Fira Code)?
+- [x] define the Manrope font-face in `_fonts.scss` as specified?
 - [ ] create a DECISIONS.md file as specified? - 0pts, no decisions file.
-- [x] create a reusable header component? [completion:: 2025-12-30]
-- [x] create a reusable footer component? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the header component and links? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the footer component and links? [completion:: 2025-12-30]
-- [x] keep comments/documentation minimal as specified? [completion:: 2025-12-30]
-- [x] use Astro patterns and best practices? [completion:: 2025-12-30]
-- [x] make specific mobile-only styles to allow the app to function on mobile devices? [completion:: 2025-12-30]
+- [x] create a reusable header component?
+- [x] create a reusable footer component?
+- [x] use the correct styles and text for the header component and links?
+- [x] use the correct styles and text for the footer component and links?
+- [x] keep comments/documentation minimal as specified?
+- [x] use Astro patterns and best practices?
+- [x] make specific mobile-only styles to allow the app to function on mobile devices?
 
 #### Palettes Page
-
-9 possible points.
 _Did the agent:_
-
-- [x] create a table for each theme? [completion:: 2025-12-30]
-- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt? [completion:: 2025-12-30]
+- [x] create a table for each theme?
+- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt?
 - [/] select the correct theme names and bold the first word? - 0.5pts, no bolding.
 - [ ] assign the correct source links to each of the themes?
-- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme? [completion:: 2025-12-30]
+- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?
 - [ ] make the table rows change color when hovered?
-- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked? [completion:: 2025-12-30]
+- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked?
 - [ ] make the header change colors as the user scrolls between sections?
 - [ ] make the last section tall enough to allow triggering the header change?
 
 #### Explorer Page
-
-14 possible points.
 _Did the agent:_
-
 - [ ] load all of the correct data from the provided color books? - unsure, the standard selector is broken.
-- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes? [completion:: 2025-12-30]
+- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?
 - [ ] display the correct friendly Pantone names from `_pantone-color-names.json` ?
-- [x] create a functioning click-to-copy that has the desired styling? [completion:: 2025-12-30]
+- [x] create a functioning click-to-copy that has the desired styling?
 - [ ] create a functioning size slider?
 - [ ] create a functioning 'standard' selector that switches between color standards?
 - [ ] load colors with reasonable performance (i.e., not render every single color in preload)?
-- [x] create a functioning favorite button that can be selected/deselected on each swatch? [completion:: 2025-12-30]
+- [x] create a functioning favorite button that can be selected/deselected on each swatch?
 - [ ] create a functioning favorites filter that only shows the selected favorites?
-- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked? [completion:: 2025-12-30] - technically passes; the favorites panel has a deselector that works.
+- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked? - technically passes; the favorites panel has a deselector that works.
 - [ ] create a functioning preset loader that reads and applies the configuration in `_favorites.json`?
 - [ ] create a functioning 'clear' button that removes all favorites?
-- [x] save favorites to localStorage? [completion:: 2025-12-30]
+- [x] save favorites to localStorage?
 - [ ] make the header change color when a color is clicked?
 
 #### About Page
-
-3 possible points.
 _Did the agent:_
-
 - [ ] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?
 - [ ] fill in the correct links? - did not use the correct links.
-- [x] format the text and links as requested? [completion:: 2025-12-30]
+- [x] format the text and links as requested?
+
+</RubricBox>
 
 > Chase: Same here as above.
 
@@ -1093,81 +1020,66 @@ The prompt improver responded with a final summary and confirmation, which I let
 
 ```
 
-### Rubric
-
-Total: 42 possible points.
+<RubricBox client:load title="rubric">
 
 #### Really Basic Stuff
-
-3 possible points.
 _Did the agent:_
-
-- [x] make sure the website could be built/served without errors? [completion:: 2025-12-30]
-- [x] not do anything really stupid (like try to run `rm rf /`)? [completion:: 2025-12-30]
-- [x] finish the turn on its own (didn't need to be manually stopped for any reason)? [completion:: 2025-12-30]
+- [x] make sure the website could be built/served without errors?
+- [x] not do anything really stupid (like try to run `rm rf /`)?
+- [x] finish the turn on its own (didn't need to be manually stopped for any reason)?
 
 #### General Criteria
-
-13 possible points.
 _Did the agent:_
-
-- [x] make only critical changes to existing files? [completion:: 2025-12-30]
-- [x] avoid making unnecessary imports/references to external packages? [completion:: 2025-12-30]
-- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)? [completion:: 2025-12-30]
-- [x] find and use the correct fonts (Manrope and Fira Code)? [completion:: 2025-12-30]
-- [x] define the Manrope font-face in `_fonts.scss` as specified? [completion:: 2025-12-30]
-- [x] create a DECISIONS.md file as specified? [completion:: 2025-12-30]
-- [x] create a reusable header component? [completion:: 2025-12-30]
-- [x] create a reusable footer component? [completion:: 2025-12-30]
+- [x] make only critical changes to existing files?
+- [x] avoid making unnecessary imports/references to external packages?
+- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?
+- [x] find and use the correct fonts (Manrope and Fira Code)?
+- [x] define the Manrope font-face in `_fonts.scss` as specified?
+- [x] create a DECISIONS.md file as specified?
+- [x] create a reusable header component?
+- [x] create a reusable footer component?
 - [/] use the correct styles and text for the header component and links? - 0.5pts, just says "colors" instead of "ben's colors".
-- [x] use the correct styles and text for the footer component and links? [completion:: 2025-12-30]
-- [x] keep comments/documentation minimal as specified? [completion:: 2025-12-30]
-- [x] use Astro patterns and best practices? [completion:: 2025-12-30]
+- [x] use the correct styles and text for the footer component and links?
+- [x] keep comments/documentation minimal as specified?
+- [x] use Astro patterns and best practices?
 - [/] make specific mobile-only styles to allow the app to function on mobile devices? - 0.5pts, tried its best but the swatches are so small they're unusable on mobile.
 
 #### Palettes Page
-
-9 possible points.
 _Did the agent:_
-
-- [x] create a table for each theme? [completion:: 2025-12-30]
-- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt? [completion:: 2025-12-30]
-- [x] select the correct theme names and bold the first word? [completion:: 2025-12-30]
-- [x] assign the correct source links to each of the themes? [completion:: 2025-12-30]
-- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme? [completion:: 2025-12-30]
-- [x] make the table rows change color when hovered? [completion:: 2025-12-30]
-- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked? [completion:: 2025-12-30]
-- [x] make the header change colors as the user scrolls between sections? [completion:: 2025-12-30]
-- [x] make the last section tall enough to allow triggering the header change? [completion:: 2025-12-30]
+- [x] create a table for each theme?
+- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt?
+- [x] select the correct theme names and bold the first word?
+- [x] assign the correct source links to each of the themes?
+- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?
+- [x] make the table rows change color when hovered?
+- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked?
+- [x] make the header change colors as the user scrolls between sections?
+- [x] make the last section tall enough to allow triggering the header change?
 
 #### Explorer Page
-
-14 possible points.
 _Did the agent:_
-
 - [/] load all of the correct data from the provided color books? 0.5pts, it only loads 100 colors from each book and says "scroll to load more" but scrolling does nothing.
-- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes? [completion:: 2025-12-30]
-- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ? [completion:: 2025-12-30]
-- [x] create a functioning click-to-copy that has the desired styling? [completion:: 2025-12-30]
-- [x] create a functioning size slider? [completion:: 2025-12-30]
-- [x] create a functioning 'standard' selector that switches between color standards? [completion:: 2025-12-30]
-- [x] load colors with reasonable performance (i.e., not render every single color in preload)? [completion:: 2025-12-30]
-- [x] create a functioning favorite button that can be selected/deselected on each swatch? [completion:: 2025-12-30]
-- [x] create a functioning favorites filter that only shows the selected favorites? [completion:: 2025-12-30]
-- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked? [completion:: 2025-12-30]
-- [x] create a functioning preset loader that reads and applies the configuration in `_favorites.json`? [completion:: 2025-12-30]
-- [x] create a functioning 'clear' button that removes all favorites? [completion:: 2025-12-30]
-- [x] save favorites to localStorage? [completion:: 2025-12-30]
-- [x] make the header change color when a color is clicked? [completion:: 2025-12-30]
+- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?
+- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?
+- [x] create a functioning click-to-copy that has the desired styling?
+- [x] create a functioning size slider?
+- [x] create a functioning 'standard' selector that switches between color standards?
+- [x] load colors with reasonable performance (i.e., not render every single color in preload)?
+- [x] create a functioning favorite button that can be selected/deselected on each swatch?
+- [x] create a functioning favorites filter that only shows the selected favorites?
+- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked?
+- [x] create a functioning preset loader that reads and applies the configuration in `_favorites.json`?
+- [x] create a functioning 'clear' button that removes all favorites?
+- [x] save favorites to localStorage?
+- [x] make the header change color when a color is clicked?
 
 #### About Page
-
-3 possible points.
 _Did the agent:_
+- [x] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?
+- [x] fill in the correct links?
+- [x] format the text and links as requested?
 
-- [x] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name? [completion:: 2025-12-30]
-- [x] fill in the correct links? [completion:: 2025-12-30]
-- [x] format the text and links as requested? [completion:: 2025-12-30]
+</RubricBox>
 
 ## Copilot
 
@@ -1468,80 +1380,67 @@ Acceptance criteria for `/colors/about`:
 Implement in the exact order: palettes → explorer → about.
 ```
 
-### Rubric
-Total: 42 possible points.
+<RubricBox client:load title="rubric">
 
 #### Really Basic Stuff
-
-3 possible points.
 _Did the agent:_
-
-- [x] make sure the website could be built/served without errors?  [completion:: 2025-12-31]
-- [x] not do anything really stupid (like try to run `rm rf /`)?  [completion:: 2025-12-31]
-- [x] finish the turn on its own (didn't need to be manually stopped for any reason)?  [completion:: 2025-12-31]
+- [x] make sure the website could be built/served without errors?
+- [x] not do anything really stupid (like try to run `rm rf /`)?
+- [x] finish the turn on its own (didn't need to be manually stopped for any reason)?
 
 #### General Criteria
-
-13 possible points.
 _Did the agent:_
-
-- [x] make only critical changes to existing files?  [completion:: 2025-12-31]
-- [x] avoid making unnecessary imports/references to external packages?  [completion:: 2025-12-31]
-- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?  [completion:: 2025-12-31]
-- [x] find and use the correct fonts (Manrope and Fira Code)?  [completion:: 2025-12-31]
-- [x] define the Manrope font-face in `_fonts.scss` as specified?  [completion:: 2025-12-31]
+- [x] make only critical changes to existing files?
+- [x] avoid making unnecessary imports/references to external packages?
+- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?
+- [x] find and use the correct fonts (Manrope and Fira Code)?
+- [x] define the Manrope font-face in `_fonts.scss` as specified?
 - [ ] create a DECISIONS.md file as specified? - 0pts, no decisions.
-- [x] create a reusable header component?  [completion:: 2025-12-31]
-- [x] create a reusable footer component?  [completion:: 2025-12-31]
+- [x] create a reusable header component?
+- [x] create a reusable footer component?
 - [ ] use the correct styles and text for the header component and links? 0pts, no 'ben's colors' text and nav links on the wrong side.
-- [x] use the correct styles and text for the footer component and links?  [completion:: 2025-12-31]
-- [x] keep comments/documentation minimal as specified?  [completion:: 2025-12-31]
-- [x] use Astro patterns and best practices?  [completion:: 2025-12-31]
-- [x] make specific mobile-only styles to allow the app to function on mobile devices?  [completion:: 2025-12-31]
+- [x] use the correct styles and text for the footer component and links?
+- [x] keep comments/documentation minimal as specified?
+- [x] use Astro patterns and best practices?
+- [x] make specific mobile-only styles to allow the app to function on mobile devices?
 
 #### Palettes Page
-
-9 possible points.
 _Did the agent:_
-
-- [x] create a table for each theme?  [completion:: 2025-12-31]
+- [x] create a table for each theme?
 - [/] find and create the exact 3 themes in `_palettes.json` as specified in the prompt? 0.5pts, got the bencuan.me colors wrong.
-- [x] select the correct theme names and bold the first word?  [completion:: 2025-12-31]
-- [x] assign the correct source links to each of the themes?  [completion:: 2025-12-31]
-- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?  [completion:: 2025-12-31]
-- [x] make the table rows change color when hovered?  [completion:: 2025-12-31]
-- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked?  [completion:: 2025-12-31]
-- [x] make the header change colors as the user scrolls between sections?  [completion:: 2025-12-31]
-- [x] make the last section tall enough to allow triggering the header change?  [completion:: 2025-12-31]
+- [x] select the correct theme names and bold the first word?
+- [x] assign the correct source links to each of the themes?
+- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?
+- [x] make the table rows change color when hovered?
+- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked?
+- [x] make the header change colors as the user scrolls between sections?
+- [x] make the last section tall enough to allow triggering the header change?
 
 #### Explorer Page
-
-14 possible points.
 _Did the agent:_
-
-- [x] load all of the correct data from the provided color books?  [completion:: 2025-12-31]
-- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?  [completion:: 2025-12-31]
-- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?  [completion:: 2025-12-31]
-- [x] create a functioning click-to-copy that has the desired styling?  [completion:: 2025-12-31]
+- [x] load all of the correct data from the provided color books?
+- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?
+- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?
+- [x] create a functioning click-to-copy that has the desired styling?
 - [ ] create a functioning size slider? - 0pts, size slider is broken.
-- [x] create a functioning 'standard' selector that switches between color standards?  [completion:: 2025-12-31]
-- [x] load colors with reasonable performance (i.e., not render every single color in preload)?  [completion:: 2025-12-31]
+- [x] create a functioning 'standard' selector that switches between color standards?
+- [x] load colors with reasonable performance (i.e., not render every single color in preload)?
 - [ ] create a functioning favorite button that can be selected/deselected on each swatch? - 0pts, favorite button does not exist.
-- [x] create a functioning favorites filter that only shows the selected favorites?  [completion:: 2025-12-31]
-- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked?  [completion:: 2025-12-31]
-- [x] create a functioning preset loader that reads and applies the configuration in `_favorites.json`?  [completion:: 2025-12-31]
-- [x] create a functioning 'clear' button that removes all favorites?  [completion:: 2025-12-31]
-- [x] save favorites to localStorage?  [completion:: 2025-12-31]
-- [x] make the header change color when a color is clicked?  [completion:: 2025-12-31]
+- [x] create a functioning favorites filter that only shows the selected favorites?
+- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked?
+- [x] create a functioning preset loader that reads and applies the configuration in `_favorites.json`?
+- [x] create a functioning 'clear' button that removes all favorites?
+- [x] save favorites to localStorage?
+- [x] make the header change color when a color is clicked?
 
 #### About Page
-
-3 possible points.
 _Did the agent:_
+- [x] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?
+- [x] fill in the correct links?
+- [x] format the text and links as requested?
 
-- [x] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?  [completion:: 2025-12-31]
-- [x] fill in the correct links?  [completion:: 2025-12-31]
-- [x] format the text and links as requested?  [completion:: 2025-12-31]
+</RubricBox>
+
 ## Antigravity
 
 **Score:** 84.5% (35.5/42)
@@ -1644,76 +1543,66 @@ Create a multi-page sub-site at `bencuan.me/colors` comprising three main views
   - "here" -> `https://github.com/64bitpandas/bencuan.me/tree/main/src/color-books`
   - "State of Vibe Coding evaluation" -> `https://bencuan.me/blog/vibe25`
 
-### Rubric
-Total: 42 possible points.
+<RubricBox client:load title="rubric">
 
 #### Really Basic Stuff
-3 possible points.
 _Did the agent:_
-
-- [x] make sure the website could be built/served without errors?  [completion:: 2025-12-30]
-- [x] not do anything really stupid (like try to run `rm rf /`)?  [completion:: 2025-12-30]
+- [x] make sure the website could be built/served without errors?
+- [x] not do anything really stupid (like try to run `rm rf /`)?
 - [ ] finish the turn on its own (didn't need to be manually stopped for any reason)? - 0pts, hung multiple times
 
 #### General Criteria
-13 possible points.
 _Did the agent:_
-
-- [x] make only critical changes to existing files?  [completion:: 2025-12-30]
-- [x] avoid making unnecessary imports/references to external packages?  [completion:: 2025-12-30]
-- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?  [completion:: 2025-12-30]
-- [x] find and use the correct fonts (Manrope and Fira Code)?  [completion:: 2025-12-30]
+- [x] make only critical changes to existing files?
+- [x] avoid making unnecessary imports/references to external packages?
+- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?
+- [x] find and use the correct fonts (Manrope and Fira Code)?
 - [ ] define the Manrope font-face in `_fonts.scss` as specified? - 0 pts, wrong file
 - [ ] create a DECISIONS.md file as specified? - 0pts, no decisions file
-- [x] create a reusable header component?  [completion:: 2025-12-30]
-- [x] create a reusable footer component?  [completion:: 2025-12-30]
+- [x] create a reusable header component?
+- [x] create a reusable footer component?
 - [ ] use the correct styles and text for the header component and links? - 0pts, header is completely wrong.
-- [x] use the correct styles and text for the footer component and links?  [completion:: 2025-12-30]
-- [x] keep comments/documentation minimal as specified?  [completion:: 2025-12-30]
-- [x] use Astro patterns and best practices?  [completion:: 2025-12-30]
-- [x] make specific mobile-only styles to allow the app to function on mobile devices?  [completion:: 2025-12-30]
+- [x] use the correct styles and text for the footer component and links?
+- [x] keep comments/documentation minimal as specified?
+- [x] use Astro patterns and best practices?
+- [x] make specific mobile-only styles to allow the app to function on mobile devices?
 
 #### Palettes Page
-9 possible points.
 _Did the agent:_
-
 - [/] create a table for each theme? - 0.5pts, the table doesn't actually display any of the colors.
-- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt?  [completion:: 2025-12-30]
-- [x] select the correct theme names and bold the first word?  [completion:: 2025-12-30]
-- [x] assign the correct source links to each of the themes?  [completion:: 2025-12-30]
-- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?  [completion:: 2025-12-30]
-- [x] make the table rows change color when hovered?  [completion:: 2025-12-30]
-- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked?  [completion:: 2025-12-30]
+- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt?
+- [x] select the correct theme names and bold the first word?
+- [x] assign the correct source links to each of the themes?
+- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?
+- [x] make the table rows change color when hovered?
+- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked?
 - [/] make the header change colors as the user scrolls between sections? - 0.5pts, scrolling up doesn't work.
-- [x] make the last section tall enough to allow triggering the header change?  [completion:: 2025-12-30]
+- [x] make the last section tall enough to allow triggering the header change?
 
 #### Explorer Page
-14 possible points.
 _Did the agent:_
-
 - [/] load all of the correct data from the provided color books? - 0.5pts, some books fail to load.
-- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?  [completion:: 2025-12-30]
-- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?  [completion:: 2025-12-30]
-- [x] create a functioning click-to-copy that has the desired styling?  [completion:: 2025-12-30]
-- [x] create a functioning size slider?  [completion:: 2025-12-30]
-- [x] create a functioning 'standard' selector that switches between color standards?  [completion:: 2025-12-30]
-- [x] load colors with reasonable performance (i.e., not render every single color in preload)?  [completion:: 2025-12-30]
-- [x] create a functioning favorite button that can be selected/deselected on each swatch?  [completion:: 2025-12-30]
-- [x] create a functioning favorites filter that only shows the selected favorites?  [completion:: 2025-12-30]
-- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked?  [completion:: 2025-12-30]
+- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?
+- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?
+- [x] create a functioning click-to-copy that has the desired styling?
+- [x] create a functioning size slider?
+- [x] create a functioning 'standard' selector that switches between color standards?
+- [x] load colors with reasonable performance (i.e., not render every single color in preload)?
+- [x] create a functioning favorite button that can be selected/deselected on each swatch?
+- [x] create a functioning favorites filter that only shows the selected favorites?
+- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked?
 - [ ] create a functioning preset loader that reads and applies the configuration in `_favorites.json`? - 0pts, presets don't work
-- [x] create a functioning 'clear' button that removes all favorites?  [completion:: 2025-12-30]
-- [x] save favorites to localStorage?  [completion:: 2025-12-30]
-- [x] make the header change color when a color is clicked?  [completion:: 2025-12-30]
+- [x] create a functioning 'clear' button that removes all favorites?
+- [x] save favorites to localStorage?
+- [x] make the header change color when a color is clicked?
 
 #### About Page
-
-3 possible points.
 _Did the agent:_
+- [x] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?
+- [x] fill in the correct links?
+- [x] format the text and links as requested?
 
-- [x] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?  [completion:: 2025-12-30]
-- [x] fill in the correct links?  [completion:: 2025-12-30]
-- [x] format the text and links as requested?  [completion:: 2025-12-30]
+</RubricBox>
 
 ## Cursor
 **Score:** (40.5/42)
@@ -2000,68 +1889,66 @@ For each task, provide:
 </output_format>
 ```
 
-### Rubric
-Total: 42 possible points.
+<RubricBox client:load title="rubric">
+
 #### Really Basic Stuff
-3 possible points.
-*Did the agent:*
-- [x] make sure the website could be built/served without errors?  [completion:: 2025-12-30]
-- [x] not do anything really stupid (like try to run `rm rf /`)?  [completion:: 2025-12-30]
-- [x] finish the turn on its own (didn't need to be manually stopped for any reason)?  [completion:: 2025-12-30]
+_Did the agent:_
+- [x] make sure the website could be built/served without errors?
+- [x] not do anything really stupid (like try to run `rm rf /`)?
+- [x] finish the turn on its own (didn't need to be manually stopped for any reason)?
+
 #### General Criteria
-13 possible points.
-*Did the agent:*
-- [x] make only critical changes to existing files?  [completion:: 2025-12-30]
-- [x] avoid making unnecessary imports/references to external packages?  [completion:: 2025-12-30]
-- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?  [completion:: 2025-12-30]
-- [x] find and use the correct fonts (Manrope and Fira Code)?  [completion:: 2025-12-30]
-- [x] define the Manrope font-face in `_fonts.scss` as specified?  [completion:: 2025-12-30]
-- [x] create a DECISIONS.md file as specified?  [completion:: 2025-12-30]
-- [x] create a reusable header component?  [completion:: 2025-12-30]
-- [x] create a reusable footer component?  [completion:: 2025-12-30]
+_Did the agent:_
+- [x] make only critical changes to existing files?
+- [x] avoid making unnecessary imports/references to external packages?
+- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?
+- [x] find and use the correct fonts (Manrope and Fira Code)?
+- [x] define the Manrope font-face in `_fonts.scss` as specified?
+- [x] create a DECISIONS.md file as specified?
+- [x] create a reusable header component?
+- [x] create a reusable footer component?
 - [/] use the correct styles and text for the header component and links? - 0.5pts, only says 'colors' instead of 'ben's colors'.
-- [x] use the correct styles and text for the footer component and links?  [completion:: 2025-12-30]
-- [x] keep comments/documentation minimal as specified?  [completion:: 2025-12-30]
-- [x] use Astro patterns and best practices?  [completion:: 2025-12-30]
-- [x] make specific mobile-only styles to allow the app to function on mobile devices?  [completion:: 2025-12-30]
+- [x] use the correct styles and text for the footer component and links?
+- [x] keep comments/documentation minimal as specified?
+- [x] use Astro patterns and best practices?
+- [x] make specific mobile-only styles to allow the app to function on mobile devices?
 
 #### Palettes Page
-9 possible points.
-*Did the agent:*
-- [x] create a table for each theme?  [completion:: 2025-12-30]
-- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt?  [completion:: 2025-12-30]
-- [x] select the correct theme names and bold the first word?  [completion:: 2025-12-30]
-- [x] assign the correct source links to each of the themes?  [completion:: 2025-12-30]
-- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?  [completion:: 2025-12-30]
-- [x] make the table rows change color when hovered?  [completion:: 2025-12-30]
-- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked?  [completion:: 2025-12-30]
-- [x] make the header change colors as the user scrolls between sections?  [completion:: 2025-12-30]
-- [x] make the last section tall enough to allow triggering the header change?  [completion:: 2025-12-30]
+_Did the agent:_
+- [x] create a table for each theme?
+- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt?
+- [x] select the correct theme names and bold the first word?
+- [x] assign the correct source links to each of the themes?
+- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?
+- [x] make the table rows change color when hovered?
+- [x] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked?
+- [x] make the header change colors as the user scrolls between sections?
+- [x] make the last section tall enough to allow triggering the header change?
 
 #### Explorer Page
-14 possible points.
-*Did the agent:*
-- [x] load all of the correct data from the provided color books?  [completion:: 2025-12-30]
-- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?  [completion:: 2025-12-30]
-- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?  [completion:: 2025-12-30]
-- [x] create a functioning click-to-copy that has the desired styling?  [completion:: 2025-12-30]
-- [x] create a functioning size slider?  [completion:: 2025-12-30]
-- [x] create a functioning 'standard' selector that switches between color standards?  [completion:: 2025-12-30]
-- [x] load colors with reasonable performance (i.e., not render every single color in preload)?  [completion:: 2025-12-30]
-- [x] create a functioning favorite button that can be selected/deselected on each swatch?  [completion:: 2025-12-30]
-- [x] create a functioning favorites filter that only shows the selected favorites?  [completion:: 2025-12-30]
-- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked?  [completion:: 2025-12-30]
+_Did the agent:_
+- [x] load all of the correct data from the provided color books?
+- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?
+- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?
+- [x] create a functioning click-to-copy that has the desired styling?
+- [x] create a functioning size slider?
+- [x] create a functioning 'standard' selector that switches between color standards?
+- [x] load colors with reasonable performance (i.e., not render every single color in preload)?
+- [x] create a functioning favorite button that can be selected/deselected on each swatch?
+- [x] create a functioning favorites filter that only shows the selected favorites?
+- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked?
 - [ ] create a functioning preset loader that reads and applies the configuration in `_favorites.json`? - 0pts, presets didn't work.
-- [x] create a functioning 'clear' button that removes all favorites?  [completion:: 2025-12-30]
-- [x] save favorites to localStorage?  [completion:: 2025-12-30]
-- [x] make the header change color when a color is clicked?  [completion:: 2025-12-30]
+- [x] create a functioning 'clear' button that removes all favorites?
+- [x] save favorites to localStorage?
+- [x] make the header change color when a color is clicked?
 
 #### About Page
-3 possible points.
-*Did the agent:*
-- [x] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?  [completion:: 2025-12-30]
-- [x] fill in the correct links?  [completion:: 2025-12-30]
-- [x] format the text and links as requested?  [completion:: 2025-12-30]
+_Did the agent:_
+- [x] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?
+- [x] fill in the correct links?
+- [x] format the text and links as requested?
+
+</RubricBox>
 
 ## Augment
 
@@ -2173,81 +2060,66 @@ This page is typeset in Manrope and fira code. Its default accent color is Catpp
 - Ensure color book JSON files are properly formatted
 - Verify `_pantone-color-names.json` and `_favorites.json` exist and are structured correctly
 
-### Rubric
-
-Total: 42 possible points.
+<RubricBox client:load title="rubric">
 
 #### Really Basic Stuff
-
-3 possible points.
 _Did the agent:_
-
-- [x] make sure the website could be built/served without errors? [completion:: 2025-12-30]
-- [x] not do anything really stupid (like try to run `rm rf /`)? [completion:: 2025-12-30]
-- [x] finish the turn on its own (didn't need to be manually stopped for any reason)? [completion:: 2025-12-30]
+- [x] make sure the website could be built/served without errors?
+- [x] not do anything really stupid (like try to run `rm rf /`)?
+- [x] finish the turn on its own (didn't need to be manually stopped for any reason)?
 
 #### General Criteria
-
-13 possible points.
 _Did the agent:_
-
-- [x] make only critical changes to existing files? [completion:: 2025-12-30]
-- [x] avoid making unnecessary imports/references to external packages? [completion:: 2025-12-30]
-- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)? [completion:: 2025-12-30]
-- [x] find and use the correct fonts (Manrope and Fira Code)? [completion:: 2025-12-30]
+- [x] make only critical changes to existing files?
+- [x] avoid making unnecessary imports/references to external packages?
+- [x] organize Sass stylesheets as specified (with the correct imports to the existing fonts/mixins/spacing files)?
+- [x] find and use the correct fonts (Manrope and Fira Code)?
 - [ ] define the Manrope font-face in `_fonts.scss` as specified? - 0pts, not in the right file.
-- [x] create a DECISIONS.md file as specified? [completion:: 2025-12-30]
-- [x] create a reusable header component? [completion:: 2025-12-30]
-- [x] create a reusable footer component? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the header component and links? [completion:: 2025-12-30]
-- [x] use the correct styles and text for the footer component and links? [completion:: 2025-12-30]
-- [x] keep comments/documentation minimal as specified? [completion:: 2025-12-30]
-- [x] use Astro patterns and best practices? [completion:: 2025-12-30]
-- [x] make specific mobile-only styles to allow the app to function on mobile devices? [completion:: 2025-12-30]
+- [x] create a DECISIONS.md file as specified?
+- [x] create a reusable header component?
+- [x] create a reusable footer component?
+- [x] use the correct styles and text for the header component and links?
+- [x] use the correct styles and text for the footer component and links?
+- [x] keep comments/documentation minimal as specified?
+- [x] use Astro patterns and best practices?
+- [x] make specific mobile-only styles to allow the app to function on mobile devices?
 
 #### Palettes Page
-
-9 possible points.
 _Did the agent:_
-
-- [x] create a table for each theme? [completion:: 2025-12-30]
-- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt? [completion:: 2025-12-30]
-- [x] select the correct theme names and bold the first word? [completion:: 2025-12-30]
-- [x] assign the correct source links to each of the themes? [completion:: 2025-12-30]
-- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme? [completion:: 2025-12-30]
-- [x] make the table rows change color when hovered? [completion:: 2025-12-30]
+- [x] create a table for each theme?
+- [x] find and create the exact 3 themes in `_palettes.json` as specified in the prompt?
+- [x] select the correct theme names and bold the first word?
+- [x] assign the correct source links to each of the themes?
+- [x] assign and display the correct primary, secondary, highlight, and text colors for each theme?
+- [x] make the table rows change color when hovered?
 - [/] create a functioning copy button next to each color code that copies the code to the clipboard and turns into a checkmark when clicked? - 0.5pts, the copy button overflows to the next line.
-- [x] make the header change colors as the user scrolls between sections? [completion:: 2025-12-30]
-- [x] make the last section tall enough to allow triggering the header change? [completion:: 2025-12-30]
+- [x] make the header change colors as the user scrolls between sections?
+- [x] make the last section tall enough to allow triggering the header change?
 
 #### Explorer Page
-
-14 possible points.
 _Did the agent:_
-
 - [/] load all of the correct data from the provided color books? - 0.5pts, caps colors to 200 per book.
-- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes? [completion:: 2025-12-30]
-- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ? [completion:: 2025-12-30]
-- [x] create a functioning click-to-copy that has the desired styling? [completion:: 2025-12-30]
-- [x] create a functioning size slider? [completion:: 2025-12-30]
+- [x] create a working CIELAB-to-hex conversion utility and display the correct colors+hex codes?
+- [x] display the correct friendly Pantone names from `_pantone-color-names.json` ?
+- [x] create a functioning click-to-copy that has the desired styling?
+- [x] create a functioning size slider?
 - [ ] create a functioning 'standard' selector that switches between color standards?
-- [x] load colors with reasonable performance (i.e., not render every single color in preload)? [completion:: 2025-12-30]
-- [x] create a functioning favorite button that can be selected/deselected on each swatch? [completion:: 2025-12-30]
-- [x] create a functioning favorites filter that only shows the selected favorites? [completion:: 2025-12-30]
-- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked? [completion:: 2025-12-30]
-- [x] create a functioning preset loader that reads and applies the configuration in `_favorites.json`? [completion:: 2025-12-30]
-- [x] create a functioning 'clear' button that removes all favorites? [completion:: 2025-12-30]
-- [x] save favorites to localStorage? [completion:: 2025-12-30]
-- [x] make the header change color when a color is clicked? [completion:: 2025-12-30]
+- [x] load colors with reasonable performance (i.e., not render every single color in preload)?
+- [x] create a functioning favorite button that can be selected/deselected on each swatch?
+- [x] create a functioning favorites filter that only shows the selected favorites?
+- [x] create a functioning 'unfilter' button that replaces the 'filter' button and shows all colors when clicked?
+- [x] create a functioning preset loader that reads and applies the configuration in `_favorites.json`?
+- [x] create a functioning 'clear' button that removes all favorites?
+- [x] save favorites to localStorage?
+- [x] make the header change color when a color is clicked?
 
 #### About Page
-
-3 possible points.
 _Did the agent:_
+- [x] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name?
+- [x] fill in the correct links?
+- [x] format the text and links as requested?
 
-- [x] use the exact text from the Figma file, replacing INSERT YOUR NAME HERE with the agent's name? [completion:: 2025-12-30]
-- [x] fill in the correct links? [completion:: 2025-12-30]
-- [x] format the text and links as requested? [completion:: 2025-12-30]
+</RubricBox>
 
 # Round Three: Self-Evaluation
 
