@@ -93,10 +93,13 @@ code {
 
 p,
 ul,
-ol,
-.footnote-ref {
+ol {
   font-size: fonts.$s0;
   font-family: fonts.$body;
+}
+
+.footnote-ref {
+  font-size: fonts.$s-1;
 }
 
 // Layout components
