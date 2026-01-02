@@ -1,0 +1,64 @@
+@use '../../sass/fonts';
+@use '../../sass/colors';
+@use '../../sass/spacing';
+
+.rubric-content {
+  font-family: fonts.$code;
+  font-size: fonts.$s-1;
+  line-height: 1.6;
+
+  h4,
+  h5,
+  h6 {
+    font-family: fonts.$body;
+    font-size: fonts.$s0;
+    font-weight: 600;
+    margin: spacing.$ss 0 spacing.$sxs 0;
+    color: colors.$text;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    margin: spacing.$sxs 0;
+    font-size: fonts.$s-1;
+    color: #555;
+    font-style: italic;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: spacing.$ss;
+    margin: spacing.$sxs 0;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: spacing.$sxs;
+    margin: spacing.$sxs 0;
+    line-height: 1.5;
+  }
+}
+
+.rubric-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+
+  &.rubric-check {
+    color: #22c55e; // Green for completed
+  }
+
+  &.rubric-half {
+    color: #f59e0b; // Amber for half points
+  }
+
+  &.rubric-x {
+    color: #ef4444; // Red for not completed
+  }
+}
+
