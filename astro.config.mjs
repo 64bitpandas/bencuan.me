@@ -71,6 +71,9 @@ export default defineConfig({
       ],
     ],
     gfm: true,
+    shikiConfig: {
+      theme: 'github-light',
+    },
   },
   redirects: {
     '/foreword': '/blog/foreword',
