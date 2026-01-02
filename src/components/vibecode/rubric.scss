@@ -5,7 +5,7 @@
 .rubric-content {
   font-family: fonts.$code;
   font-size: fonts.$s-1;
-  line-height: 1.6;
+  line-height: 1.4;
 
   h4,
   h5,
@@ -13,7 +13,7 @@
     font-family: fonts.$body;
     font-size: fonts.$s0;
     font-weight: 600;
-    margin: spacing.$ss 0 spacing.$sxs 0;
+    margin: spacing.$sxs 0 spacing.$s3xs 0;
     color: colors.$text;
 
     &:first-child {
@@ -22,7 +22,7 @@
   }
 
   p {
-    margin: spacing.$sxs 0;
+    margin: spacing.$s3xs 0;
     font-size: fonts.$s-1;
     color: #555;
     font-style: italic;
@@ -30,23 +30,23 @@
 
   ul {
     list-style: none;
-    padding-left: spacing.$ss;
-    margin: spacing.$sxs 0;
+    padding-left: spacing.$sxs;
+    margin: spacing.$s3xs 0;
   }
 
   li {
     display: flex;
     align-items: flex-start;
-    gap: spacing.$sxs;
-    margin: spacing.$sxs 0;
-    line-height: 1.5;
+    gap: spacing.$s3xs;
+    margin: spacing.$s3xs 0;
+    line-height: 1.4;
   }
 }
 
 .rubric-icon {
   flex-shrink: 0;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   margin-top: 2px;
 
   &.rubric-check {
@@ -61,4 +61,3 @@
     color: #ef4444; // Red for not completed
   }
 }
-

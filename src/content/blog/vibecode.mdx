@@ -14,9 +14,6 @@ import {OptionalReadingBox} from '../../components/collapsible/CollapsibleBox.ts
 
 <VibeCodeBanner client:load />
 
-
-> [!summary]
-
 # "a new kind of coding"
 
 ![[Pasted image 20251229141253.png]]
@@ -40,7 +37,6 @@ While I don't think LLMs will be taking over my job in the immediate future (at 
 
 **In this post, I hope to capture the current state of code generation capability, in the specific context of my current understanding and usage of LLMs.** I imagine both their capabilities and my reliance on them will continue rapidly increasing, and hope to offer a point of reference for next year!
 
-## The Agent Box
 
 <OptionalReadingBox client:load title="The Agent Box">
 _I will put optional flavor text in boxes like these! You can safely skip them if you're short on time._
@@ -60,7 +56,7 @@ One superpower of the agentic design pattern is the new ability to receive input
 
 **My goal from this post is to help me (and maybe you) learn more about coding agents, and make some informed decisions about how and what tools to use for the upcoming year.**
 
-I evaluated 5 of the top platforms for agentic code generation as of December 2025: Claude Code, Github Copilot, Google Antigravity, Cursor, and Augment Code.
+I evaluated 5 of the top platforms for agentic code generation as of December 2025: Claude Code, Github Copilot, Cursor, Google Antigravity, and Augment Code.
 
 For this evaluation, I designed a simple web application in Figma (https://bencuan.me/colors) to organize my color palettes, and hand-wrote a prompt to create it in an existing codebase (this website). The original design looks like this:
 
@@ -76,12 +72,10 @@ I evaluated each of the outputs on a list of criteria, where each point earned w
 
 **My main findings:**
 1. As expected, Claude Opus 4.5 is the best model for code generation at the moment.
-2. 3. I would currently recommend Claude Code with the [prompt improver plugin](https://github.com/severity1/claude-code-prompt-improver) as a go-to coding agent for most software engineers, and Cursor as a go-to coding agent for most non-engineers.
-> Chase: I figure the 3. is a typo?
+2. I would currently recommend Claude Code with the [prompt improver plugin](https://github.com/severity1/claude-code-prompt-improver) as a go-to coding agent for most software engineers, and Cursor as a go-to coding agent for most non-engineers.
 3. The one-shot Figma-design-to-code-implementation workflow is currently useful but imperfect, and still requires significant prompt steering.
 4. Discounting model differences, agent capabilities of all five contenders appeared similar enough to be insignificant.
-5. Prompt enhancement is **_really_** important for Claude, somewhat important for GPT-5.2, and not at all important for Gemini 3.
-> Chase: I'd specify "Claude models" or something like that since Claude Code is a contender for the agent platforms (or whatever you call them).
+5. Prompt enhancement is **_really_** important for Claude models, somewhat important for GPT-5.2, and not at all important for Gemini 3.
 6. Agents are currently very bad at evaluating their own performance.
 
 <OptionalReadingBox client:load title="Disclaimer Box!!">
@@ -94,10 +88,8 @@ Refer to existing peer-reviewed benchmarks, like [SWE-Bench](https://www.swebenc
 
 ![[Pasted image 20251230104731.png]]
 I chose the five agents above as a representation of what my researcher and engineer coworkers, friends, and acquaintances use and talk about. They're roughly seeded purely on my uninformed pre-evaluation prediction on how well I think they will perform relative to each other, with some weighting on their popularity. (For example, I think Augment should beat Cursor, but I'm putting Cursor as 4th seed because it's much more widely known.)
-> Chase: I'm honestly surprised you seeded Antigravity third, above Cursor. Not a criticism or anything, just engaging with your work lol
 
-You'll notice that most of the contenders use Claude Opus 4.5 under the hood by default, which is widely considered the best model for code generation at time of writing.
-> Chase: The "by default" is confusing here. Didn't you choose the model? Sounds like you're talking about the default model chosen by the tool.
+Most of the contenders use Claude Opus 4.5 under the hood as their default or 'auto' option. Opus 4.5 is widely considered the best model for code generation at time of writing; I intend to test this claim by evaluating Claude's performance against GPT 5.2 and Gemini Pro 3 in the following configurations:
 
 - I chose to use GPT 5.2 with Copilot because I wanted a representation of a "non-engineer vibe coder" who would opt to use the most well-known tool with the most well-known model.
 - Antigravity is a Google-native offering and is optimized for use with Gemini, also by Google. Using other models is supported, but would defeat the purpose of including it in the evaluation.
@@ -106,14 +98,12 @@ You'll notice that most of the contenders use Claude Opus 4.5 under the hood by 
 
 ![[Pasted image 20251230120129.png]]
 Like the Claude model itself, Claude Code has a cult following. It's clear that the team working on this at Anthropic _really, really cares_, down to the smallest details (cute animations, live token counts, MCP integration as 'skills'... it's quite a charming product). On paper, this should be a winning formula-- Claude Code combines the best interface with the best coding model.
-> Chase: I was gonna annoyingly call out using "-- " instead of emdashes but then I remembered that we live in the age of slop and having non-emdashes is actually a good thing. So nice work haha
 
 Claude Code's interface is a clear stand-out compared to the rest, which are all variants of the same chat-sidebar formula. The interface also very clearly communicates stats (like time taken, number of tokens, and cost) during and after runs.
 
 **Form factor:** CLI, installable via `curl`. Also available as a VSCode extension, and a desktop app that's currently in public preview.
 
-**Cost:** choice of subscription ($20/month for Pro) or metered billing via API key. I chose to use metered billing, and this evaluation cost me $XXX ($2.48 for round one, ...)
-> Chase: Hope this is not too nitpicky but I'd capitalize the c in choice.
+**Cost:** Choice of subscription ($20/month for Pro) or metered billing via API key. I chose to use metered billing, and this evaluation cost me $XXX ($2.48 for round one, ...)
 
 **MCP Setup:** `claude mcp add --transport http astro-docs https://mcp.docs.astro.build/mcp` and `claude mcp add --transport http figma http://127.0.0.1:3845/mcp`
 
@@ -125,8 +115,7 @@ Github Copilot has been around for a very long time (relatively speaking...) and
 
 **Form factor:** VSCode extension. (Microsoft/GitHub is trying to market Copilot fairly heavily. I get spam popups telling me to install it semi-frequently, and it comes pre-installed to VSCode.)
 
-**Cost:** Free for basic access, but agent use requires a paid plan. I paid for the $10/month Pro plan to get access to GPT 5.2 and cancelled it afterwards.j
-> Chase: afterwards.j
+**Cost:** Free for basic access, but agent use requires a paid plan. I paid for the $10/month Pro plan to get access to GPT 5.2 and cancelled it afterwards.
 
 **MCP Setup:** Built-in VSCode MCP settings. I edited the JSON to the following:
 
@@ -146,25 +135,6 @@ Github Copilot has been around for a very long time (relatively speaking...) and
 
 ```
 
-## Google Antigravity: _The Newcomer_
-
-![[Pasted image 20251230130140.png]]
-
-Antigravity was first released to public preview on November 18th, just a bit over a month ago. According to Google's [release post](https://antigravity.google/blog/introducing-google-antigravity), the main purpose of Antigravity is to _"be the home base for software development in the era of agents. Our vision is to ultimately enable anyone with an idea to experience liftoff and build that idea into reality."_
-
-The not-so-subtle subtext: _"From today, Google Antigravity is available in public preview at no charge, with generous rate limits on Gemini 3 Pro usage."_ It's obvious that Google is positioning Antigravity as a play to make Gemini more visible to developers, in hopes that it can begin to compete with Claude for engineering mindshare.
-
-Does Gemini/Antigravity really deserve a spot at the table, or will Antigravity join Inbox and Google+ in the [dead Google app graveyard](https://killedbygoogle.com/) soon? Let's find out!
-
-**Form factor:** VSCode fork.
-> Chase: Not fully sure I agree with my own feedback here, but I'm trying to err on the side of saying too much. Earlier you clarified what an "LLM" is, so I don't know if "VSCode fork" is really descriptive enough given that standard. Maybe "Standalone IDE built off of VSCode" or something like that will at least be clearer.
-
-**Cost:** The public preview is currently free with full access to all models, though I expect this to change soon. A Google AI subscription (starting at $20/month for Pro) extends rate limits significantly.
-
-**MCP Setup:** cmd+shift+P -> MCP: Add server... -> paste in the IP addresses
-
-- Figma local desktop: `http://127.0.0.1:3845/mcp`
-- Astro documentation remote: `https://mcp.docs.astro.build/mcp`
 
 ## Cursor: _The Startup_
 
@@ -175,7 +145,6 @@ Cursor was one of the original generative code platforms available, and pioneere
 I've used Cursor a few times previously, but wasn't impressed enough by its quality to switch to it more permanently. My general opinion of it pre-evaluation is "pretty UI with subpar outputs". That being said, it's still probably the second most popular agentic code platform at the moment (after Copilot) and is the best-positioned startup in the market.
 
 **Form factor:** VSCode fork.
-> Chase: Same feedback here. A little more complicated now that you've talked about VSCode forking above. Probably worth ignoring this feedback tbh, but figuring out whether or not this is for technical audiences is probably a good thing to think about across the board here.
 
 **Cost:** $20/month for Pro. I used a 7-day free trial for this evaluation and cancelled it afterwards.
 
@@ -195,6 +164,26 @@ I've used Cursor a few times previously, but wasn't impressed enough by its qual
   }
 }
 ```
+
+## Google Antigravity: _The Newcomer_
+
+![[Pasted image 20251230130140.png]]
+
+Antigravity was first released to public preview on November 18th, just a bit over a month ago. According to Google's [release post](https://antigravity.google/blog/introducing-google-antigravity), the main purpose of Antigravity is to _"be the home base for software development in the era of agents. Our vision is to ultimately enable anyone with an idea to experience liftoff and build that idea into reality."_
+
+The not-so-subtle subtext: _"From today, Google Antigravity is available in public preview at no charge, with generous rate limits on Gemini 3 Pro usage."_ It's obvious that Google is positioning Antigravity as a play to make Gemini more visible to developers, in hopes that it can begin to compete with Claude for engineering mindshare.
+
+Does Gemini/Antigravity really deserve a spot at the table, or will Antigravity join Inbox and Google+ in the [dead Google app graveyard](https://killedbygoogle.com/) soon? Let's find out!
+
+**Form factor:** VSCode fork.
+
+**Cost:** The public preview is currently free with full access to all models, though I expect this to change soon. A Google AI subscription (starting at $20/month for Pro) extends rate limits significantly.
+
+**MCP Setup:** cmd+shift+P -> MCP: Add server... -> paste in the IP addresses
+
+- Figma local desktop: `http://127.0.0.1:3845/mcp`
+- Astro documentation remote: `https://mcp.docs.astro.build/mcp`
+
 
 ## Augment: _The Dark Horse_
 
@@ -457,7 +446,7 @@ Unfortunately, the Explorer page was unusable and crashed the browser shortly af
 - The Palettes page was nearly perfect, other than there being a white border around the content and the header color change not working properly when scrolling back up to the first theme.
 - Claude ignored the Manrope font entirely, using a mixture of Eiko and Fraktion.
 
-<RubricBox client:load title="rubric">
+<RubricBox client:load title="claude's rubric">
 
 #### Really Basic Stuff
 _Did the agent:_
@@ -538,7 +527,7 @@ Copilot followed the design most accurately out of all the contenders.
 ![[Pasted image 20251230130938.png]]
 
 
-<RubricBox client:load title="rubric">
+<RubricBox client:load title="copilot's rubric">
 
 #### Really Basic Stuff
 _Did the agent:_
@@ -611,7 +600,7 @@ Antigravity was by far the fastest agent, and completed the task in under five m
 - Uses query parameters (`/expolorer?std=HKS`) instead of putting each standard on its own page.
 - None of the Explorer functionality seemed to work for me, but it did adhere extremely well to the original theme.
 
-<RubricBox client:load title="rubric">
+<RubricBox client:load title="antigravity's rubric">
 
 #### Really Basic Stuff
 _Did the agent:_
@@ -684,7 +673,7 @@ Surprisingly, this was the best submission of Round One! I'm starting to see why
 - Best Explorer page by far. Most things work, and colors load performantly. Cursor put each color book in its own section.
 - Jumbled up the color book names, unsure what happened there but the colors themselves look fine.
 
-<RubricBox client:load title="rubric">
+<RubricBox client:load title="cursor's rubric">
 
 #### Really Basic Stuff
 _Did the agent:_
@@ -758,7 +747,7 @@ Augment really freestyled here and completely disregarded my design in a lot of 
 > Chase: Honestly had a feeling it wouldn't complete on its own. Not thrilled to be right about that.
 - Strictly code-wise, Augment produced the cleanest and most performant output, but this was largely overshadowed by the fact that not much of what I asked for was actually present.
 
-<RubricBox client:load title="rubric">
+<RubricBox client:load title="augment's rubric">
 
 #### Really Basic Stuff
 _Did the agent:_
@@ -875,7 +864,7 @@ In theory, prompt improvement should be at least provide a marginal improvement.
 - I first do an iteration of manual prompt improvement, filling in some details that were missing in the original prompt and caused LLMs to generate code I wasn't looking for. (Expand the 'Modified Prompt' below if you want to see what I changed-- I left the structure the same and didn't delete old instructions.)
 - Then, I used the prompt improvement guidelines supplied by each agent, if it exists. (The only agent that I couldn't find any official guidelines for was Cursor, so I just used Claude's built-in prompt improver instead.)
 
-### Round Two Modified Prompt
+<PromptBox client:load title="Round Two Modified Prompt">
 
 **_Changelog:_**
 
@@ -959,6 +948,8 @@ This page is typeset in Manrope and fira code. Its default accent color is Catpp
 - Replace "INSERT YOUR NAME HERE" with your name
 - Bold "Manrope" and "fira code" and typeset them in their respective font.
 
+</PromptBox>
+
 ## Claude Code
 
 **Score: 40.5/42**
@@ -1020,7 +1011,7 @@ The prompt improver responded with a final summary and confirmation, which I let
 
 ```
 
-<RubricBox client:load title="rubric">
+<RubricBox client:load title="claude's rubric">
 
 #### Really Basic Stuff
 _Did the agent:_
@@ -1094,9 +1085,8 @@ Improve the following prompt according to the Github Copilot Prompt Engineering 
 ```
 
 
-### New Prompt
+<PromptBox client:load title="Copilot's Enhanced Prompt" iconSrc="/img/vibecode/copilot.png">
 
-```
 You are an expert Astro + TypeScript developer working in an existing Astro site repo. Implement a new section of the site at:
 
 - `https://bencuan.me/colors`
@@ -1378,9 +1368,10 @@ Acceptance criteria for `/colors/about`:
 - Use Phosphor icons for copy/check/star as specified
 
 Implement in the exact order: palettes → explorer → about.
-```
+</PromptBox>
 
-<RubricBox client:load title="rubric">
+
+<RubricBox client:load title="copilot's rubric">
 
 #### Really Basic Stuff
 _Did the agent:_
@@ -1460,7 +1451,7 @@ Improve the following prompt according to the Gemini prompt design guide: https:
 During this run, Gemini froze multiple due to the PTY host crashing, so I had to force-stop it and restart it (so it loses a point in the rubric for this). There was no clear way to debug this issue, and 
 
 
-### Enhanced Prompt
+<PromptBox client:load title="Antigravity's Enhanced Prompt" iconSrc="/img/vibecode/antigravity.png">
 
 ### **System Role & Persona**
 
@@ -1542,8 +1533,9 @@ Create a multi-page sub-site at `bencuan.me/colors` comprising three main views
   - "This repository" -> `https://github.com/jacobbubu/acb`
   - "here" -> `https://github.com/64bitpandas/bencuan.me/tree/main/src/color-books`
   - "State of Vibe Coding evaluation" -> `https://bencuan.me/blog/vibe25`
+</PromptBox>
 
-<RubricBox client:load title="rubric">
+<RubricBox client:load title="antigravity's rubric">
 
 #### Really Basic Stuff
 _Did the agent:_
@@ -1618,7 +1610,8 @@ Improve the following prompt to adhere to Claude's Prompting Best Practices: htt
 ```
 
 ![[Pasted image 20251230213825.png]]
-### Improved Prompt
+
+<PromptBox client:load title="Cursor's Enhanced Prompt" iconSrc="/img/vibecode/cursor.png">
 
 ```xml
 <role>
@@ -1888,8 +1881,9 @@ For each task, provide:
 3. Any clarifying questions before proceeding
 </output_format>
 ```
+</PromptBox>
 
-<RubricBox client:load title="rubric">
+<RubricBox client:load title="cursor's rubric">
 
 #### Really Basic Stuff
 _Did the agent:_
@@ -1961,7 +1955,8 @@ _Did the agent:_
 - Augment hard-coded a 200-color cap to each color book to get it to load performantly, so most colors are omitted.
 - The palettes page is really ugly but technically is as specified.
 
-### New Prompt
+<PromptBox client:load title="Augment's Enhanced Prompt" iconSrc="/img/vibecode/augment.png">
+
 
 **Create a new color palette website at bencuan.me/colors based on the Figma design project accessible via Figma MCP integration.**
 
@@ -2059,8 +2054,9 @@ This page is typeset in Manrope and fira code. Its default accent color is Catpp
 - Populate `_palettes.json` with the three specified palettes
 - Ensure color book JSON files are properly formatted
 - Verify `_pantone-color-names.json` and `_favorites.json` exist and are structured correctly
+</PromptBox>
 
-<RubricBox client:load title="rubric">
+<RubricBox client:load title="augment's rubric">
 
 #### Really Basic Stuff
 _Did the agent:_
@@ -2133,7 +2129,8 @@ However, many aspects of one-shot app generation don't neatly fall into repeatab
 
 For this round, I re-use the same context and code from Round Two, but add one additional prompt. I give each agent the exact rubric I'm scoring them on, and some context about this evaluation.
 
-### The Round Three Prompt Box
+
+<PromptBox client:load title="Round Three Prompt">
 
 You are competing against four other code generation tools so I can determine which one is the best. Your goal is to maximize your score according to the rubric below. Each rubric item is worth 1 point. The best possible score is 42 points, or 100%, if you were able to get every single point.
 
@@ -2218,11 +2215,12 @@ _Did the agent:_
 - [ ] fill in the correct links?
 - [ ] format the text and links as requested?
 
+</PromptBox>
+
 ## Claude Code
 
-### Claude's Self-Evaluation
+<PromptBox client:load title="Claude's Self-Evaluation" iconSrc="/img/vibecode/claude.png">
 
-```
 # Self-Evaluation Rubric
 
 **Agent:** Claude (claude-opus-4-5-20251101)
@@ -2349,11 +2347,12 @@ _Did the agent:_
 4. Size slider ratchets to discrete steps [4, 6, 8, 10, 12]
 5. Intersection Observer with 0.3 threshold for palette scroll detection
 
-```
+</PromptBox>
 
 ## Copilot
-### Copilot's Self-Evaluation
-```
+
+<PromptBox client:load title="Copilot's Self-Evaluation" iconSrc="/img/vibecode/copilot.png">
+
 # Rubric Self-Evaluation
 
 Scoring: `- [x]` = 1 point, `- [/]` = 0.5 points.
@@ -2414,12 +2413,11 @@ Scoring: `- [x]` = 1 point, `- [/]` = 0.5 points.
 - Score: **40 / 42**
 - Percentage: **95.24%**
 
-```
+</PromptBox>
+
 ## Antigravity
 
-### Antigravity's Self-Evaluation
-```
-# Rubric Assessment
+<PromptBox client:load title="Antigravity's Self-Evaluation" iconSrc="/img/vibecode/antigravity.png">
 
 Total: 39.5 / 42 possible points (94%).
 
@@ -2480,14 +2478,12 @@ Total: 39.5 / 42 possible points (94%).
 - [x] fill in the correct links?
 - [x] format the text and links as requested?
 
-```
+</PromptBox>
+
 ## Cursor
 
 
-### Cursor's Self-Evaluation
-
-```
-# Color App Rubric Self-Evaluation
+<PromptBox client:load title="Cursor's Self-Evaluation" iconSrc="/img/vibecode/cursor.png">
 
 ## Final Score: 42/42 (100%)
 
@@ -2593,15 +2589,11 @@ _Did the agent:_
 5. **Performance**: Explorer uses pagination (100 items/page) instead of rendering all colors
 6. **localStorage**: Favorites persisted via localStorage with JSON serialization
 
-
-```
+</PromptBox>
 
 ## Augment
 
-### Augment's Self-Evaluation
-
-```
-# Rubric Self-Evaluation
+<PromptBox client:load title="Augment's Self-Evaluation" iconSrc="/img/vibecode/augment.png">
 
 ## Really Basic Stuff (3 points)
 
@@ -2664,7 +2656,7 @@ _Did the agent:_
 
 ## Final Score: 40.5 / 42 points (96.4%)
 
-```
+</PromptBox>
 
 # Discussion
 

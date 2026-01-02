@@ -98,8 +98,55 @@
     font-weight: 300;
   }
 
-  strong em, em strong {
+  strong em,
+  em strong {
     font-weight: 500;
+  }
+
+  // Inline code styling (single backtick)
+  code:not(.astro-code code) {
+    font-family: fonts.$code;
+    font-size: fonts.$s-1;
+    background-color: colors.$background-light;
+    color: colors.$text;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+  }
+
+  // Code block styling (triple backtick)
+  .astro-code {
+    background-color: colors.$background-light !important;
+    font-size: fonts.$s-1;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: none;
+
+    // Custom scrollbar matching root page
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: colors.$light-green;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: colors.$background-light;
+    }
+
+    code {
+      font-family: fonts.$code;
+      color: colors.$text;
+      background: transparent;
+      padding: 0;
+    }
+
+    // Override syntax highlighting colors for light background
+    .line {
+      color: colors.$text;
+    }
   }
 }
 
