@@ -16,7 +16,7 @@ import {OptionalReadingBox} from '../../components/collapsible/CollapsibleBox.ts
 
 # "a new kind of coding"
 
-![[Pasted image 20251229141253.png]]
+![](/img/vibecode/Pasted%20image%2020251229141253.png)
 It's been less than a year since Karpathy coined the term 'vibe coding'-- yet in that time, whole companies have lived and died off its promise of turning plain English into the world's most popular programming language.
 
 I first started using language models to write code in late 2023, back when Github Copilot began to take off. Copilot was more often wrong than right, but it was still enough to shave about a month off [bencuan.me's 2024 edition](https://bencuan.me/2024/) and save me hours of test-writing time at work.
@@ -60,7 +60,7 @@ I evaluated 5 of the top platforms for agentic code generation as of December 20
 
 For this evaluation, I designed a simple web application in Figma (https://bencuan.me/colors) to organize my color palettes, and hand-wrote a prompt to create it in an existing codebase (this website). The original design looks like this:
 
-![[Pasted image 20251230110405.png]]
+![](/img/vibecode/Pasted%20image%2020251230110405.png)
 
 I then prompted each of the 5 contenders to generate exactly that application in three rounds:
 
@@ -86,7 +86,7 @@ Refer to existing peer-reviewed benchmarks, like [SWE-Bench](https://www.swebenc
 
 # The Contenders
 
-![[Pasted image 20251230104731.png]]
+![](/img/vibecode/Pasted%20image%2020251230104731.png)
 I chose the five agents above as a representation of what my researcher and engineer coworkers, friends, and acquaintances use and talk about. They're roughly seeded purely on my uninformed pre-evaluation prediction on how well I think they will perform relative to each other, with some weighting on their popularity. (For example, I think Augment should beat Cursor, but I'm putting Cursor as 4th seed because it's much more widely known.)
 
 Most of the contenders use Claude Opus 4.5 under the hood as their default or 'auto' option. Opus 4.5 is widely considered the best model for code generation at time of writing; I intend to test this claim by evaluating Claude's performance against GPT 5.2 and Gemini Pro 3 in the following configurations:
@@ -96,7 +96,7 @@ Most of the contenders use Claude Opus 4.5 under the hood as their default or 'a
 
 ## Claude Code: _The Fan Favorite_
 
-![[Pasted image 20251230120129.png]]
+![](/img/vibecode/Pasted%20image%2020251230120129.png)
 Like the Claude model itself, Claude Code has a cult following. It's clear that the team working on this at Anthropic _really, really cares_, down to the smallest details (cute animations, live token counts, MCP integration as 'skills'... it's quite a charming product). On paper, this should be a winning formula-- Claude Code combines the best interface with the best coding model.
 
 Claude Code's interface is a clear stand-out compared to the rest, which are all variants of the same chat-sidebar formula. The interface also very clearly communicates stats (like time taken, number of tokens, and cost) during and after runs.
@@ -109,7 +109,7 @@ Claude Code's interface is a clear stand-out compared to the rest, which are all
 
 ## Github Copilot: _The Market Leader_
 
-![[Pasted image 20251230130002.png]]
+![](/img/vibecode/Pasted%20image%2020251230130002.png)
 
 Github Copilot has been around for a very long time (relatively speaking...) and is clearly ahead of the others in terms of market share at the moment. However, I find it interesting that very few people I know actively use it today. Is Copilot just a below-average product with great marketing, or can it justify itself as the market leader based on performance alone?
 
@@ -138,7 +138,7 @@ Github Copilot has been around for a very long time (relatively speaking...) and
 
 ## Cursor: _The Startup_
 
-![[Pasted image 20251230213522.png]]
+![](/img/vibecode/Pasted%20image%2020251230213522.png)
 
 Cursor was one of the original generative code platforms available, and pioneered much of the UX we seem to have converged towards today. Their decision to maintain a VSCode fork as their primary interface was met with skepticism originally, but seems to be widely accepted now (and has since been copied by Windsurf, Antigravity, and others).
 
@@ -167,7 +167,7 @@ I've used Cursor a few times previously, but wasn't impressed enough by its qual
 
 ## Google Antigravity: _The Newcomer_
 
-![[Pasted image 20251230130140.png]]
+![](/img/vibecode/Pasted%20image%2020251230130140.png)
 
 Antigravity was first released to public preview on November 18th, just a bit over a month ago. According to Google's [release post](https://antigravity.google/blog/introducing-google-antigravity), the main purpose of Antigravity is to _"be the home base for software development in the era of agents. Our vision is to ultimately enable anyone with an idea to experience liftoff and build that idea into reality."_
 
@@ -187,7 +187,7 @@ Does Gemini/Antigravity really deserve a spot at the table, or will Antigravity 
 
 ## Augment: _The Dark Horse_
 
-![[Pasted image 20251230130038.png]]
+![](/img/vibecode/Pasted%20image%2020251230130038.png)
 
 Augment is by far the least widely-known tool of the five contenders in this evaluation. I've been using it for much of the past year as my primary agent, both for work and personal use. This is mostly because I happen to have a lot of friends working on it!
 
@@ -232,7 +232,7 @@ Augment's main selling point is its context engine, which works really well in l
 
 This post began as a rabbit-hole inside of a rabbit-hole. I'd originally set out to redesign my [TurtleNet](https://bencuan.me/blog/turtlenet) series so I could re-post it on my website, but was unhappy with my color selections. I'd had some success in the past by limiting myself to only using colors from known standards (like Pantone), and wanted to make a quick little app to organize the various colors I was playing around with.
 
-![[Pasted image 20251230180003.png]]
+![](/img/vibecode/Pasted%20image%2020251230180003.png)
 some work-in-progress design with ugly colors...
 > Chase: I didn't realize I was skimming until I got lost here. I thought you were trying to build TurtleNet with the agent, then got pretty confused when you showed the design for the color picker below.
 > Chase: I think it's because you talk about wanting to remake TurtleNet, the picture is of TurtleNet, and then the part below says "this specific task". And the color picker part is mentioned time in the last half of the last sentence before the big TurtleNet image.
@@ -259,7 +259,7 @@ I created three simple pages:
 - The second page is a color explorer, seeded with some old color books I found in [this repo](https://github.com/jacobbubu/acb/tree/master/color-books). It has some basic controls, like a system to save favorites I come across, or a slider to change the size of the swatches for closer inspection. (I know the point of color standards is generally for color matching rather than discovery, but this does seem to help me a lot for some reason!).
 - The third page (not pictured below) is a super simple 'about' page with some text explaining what the website is and why I made it (i.e. for this evaluation!).
 
-![[Pasted image 20251230110357.png]]
+![](/img/vibecode/Pasted%20image%2020251230110357.png)
 You can view the original Figma file [here](https://www.figma.com/design/a4VkNmvHwM8NS2bzMSCl8V/color?node-id=0-1&t=VhxtMoRvx6dZP8Xh-1).
 
 ## Prompt writing
@@ -437,7 +437,7 @@ In this first round, I give each agent the starting prompt and context, and let 
 ## Claude Code
 
 **Score:** 56.0% (23.5/42)
-![[Pasted image 20251230143452.png]]
+![](/img/vibecode/Pasted%20image%2020251230143452.png)
 
 Unfortunately, the Explorer page was unusable and crashed the browser shortly after loading, so Claude Code gets a low score for this round.
 
@@ -511,7 +511,7 @@ _Did the agent:_
 
 **Score:** 73.8% (31/42)
 
-![[Pasted image 20251230141243.png]]
+![](/img/vibecode/Pasted%20image%2020251230141243.png)
 **Source files:**
 
 Copilot followed the design most accurately out of all the contenders.
@@ -524,7 +524,7 @@ Copilot followed the design most accurately out of all the contenders.
 - Rendering the Pantone page crashes the browser because there are too many swatches.
 - Copilot made the number of columns scale based on screen size, which I thought was a neat touch!
 
-![[Pasted image 20251230130938.png]]
+![](/img/vibecode/Pasted%20image%2020251230130938.png)
 
 
 <RubricBox client:load title="copilot's rubric">
@@ -591,7 +591,7 @@ _Did the agent:_
 ## Antigravity
 
 **Score:** 59.5% (25/42)
-![[Pasted image 20251230145014.png]]
+![](/img/vibecode/Pasted%20image%2020251230145014.png)
 
 Antigravity was by far the fastest agent, and completed the task in under five minutes! This was really impressive to me, but the output quality itself was rather middling.
 
@@ -665,7 +665,7 @@ _Did the agent:_
 
 **Score:** 88.1% (37/42)
 
-![[Pasted image 20251230150106.png]]
+![](/img/vibecode/Pasted%20image%2020251230150106.png)
 
 Surprisingly, this was the best submission of Round One! I'm starting to see why Cursor is so popular amongst non-engineers who want to try vibe coding.
 
@@ -739,7 +739,7 @@ _Did the agent:_
 ## Augment
 
 **Score:** 56.0% (23.5/42)
-![[Pasted image 20251230151144.png]]
+![](/img/vibecode/Pasted%20image%2020251230151144.png)
 Augment really freestyled here and completely disregarded my design in a lot of ways.
 > Chase: LOL
 
@@ -954,7 +954,7 @@ This page is typeset in Manrope and fira code. Its default accent color is Catpp
 
 **Score: 40.5/42**
 
-![[Pasted image 20251230160855.png]]
+![](/img/vibecode/Pasted%20image%2020251230160855.png)
 Wow. I'm blown away. What an improvement from Round 1!
 
 - Best prompt improver by far. This feature makes me incredibly happy.
@@ -995,9 +995,9 @@ It warned:
 It then proceeded to research the provided codebase. One really helpful thing it did was also to verify that the MCP integrations were configured and would be invoked correctly.
 
 Then, it asked me a few clarifying questions about various design decisions. It even found a silly typo I made, which I corrected for future runs:
-![[Pasted image 20251230154734.png]]
+![](/img/vibecode/Pasted%20image%2020251230154734.png)
 The prompt improver responded with a final summary and confirmation, which I let through. (Did I mention how much I like this interface?)
-![[Pasted image 20251230154908.png]]
+![](/img/vibecode/Pasted%20image%2020251230154908.png)
 
 ```
 > /cost
@@ -1076,7 +1076,7 @@ _Did the agent:_
 
 89.3% 37.5/42.
 
-![[Pasted image 20251231005138.png]]
+![](/img/vibecode/Pasted%20image%2020251231005138.png)
 
 ```
 Improve the following prompt according to the Github Copilot Prompt Engineering guide: https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering
@@ -1438,7 +1438,7 @@ _Did the agent:_
 
 
 
-![[Pasted image 20251230214905.png]]
+![](/img/vibecode/Pasted%20image%2020251230214905.png)
 
 ```
 Improve the following prompt according to the Gemini prompt design guide: https://ai.google.dev/gemini-api/docs/prompting-strategies
@@ -1446,7 +1446,7 @@ Improve the following prompt according to the Gemini prompt design guide: https:
 <INSERT PROMPT HERE>
 ```
 
-![[Pasted image 20251230204510.png]]
+![](/img/vibecode/Pasted%20image%2020251230204510.png)
 
 During this run, Gemini froze multiple due to the PTY host crashing, so I had to force-stop it and restart it (so it loses a point in the rubric for this). There was no clear way to debug this issue, and 
 
@@ -1601,7 +1601,7 @@ _Did the agent:_
 
 > Chase: I'm assuming commentary here will come later?
 
-![[Pasted image 20251230211412.png]]
+![](/img/vibecode/Pasted%20image%2020251230211412.png)
 
 ```
 Improve the following prompt to adhere to Claude's Prompting Best Practices: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices
@@ -1609,7 +1609,7 @@ Improve the following prompt to adhere to Claude's Prompting Best Practices: htt
 <INSERT PROMPT HERE>
 ```
 
-![[Pasted image 20251230213825.png]]
+![](/img/vibecode/Pasted%20image%2020251230213825.png)
 
 <PromptBox client:load title="Cursor's Enhanced Prompt" iconSrc="/img/vibecode/cursor.png">
 
@@ -1947,7 +1947,7 @@ _Did the agent:_
 ## Augment
 
 **Score:** (39/42)
-![[Pasted image 20251230165756.png]]
+![](/img/vibecode/Pasted%20image%2020251230165756.png)
 
 - Insane improvement over Round One.
 - Swatches aren't formatted as the design specified, but they still look nice.
