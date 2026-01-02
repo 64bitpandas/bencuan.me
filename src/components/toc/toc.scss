@@ -4,23 +4,35 @@
 @use '../../sass/mixins';
 
 .toc-sidebar {
-  // Hide on smaller screens
+  // Hide on smaller screens and when not visible
   display: none;
+  opacity: 0;
+  transform: translateX(20px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+
+  &.toc-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
   @include mixins.screen(desktop) {
     display: block;
     position: fixed;
-    top: 120px;
-    right: calc((100vw - min(80vw, 1024px)) / 2 - 220px);
-    width: 200px;
-    max-height: calc(100vh - 180px);
+    top: spacing.$sl;
+    right: calc((100vw - min(80vw, 1024px)) / 2 - 240px);
+    width: 220px;
+    max-height: calc(100vh - #{spacing.$sxl});
     overflow-y: auto;
+    overflow-x: hidden;
     padding: spacing.$ss;
-    background: rgba(colors.$background-light, 0.8);
+    background: rgba(colors.$background, 0.95);
     backdrop-filter: blur(8px);
     border-left: 2px solid colors.$extra-light-green;
     border-radius: 4px;
-    z-index: 50;
+    z-index: 40;
+    scroll-behavior: smooth;
 
     // Custom scrollbar
     &::-webkit-scrollbar {
@@ -39,8 +51,8 @@
 
   // Wider screens get more space
   @media (min-width: 1400px) {
-    right: calc((100vw - min(80vw, 1024px)) / 2 - 280px);
-    width: 240px;
+    right: calc((100vw - min(80vw, 1024px)) / 2 - 300px);
+    width: 260px;
   }
 }
 
@@ -126,4 +138,3 @@
     color: lighten(colors.$text-light, 20%);
   }
 }
-
