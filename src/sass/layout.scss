@@ -64,6 +64,11 @@ h5,
   color: colors.$text;
 }
 
+strong {
+  font-weight: 500;
+  color: colors.$text;
+}
+
 h1 {
   margin: 0;
   font-size: fonts.$s5;
