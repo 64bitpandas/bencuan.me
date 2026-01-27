@@ -9,5 +9,25 @@
   "editor.tabSize": 2,
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#f4eee9",
+    "activityBar.background": "#f4eee9",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#6ab58c",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#f4eee9",
+    "statusBar.background": "#e4d4c6",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#d4baa3",
+    "statusBarItem.remoteBackground": "#e4d4c6",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#e4d4c6",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#e4d4c699",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#e4d4c6"
 }
