@@ -25,6 +25,15 @@ export default defineConfig({
             ['Endcard', 'Endcard'],
           ],
         },
+        {
+          './src/components/research-syllabus/index.ts': [
+            ['ResearchBanner', 'ResearchBanner'],
+            ['TopicBadge', 'TopicBadge'],
+            ['BigQuestionsBox', 'BigQuestionsBox'],
+            ['ReadingListBox', 'ReadingListBox'],
+            ['SectionWrapper', 'SectionWrapper'],
+          ],
+        },
       ],
     }),
     sitemap({

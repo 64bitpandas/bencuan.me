@@ -1,10 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../components/layout.astro';
-import { MDLink } from '../components/links.tsx';
+import BlogLayout from '../components/BlogLayout.astro';
 import { ColorDot } from '../components/colorDot.tsx';
-import '../sass/blog.scss';
-import '../sass/links.scss';
+import {
+  ResearchBanner,
+  TopicBadge,
+  BigQuestionsBox,
+  ReadingListBox,
+  SectionWrapper,
+} from '../components/research-syllabus';
 
 export const prerender = true;
 export async function getStaticPaths() {
@@ -14,14 +18,23 @@ export async function getStaticPaths() {
     props: { entry },
   }));
 }
-// 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const isResearchPage = entry.slug === 'research';
 ---
 
-<Layout title={entry.data.title} description={entry.data.description} currPage={entry.data.title}>
-  <h1 class="blog-title" data-lastmod={entry.data.date.toISOString()}>{entry.data.title}</h1>
-  <div class="blog-content">
-    <Content components={{ a: MDLink, ColorDot }} />
-  </div>
-</Layout>
+<BlogLayout
+  entry={entry}
+  currPage={entry.data.title}
+  extraComponents={{
+    ColorDot,
+    ResearchBanner,
+    TopicBadge,
+    BigQuestionsBox,
+    ReadingListBox,
+    SectionWrapper,
+  }}
+  showToc={false}
+  showComments={false}
+  contentClass={isResearchPage ? 'research-page' : ''}
+  bodyClass={isResearchPage ? 'research-body' : ''}
+/>
