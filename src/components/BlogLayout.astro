@@ -1,0 +1,80 @@
+---
+import Layout from './layout.astro';
+import '../sass/blog.scss';
+import '../sass/links.scss';
+import { MDLink } from './links.tsx';
+import { components, ToDateString } from './blog.tsx';
+import Comments from './bluesky.tsx';
+import TableOfContents from './toc/TableOfContents.tsx';
+
+interface Props {
+  entry: {
+    data: {
+      title: string;
+      description?: string;
+      date?: Date;
+      image?: string;
+      hideTitle?: boolean;
+    };
+    render: () => Promise<{ Content: any }>;
+  };
+  currPage: string;
+  /** Additional MDX components to merge with default blog components */
+  extraComponents?: Record<string, any>;
+  /** Whether to show the table of contents (default: true) */
+  showToc?: boolean;
+  /** Whether to show comments section (default: true) */
+  showComments?: boolean;
+  /** Additional CSS class for the blog content wrapper */
+  contentClass?: string;
+  /** Additional CSS class for the body container */
+  bodyClass?: string;
+}
+
+const {
+  entry,
+  currPage,
+  extraComponents = {},
+  showToc = true,
+  showComments = true,
+  contentClass = '',
+  bodyClass = '',
+} = Astro.props;
+const { Content } = await entry.render();
+
+const imgLink = entry.data.image
+  ? 'https://bencuan.me/img/' + entry.data.image
+  : 'https://bencuan.me/img/opengraph/og-banner.png';
+
+const mergedComponents = { ...components, a: MDLink, ...extraComponents };
+---
+
+<Layout
+  currPage={currPage}
+  title={entry.data.title}
+  description={entry.data.description}
+  image={imgLink}
+  bodyClass={bodyClass}
+>
+  {
+    entry.data.hideTitle ? (
+      ''
+    ) : (
+      <>
+        <h1 class="blog-title" data-lastmod={entry.data.date && entry.data.date.toISOString()}>
+          {entry.data.title}
+        </h1>
+        <slot name="after-title">
+          {entry.data.date && <p class="blog-date">{ToDateString(entry.data.date, true)}</p>}
+        </slot>
+        {entry.data.description && <p class="blog-description">{entry.data.description}</p>}
+      </>
+    )
+  }
+
+  <div class={`blog-content ${contentClass}`.trim()}>
+    <Content components={mergedComponents} />
+  </div>
+  {showToc && <TableOfContents client:idle />}
+  {showComments && <Comments client:idle />}
+</Layout>

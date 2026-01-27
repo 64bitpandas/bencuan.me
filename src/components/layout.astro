@@ -5,7 +5,7 @@ import Footer from './footer';
 import Header, { type HeaderLink } from './header';
 import Seo from './seo.astro';
 
-const { title, description, currPage, headContent, customPages, image } = Astro.props;
+const { title, description, currPage, headContent, customPages, image, bodyClass = '' } = Astro.props;
 ---
 
 <!--
@@ -20,7 +20,7 @@ The Layout component serves as the base component in which all content should be
     <link rel="sitemap" href="/sitemap-0.xml" />
     {headContent}
   </head>
-  <div class="body container">
+  <div class={`body container ${bodyClass}`.trim()}>
     <Tooltip
       client:idle
       disableStyleInjection

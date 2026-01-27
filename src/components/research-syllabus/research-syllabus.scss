@@ -1,0 +1,497 @@
+@use '../../sass/fonts';
+@use '../../sass/colors';
+@use '../../sass/mixins';
+@use '../../sass/spacing';
+
+// ===== BANNER STYLES =====
+.research-banner {
+  position: relative;
+  // Total height = 65vh, pulled up to cover header
+  // Desktop: header height 4rem + margin-top 2rem + margin-bottom 4rem = 10rem
+  height: calc(65vh - 10rem);
+  min-height: 500px;
+  overflow: hidden;
+  margin-top: -10rem;
+  margin-bottom: 0;
+  padding-top: 10rem;
+  box-sizing: content-box;
+
+  // Break out of container to full viewport width
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  border-radius: 0;
+
+  // Background image
+  background-image: url('/img/research/rs_backdrop.png');
+  background-size: cover;
+  background-position: center bottom;
+
+  @include mixins.screen('mobile') {
+    // Mobile: header margin-top 1rem + margin-bottom 2rem + height 4rem = 7rem
+    height: calc(65vh - 7rem);
+    min-height: 400px;
+    margin-top: -7rem;
+    padding-top: 7rem;
+  }
+}
+
+.research-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+}
+
+.research-banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  z-index: 5;
+
+  @include mixins.screen('mobile') {
+    width: 85%;
+    top: 45%;
+    text-align: center;
+  }
+}
+
+.research-banner-subtitle {
+  font-family: fonts.$header;
+  font-style: italic;
+  font-weight: 100;
+  font-size: fonts.$s6;
+  color: colors.$text;
+  margin: 0;
+  line-height: 1;
+
+  @include mixins.screen('mobile') {
+    font-size: fonts.$s3;
+  }
+}
+
+.research-banner-title {
+  font-family: fonts.$body;
+  font-weight: 500;
+  font-size: clamp(4rem, 1.848vw + 4rem, 6rem);
+  color: colors.$text;
+  margin: 0 !important;
+  line-height: 0.95;
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.screen('mobile') {
+    font-size: fonts.$s7;
+    margin: auto !important;
+    align-items: center;
+  }
+}
+
+.research-banner-title-line {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.research-banner-dino {
+  height: 0.7em;
+  width: auto;
+  vertical-align: baseline;
+  margin-left: 0.15em !important;
+  position: relative;
+}
+
+// Desktop dinosaur - inline with title
+.research-banner-dino-desktop {
+  display: inline-block !important;
+
+  @include mixins.screen('mobile') {
+    display: none !important;
+  }
+}
+
+// Mobile dinosaur - on its own line below title
+.research-banner-dino-mobile {
+  display: none !important;
+  height: 3rem;
+  width: auto;
+  margin: spacing.$ss auto 0 !important;
+
+  @include mixins.screen('mobile') {
+    display: block !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.research-banner-edition {
+  font-family: fonts.$header;
+  font-style: italic;
+  font-weight: 300;
+  font-size: fonts.$s1;
+  color: colors.$text;
+  margin: spacing.$sxs 0 0 0;
+
+  @include mixins.screen('mobile') {
+    font-size: fonts.$s-1;
+    text-align: center;
+  }
+}
+
+// ===== TOPIC BADGE STYLES =====
+.topic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 14.4px;
+  font-family: fonts.$ui;
+  font-style: italic;
+  font-weight: 300;
+  font-size: fonts.$s-1;
+  color: colors.$text;
+  margin: spacing.$sxs 0;
+  width: fit-content;
+}
+
+.topic-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.topic-badge-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.topic-badge-label {
+  line-height: 1.325;
+}
+
+.topic-badge-bridge {
+  width: 16px;
+  height: 16px;
+  margin: 0 2px;
+}
+
+// ===== BIG QUESTIONS BOX =====
+$big-questions-bg: #edd0de;
+$big-questions-border: colors.$text;
+
+.big-questions-box {
+  background: $big-questions-bg;
+  border: 2px solid $big-questions-border;
+  border-radius: 5px;
+  padding: spacing.$ss spacing.$sm;
+  margin-top: spacing.$sm;
+  margin-bottom: spacing.$sm;
+}
+
+.big-questions-header {
+  margin-bottom: spacing.$sxs;
+}
+
+.big-questions-title {
+  font-family: fonts.$special;
+  font-weight: 500;
+  font-size: fonts.$s2;
+  letter-spacing: 0.02em;
+  color: colors.$text;
+}
+
+.big-questions-content {
+  font-family: fonts.$body;
+  font-size: fonts.$s0;
+  line-height: 1.84;
+
+  ol {
+    margin: spacing.$sxs 0;
+    padding-left: spacing.$sm;
+  }
+
+  li {
+    margin-bottom: spacing.$sxs;
+  }
+}
+
+// ===== READING LIST BOX =====
+$reading-list-bg: rgba(27, 102, 246, 0.1);
+$reading-list-border: colors.$text;
+
+.reading-list-box {
+  background: $reading-list-bg;
+  border: 2px solid $reading-list-border;
+  border-radius: 5px;
+  padding: spacing.$ss spacing.$sm;
+  margin-top: spacing.$sm;
+  margin-bottom: spacing.$sm;
+
+  &.collapsed {
+    .reading-list-content {
+      display: none;
+    }
+
+    .reading-list-caret {
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+.reading-list-header {
+  display: flex;
+  align-items: center;
+  gap: spacing.$sxs;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+
+  &:hover {
+    .reading-list-title {
+      color: colors.$dark-green;
+    }
+  }
+}
+
+.reading-list-caret {
+  font-size: fonts.$s3;
+  color: colors.$text;
+  transition:
+    transform 0.3s ease,
+    color 0.2s ease;
+}
+
+.reading-list-icon {
+  width: 28px;
+  height: 28px;
+  color: colors.$text;
+}
+
+.reading-list-title {
+  font-family: fonts.$body;
+  font-size: fonts.$s3;
+  font-weight: 400;
+  color: colors.$text;
+  transition: color 0.2s ease;
+}
+
+.reading-list-content {
+  font-family: fonts.$body;
+  font-size: fonts.$s0;
+  line-height: 1.7;
+  margin-top: spacing.$ss;
+
+  p,
+  ul,
+  li {
+    margin: spacing.$sxs 0;
+  }
+
+  a {
+    color: colors.$dark-green;
+    text-decoration: underline;
+    text-decoration-color: colors.$extra-light-green;
+    text-underline-offset: 2px;
+
+    &:hover {
+      text-decoration-color: colors.$dark-green;
+    }
+  }
+}
+
+// ===== SECTION WRAPPERS =====
+.research-section {
+  // Break out of container to full viewport width
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  box-sizing: border-box;
+  padding: spacing.$sl 10vw;
+
+  .footnote-ref {
+    font-size: fonts.$s-1;
+  }
+
+  .footnote-ref-wrapper {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  hr {
+    margin: 3rem 0;
+  }
+
+  h1 {
+    font-size: fonts.$s8;
+    font-family: fonts.$header;
+    margin-bottom: 0 !important;
+    line-height: 90%;
+  }
+
+  h2 {
+    font-size: fonts.$s5;
+  }
+
+  h3 {
+    font-size: fonts.$s3;
+  }
+
+  h2,
+  h3 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  // Constrain text content width and center
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  blockquote,
+  hr,
+  img,
+  .footnote-ref-wrapper,
+  .big-questions-box,
+  .reading-list-box,
+  .topic-badge {
+    max-width: min(80vw, 800px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Badge container for multiple badges side by side
+  div[style*='flex']:has(.topic-badge) {
+    max-width: min(80vw, 800px);
+    margin-left: auto;
+    margin-right: auto;
+
+    .topic-badge {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+
+  // Ensure images scale down on narrow screens
+  img {
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  @include mixins.screen(mobile) {
+    padding: spacing.$sm 5vw;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    blockquote,
+    hr,
+    img,
+    .footnote-ref-wrapper,
+    .big-questions-box,
+    .reading-list-box,
+    .topic-badge {
+      max-width: 90vw;
+    }
+  }
+
+  &-preamble {
+    background: #f4eee8;
+  }
+
+  &-spaces {
+    background: rgba(161, 181, 166, 0.25); // #A1B5A6 25% alpha
+  }
+
+  &-anthropology {
+    background: rgba(196, 174, 207, 0.25); // #C4AECF 25% alpha
+  }
+
+  &-health {
+    background: rgba(250, 150, 157, 0.25); // #FA969D 25% alpha
+  }
+
+  &-play {
+    background: rgba(251, 216, 151, 0.25); // #FBD897 25% alpha
+  }
+
+  &-dark {
+    background: colors.$text;
+
+    // Invert text colors for dark mode
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    strong,
+    span {
+      color: white;
+    }
+
+    .topic-badge-icon,
+    .topic-badge-label {
+      color: colors.$text;
+    }
+
+    a {
+      color: colors.$extra-light-green;
+
+      &:hover {
+        color: colors.$light-green;
+      }
+    }
+
+    // Adjust boxes for dark mode
+    .big-questions-box,
+    .reading-list-box {
+      border-color: rgba(255, 255, 255, 0.3);
+
+      .reading-list-caret,
+      .reading-list-icon {
+        color: colors.$text;
+      }
+
+      li,
+      p,
+      strong,
+      span,
+      a {
+        color: colors.$text;
+      }
+    }
+
+    .reading-list-box {
+      background-color: rgb(230, 238, 253);
+    }
+  }
+
+  &-default {
+    background: transparent;
+  }
+}
+
+.research-body {
+  header {
+    background-color: transparent;
+  }
+}

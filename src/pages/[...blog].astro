@@ -1,12 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../components/layout.astro';
-import '../sass/blog.scss';
-import '../sass/links.scss';
-import { MDLink } from '../components/links.tsx';
-import { components, ToDateString } from '../components/blog.tsx';
-import Comments from '../components/bluesky.tsx';
-import TableOfContents from '../components/toc/TableOfContents.tsx';
+import BlogLayout from '../components/BlogLayout.astro';
 
 export const prerender = true;
 export async function getStaticPaths() {
@@ -17,30 +11,6 @@ export async function getStaticPaths() {
   }));
 }
 const { entry } = Astro.props;
-const { Content } = await entry.render();
-const imgLink = entry.data.image
-  ? 'https://bencuan.me/img/' + entry.data.image
-  : 'https://bencuan.me/img/opengraph/og-banner.png';
 ---
 
-<Layout currPage={'blog'} title={entry.data.title} description={entry.data.description} image={imgLink}>
-  {
-    entry.data.hideTitle ? (
-      ''
-    ) : (
-      <>
-        <h1 class="blog-title">{entry.data.title}</h1>
-        <p class="blog-date" data-lastmod={entry.data.date.toISOString()}>
-          {ToDateString(entry.data.date, true)}
-        </p>
-        <p class="blog-description">{entry.data.description}</p>
-      </>
-    )
-  }
-
-  <div class="blog-content">
-    <Content components={{ ...components, a: MDLink }} />
-  </div>
-  <TableOfContents client:idle />
-  <Comments client:idle />
-</Layout>
+<BlogLayout entry={entry} currPage="blog" />
