@@ -363,28 +363,61 @@ $reading-list-border: colors.$text;
   img,
   .footnote-ref-wrapper,
   .big-questions-box,
+<<<<<<< Updated upstream
   .reading-list-box,
   .topic-badge {
+=======
+  .reading-list-box {
+    max-width: min(80vw, 800px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Badges need a wrapper to align with content
+  astro-island:has(.topic-badge) {
+    display: block;
+>>>>>>> Stashed changes
     max-width: min(80vw, 800px);
     margin-left: auto;
     margin-right: auto;
   }
 
   // Badge container for multiple badges side by side
+<<<<<<< Updated upstream
   div[style*='flex']:has(.topic-badge) {
+=======
+  .badge-row {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+>>>>>>> Stashed changes
     max-width: min(80vw, 800px);
     margin-left: auto;
     margin-right: auto;
 
+<<<<<<< Updated upstream
+=======
+    // Reset centering on astro-island wrappers and badges inside badge-row
+    astro-island {
+      display: contents;
+    }
+
+>>>>>>> Stashed changes
     .topic-badge {
       margin-left: 0 !important;
       margin-right: 0 !important;
     }
   }
 
+<<<<<<< Updated upstream
   // Ensure images scale down on narrow screens
   img {
     max-width: 100% !important;
+=======
+  // Ensure images scale down on narrow screens but respect inline max-width if smaller
+  img {
+>>>>>>> Stashed changes
     height: auto;
   }
 
