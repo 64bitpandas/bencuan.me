@@ -28,10 +28,11 @@
 
   @include mixins.screen('mobile') {
     // Mobile: header margin-top 1rem + margin-bottom 2rem + height 4rem = 7rem
-    height: calc(65vh - 7rem);
+    height: calc(100vh - 7rem);
     min-height: 400px;
     margin-top: -7rem;
     padding-top: 7rem;
+    background-position: 65% bottom;
   }
 }
 
@@ -287,6 +288,8 @@ $reading-list-border: colors.$text;
   font-size: fonts.$s0;
   line-height: 1.7;
   margin-top: spacing.$ss;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 
   p,
   ul,
@@ -299,6 +302,7 @@ $reading-list-border: colors.$text;
     text-decoration: underline;
     text-decoration-color: colors.$extra-light-green;
     text-underline-offset: 2px;
+    word-break: break-word;
 
     &:hover {
       text-decoration-color: colors.$dark-green;
@@ -316,6 +320,8 @@ $reading-list-border: colors.$text;
 
   .footnote-ref {
     font-size: fonts.$s-1;
+    line-height: 1.7;
+    display: block;
   }
 
   .footnote-ref-wrapper {
