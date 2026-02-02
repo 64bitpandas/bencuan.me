@@ -1,48 +1,72 @@
 import { CheckCircle, CircleHalf, XCircle } from '@phosphor-icons/react';
-import { Children, type ReactNode, isValidElement } from 'react';
+import { Children, type ReactNode, cloneElement, isValidElement } from 'react';
 import CollapsibleBox, { type CollapsibleBoxProps } from '../collapsible/CollapsibleBox';
 import './rubric.scss';
 
-// Recursively process text nodes to replace rubric markers with icons
-function processRubricContent(node: ReactNode): ReactNode {
-  if (typeof node === 'string') {
-    // Replace checkbox markers in text
-    if (node.includes('- [x]') || node.includes('- [/]') || node.includes('- [ ]')) {
-      const parts = node.split(/(-\s*\[[x\/\s]\])/g);
-      return parts.map((part, i) => {
-        if (part.match(/-\s*\[x\]/)) {
-          return <CheckCircle key={i} className="rubric-icon rubric-check" weight="fill" />;
-        } else if (part.match(/-\s*\[\/\]/)) {
-          return <CircleHalf key={i} className="rubric-icon rubric-half" weight="fill" />;
-        } else if (part.match(/-\s*\[\s\]/)) {
-          return <XCircle key={i} className="rubric-icon rubric-x" />;
-        }
-        // Remove completion date text
-        return part.replace(/\s*\[completion::\s*[\d-]+\]/g, '');
-      });
+// Process a string to replace checkbox markers with icons
+function processTextWithMarkers(text: string, keyPrefix: string): ReactNode[] {
+  const result: ReactNode[] = [];
+  // Match [x], [/], or [ ] at the start of text (after MDX strips the "- ")
+  const markerRegex = /^\[([x\/\s])\]\s*/;
+  const match = text.match(markerRegex);
+
+  if (match) {
+    const markerType = match[1];
+    const remainingText = text.slice(match[0].length);
+
+    if (markerType === 'x') {
+      result.push(<CheckCircle key={`${keyPrefix}-icon`} className="rubric-icon rubric-check" weight="fill" />);
+    } else if (markerType === '/') {
+      result.push(<CircleHalf key={`${keyPrefix}-icon`} className="rubric-icon rubric-half" weight="fill" />);
+    } else {
+      result.push(<XCircle key={`${keyPrefix}-icon`} className="rubric-icon rubric-x" weight="fill" />);
     }
-    // Remove completion date from any text
-    return node.replace(/\s*\[completion::\s*[\d-]+\]/g, '');
+
+    if (remainingText) {
+      result.push(remainingText);
+    }
+    return result;
+  }
+
+  // Also check for inline markers like "- [x]" that might not be at the start
+  if (text.includes('[x]') || text.includes('[/]') || text.includes('[ ]')) {
+    const parts = text.split(/(\[[x\/\s]\])/g);
+    return parts.map((part, i) => {
+      if (part === '[x]') {
+        return <CheckCircle key={`${keyPrefix}-${i}`} className="rubric-icon rubric-check" weight="fill" />;
+      } else if (part === '[/]') {
+        return <CircleHalf key={`${keyPrefix}-${i}`} className="rubric-icon rubric-half" weight="fill" />;
+      } else if (part === '[ ]') {
+        return <XCircle key={`${keyPrefix}-${i}`} className="rubric-icon rubric-x" weight="fill" />;
+      }
+      return part;
+    });
+  }
+
+  return [text];
+}
+
+// Recursively process text nodes to replace rubric markers with icons
+function processRubricContent(node: ReactNode, keyPrefix = 'rubric'): ReactNode {
+  if (typeof node === 'string') {
+    const processed = processTextWithMarkers(node, keyPrefix);
+    return processed.length === 1 ? processed[0] : processed;
   }
 
   if (isValidElement(node)) {
     const element = node as React.ReactElement<{ children?: ReactNode }>;
     const children = element.props.children;
     if (children) {
-      const processedChildren = Children.map(children, child => processRubricContent(child));
-      // Clone with processed children - use type assertion for the cloneElement call
-      return {
-        ...element,
-        props: {
-          ...element.props,
-          children: processedChildren,
-        },
-      };
+      const processedChildren = Children.map(children, (child, index) =>
+        processRubricContent(child, `${keyPrefix}-${index}`),
+      );
+      // Clone element with processed children
+      return cloneElement(element, {}, processedChildren);
     }
   }
 
   if (Array.isArray(node)) {
-    return node.map(child => processRubricContent(child));
+    return node.map((child, index) => processRubricContent(child, `${keyPrefix}-${index}`));
   }
 
   return node;

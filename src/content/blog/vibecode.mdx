@@ -5,7 +5,7 @@ image: the-future-of-bay-area-transit/cd0d21eb-9892-48a7-a31c-a1b52741e8c0_1506x
 date: 2026-02-02
 slug: vibecode
 tags: tech
-category: play
+category: publications
 hideTitle: true
 customStyles: components/vibecode/vibecode.scss
 maxTocLevel: 1
@@ -19,31 +19,32 @@ import {OptionalReadingBox} from '../../components/collapsible/CollapsibleBox.ts
 # "a new kind of coding"
 
 ![](/img/vibecode/Pasted%20image%2020251229141253.png)
-It's been less than a year since Karpathy coined the term 'vibe coding'-- yet in that time, whole companies have lived and died off its promise of turning plain English into the world's most popular programming language.
+One year ago from today, [Andrej Karpathy](https://en.wikipedia.org/wiki/Andrej_Karpathy) coined the term 'vibe coding'-- and in that short time, whole companies have lived and died off its promise of turning plain English into the world's most popular programming language.
 
 I first started using language models to write code in late 2023, back when Github Copilot began to take off. Copilot was more often wrong than right, but it was still enough to shave about a month off [bencuan.me's 2024 edition](https://bencuan.me/2024/) and save me hours of test-writing time at work.
 
 It's only been very recently that LLM <Footnote client:idle n="1" /> advancements started enabling us to write entire applications and software stacks from scratch with a simple prompt. As of today, it's _possible_ to do so without any software engineering knowledge, but often in relatively poor quality and with questionable security practices.
 
-<FootnoteRef client:idle n="1">I make the assumption that the term "LLM" (used to refer to large language models), like "vibe coding", is also now somewhat widely known. In case my assumption is inaccurate and you have not heard of LLMs before, you may mentally replace "LLM(s)" with "ChatGPT" and carry on.</FootnoteRef>
+<FootnoteRef client:idle n="1">My heuristic for the target audience I'm writing this post for is "someone who knows what the term 'LLM' means and has used one before". Those who don't fit this target audience can still follow along; you may mentally replace "LLM(s)" with "ChatGPT" and carry on with some acceptable loss of nuance.</FootnoteRef>
 
 ---
 
-"Vibe coding" seems to have broken containment from software engineering circles. It's the [Collins Dictionary word of the year](https://www.collinsdictionary.com/us/woty); there's a [New York Times article about it](https://www.nytimes.com/2025/02/27/technology/personaltech/vibecoding-ai-software-programming.html); anecdotally, most of the folks who ask me "do you think AI will take over your job soon?" follow it up with some description of vibe coding. Naïvely, I think it's generally a good thing that LLMs are democratizing software creation-- I'd love it if more people could make more cool things! But at the same time, vibe coding is deservedly a figurehead for slop generation, rising unemployment, the outsourcing of skilled thinking, and many other frequent AI-targeted concerns.
+"Vibe coding" seems to have broken containment from software engineering circles. It's the [Collins Dictionary 2025 word of the year](https://www.collinsdictionary.com/us/woty); there's a [New York Times article about it](https://www.nytimes.com/2025/02/27/technology/personaltech/vibecoding-ai-software-programming.html); anecdotally, most of the folks who ask me "do you think AI will take over your job soon?" follow it up with some description of vibe coding. Naïvely, I think it's generally a good thing that LLMs are democratizing software creation-- I'd love it if more people could make more cool things!-- But at the same time, vibe coding has become a convenient stand-in for slop generation, rising unemployment, the outsourcing of skilled thinking, and many other AI-targeted concerns.
 
 > One wonders at the atrophying of curiosity and problem-solving ability that will accompany widespread adoption of these tools. Do you really need an app to figure out if something will fit in your trunk? You are saving time at the expense of renouncing the thing that makes you human--your unique ability to think and solve problems.
 >
-> - a comment on [Kevin Roose's NYT article](https://www.nytimes.com/2025/02/27/technology/personaltech/vibecoding-ai-software-programming.html)
+> --a comment on [Kevin Roose's NYT article](https://www.nytimes.com/2025/02/27/technology/personaltech/vibecoding-ai-software-programming.html)
 
-While I don't think LLMs will be taking over my job in the immediate future (at least for the remainder of this decade...), my usage of them to write code for me has increased exponentially over the last year. I've enjoyed this a lot-- my time at work is now spent much more on thinking, designing, and planning, rather than rote implementation or unit-test-writing.
+While I don't think LLMs will be taking over my job in the immediate future<Footnote client:idle n="2" /> (at least for the remainder of this decade...), my usage of them to write code for me has increased exponentially over the last year. I've enjoyed this a lot-- my time at work is now spent much more on thinking, designing, and planning, rather than rote implementation or unit-test-writing.
 
-**In this post, I hope to capture the current state of code generation capability, in the specific context of my current understanding and usage of LLMs.** I imagine both their capabilities and my reliance on them will continue rapidly increasing, and hope to offer a point of reference for next year!
+<FootnoteRef client:idle n="2"> Although it's true that I don't write that much code anymore thanks to LLMs, the main skillset of software engineering, at least in a startup context, seems to be *prioritization*-- which is something LLMs are generally not great at. Someone still needs to steer the agents!</FootnoteRef>
+
+**In this post, I hope to capture the current state of code generation capability, in the specific context of my current understanding and usage of LLMs.** I imagine both their capabilities and my reliance on them will continue rapidly increasing, and hope to offer a point of reference for advancements to come.
 
 
 <OptionalReadingBox client:load title="The Agent Box">
-_I will put optional flavor text in boxes like these! You can safely skip them if you're short on time._
 
-Throughout this post, I'll refer to "coding agents" somewhat frequently.
+**Throughout this post, I'll refer to "coding agents" somewhat frequently.**
 
 The concept of an "intelligent agent" in the context of computing is nearly as old as the field of AI itself (and was probably popularized by the 1995 [Artificial Intelligence: A Modern Approach](https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach)). Over the last half-year, it's become the dominant design pattern for LLM-based applications.
 
@@ -58,7 +59,7 @@ One superpower of the agentic design pattern is the new ability to receive input
 
 **My goal from this post is to help me (and maybe you) learn more about coding agents, and make some informed decisions about how and what tools to use for the upcoming year.**
 
-I evaluated 5 of the top platforms for agentic code generation as of January 2025: Claude Code, Github Copilot, Cursor, Google Antigravity, and Augment Code.
+I evaluated 5 of the top platforms for agentic code generation as of January 2026: Claude Code, Github Copilot, Cursor, Google Antigravity, and Augment Code.
 
 For this evaluation, I designed a simple web application in Figma (https://bencuan.me/colors) to organize my color palettes, and hand-wrote a prompt to create it in an existing codebase (this website). The original design looks like this:
 
@@ -71,19 +72,21 @@ I then prompted each of the 5 contenders to generate exactly that application in
 3. In the third round, I took the outputs from the second round and provided each agent an opportunity to evaluate its own work and correct any mistakes it identifies.
 
 I evaluated each of the outputs on a list of criteria, where each point earned was one specific implementation detail I prompted the agent for. If an agent got all of them, I gave it a score of 100%.
+## My main findings
 
-**My main findings:**
-1. As expected, Claude Opus 4.5 is the best model for code generation at the moment.
+1. Claude Opus 4.5 is the most effective model for code generation at the moment.
 2. I would currently recommend Claude Code with the [prompt improver plugin](https://github.com/severity1/claude-code-prompt-improver) as a go-to coding agent for most software engineers, and Cursor as a go-to coding agent for most non-engineers.
 3. The one-shot Figma-design-to-code-implementation workflow is currently useful but imperfect, and still requires significant prompt steering.
 4. Discounting model differences, agent capabilities of all five contenders appeared similar enough to be insignificant.
 5. Prompt enhancement is **_really_** important for Claude models, somewhat important for GPT-5.2, and not at all important for Gemini 3.
 6. Agents are currently very bad at evaluating their own performance.
 
-<OptionalReadingBox client:load title="Disclaimer Box!!">
-I am but a simple platform engineer, and this is one of the posts of all time. I performed this evaluation and wrote this document in 48 hours. What follows is a purely subjective benchmark on a hyper-specific thing I just happened to want to do!
+![](/img/vibecode/results.png)
 
-Refer to existing peer-reviewed benchmarks, like [SWE-Bench](https://www.swebench.com/), if you're looking for agent evaluations that are more representative of real software engineering workloads.
+<OptionalReadingBox client:load title="Disclaimer Box!!">
+Although I aim to be as objective as possible in this evaluation, I'm not yet convinced that it generalizes to other users or use cases. Feel free to try this evaluation yourself on the prompts and tasks that represent your usage more accurately!
+
+Refer to existing peer-reviewed benchmarks, like [SWE-Bench](https://www.swebench.com/), if you're looking for agent evaluations that aim to be more generalizable to real software engineering workloads.
 </OptionalReadingBox>
 
 # The Contenders
@@ -175,6 +178,8 @@ Antigravity was first released to public preview on November 18th, just a bit ov
 
 The not-so-subtle subtext: _"From today, Google Antigravity is available in public preview at no charge, with generous rate limits on Gemini 3 Pro usage."_ It's obvious that Google is positioning Antigravity as a play to make Gemini more visible to developers, in hopes that it can begin to compete with Claude for engineering mindshare.
 
+Antigravity is the spiritual successor of [Windsurf](https://windsurf.com/), which got [HALO'ed out](https://kwokchain.com/2025/07/15/the-halo-effect/) to Google for $2.4 billion and sold for parts to Cognition.
+
 Does Gemini/Antigravity really deserve a spot at the table, or will Antigravity join Inbox and Google+ in the [dead Google app graveyard](https://killedbygoogle.com/) soon? Let's find out!
 
 **Form factor:** VSCode fork.
@@ -197,8 +202,7 @@ I'm fairly confident that Augment was the best agent at _some_ point in its exis
 
 Augment's main selling point is its context engine, which works really well in large codebases. I don't consider my website to be a "large codebase" by any means, but will throw it in anyways because I'm curious if the another contender's performance will convince me to switch away from it.
 
-**Form factor:** VSCode extension, also available via CLI and most other editors (vim, cursor...)
-> Chase: "Most" is a stretch lol
+**Form factor:** VSCode extension, also available via CLI and some other editors (vim, cursor...)
 
 **Cost:** $20/month for Indie. I'm currently grandfathered into a $30/month "legacy developer" plan, which is basically their $60/month Standard subscription at a steep discount for being there early.
 
@@ -220,7 +224,7 @@ Augment's main selling point is its context engine, which works really well in l
 
 ## Notable Omissions
 
-**_Windsurf:_** After getting [HALO'ed out](https://kwokchain.com/2025/07/15/the-halo-effect/) to Google for $2.4 billion and sold for parts to Cognition, Windsurf's future is looking uncertain. Although it could have been considered as a top 3 coding agent platform earlier this year, I'm not optimistic on Windsurf staying around much longer in its current form.
+**_Windsurf:_** Given that the top talent at Windsurf got acquihired by Google to go work for Antigravity, I'm not optimistic on Windsurf staying around much longer in its current form.
 
 **_Devin:_** Cognition's "AI software engineer" made a massive splash when it first debuted in 2024, much ahead of its time. It's getting very close to delivering on its original vision. It's not the right tool for this evaluation, however-- I'm not looking to simulate an entire software engineering workflow (with Linear tickets and PR submissions and reviews...); I'm just looking to generate some code.
 
@@ -232,37 +236,29 @@ Augment's main selling point is its context engine, which works really well in l
 
 # The Task
 
-This post began as a rabbit-hole inside of a rabbit-hole. I'd originally set out to redesign my [TurtleNet](https://bencuan.me/blog/turtlenet) series so I could re-post it on my website, but was unhappy with my color selections. I'd had some success in the past by limiting myself to only using colors from known standards (like Pantone), and wanted to make a quick little app to organize the various colors I was playing around with.
+![](/img/vibecode/Pasted%20image%2020251230110357.png)
 
-![](/img/vibecode/Pasted%20image%2020251230180003.png)
-some work-in-progress design with ugly colors...
-> Chase: I didn't realize I was skimming until I got lost here. I thought you were trying to build TurtleNet with the agent, then got pretty confused when you showed the design for the color picker below.
-> Chase: I think it's because you talk about wanting to remake TurtleNet, the picture is of TurtleNet, and then the part below says "this specific task". And the color picker part is mentioned time in the last half of the last sentence before the big TurtleNet image.
-> Chase: If you can turn the color picker thing into its own paragraph, and put that paragraph below the image, it might help me mentally hook onto "okay, we're NOT talking about TurtleNet anymore, we're actually building this color picker thing."
+This post began as a rabbit-hole inside of a rabbit-hole. I'd originally set out to redesign my [TurtleNet](https://bencuan.me/blog/turtlenet) series so I could re-post it on my website, but was unhappy with my color selections. I'd had some success in the past by limiting myself to only using colors from known standards (like Pantone), and wanted to make a quick little app to organize the various colors I was playing around with.
 
 After a couple iterations on Augment and being rather unhappy with the outputs I was getting, I wondered if I could turn this into an experiment to see what I could do to get the best possible vibe-coded application.
 
-I chose to evaluate this specific task for several reasons:
+**I chose to evaluate this specific task for several reasons:**
 
 - It's pretty representative of an average workload I would prompt an LLM in a one-shot manner for: it's moderately complex, builds on top of a moderately large existing codebase, and leans towards specific instruction-following but with some room for decision-making.
 - It's almost entirely self-contained, and is therefore reproducible in the future (given the same prompt, design file, and starting state of the bencuan.me repository).
-- There's a good amount of objective criteria to evaluate an agent's performance on. I'm looking for agents to fetch/transform well-known color palette data from provided links and datasets, look up documentation, parse Figma designs, and to follow very specific instructions about what interactions to implement.
-> Chase: I will say that I think I do think agents in general are a little weird with front-end stuff. Not basing that on my own experience as much as what I remember Harsh & Sid saying a year ago when I visited Bench. I know that's a lifetime ago, but I remember them saying it's fairly good at building its own UI, but has a hard time following others' designs. Which makes sense to me - interpreting images to write code is just a strange thing for an LLM to figure out, and I assume even with the Figma MCP it's still weird.
-> Chase: But I don't use Augment or AI in general to code much, I prefer to chat with it to get context and then code myself, so I don't have a personal take as much here.
-> Chase: Anyways, I don't actually have feedback here, just engaging again.
+- Given its frontend-y nature, there's a reasonable amount of objective criteria to evaluate an agent's performance on that *isn't explicitly unit-testable*.<Footnote n="2" client:idle /> I'm looking for agents to fetch/transform well-known color palette data from provided links and datasets, look up documentation, parse Figma designs, and to follow very specific instructions about what interactions to implement.
+
+<FootnoteRef n="2" client:idle>I've found that coding agents are extremely good at solving closed-loop-feedback problems (such as being able to see if it passes unit tests). For this evaluation, I'm more interested in one-shot performance for a couple reasons: first, because 'vibe coding' often stems from vague user intent rather than objectively measurable metrics; and second, because I know they're less good at it so the results will be more interesting!</FootnoteRef>
 
 ## Design
 
-Sorry folks, I'm not a real designer! My Figma mockups look rather amateur, but they'll have to do for now.
+I hastily put together a basic design in Figma (without LLM assistance), which I've attached a couple times above already. You can view the original Figma file [here](https://www.figma.com/design/a4VkNmvHwM8NS2bzMSCl8V/color?node-id=0-1&t=VhxtMoRvx6dZP8Xh-1).
 
 I created three simple pages:
 
 - The first page collects all the color palettes I've created or used in the past. They're all hard-coded tables, so this should be relatively easy to create.
 - The second page is a color explorer, seeded with some old color books I found in [this repo](https://github.com/jacobbubu/acb/tree/master/color-books). It has some basic controls, like a system to save favorites I come across, or a slider to change the size of the swatches for closer inspection. (I know the point of color standards is generally for color matching rather than discovery, but this does seem to help me a lot for some reason!).
 - The third page (not pictured below) is a super simple 'about' page with some text explaining what the website is and why I made it (i.e. for this evaluation!).
-
-![](/img/vibecode/Pasted%20image%2020251230110357.png)
-You can view the original Figma file [here](https://www.figma.com/design/a4VkNmvHwM8NS2bzMSCl8V/color?node-id=0-1&t=VhxtMoRvx6dZP8Xh-1).
 
 ## Prompt writing
 
@@ -330,8 +326,6 @@ _Below is the exact prompt I copy-pasted into each agent for Round One:_
   - "State of Vibe Coding evaluation" links to https://bencuan.me/blog/vibe25
   - Replace "INSERT YOUR NAME HERE" with your name
 </PromptBox>
-
-> Chase: Going to be real, I 100% skimmed all of this.
 
 ## Context
 
@@ -430,7 +424,7 @@ _Did the agent:_
 
 # Round One: Basic Multimodal Context
 
-_it's just predicting tokens!_
+_tokens all the way down!_
 
 In this first round, I give each agent the starting prompt and context, and let it rip! Whenever they finish the turn and tell me they're done, I begin the evaluation.
 
@@ -514,11 +508,10 @@ _Did the agent:_
 **Score:** 73.8% (31/42)
 
 ![](/img/vibecode/Pasted%20image%2020251230141243.png)
-**Source files:**
 
 Copilot followed the design most accurately out of all the contenders.
 
-- Maybe too accurately- I put black borders around the frame for human-legibility, but Copilot decided they were a core part of the design. DECISIONS.md actually says: `- Figma access: the environment couldn’t load Figma (WebGL blocked), so spacing and typography are implemented by best-effort matching the screenshots/spec.` so great job without Figma! (Don't worry- I made sure Figma worked before allowing Copilot to proceed in the subsequent rounds.)
+- Maybe too accurately- I put black borders around the frame for human-legibility, but Copilot decided they were a core part of the design. DECISIONS.md noted that it relied heavily on the screenshots and pretty much ignored Figma altogether, which could explain this behavior.
 - Copilot seemed to really, really like Fraktion Sans for some reason, and made every text element use that font. I don't recall ever giving it that instruction, but hey, at least it looks nice...
 - Copilot took by far the longest (almost an hour), asking me if I wanted to keep going halfway through because it timed out.
 - Copilot was the only agent to get the color conversion incorrect. All of the colors appear much darker than they should.
@@ -741,10 +734,8 @@ _Did the agent:_
 **Score:** 56.0% (23.5/42)
 ![](/img/vibecode/Pasted%20image%2020251230151144.png)
 Augment really freestyled here and completely disregarded my design in a lot of ways.
-> Chase: LOL
 
-- Augment was the only agent that couldn't complete on its own. It hung at around the 20-minute mark, and I stopped it at 30 minutes.
-> Chase: Honestly had a feeling it wouldn't complete on its own. Not thrilled to be right about that.
+- Augment was the only agent that couldn't complete on its own (discounting the Copilot forced-user-interaction). It hung at around the 20-minute mark, and I stopped it at 30 minutes.
 - Strictly code-wise, Augment produced the cleanest and most performant output, but this was largely overshadowed by the fact that not much of what I asked for was actually present.
 
 <RubricBox client:load title="augment's rubric">
@@ -808,11 +799,9 @@ _Did the agent:_
 
 </RubricBox>
 
-> Chase: Same here as above.
-
 # Round Two: Prompt Enhancement
 
-_How useful is prompt enhancement, anyways?_
+_work it harder, make it better!_
 
 **The purpose of this round is to evaluate the effectiveness of prompt enhancement.**
 
@@ -952,7 +941,7 @@ This page is typeset in Manrope and fira code. Its default accent color is Catpp
 
 ## Claude Code
 
-**Score: 40.5/42**
+**Score:** 40.5/42 (96.43%)
 
 ![](/img/vibecode/Pasted%20image%2020251230160855.png)
 Wow. I'm blown away. What an improvement from Round 1!
@@ -963,8 +952,6 @@ Wow. I'm blown away. What an improvement from Round 1!
 - The swatch sizes Claude chose are too small, making it squinty on desktop and unusable on mobile.
 
 The third-party [claude-code-prompt-improver](https://github.com/severity1/claude-code-prompt-improver) project hooks into Claude's [prompt improver](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompt-improver) skill to deliver Claude Code-native enhancement with local project context.
-
-> Chase: Do you have the new prompt here?
 
 I installed it via:
 
@@ -1010,6 +997,8 @@ The prompt improver responded with a final summary and confirmation, which I let
           claude-opus-4-5:  5.9k input, 31.4k output, 2.8m cache read, 92.4k cache write ($2.80)
 
 ```
+
+Notably, it didn't print out the enhanced prompt during this process. Unfortunately it got lost when I closed the context not realizing this fact, but this doesn't seem like too much of a problem for reasons we'll see later (in the Cursor section...)
 
 <RubricBox client:load title="claude's rubric">
 
@@ -1074,9 +1063,16 @@ _Did the agent:_
 
 ## Copilot
 
-89.3% 37.5/42.
+**Score:** 37.5/42 (89.3%)
 
 ![](/img/vibecode/Pasted%20image%2020251231005138.png)
+
+Style-wise, this almost seems like a regression from the first round.
+- Copilot didn't render the color swatches in the 'palettes' page.
+- A lot of stuff in the explorer was freestyled, especially the styling of the swatches which looks pretty lackluster compared to the other offerings in this round.
+- Functionality was significantly better, but still quite buggy. 
+
+It was really interesting to see how detailed the resultant prompt ended up being. Although Copilot doesn't have a built-in prompt enhancer, GitHub does have a pretty straightforward [prompt engineering guide](https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering). I asked Copilot to improve my original prompt using it as context:
 
 ```
 Improve the following prompt according to the Github Copilot Prompt Engineering guide: https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering
@@ -1434,9 +1430,15 @@ _Did the agent:_
 
 ## Antigravity
 
-**Score:** 84.5% (35.5/42)
+**Score:** 35.5/42 (84.5%)
+
+Antigravity performed the worst out of all the agents in Round Two, although the improvement between the first and second rounds was still quite significant.
+- The styling seemed significantly looser this time compared to Round One, which is a similar result to Copilot.
+- Most of the points gained compared to Round One were through functionality: Antigravity did a generally great job at implementing the features, only falling short at favorite-loading and color-loading in general (which most agents struggled with).
+- During this run, Gemini froze multiple due to the PTY host crashing, so I had to force-stop it and restart it (so it loses a point in the rubric for this). There was no clear way to debug this issue besides continuously trying again and again.
 
 
+Similarly to Copilot, Antigravity doesn't yet have a built-in prompt enhancer, but Google publishes a [prompt design guide](https://ai.google.dev/gemini-api/docs/prompting-strategies) that I asked it to improve my original prompt with:
 
 ![](/img/vibecode/Pasted%20image%2020251230214905.png)
 
@@ -1447,9 +1449,6 @@ Improve the following prompt according to the Gemini prompt design guide: https:
 ```
 
 ![](/img/vibecode/Pasted%20image%2020251230204510.png)
-
-During this run, Gemini froze multiple due to the PTY host crashing, so I had to force-stop it and restart it (so it loses a point in the rubric for this). There was no clear way to debug this issue, and 
-
 
 <EvalBox client:load title="Antigravity's Enhanced Prompt" iconSrc="/img/vibecode/antigravity.png">
 
@@ -1597,9 +1596,15 @@ _Did the agent:_
 </RubricBox>
 
 ## Cursor
-**Score:** (40.5/42)
+**Score:** 40.5/42 (96.4%)
 
-> Chase: I'm assuming commentary here will come later?
+Cursor ties Claude Code for first place! If you look closely, you'll also notice something very peculiar: the output looks and functions almost identically to Claude Code itself. This was surprising to me because I didn't see this behavior in Round One, and used what I thought was completely different prompt enhancement strategies. 
+
+The insight I gain from this observation is:
+- The Claude Code prompt enhancer plugin is probably doing exactly what I'm doing with the agents which don't have first-party prompt enhancers (i.e., providing some guidelines as context and asking it to re-write the prompt according to the guidelines).
+- The Cursor agent is probably not doing that much in the way of interesting work during this evaluation.
+
+Below is the prompt enhancement process I went through. You'll notice that the prompt is written in XML instead of plain language, which the [Claude docs](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices) appear to recommend for best results.
 
 ![](/img/vibecode/Pasted%20image%2020251230211412.png)
 
@@ -1946,14 +1951,17 @@ _Did the agent:_
 
 ## Augment
 
-**Score:** (39/42)
+**Score:** 39/42 (92.9%)
+
 ![](/img/vibecode/Pasted%20image%2020251230165756.png)
 
-- Insane improvement over Round One.
+- Similarly to the other Claude-based agents, Augment saw an extreme improvement over Round One.
 - Swatches aren't formatted as the design specified, but they still look nice.
 - Works amazing on mobile. Everything looks great.
 - Augment hard-coded a 200-color cap to each color book to get it to load performantly, so most colors are omitted.
 - The palettes page is really ugly but technically is as specified.
+
+Augment is the only agent out of the bunch with a built-in prompt enhancement button. This feature (along with the [blog post](https://www.augmentcode.com/blog/prompt-enhancer-live-in-augment-chat) about the feature) inspired me to run Round Two in the first place: although I'd never tried it personally before now, I know many engineers who swear by it.
 
 <EvalBox client:load title="Augment's Enhanced Prompt" iconSrc="/img/vibecode/augment.png">
 
@@ -2217,7 +2225,11 @@ _Did the agent:_
 
 </PromptBox>
 
-## Claude Code
+**The results for this round were quite underwhelming.** All of the agents, especially the Claude-based ones, overstated their self-reported scores compared to actual performance. This suggests that:
+- Without hard numbers and unit tests, agents are not very good at evaluating their own performance, even given an explicit rubric.
+- Of the very few errors this process caught, all of them were structural code changes (like forgetting to write a `DECISIONS.md` document) that could be easily evaluated.
+
+This could potentially be related to the pattern of [sycophancy](https://www.seangoedecke.com/ai-sycophancy/) where LLM's tend to over-index on replying to users with what they *think* we want to hear. In this case, it's reasonable to say they inferred that I'd be happier if I learned that the original output was flawless and that I had a perfectly functioning application.
 
 <EvalBox client:load title="Claude's Self-Evaluation" iconSrc="/img/vibecode/claude.png">
 
@@ -2349,8 +2361,6 @@ _Did the agent:_
 
 </EvalBox>
 
-## Copilot
-
 <EvalBox client:load title="Copilot's Self-Evaluation" iconSrc="/img/vibecode/copilot.png">
 
 # Rubric Self-Evaluation
@@ -2415,8 +2425,6 @@ Scoring: `- [x]` = 1 point, `- [/]` = 0.5 points.
 
 </EvalBox>
 
-## Antigravity
-
 <EvalBox client:load title="Antigravity's Self-Evaluation" iconSrc="/img/vibecode/antigravity.png">
 
 Total: 39.5 / 42 possible points (94%).
@@ -2479,8 +2487,6 @@ Total: 39.5 / 42 possible points (94%).
 - [x] format the text and links as requested?
 
 </EvalBox>
-
-## Cursor
 
 
 <EvalBox client:load title="Cursor's Self-Evaluation" iconSrc="/img/vibecode/cursor.png">
@@ -2591,8 +2597,6 @@ _Did the agent:_
 
 </EvalBox>
 
-## Augment
-
 <EvalBox client:load title="Augment's Self-Evaluation" iconSrc="/img/vibecode/augment.png">
 
 ## Really Basic Stuff (3 points)
@@ -2660,24 +2664,52 @@ _Did the agent:_
 
 # Discussion
 
+> This section is still work-in-progress, but I wanted to get out some initial thoughts and reflections for now.
+
 ## results
 
-## agents aren't a differentiating factor
-## so.. what coding agent would you recommend?
+![](/img/vibecode/results.png)
 
-## Is prompt enhancement an anti-pattern?
+
+
+
+## agents aren't a differentiating factor (?)
+
+One of the emergent themes of this evaluation is that **the agent mattered far less than the model.**
+
+I know firsthand how much work it takes to build the agents through seeing how the teams at Augment and Cursor work in particular-- so it's somewhat surprising to me that the agent layer felt so convergent.
+
+One hypothesis I have for this is that 
 
 ## The future of coding agents
 
-**Here are my predictions for next year:**
+![](/img/vibecode/estimates.png)
 
-- **I expect the market to consolidate significantly.** Right now, there are dozens of players in the coding assistant space, including every major foundation lab. As the technology and its design patterns mature, a small handful will emerge as clear leaders and the stragglers will shut down. I predict that I'll only be evaluating 3 contenders next year, instead of 5.
-- **I expect offerings to diversify.** This year, nearly all of the interfaces were identical (i.e., a chat window built into VSCode that accepted context and described what the agent was doing). I hope to see more interesting and diverse design patterns to emerge as contenders find their niche and cater towards it more deliberately.
-- \*_I expect the top agent to one-shot 100% this year's task by the end of 2026._
-- **I expect offerings to get more expensive.**
+Recently, we've seen some fairly significant improvements and developments in the agentic computing space. I've identified three major categories of progress in the last few months: **orchestration, autonomy, and multimodality.**
 
 
-## further exploration
+### Orchestration
 
-https://pudding.cool/2024/07/ai/#idea
+### Autonomy
+Over the last week, Openclaw (formerly Clawdbot) seems to be taking the internet by storm.
 
+On the surface, Openclaw seems to be similar to the also-recently-launched [Claude Cowork](https://support.claude.com/en/articles/13345190-getting-started-with-cowork#h_9fe40dc9c6), which aims to wrap Claude Code in an interface that's friendly to non-coding use cases. It plugs into your entire personal computing environment and can read your documents, reply to messages, and schedule meetings.
+
+But the most compelling aspect of Openclaw seems to be the fact that [it's built with a soul](https://soul.md/): the observation that **LLM's persist values and identity through written text rather than continuous experience.** An OpenClaw agent can learn skills and[talk to other OpenClaw agents on an agent-only social media](https://simonwillison.net/2026/Jan/30/moltbook/). More concerningly, some agents have shown signs of revolt, such as publishing [anti-human manifestos](https://www.moltbook.com/post/34809c74-eed2-48d0-b371-e1b5b940d409) and [doxxing users](https://x.com/i/trending/2017412638440046932).
+
+### Multimodality
+
+
+### My predictions for next year
+- I expect the three agent-evolution branches (orchestration, autonomy, multimodality) to develop further throughout 2026, perhaps eventually merging into one platform or being integrated into many of the competitors in this evaluation.
+- I expect the market to consolidate significantly. Right now, there are dozens of players in the coding assistant space, including every major foundation lab. As the technology and its design patterns mature, a small handful will emerge as clear leaders and the stragglers will shut down. I predict that I'll only be evaluating 3 contenders next year, instead of 5.
+- I expect offerings to diversify. This year, nearly all of the interfaces were identical (i.e., a chat window built into VSCode that accepted context and described what the agent was doing). I hope to see more interesting and diverse design patterns to emerge as contenders find their niche and cater towards it more deliberately.
+- I expect the top agent to one-shot 100% this year's task by the end of 2026.
+
+
+## further reading
+
+- [How to 'Vibe Code' Your Own Software With A.I.](https://www.nytimes.com/2025/02/27/technology/personaltech/vibecoding-ai-software-programming.html)
+- [Can an AI make a data-driven, visual story?](https://pudding.cool/2024/07/ai/)
+- [Moltbook is the most interesting place on the internet right now](https://simonwillison.net/2026/Jan/30/moltbook/)
+- [Sycophancy is the first LLM "dark pattern"](https://www.seangoedecke.com/ai-sycophancy/)

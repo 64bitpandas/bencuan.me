@@ -318,17 +318,6 @@ $reading-list-border: colors.$text;
   box-sizing: border-box;
   padding: spacing.$sl 10vw;
 
-  .footnote-ref {
-    font-size: fonts.$s-1;
-    line-height: 1.7;
-    display: block;
-  }
-
-  .footnote-ref-wrapper {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-
   hr {
     margin: 3rem 0;
   }

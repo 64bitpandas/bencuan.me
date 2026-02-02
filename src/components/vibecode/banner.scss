@@ -251,7 +251,6 @@ $crt-glow: rgba(0, 255, 65, 0.15);
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
     line-height: 1;
     letter-spacing: 0.15em;
-    text-decoration: none;
     border-bottom: none;
   }
 
@@ -259,6 +258,7 @@ $crt-glow: rgba(0, 255, 65, 0.15);
     font-family: fonts.$fraktion-mono;
     font-size: fonts.$s5;
     font-weight: 300;
+    text-decoration: none;
   }
 
   .banner-pretitle-2 {
@@ -266,6 +266,7 @@ $crt-glow: rgba(0, 255, 65, 0.15);
     font-size: fonts.$s7;
     font-weight: 700;
     color: white;
+    text-decoration: none;
   }
 
   .banner-subtitle {
@@ -275,24 +276,13 @@ $crt-glow: rgba(0, 255, 65, 0.15);
     align-items: flex-end;
     gap: 0;
     font-size: fonts.$s3;
-
-    @include mixins.screen(mobile) {
-      align-items: center;
-    }
-  }
-}
-
-.banner-author,
-.banner-date {
-  font-family: fonts.$header;
-  font-size: clamp(0.875rem, 1.5vw, 1.25rem);
-  font-style: italic;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.85);
-  display: block;
-
-  @include mixins.screen(mobile) {
-    font-size: clamp(0.7rem, 3vw, 1rem);
+    font-family: fonts.$header;
+    font-size: clamp(0.875rem, 1.5vw, 1.25rem);
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+    display: block;
+    font-size: fonts.$s1;
   }
 }
 
