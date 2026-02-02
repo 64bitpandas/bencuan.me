@@ -76,6 +76,8 @@
   }
 
   li {
+    margin-bottom: 0.3rem;
+
     p {
       margin-bottom: 0.7rem;
     }
@@ -96,6 +98,7 @@
   em {
     font-style: italic;
     font-weight: inherit;
+    font-weight: 300;
   }
 
   strong em,
@@ -276,6 +279,7 @@
 
 .footnote-ref {
   line-height: 1.7;
+  display: inline;
 }
 
 .footnote-ref-number {
@@ -291,6 +295,13 @@
   font-family: fonts.$body;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  display: block;
+  line-height: 1.7;
+}
+
+.footnote-ref {
+  line-height: 1.7;
+  display: block;
 }
 
 .visitors {

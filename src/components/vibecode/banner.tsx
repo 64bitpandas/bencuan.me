@@ -173,8 +173,8 @@ export default function VibeCodeBanner() {
         <h1 className="banner-pretitle">THE STATE OF</h1>
         <h1 className="banner-pretitle-2">VIBE CODING</h1>
         <p className="banner-subtitle">
-          <span className="banner-author">by ben cuan</span>
-          <span className="banner-date">february 2, 2026</span>
+          <div className="banner-author">by ben cuan</div>
+          <div className="banner-date">february 2, 2026</div>
         </p>
       </div>
     </div>
