@@ -15,6 +15,8 @@ interface Props {
       date?: Date;
       image?: string;
       hideTitle?: boolean;
+      customStyles?: string;
+      maxTocLevel?: number;
     };
     render: () => Promise<{ Content: any }>;
   };
@@ -47,6 +49,17 @@ const imgLink = entry.data.image
   : 'https://bencuan.me/img/opengraph/og-banner.png';
 
 const mergedComponents = { ...components, a: MDLink, ...extraComponents };
+
+// Dynamically import custom styles if specified
+// Uses import.meta.glob to create a map of all possible custom style files
+const customStyleModules = import.meta.glob<{ default: string }>('/src/**/*.scss', { eager: true, query: '?inline' });
+let customStylesContent = '';
+if (entry.data.customStyles) {
+  const stylePath = `/src/${entry.data.customStyles}`;
+  if (customStyleModules[stylePath]) {
+    customStylesContent = customStyleModules[stylePath].default;
+  }
+}
 ---
 
 <Layout
@@ -56,6 +69,7 @@ const mergedComponents = { ...components, a: MDLink, ...extraComponents };
   image={imgLink}
   bodyClass={bodyClass}
 >
+  {customStylesContent && <style set:html={customStylesContent} />}
   {
     entry.data.hideTitle ? (
       ''
@@ -75,6 +89,6 @@ const mergedComponents = { ...components, a: MDLink, ...extraComponents };
   <div class={`blog-content ${contentClass}`.trim()}>
     <Content components={mergedComponents} />
   </div>
-  {showToc && <TableOfContents client:idle />}
+  {showToc && <TableOfContents client:idle maxLevel={entry.data.maxTocLevel ?? 2} />}
   {showComments && <Comments client:idle />}
 </Layout>

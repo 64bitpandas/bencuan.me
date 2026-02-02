@@ -13,7 +13,7 @@ $crt-glow: rgba(0, 255, 65, 0.15);
 
 .vibecode-banner {
   position: relative;
-  height: 450px;
+  height: 50vh;
   background: $crt-bg;
   overflow: hidden;
   margin-top: spacing.$sxs;
@@ -28,7 +28,8 @@ $crt-glow: rgba(0, 255, 65, 0.15);
   border-radius: 0;
 
   @include mixins.screen(mobile) {
-    height: 380px;
+    // 100vh minus navbar height (approx 4rem + margins)
+    height: calc(100vh - 6rem);
     margin-top: spacing.$s3xs;
   }
 }
@@ -148,17 +149,14 @@ $crt-glow: rgba(0, 255, 65, 0.15);
   overflow-y: auto;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 0 0 8px 8px;
+  filter: blur(1.5px);
+  opacity: 0.6;
 
-  // Custom scrollbar
+  // Hide scrollbar
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE/Edge
   &::-webkit-scrollbar {
-    width: 6px;
-  }
-  &::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-  }
-  &::-webkit-scrollbar-thumb {
-    background: rgba(0, 255, 65, 0.3);
-    border-radius: 3px;
+    display: none; // Chrome/Safari
   }
 }
 
@@ -172,11 +170,11 @@ $crt-glow: rgba(0, 255, 65, 0.15);
   display: flex;
   gap: 8px;
   font-family: fonts.$code;
-  font-size: fonts.$s-1;
+  font-size: fonts.$s-2;
   line-height: 1.5;
 
   @include mixins.screen(mobile) {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
 
   &.user {
@@ -239,7 +237,10 @@ $crt-glow: rgba(0, 255, 65, 0.15);
   z-index: 15;
 
   @include mixins.screen(mobile) {
-    right: 5%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    transform: translateY(-50%);
   }
 
   h1 {
@@ -250,28 +251,35 @@ $crt-glow: rgba(0, 255, 65, 0.15);
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
     line-height: 1;
     letter-spacing: 0.15em;
+    text-decoration: none;
+    border-bottom: none;
   }
-}
 
-.banner-pretitle {
-  font-family: fonts.$ui;
-  font-size: fonts.$s3;
-  font-weight: 300;
-}
+  .banner-pretitle {
+    font-family: fonts.$fraktion-mono;
+    font-size: fonts.$s5;
+    font-weight: 300;
+  }
 
-.banner-pretitle-2 {
-  font-family: fonts.$ui;
-  font-size: fonts.$s4;
-  font-weight: 500;
-  color: white;
-}
+  .banner-pretitle-2 {
+    font-family: fonts.$fraktion-mono;
+    font-size: fonts.$s7;
+    font-weight: 700;
+    color: white;
+  }
 
-.banner-subtitle {
-  margin: 0.5rem 0 0 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0;
+  .banner-subtitle {
+    margin: 0.5rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+    font-size: fonts.$s3;
+
+    @include mixins.screen(mobile) {
+      align-items: center;
+    }
+  }
 }
 
 .banner-author,

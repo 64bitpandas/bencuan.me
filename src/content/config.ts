@@ -13,6 +13,10 @@ const blog = defineCollection({
     category: z.enum(['publications', 'play']),
     image: z.optional(z.string()),
     hideTitle: z.optional(z.boolean()),
+    /** Path to a custom SCSS file for this blog post (relative to src/) */
+    customStyles: z.optional(z.string()),
+    /** Maximum heading level to include in TOC (1-6, default: 2 for h1+h2) */
+    maxTocLevel: z.optional(z.number().min(1).max(6)),
   }),
 });
 

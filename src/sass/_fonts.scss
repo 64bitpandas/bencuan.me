@@ -239,6 +239,54 @@
 }
 
 @font-face {
+  font-family: FraktionMono;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Fraktion Mono/PPFraktionMono-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: FraktionMono;
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Fraktion Mono/PPFraktionMono-LightItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: FraktionMono;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Fraktion Mono/PPFraktionMono-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: FraktionMono;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Fraktion Mono/PPFraktionMono-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: FraktionMono;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Fraktion Mono/PPFraktionMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: FraktionMono;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Fraktion Mono/PPFraktionMono-RegularItalic.woff2') format('woff2');
+}
+
+@font-face {
   font-family: FiraCode;
   font-style: normal;
   font-weight: 300 700;
@@ -252,16 +300,17 @@ $ui: Fraktion, sans-serif;
 $special: Pangaia, sans-serif;
 $code: FiraCode, monospace;
 $manrope: Manrope, sans-serif;
+$fraktion-mono: FraktionMono, monospace;
 
 // calculated with https://fluidtypography.com/, 414-1280px viewport width
 $s-2: clamp(0.438rem, 0.577vw + 0.288rem, 0.75rem); // 7-12px
 $s-1: clamp(0.625rem, 0.577vw + 0.476rem, 0.938rem); // 10-15px
 $s0: clamp(0.813rem, 0.577vw + 0.663rem, 1.125rem); // 13-18px
 $s1: clamp(1rem, 0.577vw + 0.851rem, 1.313rem); // 16-21px
-$s2: clamp(1.188rem, 0.577vw + 1.038rem, 1.5rem); // 19-24px
-$s3: clamp(1.375rem, 0.577vw + 1.226rem, 1.688rem); // 22-27px
-$s4: clamp(1.563rem, 0.577vw + 1.414rem, 1.875rem); // 25-30px
-$s5: clamp(1.938rem, 0.577vw + 1.789rem, 2.25rem); // 31-36px
-$s6: clamp(2.125rem, 0.577vw + 2.063rem, 2.5rem); // 37-42px
-$s7: clamp(2.313rem, 0.577vw + 2.338rem, 2.75rem); // 48-56px
-$s8: clamp(2rem, 1.848vw + 2.522rem, 4rem); // 32-64px
+$s2: clamp(1.544rem, 0.82vw + 1.33rem, 2.25rem); // 24.7-36px (+30% mobile, +50% desktop)
+$s3: clamp(1.788rem, 0.86vw + 1.57rem, 2.531rem); // 28.6-40.5px (+30% mobile, +50% desktop)
+$s4: clamp(2.031rem, 0.9vw + 1.8rem, 2.813rem); // 32.5-45px (+30% mobile, +50% desktop)
+$s5: clamp(2.519rem, 1vw + 2.26rem, 3.375rem); // 40.3-54px (+30% mobile, +50% desktop)
+$s6: clamp(3.006rem, 1.08vw + 2.73rem, 3.938rem); // 48.1-63px (+30% mobile, +50% desktop)
+$s7: clamp(3.9rem, 1.56vw + 3.5rem, 5.25rem); // 62.4-84px (+30% mobile, +50% desktop)
+$s8: clamp(2.6rem, 3.93vw + 1.6rem, 6rem); // 41.6-96px (+30% mobile, +50% desktop)

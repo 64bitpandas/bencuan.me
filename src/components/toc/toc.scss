@@ -4,35 +4,38 @@
 @use '../../sass/mixins';
 
 .toc-sidebar {
-  // Hide on smaller screens and when not visible
+  // Hide on smaller screens
   display: none;
-  opacity: 0;
-  transform: translateX(20px);
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
 
   &.toc-visible {
-    opacity: 1;
-    transform: translateX(0);
+    @media (min-width: 1250px) {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
-  @include mixins.screen(desktop) {
+  @media (min-width: 1250px) {
     display: block;
     position: fixed;
     top: spacing.$sl;
-    right: calc((100vw - min(80vw, 1024px)) / 2 - 240px);
-    width: 220px;
+    right: 0;
+    // Dynamic width: available space between content and viewport edge, minus padding
+    // Content width is min(80vw, 1024px), centered, so gap on each side is (100vw - content) / 2
+    // Subtract padding (1rem) for breathing room
+    width: calc((100vw - min(80vw, 1024px)) / 2 - 1rem);
+    min-width: 180px;
+    max-width: 300px;
     max-height: calc(100vh - #{spacing.$sxl});
     overflow-y: auto;
     overflow-x: hidden;
     padding: spacing.$ss;
-    background: rgba(colors.$background, 0.95);
-    backdrop-filter: blur(8px);
-    border-left: 2px solid colors.$extra-light-green;
-    border-radius: 4px;
     z-index: 40;
     scroll-behavior: smooth;
+    opacity: 0;
+    transform: translateX(20px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
 
     // Custom scrollbar
     &::-webkit-scrollbar {
@@ -47,12 +50,6 @@
     &::-webkit-scrollbar-track {
       background: transparent;
     }
-  }
-
-  // Wider screens get more space
-  @media (min-width: 1400px) {
-    right: calc((100vw - min(80vw, 1024px)) / 2 - 300px);
-    width: 260px;
   }
 }
 

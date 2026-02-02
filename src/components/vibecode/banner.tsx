@@ -154,7 +154,6 @@ export default function VibeCodeBanner() {
             <span className="terminal-btn minimize" />
             <span className="terminal-btn maximize" />
           </div>
-          <div className="terminal-title">claude code</div>
         </div>
         <div className="terminal-content" ref={terminalContentRef}>
           <div className="messages-container">
@@ -175,7 +174,7 @@ export default function VibeCodeBanner() {
         <h1 className="banner-pretitle-2">VIBE CODING</h1>
         <p className="banner-subtitle">
           <span className="banner-author">by ben cuan</span>
-          <span className="banner-date">december 30, 2025</span>
+          <span className="banner-date">february 2, 2026</span>
         </p>
       </div>
     </div>
