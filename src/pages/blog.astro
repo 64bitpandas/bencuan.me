@@ -14,6 +14,15 @@ const allItems = collection.map(item => ({ ...item.data, slug: '/blog/' + item.s
 const publicationItems = allItems.filter(item => item.category === 'publications');
 const playItems = allItems.filter(item => item.category === 'play');
 
+// Add special "research syllabus" entry to Publications section
+const researchEntry = {
+  title: "ben's research syllabus",
+  date: new Date('2026-01-27'),
+  slug: '/research',
+  description: 'notes on wandering',
+};
+const publicationItemsWithResearch = [...publicationItems, researchEntry];
+
 // Add special "colors" entry to Play section
 const colorsEntry = {
   title: "ben's colors",
@@ -34,7 +43,7 @@ const playItemsWithColors = [...playItems, colorsEntry];
   <h2 class="blog-section-title">publications</h2>
   <SearchSortFilter
     sortCategories={['title', 'date']}
-    items={publicationItems}
+    items={publicationItemsWithResearch}
     type="blog"
     defaultSort={{ category: 'date', state: 'desc' }}
     client:load

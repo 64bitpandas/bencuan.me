@@ -2,11 +2,13 @@
 title: The State of Vibe Coding
 description: A reflection on AI-assisted development in 2025
 image: the-future-of-bay-area-transit/cd0d21eb-9892-48a7-a31c-a1b52741e8c0_1506x579.png
-date: 2025-12-31
+date: 2026-02-02
 slug: vibecode
 tags: tech
 category: play
 hideTitle: true
+customStyles: components/vibecode/vibecode.scss
+maxTocLevel: 1
 ---
 import VibeCodeBanner from '../../components/vibecode/banner.tsx';
 import {PromptBox, RubricBox, EvalBox} from '../../components/vibecode/boxes.tsx';
@@ -56,7 +58,7 @@ One superpower of the agentic design pattern is the new ability to receive input
 
 **My goal from this post is to help me (and maybe you) learn more about coding agents, and make some informed decisions about how and what tools to use for the upcoming year.**
 
-I evaluated 5 of the top platforms for agentic code generation as of December 2025: Claude Code, Github Copilot, Cursor, Google Antigravity, and Augment Code.
+I evaluated 5 of the top platforms for agentic code generation as of January 2025: Claude Code, Github Copilot, Cursor, Google Antigravity, and Augment Code.
 
 For this evaluation, I designed a simple web application in Figma (https://bencuan.me/colors) to organize my color palettes, and hand-wrote a prompt to create it in an existing codebase (this website). The original design looks like this:
 
@@ -734,8 +736,6 @@ _Did the agent:_
 
 </RubricBox>
 
-> Chase: What's with all the completion: December 30, 2025s?
-
 ## Augment
 
 **Score:** 56.0% (23.5/42)
@@ -1085,7 +1085,7 @@ Improve the following prompt according to the Github Copilot Prompt Engineering 
 ```
 
 
-<PromptBox client:load title="Copilot's Enhanced Prompt" iconSrc="/img/vibecode/copilot.png">
+<EvalBox client:load title="Copilot's Enhanced Prompt" iconSrc="/img/vibecode/copilot.png">
 
 You are an expert Astro + TypeScript developer working in an existing Astro site repo. Implement a new section of the site at:
 
@@ -1368,7 +1368,7 @@ Acceptance criteria for `/colors/about`:
 - Use Phosphor icons for copy/check/star as specified
 
 Implement in the exact order: palettes → explorer → about.
-</PromptBox>
+</EvalBox>
 
 
 <RubricBox client:load title="copilot's rubric">
@@ -1451,7 +1451,7 @@ Improve the following prompt according to the Gemini prompt design guide: https:
 During this run, Gemini froze multiple due to the PTY host crashing, so I had to force-stop it and restart it (so it loses a point in the rubric for this). There was no clear way to debug this issue, and 
 
 
-<PromptBox client:load title="Antigravity's Enhanced Prompt" iconSrc="/img/vibecode/antigravity.png">
+<EvalBox client:load title="Antigravity's Enhanced Prompt" iconSrc="/img/vibecode/antigravity.png">
 
 ### **System Role & Persona**
 
@@ -1533,7 +1533,7 @@ Create a multi-page sub-site at `bencuan.me/colors` comprising three main views
   - "This repository" -> `https://github.com/jacobbubu/acb`
   - "here" -> `https://github.com/64bitpandas/bencuan.me/tree/main/src/color-books`
   - "State of Vibe Coding evaluation" -> `https://bencuan.me/blog/vibe25`
-</PromptBox>
+</EvalBox>
 
 <RubricBox client:load title="antigravity's rubric">
 
@@ -1611,7 +1611,7 @@ Improve the following prompt to adhere to Claude's Prompting Best Practices: htt
 
 ![](/img/vibecode/Pasted%20image%2020251230213825.png)
 
-<PromptBox client:load title="Cursor's Enhanced Prompt" iconSrc="/img/vibecode/cursor.png">
+<EvalBox client:load title="Cursor's Enhanced Prompt" iconSrc="/img/vibecode/cursor.png">
 
 ```xml
 <role>
@@ -1881,7 +1881,7 @@ For each task, provide:
 3. Any clarifying questions before proceeding
 </output_format>
 ```
-</PromptBox>
+</EvalBox>
 
 <RubricBox client:load title="cursor's rubric">
 
@@ -1955,7 +1955,7 @@ _Did the agent:_
 - Augment hard-coded a 200-color cap to each color book to get it to load performantly, so most colors are omitted.
 - The palettes page is really ugly but technically is as specified.
 
-<PromptBox client:load title="Augment's Enhanced Prompt" iconSrc="/img/vibecode/augment.png">
+<EvalBox client:load title="Augment's Enhanced Prompt" iconSrc="/img/vibecode/augment.png">
 
 
 **Create a new color palette website at bencuan.me/colors based on the Figma design project accessible via Figma MCP integration.**
@@ -2054,7 +2054,7 @@ This page is typeset in Manrope and fira code. Its default accent color is Catpp
 - Populate `_palettes.json` with the three specified palettes
 - Ensure color book JSON files are properly formatted
 - Verify `_pantone-color-names.json` and `_favorites.json` exist and are structured correctly
-</PromptBox>
+</EvalBox>
 
 <RubricBox client:load title="augment's rubric">
 
@@ -2219,7 +2219,7 @@ _Did the agent:_
 
 ## Claude Code
 
-<PromptBox client:load title="Claude's Self-Evaluation" iconSrc="/img/vibecode/claude.png">
+<EvalBox client:load title="Claude's Self-Evaluation" iconSrc="/img/vibecode/claude.png">
 
 # Self-Evaluation Rubric
 
@@ -2347,11 +2347,11 @@ _Did the agent:_
 4. Size slider ratchets to discrete steps [4, 6, 8, 10, 12]
 5. Intersection Observer with 0.3 threshold for palette scroll detection
 
-</PromptBox>
+</EvalBox>
 
 ## Copilot
 
-<PromptBox client:load title="Copilot's Self-Evaluation" iconSrc="/img/vibecode/copilot.png">
+<EvalBox client:load title="Copilot's Self-Evaluation" iconSrc="/img/vibecode/copilot.png">
 
 # Rubric Self-Evaluation
 
@@ -2413,11 +2413,11 @@ Scoring: `- [x]` = 1 point, `- [/]` = 0.5 points.
 - Score: **40 / 42**
 - Percentage: **95.24%**
 
-</PromptBox>
+</EvalBox>
 
 ## Antigravity
 
-<PromptBox client:load title="Antigravity's Self-Evaluation" iconSrc="/img/vibecode/antigravity.png">
+<EvalBox client:load title="Antigravity's Self-Evaluation" iconSrc="/img/vibecode/antigravity.png">
 
 Total: 39.5 / 42 possible points (94%).
 
@@ -2478,12 +2478,12 @@ Total: 39.5 / 42 possible points (94%).
 - [x] fill in the correct links?
 - [x] format the text and links as requested?
 
-</PromptBox>
+</EvalBox>
 
 ## Cursor
 
 
-<PromptBox client:load title="Cursor's Self-Evaluation" iconSrc="/img/vibecode/cursor.png">
+<EvalBox client:load title="Cursor's Self-Evaluation" iconSrc="/img/vibecode/cursor.png">
 
 ## Final Score: 42/42 (100%)
 
@@ -2589,11 +2589,11 @@ _Did the agent:_
 5. **Performance**: Explorer uses pagination (100 items/page) instead of rendering all colors
 6. **localStorage**: Favorites persisted via localStorage with JSON serialization
 
-</PromptBox>
+</EvalBox>
 
 ## Augment
 
-<PromptBox client:load title="Augment's Self-Evaluation" iconSrc="/img/vibecode/augment.png">
+<EvalBox client:load title="Augment's Self-Evaluation" iconSrc="/img/vibecode/augment.png">
 
 ## Really Basic Stuff (3 points)
 
@@ -2656,7 +2656,7 @@ _Did the agent:_
 
 ## Final Score: 40.5 / 42 points (96.4%)
 
-</PromptBox>
+</EvalBox>
 
 # Discussion
 

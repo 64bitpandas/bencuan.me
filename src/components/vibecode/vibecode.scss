@@ -1,0 +1,23 @@
+@use '../../sass/fonts';
+@use '../../sass/spacing';
+
+// Vibecode-specific styles
+// These styles are loaded via customStyles frontmatter field in BlogLayout
+
+header {
+  margin-top: spacing.$sxs;
+  margin-bottom: spacing.$sxs;
+}
+
+.nav-container {
+  margin-top: 0;
+}
+
+// Main headers (h1) in blog content - larger size with PP FRaktion Mono font
+.blog-content h1 {
+  font-family: fonts.$fraktion-mono;
+  font-size: fonts.$s5;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+}

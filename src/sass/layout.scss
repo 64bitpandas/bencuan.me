@@ -118,11 +118,11 @@ main {
 
 .container {
   padding: 0 $padding;
-  width: min(80vw, 1024px);
+  width: min(80vw, 800px);
   margin: auto;
 
   @include mixins.screen('mobile') {
-    width: min(90vw, 1024px);
+    width: min(90vw, 800px);
     padding: 0 calc($padding / 2);
     padding-top: 0rem;
   }

@@ -59,22 +59,28 @@ export function RubricBox({ title, children }: CollapsibleBoxProps) {
   );
 }
 
+// Colors for vibecode boxes
+const USER_PROMPT_BG = 'rgba(145, 183, 118, 0.125)'; // Green for user prompts (dino icon)
+const AGENT_RESPONSE_BG = 'rgba(196, 174, 207, 0.25)'; // Purple for agent responses (anthropology color)
+
+// EvalBox: Agent self-evaluation responses (purple)
 export function EvalBox({ title, iconSrc, children }: CollapsibleBoxProps) {
   title ??= 'Rubric';
   return (
-    <CollapsibleBox title={title} iconSrc={iconSrc} borderColor="#29282d" backgroundColor="#f4eee8">
+    <CollapsibleBox title={title} iconSrc={iconSrc} borderColor="#29282d" backgroundColor={AGENT_RESPONSE_BG}>
       {children}
     </CollapsibleBox>
   );
 }
 
+// PromptBox: User prompts with dino icon (green)
 export function PromptBox({ title, iconSrc, children }: CollapsibleBoxProps) {
   return (
     <CollapsibleBox
       title={title}
       iconSrc={iconSrc ?? '/img/kevin2.png'}
       borderColor="#29282d"
-      backgroundColor="#91B77620"
+      backgroundColor={USER_PROMPT_BG}
       maxHeight="500px"
     >
       {children}

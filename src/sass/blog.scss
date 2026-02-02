@@ -10,7 +10,7 @@
 .blog-title {
   font-family: fonts.$header;
   font-weight: 300;
-  font-size: fonts.$s8;
+  font-size: fonts.$s7;
   line-height: 1;
   margin-bottom: 0.5rem;
 }
@@ -274,8 +274,13 @@
   font-family: NeueMontreal;
 }
 
+.footnote-ref {
+  line-height: 1.7;
+}
+
 .footnote-ref-number {
-  margin-bottom: 1rem;
+  display: inline;
+  margin-left: 0.5rem;
 
   p {
     margin: 0;

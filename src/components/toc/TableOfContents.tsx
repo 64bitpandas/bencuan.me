@@ -16,7 +16,12 @@ const EXCLUDED_SELECTORS = [
   '[data-toc-exclude]',
 ];
 
-export default function TableOfContents() {
+interface TableOfContentsProps {
+  /** Maximum heading level to include (1-6, default: 2 for h1+h2) */
+  maxLevel?: number;
+}
+
+export default function TableOfContents({ maxLevel = 2 }: TableOfContentsProps) {
   const [headings, setHeadings] = useState<TocHeading[]>([]);
   const [activeId, setActiveId] = useState<string>('');
   const [isVisible, setIsVisible] = useState(false);
@@ -38,7 +43,9 @@ export default function TableOfContents() {
     const contentArea = document.querySelector('.blog-content');
     if (!contentArea) return;
 
-    const headingElements = contentArea.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    // Build selector based on maxLevel (e.g., maxLevel=2 -> 'h1, h2')
+    const headingSelector = Array.from({ length: maxLevel }, (_, i) => `h${i + 1}`).join(', ');
+    const headingElements = contentArea.querySelectorAll(headingSelector);
     const extractedHeadings: TocHeading[] = [];
 
     headingElements.forEach(heading => {
@@ -64,7 +71,7 @@ export default function TableOfContents() {
     });
 
     setHeadings(extractedHeadings);
-  }, [isHeadingExcluded]);
+  }, [isHeadingExcluded, maxLevel]);
 
   // Handle scroll-based visibility (show after 100vh scroll)
   useEffect(() => {
