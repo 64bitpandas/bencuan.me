@@ -4,9 +4,12 @@ slug: research
 date: 2026-01-27
 hideTitle: true
 image: research/og-image.png
+hideSubstack: true
 ---
 
-<ResearchBanner client:load /> 
+import SubstackEmbed from '../../components/SubstackEmbed.tsx';
+
+<ResearchBanner client:load />
 
 <div className="research-section research-section-preamble">
 
@@ -470,6 +473,6 @@ I have a lot of related writing that I'll release on this blog (and elsewhere on
 
 For sketchier notes and random fun things, check out the [Garden](https://garden.bencuan.me/)-- you can leave a message in the guestbook there too, if you'd like.
 
-<iframe src="https://bencuan.substack.com/embed" width="480" height="150" style="border:1px solid #EEE; background:white; display:block; margin:0 auto; max-width:100%;" frameborder="0" scrolling="no"></iframe>
+<SubstackEmbed />
 
 </div>

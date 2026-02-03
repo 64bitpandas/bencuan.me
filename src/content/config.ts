@@ -17,6 +17,8 @@ const blog = defineCollection({
     customStyles: z.optional(z.string()),
     /** Maximum heading level to include in TOC (1-6, default: 2 for h1+h2) */
     maxTocLevel: z.optional(z.number().min(1).max(6)),
+    /** Whether to hide the Substack newsletter embed (default: false) */
+    hideSubstack: z.optional(z.boolean()),
   }),
 });
 

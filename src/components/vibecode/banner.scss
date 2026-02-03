@@ -13,7 +13,7 @@ $crt-glow: rgba(0, 255, 65, 0.15);
 
 .vibecode-banner {
   position: relative;
-  height: 50vh;
+  height: 65vh;
   background: $crt-bg;
   overflow: hidden;
   margin-top: spacing.$sxs;
@@ -170,7 +170,7 @@ $crt-glow: rgba(0, 255, 65, 0.15);
   display: flex;
   gap: 8px;
   font-family: fonts.$code;
-  font-size: fonts.$s-2;
+  font-size: fonts.$s-1;
   line-height: 1.5;
 
   @include mixins.screen(mobile) {

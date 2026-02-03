@@ -6,6 +6,7 @@ import { MDLink } from './links.tsx';
 import { components, ToDateString } from './blog.tsx';
 import Comments from './bluesky.tsx';
 import TableOfContents from './toc/TableOfContents.tsx';
+import SubstackEmbed from './SubstackEmbed.tsx';
 
 interface Props {
   entry: {
@@ -17,6 +18,7 @@ interface Props {
       hideTitle?: boolean;
       customStyles?: string;
       maxTocLevel?: number;
+      hideSubstack?: boolean;
     };
     render: () => Promise<{ Content: any }>;
   };
@@ -89,6 +91,7 @@ if (entry.data.customStyles) {
   <div class={`blog-content ${contentClass}`.trim()}>
     <Content components={mergedComponents} />
   </div>
+  {!entry.data.hideSubstack && <SubstackEmbed />}
   {showToc && <TableOfContents client:idle maxLevel={entry.data.maxTocLevel ?? 2} />}
   {showComments && <Comments client:idle />}
 </Layout>
