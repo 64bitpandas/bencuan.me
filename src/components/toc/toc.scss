@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../../sass/fonts';
 @use '../../sass/colors';
 @use '../../sass/spacing';
@@ -120,18 +121,18 @@
   &.toc-level-3 a {
     padding-left: calc(0.5rem + 3rem);
     font-size: calc(#{fonts.$s-1} * 0.9);
-    color: lighten(colors.$text-light, 10%);
+    color: color.adjust(colors.$text-light, $lightness: 10%);
   }
 
   &.toc-level-4 a {
     padding-left: calc(0.5rem + 4rem);
     font-size: calc(#{fonts.$s-1} * 0.85);
-    color: lighten(colors.$text-light, 15%);
+    color: color.adjust(colors.$text-light, $lightness: 15%);
   }
 
   &.toc-level-5 a {
     padding-left: calc(0.5rem + 5rem);
     font-size: calc(#{fonts.$s-1} * 0.8);
-    color: lighten(colors.$text-light, 20%);
+    color: color.adjust(colors.$text-light, $lightness: 20%);
   }
 }

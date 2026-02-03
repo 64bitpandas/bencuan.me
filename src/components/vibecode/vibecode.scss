@@ -4,6 +4,10 @@
 // Vibecode-specific styles
 // These styles are loaded via customStyles frontmatter field in BlogLayout
 
+// Import banner styles so they're bundled statically (not via JS)
+@use './banner';
+@use '../collapsible/collapsible';
+
 header {
   margin-top: spacing.$sxs;
   margin-bottom: spacing.$sxs;

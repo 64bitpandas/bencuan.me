@@ -146,12 +146,13 @@ export default function TableOfContents({ maxLevel = 2 }: TableOfContentsProps) 
     }
   }, []);
 
-  if (headings.length === 0) {
-    return null;
-  }
-
   // Find the minimum heading level to normalize indentation
-  const minLevel = Math.min(...headings.map(h => h.level));
+  const minLevel = headings.length > 0 ? Math.min(...headings.map(h => h.level)) : 1;
+
+  // Return hidden element instead of null to avoid React SSR hook issues in Astro
+  if (headings.length === 0) {
+    return <nav className="toc-sidebar" style={{ display: 'none' }} aria-hidden="true" />;
+  }
 
   return (
     <nav className={`toc-sidebar ${isVisible ? 'toc-visible' : ''}`} ref={tocRef} aria-label="Table of Contents">
