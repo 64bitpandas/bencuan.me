@@ -4,7 +4,6 @@ import '../sass/blog.scss';
 import '../sass/links.scss';
 import { MDLink } from './links.tsx';
 import { components, ToDateString } from './blog.tsx';
-import Comments from './bluesky.tsx';
 import TableOfContents from './toc/TableOfContents.tsx';
 import SubstackEmbed from './SubstackEmbed.tsx';
 
@@ -93,5 +92,4 @@ if (entry.data.customStyles) {
   </div>
   {!entry.data.hideSubstack && <SubstackEmbed />}
   {showToc && <TableOfContents client:idle maxLevel={entry.data.maxTocLevel ?? 2} />}
-  {showComments && <Comments client:idle />}
 </Layout>
