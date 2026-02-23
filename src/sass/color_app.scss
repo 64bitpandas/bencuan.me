@@ -132,17 +132,16 @@ $color-secondary: #f4eee8;
 }
 
 .palette-section {
-  padding: $sl $sl $s3xl;
-  min-height: 100vh;
+  padding: $sxl $sl;
   transition: background-color 0.3s ease;
 
   @include screen(mobile) {
-    padding: $ss;
-    min-height: auto;
+    padding: $sl $ss;
   }
 
   &:last-child {
     min-height: 100vh;
+    padding-bottom: $s3xl;
   }
 
   &__header {

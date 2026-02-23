@@ -42,6 +42,21 @@
       { "name": "Anthracite", "hex": "29282D", "tag": "text" }
     ]
   },
+  "bencuan.me tags": {
+    "source": "https://bencuan.me/research",
+    "colors": [
+      { "name": "Foundations", "hex": "d9d9d9" },
+      { "name": "Engineering", "hex": "9ab4d3", "tag": "highlight" },
+      { "name": "Spaces", "hex": "a1b5a6" },
+      { "name": "Anthropology", "hex": "c4aecf" },
+      { "name": "Health", "hex": "fa969d" },
+      { "name": "Music", "hex": "fbd897" },
+      { "name": "Play", "hex": "edd0de" },
+      { "name": "Anthracite", "hex": "29282d", "tag": "background" },
+      { "name": "Metallic Fir", "hex": "505457", "tag": "secondary" },
+      { "name": "White", "hex": "ffffff", "tag": "text" }
+    ]
+  },
   "Dracula": {
     "source": "https://draculatheme.com/",
     "colors": [

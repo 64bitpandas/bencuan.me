@@ -3,6 +3,21 @@
 @use 'mixins';
 @use 'spacing';
 
+.blog-page-container {
+  width: min(90vw, 1600px);
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5vw;
+  padding-right: 5vw;
+
+  @include mixins.screen(mobile) {
+    width: min(95vw, 1600px);
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+  }
+}
+
 .blog-buttons {
   margin: spacing.$ss 0;
 }
@@ -18,7 +33,7 @@
 .blog-section-title {
   font-family: fonts.$header;
   font-weight: 300;
-  font-size: fonts.$s5;
+  font-size: fonts.$s6;
   margin-top: spacing.$sl;
   margin-bottom: spacing.$sxs;
   color: colors.$text;
@@ -316,4 +331,106 @@
   font-family: fonts.$body;
   text-align: center;
   color: colors.$text-light;
+}
+
+// Blog Card Grid Styles
+.blog-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: spacing.$sm;
+  margin-top: spacing.$sm;
+
+  @include mixins.screen(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mixins.screen(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background-color: colors.$background-light;
+  border-radius: 26px;
+  overflow: hidden;
+  text-decoration: none;
+  color: colors.$text;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.blog-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.64;
+  overflow: hidden;
+  background-color: colors.$extra-light-green;
+}
+
+.blog-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-card-content {
+  padding: spacing.$ss spacing.$ss spacing.$sm;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-card-title {
+  font-family: fonts.$header;
+  font-weight: 500;
+  font-size: fonts.$s2;
+  line-height: 1.1;
+  margin: 0 0 spacing.$sxs;
+  color: colors.$text-light;
+  letter-spacing: 0.02em;
+}
+
+.blog-card-description {
+  font-family: fonts.$body;
+  font-style: italic;
+  font-weight: 300;
+  font-size: fonts.$s-1;
+  line-height: 1.4;
+  margin: 0 0 spacing.$sxs;
+  color: colors.$text-light;
+}
+
+.blog-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: spacing.$sxs;
+  margin-top: auto;
+}
+
+.blog-card-date {
+  font-family: fonts.$body;
+  font-weight: 300;
+  font-size: fonts.$s-1;
+  color: colors.$text-light;
+}
+
+.blog-card-badge {
+  margin: 0;
+
+  .topic-badge-label {
+    font-size: fonts.$s-1;
+  }
+
+  .topic-badge-icon {
+    width: 18px;
+    height: 18px;
+  }
 }

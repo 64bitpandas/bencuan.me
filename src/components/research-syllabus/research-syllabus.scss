@@ -447,18 +447,21 @@ $reading-list-border: colors.$text;
   &-dark {
     background: colors.$text;
 
-    // Invert text colors for dark mode
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    li,
-    strong,
-    span {
-      color: white;
+    // Invert text colors for dark mode (use > for direct/nearby children only)
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6,
+    > p,
+    > ul > li,
+    > ol > li,
+    > p strong,
+    > ul strong,
+    > ol strong,
+    > span {
+      color: white !important;
     }
 
     .topic-badge-icon,
@@ -474,7 +477,7 @@ $reading-list-border: colors.$text;
       }
     }
 
-    // Adjust boxes for dark mode
+    // Adjust boxes for dark mode - keep text black
     .big-questions-box,
     .reading-list-box {
       border-color: rgba(255, 255, 255, 0.3);
@@ -489,7 +492,7 @@ $reading-list-border: colors.$text;
       strong,
       span,
       a {
-        color: colors.$text;
+        color: colors.$text !important;
       }
     }
 

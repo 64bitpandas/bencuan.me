@@ -12,6 +12,7 @@ const blog = defineCollection({
     tags: z.string(),
     category: z.enum(['publications', 'play']),
     image: z.optional(z.string()),
+    navImage: z.optional(z.string()),
     hideTitle: z.optional(z.boolean()),
     /** Path to a custom SCSS file for this blog post (relative to src/) */
     customStyles: z.optional(z.string()),

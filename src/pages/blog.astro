@@ -1,6 +1,6 @@
 ---
 import Layout from '../components/layout.astro';
-import SearchSortFilter from '../components/searchSortFilter.tsx';
+import BlogCardGrid from '../components/BlogCardGrid.tsx';
 import '../sass/home.scss';
 import '../sass/blog.scss';
 import { getCollection } from 'astro:content';
@@ -8,18 +8,23 @@ import Button from '../components/button';
 import { Newspaper, Rss } from '@phosphor-icons/react';
 
 const collection = await getCollection('blog');
-const allItems = collection.map(item => ({ ...item.data, slug: '/blog/' + item.slug }));
+const allItems = collection.map(item => ({
+  ...item.data,
+  slug: '/blog/' + item.slug,
+}));
 
 // Categorize posts into Publications and Play based on frontmatter category
 const publicationItems = allItems.filter(item => item.category === 'publications');
 const playItems = allItems.filter(item => item.category === 'play');
 
-// Add special "research syllabus" entry to Publications section
+// Add special "research syllabus" entry to Publications section (from root collection)
 const researchEntry = {
-  title: "ben's research syllabus",
+  title: "Ben's Research Syllabus",
   date: new Date('2026-01-27'),
   slug: '/research',
   description: 'notes on wandering',
+  tags: 'foundations',
+  image: 'research/og-image.png',
 };
 const publicationItemsWithResearch = [...publicationItems, researchEntry];
 
@@ -29,11 +34,13 @@ const colorsEntry = {
   date: new Date('2025-12-30'),
   slug: '/colors/about',
   description: 'interactive color exploration app',
+  tags: 'play',
+  image: 'opengraph/colors.png',
 };
 const playItemsWithColors = [...playItems, colorsEntry];
 ---
 
-<Layout title="bencuan's blog" description="long-form writing projects" currPage="blog">
+<Layout title="bencuan's blog" description="long-form writing projects" currPage="blog" bodyClass="blog-page-container">
   <h1 class="blog-title">blog</h1>
   <div class="blog-buttons">
     <Button href="/rss.xml"><Rss /> rss</Button>
@@ -41,20 +48,8 @@ const playItemsWithColors = [...playItems, colorsEntry];
   </div>
 
   <h2 class="blog-section-title">publications</h2>
-  <SearchSortFilter
-    sortCategories={['title', 'date']}
-    items={publicationItemsWithResearch}
-    type="blog"
-    defaultSort={{ category: 'date', state: 'desc' }}
-    client:load
-  />
+  <BlogCardGrid items={publicationItemsWithResearch} client:load />
 
   <h2 class="blog-section-title">play</h2>
-  <SearchSortFilter
-    sortCategories={['title', 'date']}
-    items={playItemsWithColors}
-    type="blog"
-    defaultSort={{ category: 'date', state: 'desc' }}
-    client:load
-  />
+  <BlogCardGrid items={playItemsWithColors} showBadges={false} client:load />
 </Layout>
