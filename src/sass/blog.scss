@@ -3,7 +3,7 @@
 @use 'mixins';
 @use 'spacing';
 
-.blog-page-container {
+.container.blog-page-container {
   width: min(90vw, 1600px);
   max-width: 1600px;
   margin-left: auto;
