@@ -319,7 +319,8 @@ $reading-list-border: colors.$text;
   padding: spacing.$sl 10vw;
 
   hr {
-    margin: 3rem 0;
+    margin: 3rem auto;
+    width: min(80vw, 800px);
   }
 
   h1 {
