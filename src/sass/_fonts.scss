@@ -294,6 +294,153 @@
   src: url('/fonts/FiraCode/FiraCode-VF.ttf') format('truetype');
 }
 
+// PP Frama
+@font-face {
+  font-family: Frama;
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/Frama/PPFrama-Extralight.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Frama;
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/Frama/PPFrama-ExtralightItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Frama;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Frama/PPFrama-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Frama;
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Frama/PPFrama-LightItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Frama;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Frama/PPFrama-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Frama;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Frama/PPFrama-RegularItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Frama;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Frama/PPFrama-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Frama;
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Frama/PPFrama-MediumItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Frama;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Frama/PPFrama-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Frama;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Frama/PPFrama-BoldItalic.woff2') format('woff2');
+}
+
+// PP Supply Sans
+@font-face {
+  font-family: SupplySans;
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/Supply Sans/PPSupplySans-Ultralight.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: SupplySans;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Supply Sans/PPSupplySans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: SupplySans;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Supply Sans/PPSupplySans-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: SupplySans;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Supply Sans/PPSupplySans-Bold.woff2') format('woff2');
+}
+
+// Atkinson Hyperlegible Next
+@font-face {
+  font-family: AtkinsonHyperlegible;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Atkinson Hyperlegible Next/AtkinsonHyperlegibleNext-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: AtkinsonHyperlegible;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Atkinson Hyperlegible Next/AtkinsonHyperlegibleNext-RegularItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: AtkinsonHyperlegible;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Atkinson Hyperlegible Next/AtkinsonHyperlegibleNext-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: AtkinsonHyperlegible;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Atkinson Hyperlegible Next/AtkinsonHyperlegibleNext-BoldItalic.otf') format('opentype');
+}
+
 $header: Pangaia, serif;
 $body: Eiko, serif;
 $ui: Fraktion, sans-serif;
@@ -301,6 +448,9 @@ $special: Pangaia, sans-serif;
 $code: FiraCode, monospace;
 $manrope: Manrope, sans-serif;
 $fraktion-mono: FraktionMono, monospace;
+$frama: Frama, serif;
+$supply-sans: SupplySans, sans-serif;
+$atkinson: AtkinsonHyperlegible, sans-serif;
 
 // calculated with https://fluidtypography.com/, 414-1280px viewport width
 $s-2: clamp(0.438rem, 0.577vw + 0.288rem, 0.75rem); // 7-12px
