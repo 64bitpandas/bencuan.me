@@ -94,5 +94,6 @@ export default defineConfig({
     '/blog/flights': 'https://garden.bencuan.me/guides/long-haul-flights',
     '/caltrain-trmnl': 'https://github.com/64bitpandas/trmnl-caltrain',
     '/blog/vibe25': 'https://garden.bencuan.me/blog/vibecode',
+    '/blog/turtlenet': '/turtlenet',
   },
 });
