@@ -28,7 +28,7 @@ const turtlenet = defineCollection({
   schema: z.object({
     title: z.string(),
     datePublished: z.date(),
-    slug: z.string(),
+    pageSlug: z.string(),
     cover: z.optional(z.string()),
     order: z.number(),
   }),

@@ -1,0 +1,42 @@
+---
+interface PageInfo {
+  order: number;
+  title: string;
+  slug: string;
+}
+
+interface Props {
+  pages: PageInfo[];
+  currentSlug: string;
+}
+
+const { pages, currentSlug } = Astro.props;
+
+const currentIndex = pages.findIndex((p) => p.slug === currentSlug);
+const nextPage = currentIndex < pages.length - 1 ? pages[currentIndex + 1] : null;
+
+function formatOrder(order: number): string {
+  return Number.isInteger(order) ? `${order}.0` : `${order}`;
+}
+---
+
+<footer class="tn-footer">
+  <div class="tn-footer__inner">
+    {nextPage && (
+      <a class="tn-footer__next" href={`/turtlenet/${nextPage.slug}`}>
+        Next up: {formatOrder(nextPage.order)} - {nextPage.title.replace(/^TurtleNet\s*\d*\.?\d*:\s*/, '')} →
+      </a>
+    )}
+
+    <hr class="tn-footer__hr" />
+
+    <div class="tn-footer__links">
+      <a href="https://github.com/64bitpandas/bencuan.me" target="_blank" rel="noopener noreferrer">source</a>
+      <a href="/turtlenet/all">single page edition</a>
+      <img src="/img/friends/turtlenet.gif" alt="TurtleNet" class="tn-footer__gif" width="88" height="31" />
+    </div>
+
+    <img src="/img/turtlenet-3.png" alt="" class="tn-footer__turtle-img" />
+  </div>
+</footer>
+

@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import TurtleNetLayout from '../components/turtlenet/TurtleNetLayout.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const entries = await getCollection('turtlenet');
+  // Sort by order for consistent page list
+  const sorted = entries.sort((a, b) => a.data.order - b.data.order);
+
+  // Build pages data for nav
+  const pages = sorted.map((e) => ({
+    order: e.data.order,
+    title: e.data.title,
+    slug: e.data.pageSlug,
+  }));
+
+  return sorted.map((entry) => ({
+    // order 0 maps to /turtlenet (no slug), others to /turtlenet/{slug}
+    params: {
+      turtlenet: entry.data.order === 0 ? 'turtlenet' : `turtlenet/${entry.data.pageSlug}`,
+    },
+    props: { entry, pages },
+  }));
+}
+
+const { entry, pages } = Astro.props;
+---
+
+<TurtleNetLayout
+  title={entry.data.title}
+  pages={pages}
+  currentSlug={entry.data.pageSlug}
+  entry={entry}
+/>
+

@@ -1,0 +1,413 @@
+@use 'fonts';
+@use 'colors';
+@use 'mixins';
+@use 'spacing';
+
+// TurtleNet color palette
+$tn-blue: #203c7f;
+$tn-green: #97ff55;
+$tn-green-dark: #1cc56a;
+$tn-content-bg: #f3fbff;
+$tn-white: #ffffff;
+$tn-grey: #888;
+$tn-grey-light: #bbb;
+
+// ── Go Home Banner ──
+.tn-go-home {
+  position: fixed;
+  top: 1rem;
+  left: 1.5rem;
+  z-index: 100;
+  text-decoration: none;
+  color: $tn-white;
+  font-family: fonts.$supply-sans;
+  font-weight: 200;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  mix-blend-mode: difference;
+
+  &__arrow {
+    font-size: 0.7em;
+  }
+}
+
+// ── Splash Area ──
+.tn-splash {
+  background-color: $tn-blue;
+  color: $tn-white;
+  padding: 3rem 2rem 1rem;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @include mixins.screen(mobile) {
+    padding: 2.5rem 1rem 1rem;
+    min-height: 220px;
+  }
+}
+
+.tn-splash__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+
+  @include mixins.screen(mobile) {
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+}
+
+.tn-splash__turtle-img {
+  width: 120px;
+  height: auto;
+
+  @include mixins.screen(mobile) {
+    width: 72px;
+  }
+}
+
+.tn-splash__title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tn-splash__title {
+  font-family: fonts.$supply-sans;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1;
+  margin: 0;
+
+  .turtle {
+    color: $tn-green;
+  }
+  .net {
+    color: $tn-green-dark;
+  }
+}
+
+.tn-splash__version {
+  font-family: fonts.$frama;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: $tn-white;
+  opacity: 0.8;
+  margin-left: 0.25rem;
+
+  .tn-splash__version-sub {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.7;
+  }
+}
+
+.tn-splash__subtitle {
+  font-family: fonts.$frama;
+  font-weight: 400;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  color: $tn-white;
+  opacity: 0.85;
+  text-align: center;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+// ── Sticky Nav Wrapper ──
+.tn-nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: $tn-blue;
+}
+
+// ── Pagination Nav ──
+.tn-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0.6rem 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.tn-nav__arrow {
+  background: none;
+  border: none;
+  color: $tn-white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  flex-shrink: 0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+
+  &--disabled {
+    opacity: 0.3;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+.tn-nav__page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  min-width: 2.5rem;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+
+  &--current {
+    .tn-nav__page-number {
+      color: $tn-green;
+    }
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.tn-nav__page-number {
+  font-family: fonts.$frama;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: $tn-white;
+  line-height: 1.2;
+}
+
+.tn-nav__page-title {
+  font-family: fonts.$frama;
+  font-weight: 400;
+  font-size: 0.55rem;
+  color: $tn-white;
+  opacity: 0.7;
+  max-width: 5rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+// Distance-based fading for pages far from current
+.tn-nav__page--far {
+  .tn-nav__page-number,
+  .tn-nav__page-title {
+    opacity: 0.4;
+  }
+}
+
+// ── Content Area ──
+.tn-content {
+  background-color: $tn-content-bg;
+  padding: 3rem 2rem;
+  min-height: 60vh;
+
+  @include mixins.screen(mobile) {
+    padding: 2rem 1rem;
+  }
+}
+
+.tn-content__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.tn-content__title {
+  font-family: fonts.$supply-sans;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: #000;
+  margin: 0 0 1.5rem;
+  line-height: 1.15;
+}
+
+.tn-content__body {
+  font-family: fonts.$atkinson;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #222;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: fonts.$supply-sans;
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #111;
+  }
+
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: $tn-blue;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover {
+      color: $tn-green-dark;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 4px;
+  }
+
+  ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.3rem;
+  }
+
+  blockquote {
+    border-left: 3px solid $tn-blue;
+    margin: 1.5rem 0;
+    padding: 0.5rem 1rem;
+    background: rgba($tn-blue, 0.04);
+    color: #444;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  // Inline code
+  code:not(.astro-code code) {
+    font-family: fonts.$code;
+    font-size: 0.9em;
+    background-color: rgba($tn-blue, 0.07);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+  }
+
+  // Code blocks
+  .astro-code {
+    font-size: 0.85rem;
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+
+    code {
+      font-family: fonts.$code;
+      background: transparent;
+      padding: 0;
+    }
+  }
+
+  iframe {
+    max-width: 100%;
+    margin: 1.5rem auto;
+    display: block;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+// ── Footer ──
+.tn-footer {
+  background-color: $tn-content-bg;
+  padding: 0 2rem 3rem;
+
+  @include mixins.screen(mobile) {
+    padding: 0 1rem 2rem;
+  }
+}
+
+.tn-footer__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.tn-footer__next {
+  display: block;
+  font-family: fonts.$frama;
+  font-size: 1.1rem;
+  color: $tn-blue;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $tn-green-dark;
+  }
+}
+
+.tn-footer__hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 1.5rem 0;
+}
+
+.tn-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-family: fonts.$frama;
+  font-size: 0.85rem;
+
+  a {
+    color: $tn-blue;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover {
+      color: $tn-green-dark;
+    }
+  }
+}
+
+.tn-footer__gif {
+  width: 88px;
+  height: 31px;
+  image-rendering: pixelated;
+}
+
+.tn-footer__turtle-img {
+  display: block;
+  width: 80px;
+  margin: 2rem auto 0;
+  opacity: 0.6;
+}
+
+// ── Global resets for TurtleNet pages ──
+.tn-page {
+  margin: 0;
+  padding: 0;
+  background-color: $tn-content-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
