@@ -1,7 +1,7 @@
 ---
 title: "TurtleNet 3: ZeroTier and Private Networking"
 datePublished: 2023-04-09
-slug: "3-zerotier"
+pageSlug: "3-zerotier"
 cover: "/img/turtlenet/3-zerotier-cover-24.png"
 order: 3
 ---

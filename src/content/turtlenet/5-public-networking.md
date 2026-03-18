@@ -1,7 +1,7 @@
 ---
 title: "TurtleNet 5: Public Networking"
 datePublished: 2023-06-10
-slug: "5-public-networking"
+pageSlug: "5-public-networking"
 cover: "/img/turtlenet/5-public-networking-cover-27.png"
 order: 5
 ---

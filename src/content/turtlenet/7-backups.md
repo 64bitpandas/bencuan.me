@@ -1,7 +1,7 @@
 ---
 title: "TurtleNet 7: Backups"
 datePublished: 2023-06-15
-slug: "turtlenet-7-backups"
+pageSlug: "turtlenet-7-backups"
 cover: "/img/turtlenet/7-backups-cover-36.png"
 order: 7
 ---

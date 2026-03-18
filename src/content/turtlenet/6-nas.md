@@ -1,7 +1,7 @@
 ---
 title: "TurtleNet 6: Network Attached Storage (NAS)"
 datePublished: 2023-06-15
-slug: "6-nas"
+pageSlug: "6-nas"
 cover: "/img/turtlenet/6-nas-cover-34.png"
 order: 6
 ---
