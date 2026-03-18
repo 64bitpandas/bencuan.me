@@ -1,0 +1,52 @@
+---
+import '../../sass/turtlenet.scss';
+import TurtleNetSplash from './TurtleNetSplash.astro';
+import TurtleNetFooter from './TurtleNetFooter.astro';
+
+interface PageInfo {
+  order: number;
+  title: string;
+  slug: string;
+}
+
+interface Props {
+  title: string;
+  pages: PageInfo[];
+  currentSlug: string;
+  entry: {
+    render: () => Promise<{ Content: any }>;
+  };
+}
+
+const { title, pages, currentSlug, entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | TurtleNet | bencuan.me</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body class="tn-page">
+    <!-- Go Home banner - always fixed top-left -->
+    <a href="https://bencuan.me" class="tn-go-home">
+      <span class="tn-go-home__arrow">◀</span> go home
+    </a>
+
+    <TurtleNetSplash pages={pages} currentSlug={currentSlug} />
+
+    <main class="tn-content">
+      <div class="tn-content__inner">
+        <h1 class="tn-content__title">{title}</h1>
+        <div class="tn-content__body">
+          <Content />
+        </div>
+      </div>
+    </main>
+
+    <TurtleNetFooter pages={pages} currentSlug={currentSlug} />
+  </body>
+</html>
+

@@ -1,0 +1,37 @@
+---
+import TurtleNetNav from './TurtleNetNav.tsx';
+
+interface PageInfo {
+  order: number;
+  title: string;
+  slug: string;
+}
+
+interface Props {
+  pages: PageInfo[];
+  currentSlug: string;
+}
+
+const { pages, currentSlug } = Astro.props;
+---
+
+<div class="tn-splash">
+  <div class="tn-splash__header">
+    <img src="/img/turtlenet-2.png" alt="TurtleNet turtle" class="tn-splash__turtle-img" />
+    <div class="tn-splash__title-group">
+      <h1 class="tn-splash__title">
+        <span class="turtle">Turtle</span><span class="net">Net</span>
+      </h1>
+      <span class="tn-splash__version">
+        v2
+        <span class="tn-splash__version-sub">dec. 2025</span>
+      </span>
+    </div>
+  </div>
+  <p class="tn-splash__subtitle">a gentle introduction to homelabbing • by ben cuan</p>
+</div>
+
+<div class="tn-nav-wrapper">
+  <TurtleNetNav pages={pages} currentSlug={currentSlug} client:load />
+</div>
+
