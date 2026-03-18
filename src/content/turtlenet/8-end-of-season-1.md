@@ -1,7 +1,7 @@
 ---
 title: "TurtleNet: End of Season 1"
 datePublished: 2023-06-15
-slug: "turtlenet-end-of-season-1"
+pageSlug: "turtlenet-end-of-season-1"
 cover: "/img/turtlenet/8-end-of-season-1-cover-37.png"
 order: 8
 ---

@@ -1,7 +1,7 @@
 ---
 title: "TurtleNet 1: Setup, and The Big Picture"
 datePublished: 2023-01-23
-slug: "1-setup"
+pageSlug: "1-setup"
 order: 1
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "TurtleNet 4: Reverse Proxying Your First Service"
 datePublished: 2023-06-09
-slug: "turtlenet-4-reverse-proxying-your-first-service"
+pageSlug: "turtlenet-4-reverse-proxying-your-first-service"
 cover: "/img/turtlenet/4-reverse-proxying-cover-26.png"
 order: 4
 ---

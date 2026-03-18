@@ -1,7 +1,7 @@
 ---
 title: "Welcome to TurtleNet!"
 datePublished: 2023-01-10
-slug: "welcome-to-turtlenet"
+pageSlug: "welcome-to-turtlenet"
 order: 0
 ---
 

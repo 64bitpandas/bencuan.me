@@ -1,7 +1,7 @@
 ---
 title: "TurtleNet 2: Getting Started with Proxmox"
 datePublished: 2023-03-29
-slug: "2-proxmox"
+pageSlug: "2-proxmox"
 cover: "/img/turtlenet/2-proxmox-cover-18.png"
 order: 2
 ---
