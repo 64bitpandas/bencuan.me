@@ -15,7 +15,7 @@
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.48",
     "@types/uuid": "^9.0.8",
-    "astro": "^5.15.9",
+    "astro": "^5.18.1",
     "astro-auto-import": "^0.5.1",
     "astro-seo": "^0.8.0",
     "hamburgers": "^1.2.1",
