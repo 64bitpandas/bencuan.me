@@ -26,7 +26,6 @@ $tn-grey-light: #bbb;
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  mix-blend-mode: difference;
 
   &__arrow {
     font-size: 0.7em;
@@ -81,7 +80,7 @@ $tn-grey-light: #bbb;
 
 .tn-splash__title {
   font-family: fonts.$supply-sans;
-  font-weight: 700;
+  font-weight: 500;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 1;
   margin: 0;
@@ -97,24 +96,23 @@ $tn-grey-light: #bbb;
 .tn-splash__version {
   font-family: fonts.$frama;
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: clamp(1.1rem, 1.6vw, 1.25rem);
   color: $tn-white;
-  opacity: 0.8;
+  opacity: 0.85;
   margin-left: 0.25rem;
 
   .tn-splash__version-sub {
-    display: block;
-    font-size: 0.7rem;
-    opacity: 0.7;
+    font-size: inherit;
+    opacity: 0.85;
   }
 }
 
 .tn-splash__subtitle {
   font-family: fonts.$frama;
   font-weight: 400;
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
   color: $tn-white;
-  opacity: 0.85;
+  opacity: 0.9;
   text-align: center;
   margin-top: 0.75rem;
   margin-bottom: 1rem;
@@ -133,9 +131,19 @@ $tn-grey-light: #bbb;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
+  gap: 0.25rem;
   padding: 0.6rem 1rem;
+  max-width: 100%;
+}
+
+.tn-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  max-width: 720px;
   overflow-x: auto;
+  scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
 
@@ -155,6 +163,7 @@ $tn-grey-light: #bbb;
   text-decoration: none;
   display: flex;
   align-items: center;
+  font-family: inherit;
 
   &--disabled {
     opacity: 0.3;
@@ -176,11 +185,13 @@ $tn-grey-light: #bbb;
   &--current {
     .tn-nav__page-number {
       color: $tn-green;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-  }
-
-  &--hidden {
-    display: none;
+    .tn-nav__page-title {
+      color: $tn-green;
+      opacity: 1;
+    }
   }
 }
 
@@ -188,7 +199,7 @@ $tn-grey-light: #bbb;
   font-family: fonts.$frama;
   font-style: italic;
   font-weight: 400;
-  font-size: 0.85rem;
+  font-size: 1.05rem;
   color: $tn-white;
   line-height: 1.2;
 }
@@ -196,23 +207,15 @@ $tn-grey-light: #bbb;
 .tn-nav__page-title {
   font-family: fonts.$frama;
   font-weight: 400;
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   color: $tn-white;
   opacity: 0.7;
-  max-width: 5rem;
+  max-width: 6rem;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.2;
-}
-
-// Distance-based fading for pages far from current
-.tn-nav__page--far {
-  .tn-nav__page-number,
-  .tn-nav__page-title {
-    opacity: 0.4;
-  }
 }
 
 // ── Content Area ──
@@ -233,8 +236,8 @@ $tn-grey-light: #bbb;
 
 .tn-content__title {
   font-family: fonts.$supply-sans;
-  font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
   color: #000;
   margin: 0 0 1.5rem;
   line-height: 1.15;
@@ -243,7 +246,7 @@ $tn-grey-light: #bbb;
 .tn-content__body {
   font-family: fonts.$atkinson;
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.55;
   color: #222;
 
   h1, h2, h3, h4, h5, h6 {
@@ -254,9 +257,9 @@ $tn-grey-light: #bbb;
     color: #111;
   }
 
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.4rem; }
 
   p {
     margin-bottom: 1rem;
@@ -337,26 +340,25 @@ $tn-grey-light: #bbb;
 
 // ── Footer ──
 .tn-footer {
+  // Container only — visual separation comes from the two child sections.
+}
+
+.tn-footer__next-wrapper {
   background-color: $tn-content-bg;
-  padding: 0 2rem 3rem;
+  padding: 0 2rem 2.5rem;
+  text-align: center;
 
   @include mixins.screen(mobile) {
     padding: 0 1rem 2rem;
   }
 }
 
-.tn-footer__inner {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
 .tn-footer__next {
-  display: block;
+  display: inline-block;
   font-family: fonts.$frama;
-  font-size: 1.1rem;
+  font-size: clamp(1.4rem, 2.6vw, 1.6rem);
   color: $tn-blue;
   text-decoration: none;
-  margin-bottom: 1.5rem;
   transition: color 0.2s;
 
   &:hover {
@@ -364,42 +366,66 @@ $tn-grey-light: #bbb;
   }
 }
 
-.tn-footer__hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 1.5rem 0;
+.tn-footer__next-label {
+  font-style: italic;
+  margin-right: 0.4rem;
+}
+
+.tn-footer__next-page {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tn-footer__next-arrow {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.85em;
+}
+
+.tn-footer__band {
+  background-color: $tn-blue;
+  color: $tn-white;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+
+  @include mixins.screen(mobile) {
+    padding: 2rem 1rem;
+  }
 }
 
 .tn-footer__links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 0.75rem;
   flex-wrap: wrap;
   font-family: fonts.$frama;
-  font-size: 0.85rem;
+  font-size: 1rem;
+  color: $tn-white;
 
   a {
-    color: $tn-blue;
+    color: $tn-white;
     text-decoration: underline;
     text-underline-offset: 2px;
 
     &:hover {
-      color: $tn-green-dark;
+      color: $tn-green;
     }
   }
+}
+
+.tn-footer__links-sep {
+  opacity: 0.7;
 }
 
 .tn-footer__gif {
   width: 88px;
   height: 31px;
   image-rendering: pixelated;
-}
-
-.tn-footer__turtle-img {
-  display: block;
-  width: 80px;
-  margin: 2rem auto 0;
-  opacity: 0.6;
 }
 
 // ── Global resets for TurtleNet pages ──
