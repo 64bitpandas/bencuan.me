@@ -1,5 +1,12 @@
 ---
 import TurtleNetNav from './TurtleNetNav.tsx';
+import {
+  VERSIONS,
+  getVersionMeta,
+  pageUrl,
+  versionBaseUrl,
+  type TurtleNetVersion,
+} from '../../utils/turtlenet-versions';
 
 interface PageInfo {
   order: number;
@@ -10,27 +17,58 @@ interface PageInfo {
 interface Props {
   pages: PageInfo[];
   currentSlug: string;
+  version: TurtleNetVersion;
+  pagesByVersion: Record<TurtleNetVersion, PageInfo[]>;
 }
 
-const { pages, currentSlug } = Astro.props;
+const { pages, currentSlug, version, pagesByVersion } = Astro.props;
+
+const meta = getVersionMeta(version);
+
+function urlForVersion(target: TurtleNetVersion): string {
+  if (target === version) return pageUrl(version, pages.find((p) => p.slug === currentSlug)?.order ?? 0, currentSlug);
+  const equiv = pagesByVersion[target].find((p) => p.slug === currentSlug);
+  return equiv ? pageUrl(target, equiv.order, equiv.slug) : versionBaseUrl(target);
+}
 ---
 
 <div class="tn-splash">
+  <div class="tn-version-switch" aria-label="Choose TurtleNet version">
+    {VERSIONS.map((v, i) => {
+      const vMeta = getVersionMeta(v);
+      const isCurrent = v === version;
+      const classes = ['tn-version-switch__link', isCurrent && 'tn-version-switch__link--current']
+        .filter(Boolean)
+        .join(' ');
+      return (
+        <>
+          {i > 0 && <span class="tn-version-switch__sep">/</span>}
+          <a
+            class={classes}
+            href={urlForVersion(v)}
+            aria-current={isCurrent ? 'page' : undefined}
+          >
+            {vMeta.label}
+          </a>
+        </>
+      );
+    })}
+  </div>
   <div class="tn-splash__header">
-    <img src="/img/turtlenet-2.png" alt="TurtleNet turtle" class="tn-splash__turtle-img" />
+    <img src="/img/turtlenet-3.png" alt="TurtleNet turtle" class="tn-splash__turtle-img" />
     <div class="tn-splash__title-group">
       <h1 class="tn-splash__title">
         <span class="turtle">Turtle</span><span class="net">Net</span>
       </h1>
       <span class="tn-splash__version">
-        v2 <span class="tn-splash__version-sub">• dec. 2025</span>
+        {meta.label} <span class="tn-splash__version-sub">• {meta.date}</span>
       </span>
     </div>
   </div>
-  <p class="tn-splash__subtitle">a gentle introduction to homelabbing • by ben cuan</p>
+  <p class="tn-splash__subtitle">a gentle introduction to homelabbing • by <a href="https://bencuan.me">ben cuan</a></p>
 </div>
 
 <div class="tn-nav-wrapper">
-  <TurtleNetNav pages={pages} currentSlug={currentSlug} client:load />
+  <TurtleNetNav pages={pages} currentSlug={currentSlug} version={version} client:load />
 </div>
 
