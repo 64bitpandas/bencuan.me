@@ -48,12 +48,14 @@ jobs:
           PUBLIC_COMMIT_DATE: ${{ env.PUBLIC_COMMIT_DATE }}
 
       - name: Upload artifact
+        if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
     needs: build
+    if: github.event_name == 'push'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
