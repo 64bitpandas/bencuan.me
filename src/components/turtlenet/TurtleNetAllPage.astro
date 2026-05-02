@@ -30,7 +30,7 @@ const rendered = await Promise.all(
 
 const perPageHref = versionBaseUrl(version);
 const meta = getVersionMeta(version);
-const isV1 = version === 'v1';
+const isV1 = version !== LATEST_VERSION;
 const bodyClass = ['tn-page', isV1 && 'tn-page--v1'].filter(Boolean).join(' ');
 const bannerColor = getPrimaryColor(LATEST_VERSION);
 ---
