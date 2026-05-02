@@ -21,22 +21,25 @@ function formatOrder(order: number): string {
 ---
 
 <footer class="tn-footer">
-  <div class="tn-footer__inner">
-    {nextPage && (
+  {nextPage && (
+    <div class="tn-footer__next-wrapper">
       <a class="tn-footer__next" href={`/turtlenet/${nextPage.slug}`}>
-        Next up: {formatOrder(nextPage.order)} - {nextPage.title.replace(/^TurtleNet\s*\d*\.?\d*:\s*/, '')} →
+        <em class="tn-footer__next-label">Next up:</em>
+        <span class="tn-footer__next-page">
+          {formatOrder(nextPage.order)} - {nextPage.title.replace(/^TurtleNet\s*\d*\.?\d*:\s*/, '')}
+        </span>
+        <span class="tn-footer__next-arrow">▶</span>
       </a>
-    )}
+    </div>
+  )}
 
-    <hr class="tn-footer__hr" />
-
+  <div class="tn-footer__band">
+    <img src="/img/friends/turtlenet.gif" alt="TurtleNet" class="tn-footer__gif" width="88" height="31" />
     <div class="tn-footer__links">
       <a href="https://github.com/64bitpandas/bencuan.me" target="_blank" rel="noopener noreferrer">source</a>
+      <span class="tn-footer__links-sep">//</span>
       <a href="/turtlenet/all">single page edition</a>
-      <img src="/img/friends/turtlenet.gif" alt="TurtleNet" class="tn-footer__gif" width="88" height="31" />
     </div>
-
-    <img src="/img/turtlenet-3.png" alt="" class="tn-footer__turtle-img" />
   </div>
 </footer>
 

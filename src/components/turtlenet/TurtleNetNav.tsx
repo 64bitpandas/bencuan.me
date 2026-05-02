@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react';
+
 interface PageInfo {
   order: number;
   title: string;
@@ -17,71 +19,90 @@ function isOptional(order: number): boolean {
   return !Number.isInteger(order);
 }
 
+const SCROLL_DELTA = 240;
+
 export default function TurtleNetNav({ pages, currentSlug }: TurtleNetNavProps) {
   const currentIndex = pages.findIndex((p) => p.slug === currentSlug);
-  const prevPage = currentIndex > 0 ? pages[currentIndex - 1] : null;
-  const nextPage = currentIndex < pages.length - 1 ? pages[currentIndex + 1] : null;
+  const listRef = useRef<HTMLDivElement | null>(null);
+  const currentRef = useRef<HTMLAnchorElement | null>(null);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
 
-  // Show up to 5 pages on each side of current
-  const maxVisible = 5;
+  const updateEdges = () => {
+    const el = listRef.current;
+    if (!el) return;
+    setAtStart(el.scrollLeft <= 1);
+    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 1);
+  };
+
+  useEffect(() => {
+    if (currentRef.current) {
+      currentRef.current.scrollIntoView({ inline: 'center', block: 'nearest' });
+    }
+    updateEdges();
+    const el = listRef.current;
+    if (!el) return;
+    el.addEventListener('scroll', updateEdges, { passive: true });
+    window.addEventListener('resize', updateEdges);
+    return () => {
+      el.removeEventListener('scroll', updateEdges);
+      window.removeEventListener('resize', updateEdges);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const scrollBy = (delta: number) => {
+    listRef.current?.scrollBy({ left: delta, behavior: 'smooth' });
+  };
 
   return (
     <nav className="tn-nav" aria-label="TurtleNet pagination">
-      {prevPage ? (
-        <a
-          className="tn-nav__arrow"
-          href={prevPage.slug === pages[0].slug ? '/turtlenet' : `/turtlenet/${prevPage.slug}`}
-          aria-label="Previous page"
-        >
-          ◀
-        </a>
-      ) : (
-        <span className="tn-nav__arrow tn-nav__arrow--disabled" aria-hidden="true">
-          ◀
-        </span>
-      )}
+      <button
+        type="button"
+        className={`tn-nav__arrow${atStart ? ' tn-nav__arrow--disabled' : ''}`}
+        onClick={() => scrollBy(-SCROLL_DELTA)}
+        aria-label="Scroll pages left"
+        disabled={atStart}
+      >
+        ◀
+      </button>
 
-      {pages.map((page, i) => {
-        const distance = Math.abs(i - currentIndex);
-        const isCurrent = i === currentIndex;
-        const isHidden = distance > maxVisible;
-        const isFar = distance > 3 && !isCurrent;
+      <div className="tn-nav__list" ref={listRef}>
+        {pages.map((page, i) => {
+          const isCurrent = i === currentIndex;
+          const href = i === 0 ? '/turtlenet' : `/turtlenet/${page.slug}`;
+          const orderStr = formatOrder(page.order);
+          const displayOrder = isOptional(page.order) ? `(${orderStr})` : orderStr;
+          const classes = ['tn-nav__page', isCurrent && 'tn-nav__page--current']
+            .filter(Boolean)
+            .join(' ');
 
-        const href = i === 0 ? '/turtlenet' : `/turtlenet/${page.slug}`;
-        const orderStr = formatOrder(page.order);
-        const displayOrder = isOptional(page.order) ? `(${orderStr})` : orderStr;
+          return (
+            <a
+              key={page.slug}
+              ref={isCurrent ? currentRef : undefined}
+              className={classes}
+              href={href}
+              aria-current={isCurrent ? 'page' : undefined}
+            >
+              <span className="tn-nav__page-number">{displayOrder}</span>
+              <span className="tn-nav__page-title">
+                {page.title.replace(/^TurtleNet\s*\d*\.?\d*:\s*/, '')}
+              </span>
+            </a>
+          );
+        })}
+      </div>
 
-        const classes = [
-          'tn-nav__page',
-          isCurrent && 'tn-nav__page--current',
-          isHidden && 'tn-nav__page--hidden',
-          isFar && 'tn-nav__page--far',
-        ]
-          .filter(Boolean)
-          .join(' ');
-
-        return (
-          <a key={page.slug} className={classes} href={href} aria-current={isCurrent ? 'page' : undefined}>
-            <span className="tn-nav__page-number">{displayOrder}</span>
-            <span className="tn-nav__page-title">{page.title.replace(/^TurtleNet\s*\d*\.?\d*:\s*/, '')}</span>
-          </a>
-        );
-      })}
-
-      {nextPage ? (
-        <a
-          className="tn-nav__arrow"
-          href={`/turtlenet/${nextPage.slug}`}
-          aria-label="Next page"
-        >
-          ▶
-        </a>
-      ) : (
-        <span className="tn-nav__arrow tn-nav__arrow--disabled" aria-hidden="true">
-          ▶
-        </span>
-      )}
+      <button
+        type="button"
+        className={`tn-nav__arrow${atEnd ? ' tn-nav__arrow--disabled' : ''}`}
+        onClick={() => scrollBy(SCROLL_DELTA)}
+        aria-label="Scroll pages right"
+        disabled={atEnd}
+      >
+        ▶
+      </button>
     </nav>
   );
 }
-
