@@ -1,0 +1,116 @@
+---
+import '../../sass/turtlenet.scss';
+import { getCollection } from 'astro:content';
+import {
+  LATEST_VERSION,
+  VERSIONS,
+  allUrl,
+  getPrimaryColor,
+  getVersionMeta,
+  versionBaseUrl,
+  versionFromEntryId,
+  type TurtleNetVersion,
+} from '../../utils/turtlenet-versions';
+
+interface Props {
+  version: TurtleNetVersion;
+}
+
+const { version } = Astro.props;
+
+const entries = await getCollection('turtlenet', (e) => versionFromEntryId(e.id) === version);
+const sorted = entries.sort((a, b) => a.data.order - b.data.order);
+
+const rendered = await Promise.all(
+  sorted.map(async (entry) => {
+    const { Content } = await entry.render();
+    return { entry, Content };
+  })
+);
+
+const perPageHref = versionBaseUrl(version);
+const meta = getVersionMeta(version);
+const isV1 = version === 'v1';
+const bodyClass = ['tn-page', isV1 && 'tn-page--v1'].filter(Boolean).join(' ');
+const bannerColor = getPrimaryColor(LATEST_VERSION);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <title>TurtleNet — All Pages | bencuan.me</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body class={bodyClass}>
+    {isV1 && (
+      <div class="tn-old-version-banner" style={`background-color: ${bannerColor};`}>
+        you are currently viewing an old edition of turtlenet! <a href="/turtlenet">click here</a> to view the new version.
+      </div>
+    )}
+    <a class="tn-go-back" href={perPageHref}>
+      <span class="tn-go-back__arrow">◀</span> go back
+    </a>
+
+    <div class="tn-splash">
+      <div class="tn-version-switch" aria-label="Choose TurtleNet version">
+        {VERSIONS.map((v, i) => {
+          const vMeta = getVersionMeta(v);
+          const isCurrent = v === version;
+          const classes = ['tn-version-switch__link', isCurrent && 'tn-version-switch__link--current']
+            .filter(Boolean)
+            .join(' ');
+          return (
+            <>
+              {i > 0 && <span class="tn-version-switch__sep">/</span>}
+              <a
+                class={classes}
+                href={allUrl(v)}
+                aria-current={isCurrent ? 'page' : undefined}
+              >
+                {vMeta.label}
+              </a>
+            </>
+          );
+        })}
+      </div>
+      <div class="tn-splash__header">
+        <img src="/img/turtlenet-3.png" alt="TurtleNet turtle" class="tn-splash__turtle-img" />
+        <div class="tn-splash__title-group">
+          <h1 class="tn-splash__title">
+            <span class="turtle">Turtle</span><span class="net">Net</span>
+          </h1>
+          <span class="tn-splash__version">
+            {meta.label} <span class="tn-splash__version-sub">• {meta.date}</span>
+          </span>
+        </div>
+      </div>
+      <p class="tn-splash__subtitle">single page edition • by <a href="https://bencuan.me">ben cuan</a></p>
+    </div>
+
+    <main class="tn-content">
+      <div class="tn-content__inner">
+        {rendered.map(({ entry, Content }, i) => (
+          <section>
+            <h2 class="tn-content__title">{entry.data.title}</h2>
+            <div class="tn-content__body">
+              <Content />
+            </div>
+            {i < rendered.length - 1 && <hr class="tn-section-divider" />}
+          </section>
+        ))}
+      </div>
+    </main>
+
+    <footer class="tn-footer">
+      <div class="tn-footer__band">
+        <img src="/img/friends/turtlenet.gif" alt="TurtleNet" class="tn-footer__gif" width="88" height="31" />
+        <div class="tn-footer__links">
+          <a href="https://github.com/64bitpandas/bencuan.me" target="_blank" rel="noopener noreferrer">source</a>
+          <span class="tn-footer__links-sep">//</span>
+          <a href={perPageHref}>per-page edition</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

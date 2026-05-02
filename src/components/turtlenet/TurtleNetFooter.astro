@@ -1,4 +1,6 @@
 ---
+import { allUrl, pageUrl, type TurtleNetVersion } from '../../utils/turtlenet-versions';
+
 interface PageInfo {
   order: number;
   title: string;
@@ -8,9 +10,10 @@ interface PageInfo {
 interface Props {
   pages: PageInfo[];
   currentSlug: string;
+  version: TurtleNetVersion;
 }
 
-const { pages, currentSlug } = Astro.props;
+const { pages, currentSlug, version } = Astro.props;
 
 const currentIndex = pages.findIndex((p) => p.slug === currentSlug);
 const nextPage = currentIndex < pages.length - 1 ? pages[currentIndex + 1] : null;
@@ -23,7 +26,7 @@ function formatOrder(order: number): string {
 <footer class="tn-footer">
   {nextPage && (
     <div class="tn-footer__next-wrapper">
-      <a class="tn-footer__next" href={`/turtlenet/${nextPage.slug}`}>
+      <a class="tn-footer__next" href={pageUrl(version, nextPage.order, nextPage.slug)}>
         <em class="tn-footer__next-label">Next up:</em>
         <span class="tn-footer__next-page">
           {formatOrder(nextPage.order)} - {nextPage.title.replace(/^TurtleNet\s*\d*\.?\d*:\s*/, '')}
@@ -38,7 +41,7 @@ function formatOrder(order: number): string {
     <div class="tn-footer__links">
       <a href="https://github.com/64bitpandas/bencuan.me" target="_blank" rel="noopener noreferrer">source</a>
       <span class="tn-footer__links-sep">//</span>
-      <a href="/turtlenet/all">single page edition</a>
+      <a href={allUrl(version)}>single page edition</a>
     </div>
   </div>
 </footer>

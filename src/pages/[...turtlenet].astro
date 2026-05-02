@@ -1,31 +1,72 @@
 ---
 import { getCollection } from 'astro:content';
 import TurtleNetLayout from '../components/turtlenet/TurtleNetLayout.astro';
+import {
+  VERSIONS,
+  versionFromEntryId,
+  pageUrl,
+  type TurtleNetVersion,
+} from '../utils/turtlenet-versions';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const entries = await getCollection('turtlenet');
-  // Sort by order for consistent page list
-  const sorted = entries.sort((a, b) => a.data.order - b.data.order);
+  const allEntries = await getCollection('turtlenet');
 
-  // Build pages data for nav
-  const pages = sorted.map((e) => ({
-    order: e.data.order,
-    title: e.data.title,
-    slug: e.data.pageSlug,
-  }));
+  // Group entries by version (derived from entry id path prefix).
+  const byVersion = new Map<TurtleNetVersion, typeof allEntries>();
+  for (const v of VERSIONS) byVersion.set(v, []);
+  for (const entry of allEntries) {
+    const v = versionFromEntryId(entry.id);
+    byVersion.get(v)!.push(entry);
+  }
 
-  return sorted.map((entry) => ({
-    // order 0 maps to /turtlenet (no slug), others to /turtlenet/{slug}
-    params: {
-      turtlenet: entry.data.order === 0 ? 'turtlenet' : `turtlenet/${entry.data.pageSlug}`,
-    },
-    props: { entry, pages },
-  }));
+  // Build the sorted page list for every version up-front so each route can
+  // hand the splash a complete cross-version page map.
+  const pagesByVersion = {} as Record<TurtleNetVersion, PageInfo[]>;
+  for (const v of VERSIONS) {
+    const sorted = byVersion.get(v)!.sort((a, b) => a.data.order - b.data.order);
+    byVersion.set(v, sorted);
+    pagesByVersion[v] = sorted.map((e) => ({
+      order: e.data.order,
+      title: e.data.title,
+      slug: e.data.pageSlug,
+    }));
+  }
+
+  const paths: Array<{
+    params: { turtlenet: string };
+    props: {
+      entry: (typeof allEntries)[number];
+      pages: PageInfo[];
+      version: TurtleNetVersion;
+      pagesByVersion: Record<TurtleNetVersion, PageInfo[]>;
+    };
+  }> = [];
+
+  for (const v of VERSIONS) {
+    const sorted = byVersion.get(v)!;
+    const pages = pagesByVersion[v];
+    for (const entry of sorted) {
+      // Strip leading slash; Astro params for [...rest] expect path without leading `/`.
+      const param = pageUrl(v, entry.data.order, entry.data.pageSlug).replace(/^\//, '');
+      paths.push({
+        params: { turtlenet: param },
+        props: { entry, pages, version: v, pagesByVersion },
+      });
+    }
+  }
+
+  return paths;
 }
 
-const { entry, pages } = Astro.props;
+interface PageInfo {
+  order: number;
+  title: string;
+  slug: string;
+}
+
+const { entry, pages, version, pagesByVersion } = Astro.props;
 ---
 
 <TurtleNetLayout
@@ -33,5 +74,7 @@ const { entry, pages } = Astro.props;
   pages={pages}
   currentSlug={entry.data.pageSlug}
   entry={entry}
+  version={version}
+  pagesByVersion={pagesByVersion}
 />
 

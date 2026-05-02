@@ -5,7 +5,6 @@ pageSlug: "2-proxmox"
 cover: "/img/turtlenet/2-proxmox-cover-18.png"
 order: 2
 ---
-
 ![](/img/turtlenet/2-proxmox-8.png)
 
 ## Prerequisites
@@ -38,7 +37,7 @@ Proxmox is best used when you have a publicly addressable domain name (like [ben
 
 It's fine if you're not familiar with how domains work right now- just acquire one, and we'll do lots of fun stuff with it later.
 
-When the installer prompts for the domain, be careful since the subdomain will automatically become the hostname of the machine! For example, using the domain [`turtle.bencuan.me`](http://turtle.bencuan.me) will set the hostname of the machine to `turtle`. Changing the hostname afterwards is possible but it's best to avoid it since it can be a hassle.
+When the installer prompts for the domain, be careful since the subdomain will automatically become the hostname of the machine! For example, using the domain `turtle.bencuan.me` will set the hostname of the machine to `turtle`. Changing the hostname afterwards is possible but it's best to avoid it since it can be a hassle.
 
 ### Post-installation
 
@@ -58,20 +57,11 @@ If all went well, you should be able to access the web client from your web brow
 
 There's a lot of settings, and we'll go over them in due time. For now, here's a list of the most important tools and metrics:
 
-* On the top left, you should see a "Datacenter" tab, followed by your node. If you click on your node, you should then be able to see some basic information about it in the "Summary" tab:
-    
-    ![](/img/turtlenet/2-proxmox-10.png)
-    
-* If you need to access the shell to enter commands, you can do so by clicking on your node, then selecting the "Shell" option in the sidebar (this is functionally equivalent to SSHing into your Proxmox machine from another terminal):
-    
-    ![](/img/turtlenet/2-proxmox-11.png)
-    
-* The reboot/shutdown options are available in the "Search" tab:
-    
-    ![](/img/turtlenet/2-proxmox-12.png)
-    
+- On the top left, you should see a "Datacenter" tab, followed by your node. If you click on your node, you should then be able to see some basic information about it in the "Summary" tab:
+- If you need to access the shell to enter commands, you can do so by clicking on your node, then selecting the "Shell" option in the sidebar (this is functionally equivalent to SSHing into your Proxmox machine from another terminal):
+- The reboot/shutdown options are available in the "Search" tab:
 
-The first thing you will likely need to do is disable the paid Proxmox repositories by going to your node -&gt; updates -&gt; repositories. You will still be able to get the latest updates, but Proxmox has extended features and security updates that are exclusive for businesses or other paying customers. As hobbyists, using the free repositories are perfectly fine.
+The first thing you will likely need to do is disable the paid Proxmox repositories by going to your node -> updates -> repositories. You will still be able to get the latest updates, but Proxmox has extended features and security updates that are exclusive for businesses or other paying customers. As hobbyists, using the free repositories are perfectly fine.
 
 You'll also get a popup every time you log in notifying you that you don't have a subscription. This is also a side effect of the above, and [there are ways to disable this popup](https://johnscs.com/remove-proxmox51-subscription-notice/) if you find it annoying.
 
@@ -86,22 +76,16 @@ You can choose to run practically any operating system on a virtual machine. Typ
 Regardless of which OS you desire, you'll need to acquire the ISO and download it to the `/var/lib/vz/template/iso` folder. Here are the steps:
 
 1. Find the ISO online. For example, the Ubuntu Desktop ISO can be downloaded from [this link](https://releases.ubuntu.com/22.04.2/ubuntu-22.04.2-desktop-amd64.iso).
-    
 2. Open the Proxmox shell and navigate to the correct folder: `cd /var/lib/vz/template/iso`
-    
 3. Download the ISO using `wget`, `curl`, or some similar command. For Windows ISO's, make sure you surround the link in quotes in the command since it has spaces.
-    
 
 ### Naming/Numbering Schemes
 
 Although this is completely optional, it's fun to come up with a cohesive naming scheme for your VM's so that it's easy to keep track of them (and come up with names in the future)! As an example, I name my VM's after popular civilizations from the game Civilization V (babylon, arabia, persia, and so on). Some other ideas just to throw them out:
 
-* names of famous scientists/people from a particular field
-    
-* names of elements (if sufficiently heavy, could even correspond to your VM ID's)
-    
-* any category (animals, cities, cars) but in alphabetical order
-    
+- names of famous scientists/people from a particular field
+- names of elements (if sufficiently heavy, could even correspond to your VM ID's)
+- any category (animals, cities, cars) but in alphabetical order
 
 Less optional and more important is the numerical ID's you will need to assign to your VM's. Each VM will have a unique ID number, which cannot be changed after creation. You can choose to assign these ID's in any way you wish, but it's helpful to group them together in some way. As an example, my VM's starting with 1 host critical services (like DNS and NAS), those starting with 2 host external services, and those starting with 3 host internal services.
 

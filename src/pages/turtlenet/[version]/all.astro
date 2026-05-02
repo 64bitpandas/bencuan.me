@@ -1,0 +1,25 @@
+---
+import TurtleNetAllPage from '../../../components/turtlenet/TurtleNetAllPage.astro';
+import {
+  VERSIONS,
+  isLatest,
+  type TurtleNetVersion,
+} from '../../../utils/turtlenet-versions';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return VERSIONS.filter((v) => !isLatest(v)).map((version) => ({
+    params: { version },
+    props: { version },
+  }));
+}
+
+interface Props {
+  version: TurtleNetVersion;
+}
+
+const { version } = Astro.props;
+---
+
+<TurtleNetAllPage version={version} />

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { pageUrl, type TurtleNetVersion } from '../../utils/turtlenet-versions';
 
 interface PageInfo {
   order: number;
@@ -9,6 +10,7 @@ interface PageInfo {
 interface TurtleNetNavProps {
   pages: PageInfo[];
   currentSlug: string;
+  version: TurtleNetVersion;
 }
 
 function formatOrder(order: number): string {
@@ -21,7 +23,7 @@ function isOptional(order: number): boolean {
 
 const SCROLL_DELTA = 240;
 
-export default function TurtleNetNav({ pages, currentSlug }: TurtleNetNavProps) {
+export default function TurtleNetNav({ pages, currentSlug, version }: TurtleNetNavProps) {
   const currentIndex = pages.findIndex((p) => p.slug === currentSlug);
   const listRef = useRef<HTMLDivElement | null>(null);
   const currentRef = useRef<HTMLAnchorElement | null>(null);
@@ -70,7 +72,7 @@ export default function TurtleNetNav({ pages, currentSlug }: TurtleNetNavProps) 
       <div className="tn-nav__list" ref={listRef}>
         {pages.map((page, i) => {
           const isCurrent = i === currentIndex;
-          const href = i === 0 ? '/turtlenet' : `/turtlenet/${page.slug}`;
+          const href = pageUrl(version, page.order, page.slug);
           const orderStr = formatOrder(page.order);
           const displayOrder = isOptional(page.order) ? `(${orderStr})` : orderStr;
           const classes = ['tn-nav__page', isCurrent && 'tn-nav__page--current']

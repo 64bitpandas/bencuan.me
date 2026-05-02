@@ -2,6 +2,11 @@
 import '../../sass/turtlenet.scss';
 import TurtleNetSplash from './TurtleNetSplash.astro';
 import TurtleNetFooter from './TurtleNetFooter.astro';
+import {
+  LATEST_VERSION,
+  getPrimaryColor,
+  type TurtleNetVersion,
+} from '../../utils/turtlenet-versions';
 
 interface PageInfo {
   order: number;
@@ -13,13 +18,19 @@ interface Props {
   title: string;
   pages: PageInfo[];
   currentSlug: string;
+  version: TurtleNetVersion;
+  pagesByVersion: Record<TurtleNetVersion, PageInfo[]>;
   entry: {
     render: () => Promise<{ Content: any }>;
   };
 }
 
-const { title, pages, currentSlug, entry } = Astro.props;
+const { title, pages, currentSlug, version, pagesByVersion, entry } = Astro.props;
 const { Content } = await entry.render();
+
+const isOldVersion = version !== LATEST_VERSION;
+const bannerColor = getPrimaryColor(LATEST_VERSION);
+const bodyClass = `tn-page${isOldVersion ? ` tn-page--${version}` : ''}`;
 ---
 
 <html lang="en">
@@ -29,13 +40,21 @@ const { Content } = await entry.render();
     <title>{title} | TurtleNet | bencuan.me</title>
     <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
-  <body class="tn-page">
-    <!-- Go Home banner - always fixed top-left -->
+  <body class={bodyClass}>
+    {isOldVersion && (
+      <div class="tn-old-version-banner" style={`background-color: ${bannerColor};`}>
+        you are currently viewing an old edition of turtlenet! <a href="/turtlenet">click here</a> to view the new version.
+      </div>
+    )}
     <a href="https://bencuan.me" class="tn-go-home">
       <span class="tn-go-home__arrow">◀</span> go home
     </a>
-
-    <TurtleNetSplash pages={pages} currentSlug={currentSlug} />
+    <TurtleNetSplash
+      pages={pages}
+      currentSlug={currentSlug}
+      version={version}
+      pagesByVersion={pagesByVersion}
+    />
 
     <main class="tn-content">
       <div class="tn-content__inner">
@@ -46,7 +65,7 @@ const { Content } = await entry.render();
       </div>
     </main>
 
-    <TurtleNetFooter pages={pages} currentSlug={currentSlug} />
+    <TurtleNetFooter pages={pages} currentSlug={currentSlug} version={version} />
   </body>
 </html>
 
