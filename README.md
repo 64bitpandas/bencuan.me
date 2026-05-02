@@ -1,7 +1,5 @@
 ![bencuan.me](public/img/opengraph/og-banner.png)
 
----
-
 Hi there! I'm Ben, and here's my personal website.
 
 I've been rebuilding my website every year- if you're interested, here are the [2018](https://bencuan.me/2018), [2019](https://bencuan.me/2019), [2020](https://bencuan.me/2020), [2021](https://bencuan.me/2021), [2022](https://bencuan.me/2022), and [2024](https://bencuan.me/2024) iterations.
@@ -48,4 +46,4 @@ If you use VSCode, things should be fairly plug-and-play.
 
 ## Contact
 
-https://bencuan.me/contact
+[https://bencuan.me/contact](https://bencuan.me/contact)

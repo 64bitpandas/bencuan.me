@@ -96,4 +96,7 @@ export default defineConfig({
     '/blog/vibe25': 'https://garden.bencuan.me/blog/vibecode',
     '/blog/turtlenet': '/turtlenet',
   },
+  devToolbar: {
+    enabled: false
+  }
 });
