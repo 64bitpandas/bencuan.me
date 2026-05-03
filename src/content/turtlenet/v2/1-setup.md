@@ -5,17 +5,19 @@ pageSlug: "1-setup"
 order: 1
 ---
 
-Enough with the intro fluff- let's jump right into it!
+Let's jump right into it!
 
-Here's the architecture diagram from the last article. I'll walk through what each part means, and how it'll correspond to stuff we have to set up. ([Click here](https://www.figma.com/file/Ndyn8rMc8frfnPrywwN44f/TurtleNet?node-id=8%3A9&t=S5GSEXGUlXGCWUbB-1) for a bigger version!)
+Here's the architecture diagram from the last article. I'll walk through what each part means, and how it'll correspond to stuff we have to set up. ([Click here](https://www.figma.com/design/Ndyn8rMc8frfnPrywwN44f/TurtleNet?node-id=3022-196&t=G5qL96xZ0NY6tY5n-0) to explore the Figma file.)
 
-The purpose of this particular article is to give a very high-level overview of the components in my setup, such that someone already familiar with how and why we need each part can see which solutions I chose.
+![](/img/turtlenet/turtlenet-arch-2026-04.png)
 
-If you're not sure what most of these things are, that's alright! I'll break down each step in future parts.
+**This chapter provides a high-level overview of the components in my setup, such that someone already familiar with how and why we need each part can see which solutions I chose.**
+
+If you're not sure what most of these things are, keep reading on! I'll break down each step in future parts.
 
 ## A Summary of the Summary
 
-Here's the super short 30 second version of this already heavily condensed article for all the busy people out there!
+**Here's the 30 second tl;dr of this already heavily condensed article for all the busy people out there:**
 
 A **homelab** refers to a server whose hardware is fully controlled by the person hosting it, and lives in a non-commercial environment like a home or school.
 
@@ -23,40 +25,40 @@ Using server hardware (which is basically just another computer), we can run sof
 
 VM's allow us to host a variety of **services** using the same hardware, even if they have different requirements.
 
-To allow my VM's to talk to each other (and to host private services that only I and trusted users can connect to), I use ZeroTier, which is a software-defined networking solution that simulates a network switch online.
+To allow my VM's to talk to each other (and to host private services that only I and trusted users can connect to), I use Tailscale, which is a software-defined networking solution that simulates a network switch online.
 
-Then, to allow others to access my public services, I run a **reverse proxy** on an externally-hosted VM with a public IP address to redirect all requests to their internal locations without exposing where they really are. I then create DNS records to map friendly domain names (like blog.bencuan.me) to that public IP address.
+Then, to allow others to access my public services, I use a **reverse proxy** to redirect all requests to their internal locations without exposing where they really are. I then create DNS records to map friendly domain names (like `garden.bencuan.me`) to that public IP address.
 
 ## The Hardware
 
-![](/img/turtlenet/1-setup-2.png)
+![](/img/turtlenet/1-card-turtle.png)
 
-Here's my physical server! As you can see, it's basically just a modern mid-range consumer desktop.
+Here's the physical computer that most services run on. If you're familiar with gaming PC's you may have noticed that it's just a modern mid-range consumer desktop.
 
 **Interested in building your own computer for the specific purpose of homelabbing?** Jump to Part 1.5 for a guide explaining why I chose those particular parts.
 
 ### Why did I use consumer parts?
 
-It's generally more popular for established homelabbers to build a full rack-mount setup using enterprise hardware, since that's the kind of stuff that's designed to be running as a server.
+It's common for established homelabbers to build a full rack-mount setup using enterprise hardware, since that's the kind of stuff that's designed to be running as a server.
 
 However, for newer homelabbers and those who don't need as much performance, I believe that using consumer hardware is generally a better choice for the following reasons:
 
-* **Price and availability:** Unless you're good at finding when companies are throwing out their old hardware and nabbing it, consumer parts are way easier to obtain. You can buy consumer parts for a reasonable price pretty much anywhere (Amazon, Best Buy, Newegg, etc). My setup cost slightly over $1000, which is about what you'd spend on a desktop anyways.
+* **Price and availability:** Unless you're good at tracking down when datacenters are throwing out their old hardware, consumer parts are way easier to obtain. You can buy consumer parts for a reasonable price pretty much anywhere (Amazon, Best Buy, Newegg, etc). My setup cost slightly over $1000, which is about what you'd spend on a desktop anyways.
     
 * **Noise:** Consumer hardware is way quieter, which is a huge plus if you're running it in your house and don't want to annoy everyone in a 500-foot radius of your server.
     
 * **Electricity usage:** Unless you're running some crazy setup, consumer hardware shouldn't bring up your electricity bill by that much (after all, you're just running a second computer in the house). My particular setup runs at 80W for most of the time (equivalent to a handful of bright LED lightbulbs). On the other hand, rack setups can easily draw hundreds to thousands of watts, since they're optimized for performance rather than electricity usage.
-    
+
 
 ### Alternatives
 
 As I've mentioned a couple times previously, my setup of a purpose-built consumer PC is only one possible way to start a homelab! Here are a few others, and some notes about them:
 
-* **Using an old desktop/laptop or Raspberry Pi:** This is the most economical choice, and gives you more than enough power to get started! If you're only running simple web servers or a handful of Docker containers, this might be all you need. However, if you expect to outgrow it soon, it might be better just to go for it and purchase the parts for a new one.
+* **Using an old desktop/laptop or Raspberry Pi:** This is the most economical choice, and gives you more than enough power to get started. If you're only running simple web servers or a handful of Docker containers, this might be all you need. However, if you expect to outgrow it soon, it might be better to just build one so you don't have to migrate your services over.
     
 * **Using a cloud provider:** If you just want to get the hang of configuring server software or run a simple service purely for its utility, homelabbing may not be for you just yet! You can purchase a VM from a provider like DigitalOcean, AWS EC2, Oracle Cloud, or Linode, which will serve the same purpose of a self-hosted VM but without having control over the hardware that runs it. Typically, these VM's are billed monthly, but for low usages many providers offer a free tier.
     
-* **Using enterprise hardware:** If you have a serious need for powerful hardware or want to take the hobby to the next level, building your own rack is the ultimate homelab setup. If you're curious, you can search [YouTube for "homelab rack"](https://www.youtube.com/results?search_query=homelab+rack) to get a variety of examples of all shapes and sizes.
+* **Using enterprise hardware:** If you have a serious need for powerful hardware or want to take the hobby to the next level, building your own rack is the ultimate homelab setup. If you're curious, you can [search YouTube for "homelab rack"](https://www.youtube.com/results?search_query=homelab+rack) to get a variety of examples of all shapes and sizes.
     
 
 ## Networking
