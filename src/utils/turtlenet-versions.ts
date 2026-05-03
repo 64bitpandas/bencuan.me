@@ -12,8 +12,8 @@ export interface TurtleNetVersionMeta {
 }
 
 export const VERSION_META: Record<TurtleNetVersion, TurtleNetVersionMeta> = {
-  v1: { id: 'v1', label: 'v1', date: 'dec. 2025', primaryColor: '#A90E3C' },
-  v2: { id: 'v2', label: 'v2', date: 'dec. 2025', primaryColor: '#203c7f' },
+  v1: { id: 'v1', label: 'v1', date: 'may 2023', primaryColor: '#A90E3C' },
+  v2: { id: 'v2', label: 'v2', date: 'may 2026', primaryColor: '#203c7f' },
 };
 
 export function getVersionMeta(v: TurtleNetVersion): TurtleNetVersionMeta {

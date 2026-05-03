@@ -1,8 +1,8 @@
 ---
-title: "TurtleNet 7: Backups"
+title: 'TurtleNet 7: Backups'
 datePublished: 2023-06-15
-pageSlug: "turtlenet-7-backups"
-cover: "/img/turtlenet/7-backups-cover-36.png"
+pageSlug: 'turtlenet-7-backups'
+cover: '/img/turtlenet/og-image.png'
 order: 7
 ---
 
@@ -20,12 +20,9 @@ There's a well-known rule of thumb that sysadmins usually try to follow
 
 As it stands now, let's evaluate how well our homelab stacks up to this rule:
 
-* **3 copies:** This is probably somewhat satisfied if you have a NAS configured with anything more than RAID 0. However, there is only 1 copy of your VM boot data!
-    
-* **2 locations:** This needs some work.
-    
-* **1 off-site location:** Hmm... So, not great. In this section, we'll explore some ways we can approach our ideal backup solution, and compare solutions to see which ones will work for your use case.
-    
+- **3 copies:** This is probably somewhat satisfied if you have a NAS configured with anything more than RAID 0. However, there is only 1 copy of your VM boot data!
+- **2 locations:** This needs some work.
+- **1 off-site location:** Hmm... So, not great. In this section, we'll explore some ways we can approach our ideal backup solution, and compare solutions to see which ones will work for your use case.
 
 ## Git Backups
 
@@ -36,9 +33,7 @@ As an example, I keep two monolithic GitHub repositories: one for my [TurtleNet 
 The main drawbacks of using GitHub or another cloud provider for Git are twofold:
 
 1. Storage limitations: Git is not intended for use with large files (or a large quantity of files). Although Git LFM exists, providers like GitHub often charge you a decent amount for it. Additionally, storing binaries on Git is not ideal.
-    
 2. Security: You should never store secrets and passwords on any Git repo, even if it's private! This means that you have to be careful with what data you plan on storing in a repo.
-    
 
 ## Software Solutions
 
@@ -54,7 +49,7 @@ Setting up Syncthing on a VM can be done in the same way as any Docker service. 
 version: '3'
 
 services:
- syncthing:
+  syncthing:
     image: linuxserver/syncthing
     container_name: syncthing
     environment:
@@ -71,13 +66,13 @@ services:
     networks:
       - proxy
     labels:
-      - "traefik.enable=true"
+      - 'traefik.enable=true'
       ## HTTP Routers
-      - "traefik.http.routers.syncthing-rtr.entrypoints=https"
-      - "traefik.http.routers.syncthing-rtr.rule=Host(`sync.t.bencuan.me`)"
-      - "traefik.http.routers.syncthing-rtr.tls=true"
-      - "traefik.http.routers.syncthing-rtr.service=syncthing-svc"
-      - "traefik.http.services.syncthing-svc.loadbalancer.server.port=8384"
+      - 'traefik.http.routers.syncthing-rtr.entrypoints=https'
+      - 'traefik.http.routers.syncthing-rtr.rule=Host(`sync.t.bencuan.me`)'
+      - 'traefik.http.routers.syncthing-rtr.tls=true'
+      - 'traefik.http.routers.syncthing-rtr.service=syncthing-svc'
+      - 'traefik.http.services.syncthing-svc.loadbalancer.server.port=8384'
 
 networks:
   proxy:
@@ -95,7 +90,7 @@ Duplicati is an open source, self-hosted backup service that can be configured t
 Here's a sample docker-compose:
 
 ```yml
-version: "3"
+version: '3'
 services:
   duplicati:
     image: lscr.io/linuxserver/duplicati:latest
@@ -114,17 +109,17 @@ services:
     networks:
       - proxy
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.duplicati.entrypoints=http"
-      - "traefik.http.routers.duplicati.rule=Host(`duplicati.t.bencuan.me`)"
-      - "traefik.http.middlewares.duplicati-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.duplicati.middlewares=duplicati-https-redirect"
-      - "traefik.http.routers.duplicati-secure.entrypoints=https"
-      - "traefik.http.routers.duplicati-secure.rule=Host(`duplicati.t.bencuan.me`)"
-      - "traefik.http.routers.duplicati-secure.tls=true"
-      - "traefik.http.routers.duplicati-secure.service=duplicati"
-      - "traefik.http.services.duplicati.loadbalancer.server.port=8200"
-      - "traefik.docker.network=proxy"
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.duplicati.entrypoints=http'
+      - 'traefik.http.routers.duplicati.rule=Host(`duplicati.t.bencuan.me`)'
+      - 'traefik.http.middlewares.duplicati-https-redirect.redirectscheme.scheme=https'
+      - 'traefik.http.routers.duplicati.middlewares=duplicati-https-redirect'
+      - 'traefik.http.routers.duplicati-secure.entrypoints=https'
+      - 'traefik.http.routers.duplicati-secure.rule=Host(`duplicati.t.bencuan.me`)'
+      - 'traefik.http.routers.duplicati-secure.tls=true'
+      - 'traefik.http.routers.duplicati-secure.service=duplicati'
+      - 'traefik.http.services.duplicati.loadbalancer.server.port=8200'
+      - 'traefik.docker.network=proxy'
 
 networks:
   proxy:
@@ -147,12 +142,9 @@ Google Drive actually has [extremely reasonable pricing options](https://one.goo
 
 However, there are some drawbacks to consider:
 
-* Google Drive has a hidden 750GB/day upload limit, so an initial backup could take a long time to fully complete.
-    
-* Upload/download speeds can be somewhat inconsistent- Drive is generally not intended for such heavy usage by a single user.
-    
-* Say what you want about Google, I personally wouldn't trust them with my sensitive data-- but as long as everything's sufficiently encrypted, it shouldn't be too much of a problem.
-    
+- Google Drive has a hidden 750GB/day upload limit, so an initial backup could take a long time to fully complete.
+- Upload/download speeds can be somewhat inconsistent- Drive is generally not intended for such heavy usage by a single user.
+- Say what you want about Google, I personally wouldn't trust them with my sensitive data-- but as long as everything's sufficiently encrypted, it shouldn't be too much of a problem.
 
 ### [rsync.net](http://rsync.net)
 

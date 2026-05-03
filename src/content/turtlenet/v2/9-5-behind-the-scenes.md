@@ -1,10 +1,10 @@
 ---
-title: "TurtleNet: Behind the Scenes"
+title: 'TurtleNet: Behind the Scenes'
 datePublished: 2026-05-02
-pageSlug: "behind-the-scenes"
+pageSlug: 'behind-the-scenes'
 order: 9.5
+cover: '/img/turtlenet/og-image.png'
 ---
-
 
 # A brief history of TurtleNet
 
@@ -25,9 +25,11 @@ Throughout the rest of high school, I played around with my desktop setup a lot.
 My very first real "server" ran on an [Intel Celeron G1840](https://www.intel.com/content/www/us/en/products/sku/80800/intel-celeron-processor-g1840-2m-cache-2-80-ghz/specifications.html) and an NVIDIA GTX 650Ti graphics card, with 8GB of RAM and a 256GB Samsung SSD. It was kind of loud (and also in my bedroom), so it only ran when needed and I turned it off at night. If I was away and needed to mess with it, I triggered a [wake-on-LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) signal routed through some clever and/or cursed port-forwarding (which only worked 50% of the time), and ran a Windows Remote Desktop connection into it.
 
 ## Season One
+
 After I joined the the [Open Computing Facility](https://garden.bencuan.me/community/The-Open-Computing-Facility) and had the opportunity to mess with real rack-mount servers hosting real services that people actually used, I felt inspired to build a more respectable self-hosting setup of my own.
 
 At the time I had just built a new computer (with a Ryxen 7 3700x, 64GB of RAM and a GTX 1080)-- but realized that:
+
 1. I was rarely around to use it.
 2. I often had a need for the compute power on-the-go (for school projects, extra cloud storage, etc.)
 
@@ -36,14 +38,13 @@ I made the decision to retire my computer as a desktop, wiped the drive, and ins
 As of 2023, a ~year after starting the conversion, this is what my server architecture looked like:
 ![](/img/turtlenet/bts-20250604002125.png)
 
-
-After [notes.bencuan.me](https://notes.bencuan.me) started taking off at the end of 2022 I realized that people would also really appreciate hearing about TurtleNet! So I decided to write some notes about it and published it on [Hashnode](https://hashnode.com/) (this version is now available as [TurtleNet V1](/turtlenet/v1)). TurtleNet was the second major piece of writing I've ever created;  To this day I still run into folks who tell me how much it's helped them create their own homelabs 🥺
+After [notes.bencuan.me](https://notes.bencuan.me) started taking off at the end of 2022 I realized that people would also really appreciate hearing about TurtleNet! So I decided to write some notes about it and published it on [Hashnode](https://hashnode.com/) (this version is now available as [TurtleNet V1](/turtlenet/v1)). TurtleNet was the second major piece of writing I've ever created; To this day I still run into folks who tell me how much it's helped them create their own homelabs 🥺
 
 ### aside: why is it called TurtleNet?
-1. I like turtles.
-2. I now name all of my physical machines after animals. 
-3. I made an extremely cringe [webtoon](https://www.webtoons.com/en/canvas/powershell/list?title_no=270344&page=2) as an unreasonably high-effort method of realizing that turtles have shells, and so does your computer.
 
+1. I like turtles.
+2. I now name all of my physical machines after animals.
+3. I made an extremely cringe [webtoon](https://www.webtoons.com/en/canvas/powershell/list?title_no=270344&page=2) as an unreasonably high-effort method of realizing that turtles have shells, and so does your computer.
 
 ## Season Two
 
@@ -55,15 +56,8 @@ TurtleNet in its current form is a properly respectable homelab system: now with
 
 The present iteration of the series focuses on the lessons we learned while building this new system and a few ways the standards have changed over the last three years since I wrote the original.
 
-
 ## Future Directions
 
-Now that I maintain servers as a full-time job, it's pretty tough for me to find the time and energy outside of work to continue building out my personal homelab. As such, I don't anticipate any major updates to TurtleNet in the coming future (assuming things continue running with minimal effort as they have for the past year or so). 
+Now that I maintain servers as a full-time job, it's pretty tough for me to find the time and energy outside of work to continue building out my personal homelab. As such, I don't anticipate any major updates to TurtleNet in the coming future (assuming things continue running with minimal effort as they have for the past year or so).
 
 I'd like to write about real production servers at some point, now that I have experience running them at scale! Since there are already plenty of great resources about this topic online, I still need to let this thought stew a bit so I can find the missing pieces I'm most able to contribute to meaningfully. This will likely look like a more formal extension of my current [ML Systems Engineering Syllabus](https://garden.bencuan.me/ml-systems/ML-Systems-Engineering-Syllabus).
- 
-
-
-
-
-

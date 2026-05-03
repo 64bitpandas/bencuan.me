@@ -1,8 +1,8 @@
 ---
-title: "TurtleNet 4: Reverse Proxying Your First Service"
+title: 'TurtleNet 4: Reverse Proxying Your First Service'
 datePublished: 2023-06-09
-pageSlug: "turtlenet-4-reverse-proxying-your-first-service"
-cover: "/img/turtlenet/4-reverse-proxying-cover-26.png"
+pageSlug: 'turtlenet-4-reverse-proxying-your-first-service'
+cover: '/img/turtlenet/og-image.png'
 order: 4
 ---
 
@@ -15,9 +15,7 @@ This section is very choose-your-own-adventure: I'll give an example of how to s
 If you're planning on running a lot of services on bare VM's, you basically have two options:
 
 1. Make a VM for each service you're offering: this helps keep each service separated in the event of crashes or resource conflicts, but takes up a lot of additional compute resources. Managing a huge amount of VM's is also somewhat time consuming.
-    
 2. Run most/all of your services on a single VM: this saves lots of compute power, but you will run into conflicts rather frequently. For instance, if two of your services both use MySQL, they might overwrite each others' database entries if configured improperly!
-    
 
 It's evident that neither of these options are quite ideal. Luckily, there is a solution to this:
 
@@ -27,12 +25,9 @@ Essentially, containerization is the process of making very standard, mini-image
 
 One of the most popular containerization management tools used in the software industry is Docker. Besides providing the containers, Docker also provides lots of other goodies like:
 
-* A standard way of defining and sharing container images through Dockerfiles;
-    
-* Rudimentary virtual networking that allows each service to either be isolated or to communicate with one another;
-    
-* Reliability and crash recovery (containers can auto-restart on crash).
-    
+- A standard way of defining and sharing container images through Dockerfiles;
+- Rudimentary virtual networking that allows each service to either be isolated or to communicate with one another;
+- Reliability and crash recovery (containers can auto-restart on crash).
 
 #### Aside: But what about Kubernetes :k8s:??
 
@@ -44,7 +39,7 @@ I wrote an [interactive lab](https://decal.ocf.berkeley.edu/labs/10/) for gettin
 
 ### Installation
 
-Docker can be installed by following the [official documentation](https://docs.docker.com/engine/install/). Note that we want to install *Docker Engine* and not *Docker Desktop* since we are only interacting with the command line. For example, [here are the Ubuntu installation instructions](https://docs.docker.com/engine/install/ubuntu/).
+Docker can be installed by following the [official documentation](https://docs.docker.com/engine/install/). Note that we want to install _Docker Engine_ and not _Docker Desktop_ since we are only interacting with the command line. For example, [here are the Ubuntu installation instructions](https://docs.docker.com/engine/install/ubuntu/).
 
 You may also need to install [Docker Compose](https://docs.docker.com/compose/install/linux/).
 
@@ -55,20 +50,14 @@ To verify that you have both successfully installed, run `docker --version` and 
 There are multiple ways of managing and configuring services using Docker Compose. These include:
 
 1. Making one `docker-compose.yml` and listing all of your services in it
-    
 2. Making one `docker-compose.yml` for each of your services
-    
 3. Creating and managing all configs via Portainer
-    
 
 Each of these options have their own benefits and drawbacks:
 
 1. Starting/stopping your entire service deployment can be done with a single command, but having such a large config file can get unwieldy.
-    
 2. Separating each service means some redundant configuration and less convenient management, but is modular and it's easy to work on one service without affecting others.
-    
 3. Using Portainer is the most convenient and powerful method, but it's more difficult to share and back up configs.
-    
 
 For my own purposes, I chose Option 2 since I like the organizational aspect of having a folder for each service, and can have a Git repo with all my configs in it. You can see this in action by viewing some of my sample configs [here](https://github.com/64bitpandas/TurtleNetPublic/tree/main/docker).
 
@@ -112,20 +101,13 @@ services:
 
 Let's break this down:
 
-* The first line after `services` is the ID of your service- you can name this whatever you want. You can list multiple services under `services` in the same file, but as discussed above I typically don't do this unless the services rely on each other.
-    
-* The `image` is the name of the container image that will be installed. You can look through a repository at [Docker Hub](https://hub.docker.com/), but this could also be the name of a custom image you have compiled locally (more on that later).
-    
-* The `restart` option specifies the behavior when the container or server goes down. `unless-stopped` is my personal default: the container will automatically restart itself unless it was manually brought down by a user.
-    
-* `ports` exposes ports from the container (right) to the system (left). **Remember the order host:container** (I always get it mixed up)- for example, `8080:80` will expose a service running in the container's port 80 to [`localhost:8080`](http://localhost:8080) on the server it's running on.
-    
-* `volumes` exposes files and folders in the container to the host. Again, the order is host:container. The `:ro` at the end specifies that those specific files are read-only.
-    
-    * Since I keep a folder handy for each service, I like to expose the service's data to the working directory using `./data:/data`. However, this is only one of many methods of using volumes: see the [official documentation on Volumes](https://docs.docker.com/storage/volumes/) for more info.
-        
-    * Every service will have a different set of directories/files to expose so make sure to check the documentation to see what you will need.
-        
+- The first line after `services` is the ID of your service- you can name this whatever you want. You can list multiple services under `services` in the same file, but as discussed above I typically don't do this unless the services rely on each other.
+- The `image` is the name of the container image that will be installed. You can look through a repository at [Docker Hub](https://hub.docker.com/), but this could also be the name of a custom image you have compiled locally (more on that later).
+- The `restart` option specifies the behavior when the container or server goes down. `unless-stopped` is my personal default: the container will automatically restart itself unless it was manually brought down by a user.
+- `ports` exposes ports from the container (right) to the system (left). **Remember the order host:container** (I always get it mixed up)- for example, `8080:80` will expose a service running in the container's port 80 to [`localhost:8080`](http://localhost:8080) on the server it's running on.
+- `volumes` exposes files and folders in the container to the host. Again, the order is host:container. The `:ro` at the end specifies that those specific files are read-only.
+  - Since I keep a folder handy for each service, I like to expose the service's data to the working directory using `./data:/data`. However, this is only one of many methods of using volumes: see the [official documentation on Volumes](https://docs.docker.com/storage/volumes/) for more info.
+  - Every service will have a different set of directories/files to expose so make sure to check the documentation to see what you will need.
 
 Once you've saved your Compose file, you can run the command `docker-compose up -d --force-recreate` to get it running in the background. It might take a minute to pull the image on the first run, but once it's done you should be able to run `docker ps` and see something like this:
 
@@ -148,14 +130,10 @@ Essentially, a reverse proxy creates a layer in between your services and the re
 
 There are lots of reverse proxy implementations:
 
-* Nginx is industry standard and includes lots of additional features like a load balancer and integrated web server. Its power and flexibility also make it more difficult to configure and maintain, however.
-    
-* Apache 2 is another standard reverse proxy and web server implementation; with Nginx, they have been estimated to serve over half the internet. Choosing Apache over Nginx is mostly a personal/design/legacy decision, and for our purposes Apache has many of the same benefits and drawbacks as Nginx.
-    
-* Caddy is a more recent addition to the list, and has the simplest configuration I've seen so far. For example, the single line `reverse_proxy portainer.domain.tld {` [`localhost:9000`](http://localhost:9000) `}` in a Caddyfile will do exactly what we want it to! If you just want something that works, I highly recommend Caddy.
-    
-* Traefik is the implementation I will go over now. While more complex to set up compared to Caddy, it has a wider range of features and can automatically route Docker containers!
-    
+- Nginx is industry standard and includes lots of additional features like a load balancer and integrated web server. Its power and flexibility also make it more difficult to configure and maintain, however.
+- Apache 2 is another standard reverse proxy and web server implementation; with Nginx, they have been estimated to serve over half the internet. Choosing Apache over Nginx is mostly a personal/design/legacy decision, and for our purposes Apache has many of the same benefits and drawbacks as Nginx.
+- Caddy is a more recent addition to the list, and has the simplest configuration I've seen so far. For example, the single line `reverse_proxy portainer.domain.tld {` [`localhost:9000`](http://localhost:9000) `}` in a Caddyfile will do exactly what we want it to! If you just want something that works, I highly recommend Caddy.
+- Traefik is the implementation I will go over now. While more complex to set up compared to Caddy, it has a wider range of features and can automatically route Docker containers!
 
 To get started, see [https://doc.traefik.io/traefik/getting-started/quick-start/](https://doc.traefik.io/traefik/getting-started/quick-start/). You can also just copy the Compose file below:
 
@@ -170,11 +148,11 @@ services:
     command: --api.insecure=true --providers.docker
     ports:
       # The HTTP port
-      - "80:80"
+      - '80:80'
       # The HTTPS port
-      - "443:443"
+      - '443:443'
       # The Web UI (enabled by --api.insecure=true)
-      - "8080:8080"
+      - '8080:8080'
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
@@ -184,19 +162,19 @@ services:
       # SSL
       - /home/turtle/traefik/data/acme.json:/acme.json
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.traefik.entrypoints=http"
-      - "traefik.http.routers.traefik.rule=Host(`traefik.t.bencuan.me`)"
-      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
-      - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
-      - "traefik.http.routers.traefik-secure.entrypoints=https"
-      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.t.bencuan.me`)"
-      - "traefik.http.routers.traefik-secure.tls=true"
-      - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
-      - "traefik.http.routers.traefik-secure.tls.domains[0].main=t.bencuan.me"
-      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.t.bencuan.me"
-      - "traefik.http.routers.traefik-secure.service=api@internal"
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.traefik.entrypoints=http'
+      - 'traefik.http.routers.traefik.rule=Host(`traefik.t.bencuan.me`)'
+      - 'traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https'
+      - 'traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https'
+      - 'traefik.http.routers.traefik.middlewares=traefik-https-redirect'
+      - 'traefik.http.routers.traefik-secure.entrypoints=https'
+      - 'traefik.http.routers.traefik-secure.rule=Host(`traefik.t.bencuan.me`)'
+      - 'traefik.http.routers.traefik-secure.tls=true'
+      - 'traefik.http.routers.traefik-secure.tls.certresolver=cloudflare'
+      - 'traefik.http.routers.traefik-secure.tls.domains[0].main=t.bencuan.me'
+      - 'traefik.http.routers.traefik-secure.tls.domains[0].sans=*.t.bencuan.me'
+      - 'traefik.http.routers.traefik-secure.service=api@internal'
 
     restart: unless-stopped
     environment:
@@ -209,7 +187,7 @@ services:
     # A container that exposes an API to show its IP address
     image: traefik/whoami
     labels:
-      - "traefik.http.routers.whoami.rule=Host(`whoami.t.bencuan.me`)"
+      - 'traefik.http.routers.whoami.rule=Host(`whoami.t.bencuan.me`)'
 
 networks:
   proxy:
@@ -218,10 +196,8 @@ networks:
 
 You should replace the following:
 
-* Right now, I'm mapping all my services to various subdomains of [`t.bencuan.me`](http://t.bencuan.me). You have a different domain, so change all instances of this to your domain. Using a subdomain is preferred for internal services, so you can map your DNS record to your ZeroTier IP and have all of your services automatically route to your server.
-    
-* If you're using Cloudflare, generate an API token [here](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) and replace the `environment` section with the correct credentials.
-    
+- Right now, I'm mapping all my services to various subdomains of [`t.bencuan.me`](http://t.bencuan.me). You have a different domain, so change all instances of this to your domain. Using a subdomain is preferred for internal services, so you can map your DNS record to your ZeroTier IP and have all of your services automatically route to your server.
+- If you're using Cloudflare, generate an API token [here](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) and replace the `environment` section with the correct credentials.
 
 Now, go back to your DNS provider and create a new record for your subdomain using the ZeroTier IP for your server. For example, here's mine:
 
@@ -237,14 +213,14 @@ api:
   debug: true
 entryPoints:
   http:
-    address: ":80"
+    address: ':80'
   https:
-    address: ":443"
+    address: ':443'
 serversTransport:
   insecureSkipVerify: true
 providers:
   docker:
-    endpoint: "unix:///var/run/docker.sock"
+    endpoint: 'unix:///var/run/docker.sock'
     exposedByDefault: false
   file:
     filename: /config.yml
@@ -256,8 +232,8 @@ certificatesResolvers:
       dnsChallenge:
         provider: cloudflare
         resolvers:
-          - "1.1.1.1:53"
-          - "1.0.0.1:53"
+          - '1.1.1.1:53'
+          - '1.0.0.1:53'
 ```
 
 See the [official documentation](https://doc.traefik.io/traefik/https/acme/) for more details on `certificatesResolvers` if you don't use Cloudflare. This is necessary for automatically ensuring all of your sites are on HTTPS (otherwise your browser will yell at you a lot).
@@ -301,7 +277,7 @@ networks:
     external: true
 ```
 
-You'll probably need to create the `proxy` network (`docker network create proxy`) if you haven't already. Also note that the loadbalancer port is the *container* port, not the host port it's mapped to.
+You'll probably need to create the `proxy` network (`docker network create proxy`) if you haven't already. Also note that the loadbalancer port is the _container_ port, not the host port it's mapped to.
 
 For example, I can now modify our Portainer config to the following to get it running on [`portainer.t.bencuan.me`](http://portainer.t.bencuan.me):
 
@@ -318,17 +294,17 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /home/turtle/portainer/data:/data
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.portainer.entrypoints=http"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.t.bencuan.me`)"
-      - "traefik.http.middlewares.portainer-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.portainer.middlewares=portainer-https-redirect"
-      - "traefik.http.routers.portainer-secure.entrypoints=https"
-      - "traefik.http.routers.portainer-secure.rule=Host(`portainer.t.bencuan.me`)"
-      - "traefik.http.routers.portainer-secure.tls=true"
-      - "traefik.http.routers.portainer-secure.service=portainer"
-      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
-      - "traefik.docker.network=proxy"
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.portainer.entrypoints=http'
+      - 'traefik.http.routers.portainer.rule=Host(`portainer.t.bencuan.me`)'
+      - 'traefik.http.middlewares.portainer-https-redirect.redirectscheme.scheme=https'
+      - 'traefik.http.routers.portainer.middlewares=portainer-https-redirect'
+      - 'traefik.http.routers.portainer-secure.entrypoints=https'
+      - 'traefik.http.routers.portainer-secure.rule=Host(`portainer.t.bencuan.me`)'
+      - 'traefik.http.routers.portainer-secure.tls=true'
+      - 'traefik.http.routers.portainer-secure.service=portainer'
+      - 'traefik.http.services.portainer.loadbalancer.server.port=9000'
+      - 'traefik.docker.network=proxy'
     networks:
       - proxy
 
