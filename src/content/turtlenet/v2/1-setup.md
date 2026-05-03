@@ -73,19 +73,19 @@ Luckily, that isn't necessary when I only have one physical machine! Once that o
 
 There's been a recent wave of [software defined networking (SDN)](https://en.wikipedia.org/wiki/Software-defined_networking) solutions, which create virtual networks and use software, rather than hardware switches, to manage connections between machines in a network.
 
-The particular solution I went with was ZeroTier, which assigns IP addresses to every machine connected to the network that can only be resolved by machines also connected to the network. (Don't worry about the fact that my diagram is full of IP addresses- they're all completely inaccessible to the public!)
+The particular solution I went with was [Tailscale](https://tailscale.com/), which assigns IP addresses to every machine connected to the network that can only be resolved by machines also connected to the network. (Don't worry about the fact that my diagram is full of IP addresses- they're all completely inaccessible to the public!)
 
-Since I still have public services, I need some way to allow access in without having every stranger connect to my ZeroTier network. So, I have one (free) Oracle Cloud VM that's assigned a public IPv4 address while connected to ZeroTier. Its only job is to run a reverse proxy which allows public access to only the particular resources I want to expose- more on that later.
+Since I still have public services, I need some way to allow access in without having every stranger connect to my Tailscale network. So, I have one (free) Oracle Cloud VM that's assigned a public IPv4 address while connected to Tailscale. Its only job is to run a reverse proxy which allows public access to only the particular resources I want to expose- more on that later.
 
-Another software-based alternative to ZeroTier is to run a VPN, such as OpenVPN or [Wireguard](https://www.wireguard.com/). From a security standpoint all of these solutions are relatively similar, but running a VPN requires forwarding a port, and you'll be unable to connect to the network if the host machine is down.
+Another software-based alternative to Tailscale is to run a VPN, such as OpenVPN or [Wireguard](https://www.wireguard.com/). From a security standpoint all of these solutions are relatively similar, but running a VPN requires forwarding a port, and you'll be unable to connect to the network if the host machine is down.
 
 ## Virtual Machines
 
-![](/img/turtlenet/1-setup-4.png)
+<img src="/img/turtlenet/1-card-vms.png" alt="" style="max-width: 30%;" />
 
 Besides the Oracle Cloud ingress, I currently host six VM's on my main server, using Proxmox as a hypervisor:
 
-* Korea hosts all of my internal services (which are only accessible to machines within my ZeroTier network).
+* Korea hosts all of my internal services (which are only accessible to machines within my Tailscale network).
     
 * Babylon is my development server, where I write most of my code and can quickly spin up live web servers if needed.
     
@@ -102,7 +102,7 @@ With the exception of Arabia and Persia (which run Windows and TrueNAS Core resp
 
 ## Applications
 
-![](/img/turtlenet/1-setup-5.png)
+![](/img/turtlenet/1-card-apps.png)
 
 Now for the fun part! Here's all the stuff that actually lives on my setup. Future parts will go into far more detail about how you can set these things up for yourself. There's plenty more you can do with your own that I don't, but hopefully this gives you a taste of the power of homelabbing:
 
@@ -133,7 +133,7 @@ Now for the fun part! Here's all the stuff that actually lives on my setup. Futu
 
 ## Subdomains
 
-![](/img/turtlenet/1-setup-6.png)
+<img src="/img/turtlenet/1-card-subdomains.png" alt="" style="max-width: 70%;" />
 
 After hosting them, I need a way for users to easily access my external services. I happen to use Cloudflare as a DNS provider, but it really doesn't matter which one you use.
 

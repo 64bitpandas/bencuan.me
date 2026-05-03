@@ -124,7 +124,7 @@ $tn-grey-light: #bbb;
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
-  padding: 0.6rem 1rem 1.25rem;
+  padding: 1.25rem 1rem 1.25rem;
   max-width: 100%;
 }
 
@@ -178,6 +178,7 @@ $tn-grey-light: #bbb;
     .tn-nav__page-number {
       color: $tn-green;
       text-decoration: underline;
+      font-style: italic;
       text-underline-offset: 3px;
     }
     .tn-nav__page-title {
@@ -189,7 +190,6 @@ $tn-grey-light: #bbb;
 
 .tn-nav__page-number {
   font-family: fonts.$frama;
-  font-style: italic;
   font-weight: 400;
   font-size: 1.05rem;
   color: $tn-white;
@@ -524,7 +524,6 @@ $tn-grey-light: #bbb;
   position: sticky;
   top: 0;
   z-index: 200;
-  width: 100%;
   padding: 0.75rem 1.5rem;
   text-align: center;
   color: $tn-white;
