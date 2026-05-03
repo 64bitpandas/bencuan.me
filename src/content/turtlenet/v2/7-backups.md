@@ -12,7 +12,7 @@ You should always keep backups of your important data in the case of catastrophi
 
 ### The 3-2-1 Rule
 
-There's a well-known rule of thumb that sysadmins usually try to follow
+There's a well-known rule of thumb that sysadmins usually try to follow:
 
 ![Source: MSP360](/img/turtlenet/7-backups-35.png)
 
@@ -154,9 +154,9 @@ They also offer a significant education discount upon request, so if you're a st
 
 ### AWS Glacier
 
-At around $1/TB/month, AWS Glacier Deep Archive is probably the cheapest cloud storage around-- that is, until you need to retrieve your data.
+At around \$1/TB/month, AWS Glacier Deep Archive is probably the cheapest cloud storage around-- that is, until you need to retrieve your data.
 
-According to the [pricing chart](https://aws.amazon.com/s3/pricing), transferring data out of AWS from us-east-1 costs $0.09 per GB- which is a staggering $90/TB! But if you just need to back up a few TB of data and are willing to pay a (pretty reasonable) couple hundred bucks to recover your data in an absolute-emergency scenario, this could be a good solution to have extremely cheap off-premise storage.
+According to the [pricing chart](https://aws.amazon.com/s3/pricing), transferring data out of AWS from us-east-1 costs \$0.09 per GB- which is a staggering \$90/TB! But if you just need to back up a few TB of data and are willing to pay a (pretty reasonable) couple hundred bucks to recover your data in an absolute-emergency scenario, this could be a good solution to have extremely cheap off-premise storage.
 
 ### Friends and Family
 

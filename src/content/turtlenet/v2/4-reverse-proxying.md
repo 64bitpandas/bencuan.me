@@ -31,9 +31,9 @@ One of the most popular containerization management tools used in the software i
 
 #### Aside: But what about Kubernetes :k8s:??
 
-If you have heard of the mystical framework that is Kubernetes and want to use it to power your own server, go for it! I will warn you that it gets fairly involved, and is probably extremely overpowered for any hobbyist system- but that being said, part of the fun of homelabbing is playing around with things and learning how to use them!
+If you have heard of Kubernetes and want to use it to power your own server, go for it! I will warn you that it gets fairly involved, and is somewhat overpowered for any hobbyist system- but that being said, part of the fun of homelabbing is playing around with things and learning how to use them!
 
-I wrote an [interactive lab](https://decal.ocf.berkeley.edu/labs/10/) for getting started with Kubernetes if you'd like an intro and some additional resources.
+I wrote an [interactive lab](https://garden.bencuan.me/homelabbing/Kubernetes-Lab) for getting started with Kubernetes if you'd like an intro and some additional resources.
 
 ## Docker Setup
 
@@ -84,11 +84,9 @@ Using Docker Compose, all services can be defined in a standard format: the [Com
 Within this file, we'll mostly be working with the `services` element. For example, here is a simple config for getting Portainer up:
 
 ```yaml
-version: '3'
-
 services:
   portainer:
-    image: portainer/portainer-ce
+    image: portainer/portainer-ce:latest
     container_name: portainer
     restart: unless-stopped
     ports:
