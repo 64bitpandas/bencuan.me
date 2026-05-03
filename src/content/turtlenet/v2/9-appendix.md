@@ -35,6 +35,8 @@ For the most part, V2 is just a more polished and up-to-date version of V1. I di
 - update pc part picking info (RIP part prices)
 - update opengraph covers
 - add a "connecting to the internet" section that describes ISPs and physical hardware before getting to tailscale
+- archive the ocf kubernetes lab into garden.bencuan.me
+- move domain config info from tailscale to public networking section
 
 # C. Colophon
 

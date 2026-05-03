@@ -83,7 +83,7 @@ Once you have an account, you can create a network. The setup dialogues should w
 
 As a warm-up to VM configuration, let's see how the joining process looks like using an external computer or phone.
 
-First, download the correct ZeroTier distribution for your device [here](https://tailscale.com/download). Then, you should be able to authenticate as yourself via a browser prompt and select a hostname to identify your device.
+First, download the correct Tailscale distribution for your device [here](https://tailscale.com/download). Then, you should be able to authenticate as yourself via a browser prompt and select a hostname to identify your device.
 
 Your device will automatically be registered, connected to the network, and assigned an IP address. For example, on my Mac, it looks something like this:
 ![tailscale-1](/img/turtlenet/tailscale-1.png)
@@ -108,42 +108,7 @@ The process is pretty similar, only we don't have a GUI anymore. Instead, you ca
 
 Doing this is exactly the same process as joining Tailscale from your VM, except now you should go through the steps in the _Proxmox shell_ rather than your VM's console. After you assign your Proxmox instance to a domain name, you should now be able to access your Proxmox console using `https://node.domain.tld:8006` in your web browser. For example, my server is named `turtle` and my domain is `bencuan.me`, so I could type `https://turtle.bencuan.me:8006`.
 
-## Domain Configuration
-
-Now that ZeroTier has been configured on both your VM and your regular device, let's make it easier to access!
-
-In Part 2, you should have acquired a domain. If you did not do this and opted to have a local domain instead, skip to "Local Resolution".
-
-Your domain provider should have an option to set DNS records in their web console. If they don't, or you don't trust your provider, you can also link an external provider like Cloudflare, then continue with this process.
-
-In your DNS configuration, let's add a new record corresponding to your VM.
-
-1. Create a new A record. (You can also create an AAAA record if you prefer to use IPv6).
-2. For the name, use your VM's hostname (ex. `arabia`).
-3. For the IP, enter the ZeroTier IP corresponding to your VM (found in the ZeroTier web console).
-4. If using Cloudflare or a similar service, disable the option to proxy the record.
-5. Save the new record, and wait a couple minutes for it to propagate.
-
-Now, you should be able to reach your domain using your new record! As an example, I have a VM named `arabia` and my domain is [`bencuan.me`](http://bencuan.me). Thus, if I type in the command `ping` [`arabia.bencuan.me`](http://arabia.bencuan.me) on my laptop, I should be able to reach it and get the following output:
-
-```bash
-❯ ping sweden.bencuan.me
-
-Pinging arabia.bencuan.me [172.24.220.210] with 32 bytes of data:
-Reply from 172.24.220.210: bytes=32 time=26ms TTL=64
-Reply from 172.24.220.210: bytes=32 time=29ms TTL=64
-Reply from 172.24.220.210: bytes=32 time=32ms TTL=64
-Reply from 172.24.220.210: bytes=32 time=23ms TTL=64
-
-Ping statistics for 172.24.220.210:
-    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
-Approximate round trip times in milli-seconds:
-    Minimum = 23ms, Maximum = 32ms, Average = 27ms
-```
-
-If you tried to ping [`arabia.bencuan.me`](http://arabia.bencuan.me) right now though, it will most likely result in a timeout since you haven't been added to my ZeroTier network!
-
-### Local Resolution
+## Local Resolution
 
 If you didn't acquire a public domain, you'll still have to use your IP addresses to access your VM's. We'll see how we can set up a custom DNS server to get around this in a future step.
 
@@ -176,4 +141,4 @@ If you will need to access your VM graphically for things like gaming or video e
 
 If you've gotten this far, you should now be able to access your VM from anywhere, but only on your personal devices! This will allow you to access server resources such as the Proxmox console even if you're not connected to the same network as your server.
 
-Next, we'll take advantage of our private ZeroTier network to set up a reverse proxy to access internal services in a convenient manner.
+Next, we'll take advantage of our private Tailscale network to set up a reverse proxy to access internal services in a convenient manner.
