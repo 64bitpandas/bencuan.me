@@ -6,8 +6,6 @@ order: 9.5
 cover: '/img/turtlenet/og-image.png'
 ---
 
-# A brief history of TurtleNet
-
 ## Pre-history
 
 ![](/img/turtlenet/bts-20251223164331.png)
