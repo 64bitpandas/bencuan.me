@@ -190,7 +190,7 @@ $tn-grey-light: #bbb;
 
 .tn-nav__page-number {
   font-family: fonts.$frama;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 1.05rem;
   color: $tn-white;
   line-height: 1.2;
@@ -241,7 +241,12 @@ $tn-grey-light: #bbb;
   line-height: 1.55;
   color: #222;
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: fonts.$supply-sans;
     font-weight: 500;
     margin-top: 2.75rem;
@@ -250,9 +255,15 @@ $tn-grey-light: #bbb;
     color: #111;
   }
 
-  h1 { font-size: 2.9rem; }
-  h2 { font-size: 2.3rem; }
-  h3 { font-size: 1.85rem; }
+  h1 {
+    font-size: 2.9rem;
+  }
+  h2 {
+    font-size: 2.3rem;
+  }
+  h3 {
+    font-size: 1.85rem;
+  }
 
   p {
     margin-bottom: 1rem;
@@ -275,7 +286,8 @@ $tn-grey-light: #bbb;
     border-radius: 4px;
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin-bottom: 1rem;
     padding-left: 1.5rem;
   }
@@ -481,7 +493,6 @@ $tn-grey-light: #bbb;
   margin: 4rem 0;
 }
 
-
 // ── Version selector (top-right of splash) ──
 .tn-version-switch {
   position: absolute;
@@ -502,6 +513,7 @@ $tn-grey-light: #bbb;
   text-decoration: none;
   opacity: 0.7;
   transition: opacity 0.2s;
+  font-weight: 400;
 
   &:hover {
     opacity: 1;
@@ -560,4 +572,3 @@ $tn-grey-light: #bbb;
     top: 2.75rem;
   }
 }
-

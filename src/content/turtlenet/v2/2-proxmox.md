@@ -1,31 +1,28 @@
 ---
-title: "TurtleNet 2: Getting Started with Proxmox"
+title: 'TurtleNet 2: Getting Started with Proxmox'
 datePublished: 2023-03-29
-pageSlug: "2-proxmox"
-cover: "/img/turtlenet/2-proxmox-cover-18.png"
+pageSlug: '2-proxmox'
+cover: '/img/turtlenet/og-image.png'
 order: 2
 ---
+
 ![](/img/turtlenet/2-proxmox-8.png)
 
-## Prerequisites
+At this point in the series, my hope is that you now have a very high-level sense of what you might want to achieve with your homelab, and know the high-level steps you'll be taking to get it up and running.
 
-If you haven't read [Part 1](/turtlenet/1-setup) yet, go do that now!
-
-At this point in the series, my hope is that you now have a very high-level sense of what you might want to achieve with your homelab, and are generally aware of the steps you'll be taking to get it up and running.
-
-Additionally, you should either have your desired hardware or have acquired access to a VPS or virtual machine of your liking. I'll make the assumption that you're using your own hardware from now on (true to the spirit of homelabbing); if you're not, use your best judgement on what parts might need to be tweaked or ignored for your particular case! To reiterate, my intention is to give a framework to build up your own intuition of how all of this works, instead of giving a step-by-step guide.
+Additionally, you should now have your desired hardware in front of you (or, have acquired access to a VPS or virtual machine of your liking). I'll make the assumption that you're using your own hardware from now on; if you're not, use your best judgement on what parts might need to be tweaked or ignored for your particular case! To reiterate, my intention is to give a framework to build up your own intuition of how all of this works, instead of giving a step-by-step guide.
 
 ## The Hypervisor
 
 Great, so now you have some hardware that's ready to do things. Let's install the software that it needs!
 
-Since we'll be installing multiple virtual machines, we need a main operating system to help manage all of them. Proxmox is my tool of choice, due to its wide support, included web interface, and the fact that it's free and open source. But under the hood, Proxmox is basically just a souped-up version of Debian, so if you really wanted to get dirty you could get all of its functionality by installing the right things on a basic Linux instance.
+Since we'll be installing multiple virtual machines, we need a main operating system to help manage all of them. Proxmox is my tool of choice, due to its wide support, included web interface, and the fact that it's free and open source. But under the hood, Proxmox is basically just a souped-up version of Debian, so if you really wanted to start from scratch you could get most of its functionality by installing the right things on a basic Linux instance.
 
 ## Installation
 
 Installing Proxmox is extremely similar to the way you'd install any other operating system. If you haven't installed Linux before, feel free to take a quick intermission and refresh yourself on the [installation process](https://ubuntu.com/tutorials/create-a-usb-stick-on-windows#1-overview).
 
-Proxmox can be installed via live USB like any standard Linux distro. Just make sure to flash it in DD mode, not ISO mode! If you're using a GUI application like Rufus, there should be a visible toggle to change this.
+Proxmox can be installed via live USB like any standard Linux distro. **Just make sure to flash it in DD mode, not ISO mode!** If you're using a GUI application like Rufus, there should be a visible toggle to change this.
 
 Once you boot up your server with the Proxmox live USB, the GUI will walk you through the process for the most part. Here are a few important notes to keep in mind as you click through the prompts.
 
@@ -33,7 +30,7 @@ Once you boot up your server with the Proxmox live USB, the GUI will walk you th
 
 ### Domains
 
-Proxmox is best used when you have a publicly addressable domain name (like [bencuan.me](http://bencuan.me)). I would strongly encourage you to purchase one using your favorite provider (Namecheap, Porkbun, and Cloudflare are a few I have used before and have had good experiences with); it's only around $10 per year. You can even [get a free .me domain if you're a student](https://nc.me)! Of course, you can still use Proxmox with a local domain only (conventionally ending in `.local`)- you'll just need to manually configure your DNS to resolve this in a later step if you wish to go this route.
+Proxmox is best used when you have a publicly addressable domain name (like [bencuan.me](http://bencuan.me)). I would strongly encourage you to purchase one using your favorite provider (Porkbun, Cloudflare, and Namecheap are a few I have used before and have had good experiences with) if you can afford it; it's only around $10 per year. You can even [get a free .me domain if you're a student](https://nc.me)! You can still use Proxmox with a local domain only (conventionally ending in `.local`)- you'll just need to manually configure your DNS to resolve this in a later step if you wish to go this route.
 
 It's fine if you're not familiar with how domains work right now- just acquire one, and we'll do lots of fun stuff with it later.
 
@@ -63,9 +60,9 @@ There's a lot of settings, and we'll go over them in due time. For now, here's a
 
 The first thing you will likely need to do is disable the paid Proxmox repositories by going to your node -> updates -> repositories. You will still be able to get the latest updates, but Proxmox has extended features and security updates that are exclusive for businesses or other paying customers. As hobbyists, using the free repositories are perfectly fine.
 
-You'll also get a popup every time you log in notifying you that you don't have a subscription. This is also a side effect of the above, and [there are ways to disable this popup](https://johnscs.com/remove-proxmox51-subscription-notice/) if you find it annoying.
-
 ![](/img/turtlenet/2-proxmox-13.png)
+
+You'll get a popup (see above) every time you log in notifying you that you don't have a subscription. This is 100% expected, and [there are ways to disable this popup](https://johnscs.com/remove-proxmox51-subscription-notice/) if you find it annoying.
 
 ## Creating your First VM
 
@@ -76,7 +73,7 @@ You can choose to run practically any operating system on a virtual machine. Typ
 Regardless of which OS you desire, you'll need to acquire the ISO and download it to the `/var/lib/vz/template/iso` folder. Here are the steps:
 
 1. Find the ISO online. For example, the Ubuntu Desktop ISO can be downloaded from [this link](https://releases.ubuntu.com/22.04.2/ubuntu-22.04.2-desktop-amd64.iso).
-2. Open the Proxmox shell and navigate to the correct folder: `cd /var/lib/vz/template/iso`
+2. Open the Proxmox shell, log in to your `root` account, and navigate to the correct folder: `cd /var/lib/vz/template/iso`
 3. Download the ISO using `wget`, `curl`, or some similar command. For Windows ISO's, make sure you surround the link in quotes in the command since it has spaces.
 
 ### Naming/Numbering Schemes
@@ -87,7 +84,7 @@ Although this is completely optional, it's fun to come up with a cohesive naming
 - names of elements (if sufficiently heavy, could even correspond to your VM ID's)
 - any category (animals, cities, cars) but in alphabetical order
 
-Less optional and more important is the numerical ID's you will need to assign to your VM's. Each VM will have a unique ID number, which cannot be changed after creation. You can choose to assign these ID's in any way you wish, but it's helpful to group them together in some way. As an example, my VM's starting with 1 host critical services (like DNS and NAS), those starting with 2 host external services, and those starting with 3 host internal services.
+**Less optional and more important** is the numerical ID's you will need to assign to your VM's. Each VM will have a unique ID number, which cannot be changed after creation. You can choose to assign these ID's in any way you wish, but it's helpful to group them together in some way. As an example, my VM's starting with 1 host critical services (like DNS and NAS), those starting with 2 host external services, and those starting with 3 host internal services.
 
 ### VM Options
 

@@ -1,8 +1,8 @@
 ---
-title: "TurtleNet 6: Network Attached Storage (NAS)"
+title: 'TurtleNet 6: Network Attached Storage (NAS)'
 datePublished: 2023-06-15
-pageSlug: "6-nas"
-cover: "/img/turtlenet/6-nas-cover-34.png"
+pageSlug: '6-nas'
+cover: '/img/turtlenet/og-image.png'
 order: 6
 ---
 
@@ -12,20 +12,15 @@ Whether it be photos, videos, music, or important documents, you most likely hav
 
 In an ideal world, we wouldn't have to worry about backups or capacity: we'd just have an infinite amount of indestructible cloud storage at our disposal! But realistically, this would cost a fortune (in fact, this exact need funnels billions of dollars into Google, Amazon, Microsoft, etc. every day)...
 
-Luckily, we have a server now so we can just become our own cloud storage provider at a fraction of the price! As long as you can buy some hard drives and pay the electricity cost, you'll have as much storage as you'd like, available anywhere you can get an internet connection. Hosting this service is called **Network Attached Storage**, often referred to as NAS (or "a NAS", if talking about the hardware itself). "NAS" is pronounced in the same manner as the famous rapper.
+Luckily, we have a server now so we can just become our own cloud storage provider at a fraction of the price! As long as you can buy some hard drives and pay the electricity cost, you'll have as much storage as you'd like, available anywhere you can get an internet connection. Hosting this service is called **Network Attached Storage**, often referred to as NAS (or "a NAS", if talking about the hardware itself). "NAS" is commonly pronounced "nass", like the first syllable of "nasty".
 
 Hosting a NAS has many benefits over cloud storage or shoving an old hard drive enclosure into the back of your closet:
 
-* **Price:** If you need anything more than a few hundred GB, cloud storage can get prohibitively expensive: for example, 5TB of Google Drive storage costs $250 per year- enough to buy a 14TB hard drive!
-    
-* **Speed:** Since you'll be hosting your storage inside your home, network speed and latency won't be a concern. NAS performance is almost always bottlenecked by your drives' read/write speeds.
-    
-* **Security:** Another benefit of self-hosting your storage is that you don't have to worry about uploading your sensitive personal data onto someone else's server (especially if that someone is notorious for selling your data... cough cough Google)
-    
-* **Availability:** You can mount your NAS and access it just like it were physically attached to your computer at all times. This means you effectively have server-grade storage capacity on your phone, Raspberry Pi, or thin ultrabook!
-    
-* **Sharing:** If any of your friends or family want to join in, you can easily share your files with them, or give them their own private storage pool.
-    
+- **Price:** If you need anything more than a few hundred GB, cloud storage can get prohibitively expensive: for example, 5TB of Google Drive storage costs $250 per year- enough to buy a 14TB hard drive!
+- **Speed:** Since you'll be hosting your storage inside your home, network speed and latency won't be a concern. NAS performance is almost always bottlenecked by your drives' read/write speeds.
+- **Security:** Another benefit of self-hosting your storage is that you don't have to worry about uploading your sensitive personal data onto someone else's server (especially if that someone is notorious for selling your data... cough cough Google)
+- **Availability:** You can mount your NAS and access it just like it were physically attached to your computer at all times. This means you effectively have server-grade storage capacity on your phone, Raspberry Pi, or thin ultrabook!
+- **Sharing:** If any of your friends or family want to join in, you can easily share your files with them, or give them their own private storage pool.
 
 ## An Intro to RAID and ZFS
 
@@ -41,27 +36,19 @@ Different RAID configurations are designed to provide options for the tradeoff b
 
 RAID configurations are specified with a number. Check out the [Wikipedia page](https://en.wikipedia.org/wiki/Standard_RAID_levels) for a full list, but the most commonly used configurations are:
 
-* RAID 0: Your files are spread across all drives ("striping"), and no backups are created. This means that the capacity and throughput of your drives are maximized, but if any one drive fails you will lose all of your data. This is **very dangerous** and should not be considered for any serious NAS setup (unless you know exactly what you're doing and have backups)!
-    
-* RAID 1: Your files are "mirrored" to all drives, such that each drive holds exactly the same data. This means you can lose all but one drive, but the capacity of your entire pool is limited by your single-drive capacity.
-    
-* RAID 10: Same as RAID 1, but with the addition of striping.
-    
-* RAID 5: If there are at least 3 disks, then any one disk can be lost without causing data loss.
-    
+- RAID 0: Your files are spread across all drives ("striping"), and no backups are created. This means that the capacity and throughput of your drives are maximized, but if any one drive fails you will lose all of your data. This is **very dangerous** and should not be considered for any serious NAS setup (unless you know exactly what you're doing and have backups)!
+- RAID 1: Your files are "mirrored" to all drives, such that each drive holds exactly the same data. This means you can lose all but one drive, but the capacity of your entire pool is limited by your single-drive capacity.
+- RAID 10: Same as RAID 1, but with the addition of striping.
+- RAID 5: If there are at least 3 disks, then any one disk can be lost without causing data loss.
 
 ### RAID vs ZFS
 
 ZFS is a filesystem (like EXT4 or NTFS) that is popular for use with larger storage pools (like your NAS!) due to its support for RAID. In fact, ZFS comes with its own implementation known as RAID-Z. You'll see ZFS configurations being used, sometimes interchangeably with standard RAID configurations in online forums, so it's good to know how they are equivalent.
 
-* Striped (RAID-Z0) is functionally equivalent to RAID 0 (no redundancy).
-    
-* Mirrored is functionally equivalent to RAID 10, and duplicates your data by the number of drives you have.
-    
-* RAID-Z or RAID-Z1 is functionally equivalent to RAID 5.
-    
-* RAID-Z2 is functionally equivalent to RAID 6 and can survive any two disk failures.
-    
+- Striped (RAID-Z0) is functionally equivalent to RAID 0 (no redundancy).
+- Mirrored is functionally equivalent to RAID 10, and duplicates your data by the number of drives you have.
+- RAID-Z or RAID-Z1 is functionally equivalent to RAID 5.
+- RAID-Z2 is functionally equivalent to RAID 6 and can survive any two disk failures.
 
 Mirrored pools are most popular for small (2-3 drive) setups, and RAID-Z2 is most popular for larger pools.
 
@@ -89,10 +76,8 @@ Calculating this manually gets really tricky, but luckily there are plenty of re
 
 Here are a couple of calculators to play around with and bookmark for future use. They'll ask for some parameters we have yet to discuss, and you probably don't know exactly what software you're using just yet- so keep them handy on the side for now!
 
-* [ZFS calculator](https://jro.io/capacity/)
-    
-* [RAID calculator](https://www.raid-calculator.com/)
-    
+- [ZFS calculator](https://jro.io/capacity/)
+- [RAID calculator](https://www.raid-calculator.com/)
 
 #### SMR vs CMR
 
@@ -110,12 +95,9 @@ Due to their physical nature, CMR drives tend to be faster and more reliable tha
 
 Some recommendations for industry-standard CMR drives include:
 
-* WD Red Plus (Not the standard WD Red- those are SMR)
-    
-* Seagate IronWolf Pro
-    
-* Toshiba N300
-    
+- WD Red Plus (Not the standard WD Red- those are SMR)
+- Seagate IronWolf Pro
+- Toshiba N300
 
 #### Rotation Speed
 
@@ -125,7 +107,7 @@ There are plenty of debates on the Internet about which one is better, but both 
 
 #### New vs Refurbished
 
-Buying refurbished drives can save you a *lot* of money- but given the limited lifespans of hard drives, it's good to be wary of used drives that might be close to dying.
+Buying refurbished drives can save you a _lot_ of money- but given the limited lifespans of hard drives, it's good to be wary of used drives that might be close to dying.
 
 If you're not concerned about price at all, definitely just buy a new hard drive- you'll get several years of manufacturer warranty and can easily RMA the drive if it's defective or fails sooner than expected.
 
@@ -147,7 +129,7 @@ Now that you have some idea of the hardware that you'll be using, it's time to p
 
 TrueNAS is fully free and open source, and my personal choice for NAS software. It requires some additional configuration compared to the other choices, but has pretty much everything you need. I'll be demonstrating how to set up TrueNAS for the remainder of this guide.
 
-TrueNAS is based on FreeBSD and uses ZFS- so while it's still UNIX-based, it won't work exactly like you might expect for a standard Linux distro.
+There are a few TrueNAS offerings. I recommend "TrueNAS Community Edition" (also known as TrueNAS Scale), which is Debian-based and therefore will be very similar to the rest of your VM's.
 
 ### UnRAID
 
@@ -167,17 +149,17 @@ Generally, the recommended configuration for a NAS is to host it on its own dedi
 
 However, if you do it properly, hosting your NAS software within a VM in your server can work just as well, and save you the cost and hassle of needing multiple physical servers. This is a great starting point, and one that lends itself to an easy upgrade if/when you decide to expand your setup.
 
-I'll go over how you can host your NAS in a Proxmox VM here. If you choose to run it on dedicated hardware instead, install your chosen software plus ZeroTier, then skip this section and the HDD Passthrough section.
+I'll go over how you can host your NAS in a Proxmox VM here. If you choose to run it on dedicated hardware instead, install your chosen software plus Tailscale, then skip this section and the HDD Passthrough section.
 
 ### Setting up a TrueNAS VM
 
-First, get the TrueNAS image at [https://download.freenas.org/13.0/STABLE/U5.1/x64/TrueNAS-13.0-U5.1.iso](https://download.freenas.org/13.0/STABLE/U5.1/x64/TrueNAS-13.0-U5.1.iso) (may be different if later versions have been released- see [here](https://download.freenas.org/13.0/STABLE/U5.1/x64/TrueNAS-13.0-U5.1.iso) for the latest version). Remember to download it into the `var/lib/vz/template/iso` folder in Proxmox via `curl` or `wget` so it shows up in the console!
+First, get the TrueNAS ISO image at https://www.truenas.com/download/ . Remember to download it into the `var/lib/vz/template/iso` folder in Proxmox via `curl` or `wget` so it shows up in the console!
 
-Next, create a new VM in Proxmox (see [here](/turtlenet/2-proxmox#heading-creating-your-first-vm) for a refresher), using the image you downloaded. TrueNAS uses RAM as a cache, so make sure to allocate enough memory. Although some forum posts suggest a "1GB of RAM per 1TB storage rule", the accuracy of such a rule is rather debatable. Going off of official specs, 8GB is the absolute minimum with 16GB recommended. If you have a large amount of storage or plan on using deduplication, you should allocate more RAM accordingly (perhaps 32GB for anything more than 50ish TB).
+Next, create a new VM in Proxmox (see [chapter 2](/turtlenet/2-proxmox#heading-creating-your-first-vm) for a refresher), using the image you downloaded. TrueNAS uses RAM as a cache, so make sure to allocate enough memory. Although some forum posts suggest a "1GB of RAM per 1TB storage rule", the accuracy of such a rule is rather debatable. Going off of official specs, 8GB is the absolute minimum with 16GB recommended. If you have a large amount of storage or plan on using deduplication, you should allocate more RAM accordingly (perhaps 32GB for anything more than 50ish TB).
 
 One consideration to make when allocating resources for your VM is whether you will be running media server applications like Plex or Jellyfin. If you are, you should allocate additional CPUs, memory, and storage to be able to run these applications. Otherwise, a minimal configuration like 1-2 CPU cores and 16GB boot disk storage should be enough to get you started.
 
-For the juicy hardware spec details, refer to the [official documentation](https://www.truenas.com/docs/core/gettingstarted/corehardwareguide/).
+For the full hardware spec details, refer to the [official documentation](https://www.truenas.com/docs/scale/gettingstarted/tnhardwareguide/).
 
 ## HDD Passthrough
 
@@ -189,10 +171,8 @@ If your chassis has enough space to hold multiple hard drives, you can adapt the
 
 For this method, you will need to purchase the following:
 
-* LSI SAS HBA card in IT Mode (example models include 9211-8i, 9300-16i). Each SAS port can drive up to 4 hard drives, so getting a 2-port/8i card is probably more than enough.
-    
-* SAS to SATA adapter cables, if your card does not come with them
-    
+- LSI SAS HBA card in IT Mode (example models include 9211-8i, 9300-16i). Each SAS port can drive up to 4 hard drives, so getting a 2-port/8i card is probably more than enough.
+- SAS to SATA adapter cables, if your card does not come with them
 
 You can acquire the above used via eBay starting from around $40 total at the time of writing.
 
@@ -212,21 +192,16 @@ Passing an enclosure into your VM is the same process as passing through an HBA 
 
 ### Method 3: Proxmox Passthrough
 
-If you really can't afford a HBA card or external enclosure, you can connect your hard drives as you normally would (onto your motherboard's SATA ports) and pass them through individually. This method is *not* recommended because it adds an additional layer between your NAS and hard drives, which makes data loss more likely to occur.
+If you really can't afford a HBA card or external enclosure, you can connect your hard drives as you normally would (onto your motherboard's SATA ports) and pass them through individually. This method is _not_ recommended because it adds an additional layer between your NAS and hard drives, which makes data loss more likely to occur.
 
 If you understand the implications and would still like to proceed, open up your Proxmox shell and do the following:
 
 1. Run `lsblk -o MODEL,SERIAL`. This should output a list of the model and serial numbers for all detected drives.
-    
 
-* Run `ls /dev/disk/by-id` and cross-reference the `lsblk` output from above to identify the disks we want to pass through. For example, the serial number `WD-WX42AD0WV0L0` could correspond to the disk ID `ata-WDC_WD40EFAX-68JH4N1_WD-WX42AD0WV0L0`.
-    
-* Run `qm set <VM_ID> -scsi<N> /dev/disk/by-id/<DISK_ID>` where `VM_ID` is the ID of the TrueNAS VM, `N` is an integer that hasn't been assigned a disk yet (e.g. if `scsi1` exists, use `-scsi2` to add a new disk), and `DISK_ID` is taken from the output of `ls /dev/disk/by-id`.
-    
-* Edit the file `/etc/pve/qemu-server/<ID>.conf` to add `serial=<SERIAL_NUMBER>` to the end of each of the new `scsi<N>` lines.
-    
-* Repeat the above steps for any other drives you would like to add.
-    
+- Run `ls /dev/disk/by-id` and cross-reference the `lsblk` output from above to identify the disks we want to pass through. For example, the serial number `WD-WX42AD0WV0L0` could correspond to the disk ID `ata-WDC_WD40EFAX-68JH4N1_WD-WX42AD0WV0L0`.
+- Run `qm set <VM_ID> -scsi<N> /dev/disk/by-id/<DISK_ID>` where `VM_ID` is the ID of the TrueNAS VM, `N` is an integer that hasn't been assigned a disk yet (e.g. if `scsi1` exists, use `-scsi2` to add a new disk), and `DISK_ID` is taken from the output of `ls /dev/disk/by-id`.
+- Edit the file `/etc/pve/qemu-server/<ID>.conf` to add `serial=<SERIAL_NUMBER>` to the end of each of the new `scsi<N>` lines.
+- Repeat the above steps for any other drives you would like to add.
 
 ## Set up a Pool
 
@@ -236,7 +211,7 @@ First, let's make sure we can access the TrueNAS web UI. Open the Proxmox consol
 
 ![](/img/turtlenet/6-nas-31.png)
 
-The web interface IP listed is probably your LAN address. Let's install ZeroTier to make sure you can access it anywhere- [here](https://alan.norbauer.com/articles/zerotier-on-truenas/) is a good guide on how you can do this (it's a little different due to TrueNAS being BSD-based rather than Linux-based).
+The web interface IP listed is probably your LAN address. Let's install Tailscale to make sure you can access it anywhere- you can do this with the same method as any of the other VM's, or use [this official guide](https://tailscale.com/docs/integrations/truenas) for more in-depth customization.
 
 You can proceed to set up your DNS records and reverse proxy for more human-friendly access if you would like- but remember that this console should only be accessible via your internal network.
 
@@ -246,12 +221,9 @@ Once you can access the web console, navigate to Storage -&gt; Pools -&gt; Add. 
 
 There's a lot of terminology here (what's a VDev?? How is this different from pools???). You should consult the [FreeNAS Guide](https://www.truenas.com/community/threads/slideshow-explaining-vdev-zpool-zil-and-l2arc-for-noobs.7775/) for a comprehensive introduction if you would like. Here's the summary:
 
-* A VDev is a "virtual device", or a collection of physical drives organized via software RAID. Once a VDev is created, you *cannot* add or remove drives from it!
-    
-* A pool (or ZPool) is a collection of VDevs. This is what will be available when your other VM's/devices connect to the NAS to access data.
-    
-* If any one vdev fails in a pool, then the entire pool fails. So make sure you configure your vdevs in a robust manner, using ZFS RAID configurations, such that you can handle drive failure.
-    
+- A VDev is a "virtual device", or a collection of physical drives organized via software RAID. Once a VDev is created, you _cannot_ add or remove drives from it!
+- A pool (or ZPool) is a collection of VDevs. This is what will be available when your other VM's/devices connect to the NAS to access data.
+- If any one vdev fails in a pool, then the entire pool fails. So make sure you configure your vdevs in a robust manner, using ZFS RAID configurations, such that you can handle drive failure.
 
 If you're unsure of what to do here, just make one VDev with all of your available drives using the suggested layout (mirror for 2 drives, RAID-Z1/Z2 for 3+ drives).
 
@@ -267,10 +239,8 @@ First, let's set up some basic permissions to allow yourself and others to acces
 
 If you want to restrict a user to a subfolder, let's first create a new dataset. You can do this from the terminal (click on Shell from the TrueNAS sidebar):
 
-* Make sure the folder exists: `mkdir -p /mnt/POOLNAME/FOLDERNAME`
-    
-* Create the dataset: `zfs create POOLNAME/FOLDERNAME`
-    
+- Make sure the folder exists: `mkdir -p /mnt/POOLNAME/FOLDERNAME`
+- Create the dataset: `zfs create POOLNAME/FOLDERNAME`
 
 Then, let's create the user from the Accounts -&gt; Users screen. You can assign whatever username and password you want- this is what the user will type in when attempting to connect. There should be no need to adjust any other settings besides reassigning the home directory to your dataset if needed.
 
@@ -282,20 +252,15 @@ Go to Sharing -&gt; Unix Shares (NFS), and select the dataset you wish to share.
 
 ![](/img/turtlenet/6-nas-33.png)
 
-You can also configure the authorized networks (also in the advanced settings) to restrict all connections to come from your ZeroTier subnet if desired. If you're unsure of what to enter, refer back to the ZeroTier web console and copy over the subnet and subnet mask fields.
+You can also configure the authorized networks (also in the advanced settings) to restrict all connections to come from your Tailscale subnet if desired (probably `100.64.0.0/10`).
 
 Now, on your Linux machine, mount your pool by doing the following:
 
 1. Install the NFS package: `sudo apt install nfs-common`
-    
 2. Create a local mount point: `sudo mkdir -p /mnt/DIRECTORYNAMEHERE`
-    
-3. Run the mount command: `sudo mount -t nfs ZEROTIER_IP_OF_NAS:/mnt/POOLNAME/FOLDERNAME /mnt/DIRECTORYNAMEHERE`
-    
+3. Run the mount command: `sudo mount -t nfs TAILSCALE_IP_OF_NAS:/mnt/POOLNAME/FOLDERNAME /mnt/DIRECTORYNAMEHERE`
 4. Allow your regular user access to the mounted folder: `sudo chown USERNAME /mnt/DIRECTORYNAMEHERE`
-    
-5. If you want the mount to persist on reboot, add a line to `/etc/fstab`: `ZEROTIER_IP_OF_NAS:/mnt/POOLNAME/FOLDERNAME /mnt/DIRECTORYNAMEHERE nfs defaults 0 0`
-    
+5. If you want the mount to persist on reboot, add a line to `/etc/fstab`: `TAILSCALE_IP_OF_NAS:/mnt/POOLNAME/FOLDERNAME /mnt/DIRECTORYNAMEHERE nfs defaults 0 0`
 
 ### SMB (Mac and Windows)
 
@@ -303,6 +268,6 @@ To connect from a Mac or Windows machine, we can use the SMB protocol for more c
 
 This should work out of the box on TrueNAS: go to Sharing -&gt; Windows Shares (SMB), then follow the steps to add a new share with the default parameters.
 
-On your Windows machine, open Windows Explorer. In the file name bar, type in `//ZEROTIER_IP_OF_NAS/POOLNAME/FOLDERNAME` and you should be prompted to log in. You should use the credentials of the user you made in TrueNAS, and *not* your Windows login. Once the connection is successful, you can bookmark the location to save your NAS folder to quick access.
+On your Windows machine, open Windows Explorer. In the file name bar, type in `//TAILSCALE_IP_OF_NAS/POOLNAME/FOLDERNAME` and you should be prompted to log in. You should use the credentials of the user you made in TrueNAS, and _not_ your Windows login. Once the connection is successful, you can bookmark the location to save your NAS folder to quick access.
 
-On your Mac machine, open Finder. Then, navigate to Go -&gt; Connect to Server... For the server address, type in `smb://ZEROTIER_IP_OF_NAS/POOLNAME/FOLDERNAME`. Use the login you created in TrueNAS. Once you're connected, your NAS should show up as a network drive on the Finder sidebar.
+On your Mac machine, open Finder. Then, navigate to Go -&gt; Connect to Server... For the server address, type in `smb://TAILSCALE_IP_OF_NAS/POOLNAME/FOLDERNAME`. Use the login you created in TrueNAS. Once you're connected, your NAS should show up as a network drive on the Finder sidebar.
