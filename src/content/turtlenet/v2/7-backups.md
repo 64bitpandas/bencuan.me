@@ -35,6 +35,18 @@ The main drawbacks of using GitHub or another cloud provider for Git are twofold
 1. Storage limitations: Git is not intended for use with large files (or a large quantity of files). Although Git LFM exists, providers like GitHub often charge you a decent amount for it. Additionally, storing binaries on Git is not ideal.
 2. Security: You should never store secrets and passwords on any Git repo, even if it's private! This means that you have to be careful with what data you plan on storing in a repo.
 
+## Proxmox Backup Server
+
+Proxmox offers a first-party [backup server](https://www.proxmox.com/en/products/proxmox-backup-server/overview) that can be installed via ISO like any other operating system. PBS takes periodic snapshots of your VM's and stores them to disk.
+
+The most robust implementation of PBS would be to install it alongside an off-site NAS, such that your VM's get backed up on a wholly redundant machine.
+
+Alternatively, if you only have your one Proxmox box, you can install it as a VM. But **make sure to skip backing up its own VM** or else it may freeze up your system!
+
+[Here are the official instructions for getting started with PBS.](https://pbs.proxmox.com/docs/installation.html). The nice thing about PBS is that it has direct integration with the main Proxmox web interface, so you can configure your VM backups without leaving Proxmox itself. You can find it in your console under your main datacenter -> Backup...
+
+![alt text](/img/turtlenet/pbs.png)
+
 ## Software Solutions
 
 ### Syncthing
