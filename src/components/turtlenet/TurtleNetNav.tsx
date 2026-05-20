@@ -66,7 +66,7 @@ export default function TurtleNetNav({ pages, currentSlug, version }: TurtleNetN
         aria-label="Scroll pages left"
         disabled={atStart}
       >
-        ◀
+        {'◀\uFE0E'}
       </button>
 
       <div className="tn-nav__list" ref={listRef}>
@@ -103,7 +103,7 @@ export default function TurtleNetNav({ pages, currentSlug, version }: TurtleNetN
         aria-label="Scroll pages right"
         disabled={atEnd}
       >
-        ▶
+        {'▶\uFE0E'}
       </button>
     </nav>
   );
