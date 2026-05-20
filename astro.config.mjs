@@ -93,10 +93,10 @@ export default defineConfig({
     '/blog/sfstreets/route1': 'https://garden.bencuan.me/community/sfstreets-route-v1',
     '/blog/flights': 'https://garden.bencuan.me/guides/long-haul-flights',
     '/caltrain-trmnl': 'https://github.com/64bitpandas/trmnl-caltrain',
-    '/blog/vibe25': 'https://garden.bencuan.me/blog/vibecode',
+    '/blog/vibe25': '/blog/vibecode',
     '/blog/turtlenet': '/turtlenet',
   },
   devToolbar: {
-    enabled: false
-  }
+    enabled: false,
+  },
 });
