@@ -26,7 +26,15 @@ const researchEntry = {
   tags: 'foundations',
   image: 'research/og-image.png',
 };
-const publicationItemsWithResearch = [...publicationItems, researchEntry];
+const notesEntry = {
+  title: "ben's notes",
+  date: new Date('2023-01-11'),
+  slug: 'https://notes.bencuan.me',
+  description: 'my berkeley course notes',
+  tags: 'engineering',
+  image: 'bensnotes.png',
+};
+const publicationItemsWithResearch = [...publicationItems, researchEntry, notesEntry];
 
 // Add special "colors" entry to Play section
 const colorsEntry = {
