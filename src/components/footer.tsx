@@ -23,12 +23,6 @@ const Footer = ({ currPage }: FooterProps) => {
 
   return (
     <footer>
-      <script
-        data-goatcounter="https://goatcounter.bencuan.me/count"
-        async
-        src="//goatcounter.bencuan.me/count.js"
-      ></script>
-
       {showArchives && (
         <>
           <span className="close-archives" onClick={() => setShowArchives(false)}>

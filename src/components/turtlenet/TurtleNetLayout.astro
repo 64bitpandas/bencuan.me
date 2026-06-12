@@ -2,6 +2,7 @@
 import '../../sass/turtlenet.scss';
 import TurtleNetSplash from './TurtleNetSplash.astro';
 import TurtleNetFooter from './TurtleNetFooter.astro';
+import GoatCounter from '../GoatCounter.astro';
 import {
   LATEST_VERSION,
   getPrimaryColor,
@@ -66,6 +67,7 @@ const bodyClass = `tn-page${isOldVersion ? ` tn-page--${version}` : ''}`;
     </main>
 
     <TurtleNetFooter pages={pages} currentSlug={currentSlug} version={version} />
+    <GoatCounter />
   </body>
 </html>
 

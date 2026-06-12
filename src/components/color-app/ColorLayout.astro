@@ -2,6 +2,7 @@
 import '../../../src/sass/color_app.scss';
 import ColorHeader from './ColorHeader';
 import ColorFooter from './ColorFooter.astro';
+import GoatCounter from '../GoatCounter.astro';
 
 interface Props {
   title: string;
@@ -29,5 +30,6 @@ const { title, currentPage, headerBg, headerText } = Astro.props;
     />
     <slot />
     <ColorFooter />
+    <GoatCounter />
   </body>
 </html>

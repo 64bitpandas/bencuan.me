@@ -2,6 +2,7 @@
 import { Tooltip } from 'react-tooltip';
 import '../sass/layout.scss';
 import Footer from './footer';
+import GoatCounter from './GoatCounter.astro';
 import Header, { type HeaderLink } from './header';
 import Seo from './seo.astro';
 
@@ -37,4 +38,5 @@ The Layout component serves as the base component in which all content should be
 
     <Footer currPage={currPage} client:idle />
   </div>
+  <GoatCounter />
 </html>

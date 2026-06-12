@@ -1,6 +1,7 @@
 ---
 import '../../sass/turtlenet.scss';
 import { getCollection } from 'astro:content';
+import GoatCounter from '../GoatCounter.astro';
 import {
   LATEST_VERSION,
   VERSIONS,
@@ -112,5 +113,6 @@ const bannerColor = getPrimaryColor(LATEST_VERSION);
         </div>
       </div>
     </footer>
+    <GoatCounter />
   </body>
 </html>
